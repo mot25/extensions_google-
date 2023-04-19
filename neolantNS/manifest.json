@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Focus Mode",
+    "name": "extensions 1",
     "description": "Enable focus mode on Chrome's official Extensions and Chrome Web Store documentation.",
     "version": "1.0",
     "icons": {},
@@ -16,15 +16,15 @@
         "tabGroups",
         "tabs"
     ],
-    "host_permissions": [
-        "https://developer.chrome.com/*"
-    ],
-    "commands": {
-        "_execute_action": {
-            "suggested_key": {
-                "default": "Ctrl+B",
-                "mac": "Command+B"
-            }
+    "content_scripts": [
+        {
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
         }
-    }
+    ],
+    "commands": {}
 }

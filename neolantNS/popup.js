@@ -6,8 +6,8 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.get(tabId, function (tab) {
         // выводим URL текущей вкладки в консоль
         console.log(tab.url);
-        tab.url && getUrlToParms(tab.url);
-        fetchEntities()
+        tab.url && console.log(getUrlToParms(tab.url));
+        // fetchEntities()
     });
 });
 
@@ -25,16 +25,16 @@ function getUrlToParms(url) {
     return dataParams
 }
 
-const fetchEntities = async () => {
-    const response = await fetch('https://lukoil-test.io.neolant.su/api/structure/entities?only=true', {
-        headers: {
-            "Access-Control-Allow-Origin": 'no-cors'
-        }
+// const fetchEntities = async () => {
+//     const response = await fetch('https://lukoil-test.io.neolant.su/api/structure/entities?only=true', {
+//         headers: {
+//             "Access-Control-Allow-Origin": 'no-cors'
+//         }
 
-    })
-        .then(_ => _.json())
-    console.log("🚀 ~ response:", response)
+//     })
+//         .then(_ => _.json())
+//     console.log("🚀 ~ response:", response)
 
-}
+// }
 
-setInterval(fetchEntities, 3000)
+// setInterval(fetchEntities, 3000)

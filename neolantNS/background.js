@@ -48,3 +48,63 @@
 //     // выводим информацию о текущей вкладке в консоль
 //     console.log(currentTabs);
 // });
+
+// chrome.action.onClicked.addListener((tab) => {
+//     console.log("🚀 ~ tab1 :", tab)
+
+//     chrome.scripting.executeScript({
+//         target: { tabId: tab.id },
+//         files: ['content_cloneall.js']
+//     });
+// });
+
+// chrome.runtime.onMessage.addListener((msg, sender, res) => {
+//     console.log("🚀 ~ res:", res)
+
+//     console.log("🚀 ~ sender:", sender)
+
+//     console.log("🚀 ~ msg:", msg)
+
+
+//     chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+//         console.log("🚀 ~ tabs:", tabs2)
+
+//         if (msg.from == 'popup') {
+
+//             if (msg.mode == 'cloneobj') {
+
+//                 chrome.scripting.executeScript({
+//                     target: { tabId: tabs[0].id },
+//                     files: ['content_clone.js']
+//                 });
+
+//             }
+//             if (msg.mode == 'cloneallobj') {
+
+//                 // chrome.scripting.executeScript({
+//                 //     target: { tabId: tabs[0].id },
+//                 //     files: ['content_cloneall.js']
+//                 // });
+
+//             }
+//             if (msg.mode == 'cloneview') {
+
+//                 try {
+//                     chrome.storage.local.set({ updateTextTo: 'fdfdfdf' });
+
+
+//                     chrome.scripting.executeScript({
+//                         target: { tabId: tabs[0].id },
+//                         files: ['content_cloneview.js'],
+
+//                     });
+//                 } catch (err) {
+//                     console.error(`failed to execute script: ${err}`);
+//                 }
+
+//             }
+//         }
+
+//     });
+
+// });
