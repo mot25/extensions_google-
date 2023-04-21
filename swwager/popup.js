@@ -75,25 +75,9 @@ const renderSaveViewers = async () => {
 renderSaveViewers()
 
 const insertInEntities = async (currentView) => {
-    console.log("🚀 ~ currentView:", currentView)
+
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
         const idEntites = getParamFromUrl(tabs[0].url).id
-        console.log("🚀 ~ idEntites:", idEntites)
-
-
-        /**
-         * {
-            "Caption": "Согласование ЗС позиции",
-            "Icon": "icon-document",
-            "Attributes": [],
-            "Settings": {
-                "SendParams": true,
-                "Url": "https://localhost:5003/approvalPositionStaff"
-            },
-            "Id": "f8975841-19b7-4530-8f16-c4838edfdd2e",
-            "Name": "VIEWER_EXTERNAL"
-        }
-         */
         try {
             const responseCreate = await fetch(`https://pdm-kueg.io.neolant.su/api/structure/entities/${idEntites}/viewers`, {
                 method: "POST",
@@ -102,7 +86,7 @@ const insertInEntities = async (currentView) => {
                     "Caption": currentView.Caption,
                     "Icon": currentView.Icon,
                     "Attributes": currentView.Attributes,
-                    "Settings": {}
+                    "Settings": currentView.Settings
                 }),
                 headers: {
                     "Accept": "application/json, text/plain, /",
@@ -125,40 +109,37 @@ const insertInEntities = async (currentView) => {
                 }
             }).then(_ => _.json())
             console.log(responseCreate)
-            if (!responseCreate.Id) return
-            const idNewView = responseCreate.Id
-            await fetch(`https://pdm-kueg.io.neolant.su/api/structure/entities/${idEntites}/viewers`, {
-                method: "PUT",
-                body: JSON.stringify({
-                    "Id": idNewView,
-                    "Name": "VIEWER_EXTERNAL",
-                    "Caption": currentView.Caption,
-                    "Icon": currentView.Icon,
-                    "Settings": {
-                        "SendParams": true,
-                        "Url": currentView.Settings.Url
-                    }
-                }),
-                headers: {
-                    "Accept": "application/json, text/plain, /",
-                    "Accept-Encoding": "gzip, deflate, br",
-                    "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "Connection": "keep-alive",
-                    "Content-Length": "103",
-                    "Content-Type": "application/json;charset=UTF-8",
-                    "Host": "pdm-kueg.io.neolant.su",
-                    "Origin": "https://pdm-kueg.io.neolant.su",
-                    "Referer": "https://pdm-kueg.io.neolant.su/structure/entities?id=049100cb-3fbc-ed11-8daf-85953743f5cc&mode=1&viewer=",
-                    "Sec-Fetch-Dest": "empty",
-                    "Sec-Fetch-Mode": "cors",
-                    "Sec-Fetch-Site": "same-origin",
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
-                    "X-Requested-With": "XMLHttpRequest",
-                    "sec-ch-ua": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\"",
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": "\"Windows\""
-                }
-            })
+            // if (!responseCreate.Id) return
+            // const idNewView = responseCreate.Id
+            // await fetch(`https://pdm-kueg.io.neolant.su/api/structure/entities/${idEntites}/viewers`, {
+            //     method: "PUT",
+            //     body: JSON.stringify({
+            //         "Id": idNewView,
+            //         "Name": "VIEWER_EXTERNAL",
+            //         "Caption": currentView.Caption,
+            //         "Icon": currentView.Icon,
+            //         "Settings": currentView.Settings
+            //     }),
+            //     headers: {
+            //         "Accept": "application/json, text/plain, /",
+            //         "Accept-Encoding": "gzip, deflate, br",
+            //         "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+            //         "Connection": "keep-alive",
+            //         "Content-Length": "103",
+            //         "Content-Type": "application/json;charset=UTF-8",
+            //         "Host": "pdm-kueg.io.neolant.su",
+            //         "Origin": "https://pdm-kueg.io.neolant.su",
+            //         "Referer": "https://pdm-kueg.io.neolant.su/structure/entities?id=049100cb-3fbc-ed11-8daf-85953743f5cc&mode=1&viewer=",
+            //         "Sec-Fetch-Dest": "empty",
+            //         "Sec-Fetch-Mode": "cors",
+            //         "Sec-Fetch-Site": "same-origin",
+            //         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+            //         "X-Requested-With": "XMLHttpRequest",
+            //         "sec-ch-ua": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\"",
+            //         "sec-ch-ua-mobile": "?0",
+            //         "sec-ch-ua-platform": "\"Windows\""
+            //     }
+            // })
         } catch (error) {
             console.log("🚀 ~ error:", error)
         }
