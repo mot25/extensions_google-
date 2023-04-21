@@ -22,7 +22,7 @@ chrome.tabs.onActivated.addListener((tab) => {
 
             const currentEntites = allEntites.find(item => item.Id === idEntites)
 
-            const currentEntitesViewers = currentEntites?.Viewers
+            const currentEntitesViewers = currentEntites?.Viewers.filter(_ => _.Name === "VIEWER_EXTERNAL")
             console.log("🚀 ~ currentEntitesViewers:", currentEntitesViewers)
             if (!currentEntitesViewers) return
             chrome.runtime.sendMessage({
