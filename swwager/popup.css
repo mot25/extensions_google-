@@ -1,0 +1,21 @@
+.wrapper {
+    width: 500px;
+    height: auto;
+}
+
+.table {
+    width: 100%;
+}
+
+.storage {}
+
+.currentViewers {
+    padding-bottom: 100px;
+    border-bottom: 2px solid #000;
+}
+
+.tableStorage {
+    width: 100%;
+}
+
+.tbodyStorage {}
