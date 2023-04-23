@@ -5,14 +5,15 @@ chrome.tabs.onActivated.addListener((tab) => {
             files: ['content2.js']
         })
     })
-    // console.log("🚀 ~ tab:", tab)
+
 
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         // console.log("🚀 ~ tabs:", tabs)
         chrome.cookies.getAll({ url: tabs[0].url }, async function (cookies) {
+
             const cookiesStr = cookies.map(item => `${item.name}=${item.value}`).toString()
             const idEntites = getParamFromUrl(tabs[0].url).id
-            // console.log("🚀 ~ idEntites:", idEntites)
+
             const allEntites = await fetch('https://pdm-kueg.io.neolant.su/api/structure/entities', {
                 headers: {
                     cookie: cookiesStr
@@ -31,27 +32,7 @@ chrome.tabs.onActivated.addListener((tab) => {
                     payload: currentEntitesViewers
                 }
             });
-
-
-            // console.log(cookies.map(item => `${item.name}=${item.value}`).toString());
-            // fetch(`https://pdm-kueg.io.neolant.su/api/structure/entities/${idEntites}/viewers`, {
-            //     cookie: cookiesStr
-            // })
-            //     .then(e => e.json())
-            //     .then(_ => {
-            //         // console.log('/api/structure/entities')
-            //         console.log(_)
-            //     })
-
         });
-
-        // chrome.cookies.get({ url: tabs[0].url, name: 'cookie_name' }, function (cookie) {
-        //     if (cookie) {
-        //         console.log(cookie.value);
-        //     } else {
-        //         console.log('Cookie not found.');
-        //     }
-        // });
     });
 
 })
