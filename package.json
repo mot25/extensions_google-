@@ -4,10 +4,9 @@
   "description": "My webpack project",
   "scripts": {
     "start": "webpack&&webpack serve",
-    "build:dev": "webpack",
+    "build:dev": "rd /s /q extensionsNeolant&&webpack||webpack",
     "build:prod": "webpack",
     "clear": "rd /s /q dist",
-    "build": "webpack",
     "watch": "webpack --watch",
     "serve": "webpack serve"
   },
