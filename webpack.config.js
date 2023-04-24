@@ -17,7 +17,7 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   optimization: {
-    minimize: true, // отключаем минификацию
+    minimize: false, // отключаем минификацию
     minimizer: [
       new TerserPlugin({
         terserOptions: {
@@ -66,7 +66,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[local]__ex'
+                localIdentName: '[local]ex'
               }
             }
           },

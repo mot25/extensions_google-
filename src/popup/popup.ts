@@ -1,6 +1,30 @@
 import { EntitiesType, Viewer } from '../type/entities.dto';
 import './popup.scss'
 
+
+
+const ButtonPasteViewer = document.getElementById('pasteViewer')
+ButtonPasteViewer.addEventListener('click', () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+        const currentTabId = tabs[0].id;
+        chrome.tabs.get(currentTabId, async (currentTab) => {
+            await chrome.scripting.executeScript({
+                target: { tabId: currentTab.id },
+                files: ['contentModalPaste.js']
+            })
+            await chrome.scripting.insertCSS({
+                files: ["contentModalPaste.css"],
+                target: { tabId: currentTabId },
+            });
+            const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+            const response = await chrome.tabs.sendMessage(tab.id, {
+                actions: 'isShowModal',
+                payload: true
+            });
+        })
+    });
+
+})
 // chrome.runtime.sendMessage('viewers', response => {
 //     console.log(JSON.parse(response), 'response msg');
 // })
@@ -17,21 +41,6 @@ import './popup.scss'
 //         console.log(response);
 //       })();
 // }, 1000)
-// chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-//     const currentTabId = tabs[0].id;
-//     chrome.tabs.get(currentTabId, async (currentTab) => {
-//         await chrome.scripting.executeScript({
-//             target: { tabId: currentTab.id },
-//             files: ['contentModalPaste.js']
-//         })
-//         await chrome.scripting.insertCSS({
-//             files: ["contentModalPaste.css"],
-//             target: { tabId: currentTabId },
-//           });
-//         // await chrome.runtime.sendMessage({ data: "Hello, world!" });
-
-//     })
-// });
 // buttonPasteJS.addEventListener('click', () => {
 //     console.log(1231);
 //     // console.log("🚀 ~ file: popup.ts:24 ~ chrome.tabs.onActivated.addListener ~ tab:", tab)
