@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My webpack project",
   "scripts": {
-    "start": "webpack&&webpack serve",
+    "start": "webpack serve",
     "build:dev": "webpack serve",
     "build:prod": "webpack",
     "clear:win": "rd /s /q extensionsNeolant",
@@ -17,6 +17,7 @@
     "@webpack-cli/generators": "^3.0.2",
     "chrome": "^0.1.0",
     "chrome-types": "^0.1.187",
+    "terser-webpack-plugin": "^5.3.7",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
     "webpack": "^5.80.0",

@@ -6,10 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval'" />
 </head>
 
 <body>
     <div class="wrapper">
+        <div class="sort">
+            <div>
+                <input type="checkbox" id="sortIsCheck" checked />
+                <p>Сорт вид</p>
+            </div>
+        </div>
         <div class="currentViewers">
 
             <table class="table">
@@ -37,7 +44,6 @@
             </table>
         </div>
     </div>
-    <script src="popup.js"></script>
 </body>
 
 </html>

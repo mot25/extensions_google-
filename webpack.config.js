@@ -2,9 +2,23 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  devtool: 'source-map',
+  optimization: {
+    minimize: false, // отключаем минификацию
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          // настраиваем опции для Terser
+          compress: false,
+          mangle: false,
+        },
+      }),
+    ],
+  },
   entry: {
     background: './src/background/background.ts',
     popup: './src/popup/popup.ts'
