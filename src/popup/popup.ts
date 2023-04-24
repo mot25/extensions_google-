@@ -1,3 +1,5 @@
+import './popup.scss'
+
 // chrome.runtime.sendMessage('viewers', response => {
 //     console.log(JSON.parse(response), 'response msg');
 // })
@@ -12,7 +14,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         const cellPlus = document.createElement('td')
         cellPlus.innerText = '+'
         cellPlus.setAttribute('id', item.Id)
-        cellPlus.onclick = (e) => {
+        cellPlus.onclick = (e: any ) => {
             // console.log(e.target.getAttribute('id'));
             const id = e.target.getAttribute('id')
             addIdViewersStorage(id, viewers)
@@ -98,26 +100,7 @@ const insertInEntities = async (currentView) => {
                 }
             }).then(_ => _.json())
             console.log(responseCreate)
-            // if (!responseCreate.Id) return
-            // const idNewView = responseCreate.Id
-            // await fetch(`https://pdm-kueg.io.neolant.su/api/structure/entities/${idEntites}/viewers`, {
-            //     method: "PUT",
-            //     body: JSON.stringify({
-            //         "Id": idNewView,
-            //         "Name": "VIEWER_EXTERNAL",
-            //         "Caption": currentView.Caption,
-            //         "Icon": currentView.Icon,
-            //         "Settings": currentView.Settings
-            //     }),
-            // headers: {
-            //     "Accept": "application/json, text/plain, /",
-            //         "Accept-Encoding": "gzip, deflate, br",
-            //             "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-            //                 "Connection": "keep-alive",
-            //                     "Content-Length": "103",
-            //                         "Content-Type": "application/json;charset=UTF-8"
-            // }
-            // })
+
         } catch (error) {
             console.log("🚀 ~ error:", error)
         }
@@ -125,10 +108,10 @@ const insertInEntities = async (currentView) => {
 
 }
 
-const deleteView = (id) => {
+const deleteView = (id: string) => {
     chrome.storage.local.get(["viewersState"], function (result) {
         const allView = result.viewersState && JSON.parse(result.viewersState)
-        const saveViewersStorage = allView.filter(item => item.Id !== id)
+        const saveViewersStorage = allView.filter((item: any) => item.Id !== id)
 
         chrome.storage.local.set({
             viewersState: JSON.stringify(saveViewersStorage)
@@ -138,12 +121,12 @@ const deleteView = (id) => {
     });
 }
 
-const getParamFromUrl = (url) => {
+const getParamFromUrl = (url: string) => {
     // Разбиваем строку запроса на отдельные параметры
     const params = new URLSearchParams(url);
 
     // Создаем пустой объект для хранения параметров
-    const paramsObj = {};
+    const paramsObj: Record<string, string> = {};
 
     // Проходимся по всем параметрам и добавляем их в объект
     params.forEach((value, key) => {

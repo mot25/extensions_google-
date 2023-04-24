@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Swwager Copy1",
-    "description": "Copy path ",
+    "name": "Neolant",
+    "description": "Extensions Neolant",
     "version": "1.0",
     "icons": {
         "16": "images/icon16.png",

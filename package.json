@@ -4,17 +4,19 @@
   "description": "My webpack project",
   "scripts": {
     "start": "webpack&&webpack serve",
-    "build:dev": "rd /s /q extensionsNeolant&&webpack||webpack",
+    "build:dev": "webpack serve",
     "build:prod": "webpack",
-    "clear": "rd /s /q dist",
-    "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "clear:win": "rd /s /q extensionsNeolant",
+    "clear:mac": "rm -rf extensionsNeolant",
+    "watch": "webpack --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@webpack-cli/generators": "^3.0.2",
+    "chrome": "^0.1.0",
+    "chrome-types": "^0.1.187",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
     "webpack": "^5.80.0",
@@ -22,9 +24,12 @@
     "webpack-dev-server": "^4.13.3"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.233",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.5",
+    "node-sass": "^8.0.0",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2"

@@ -1,43 +1,57 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts',
+  entry: {
+    background: './src/background/background.ts',
+    popup: './src/popup/popup.ts'
+  },
   output: {
     path: path.resolve(__dirname, 'extensionsNeolant'),
-    filename: 'bundle.js'
+    filename: '[name].js',
   },
   module: {
     rules: [
       {
+      test: /\.tsx?$/,
+      use: 'ts-loader',
+      exclude: /node_modules/
+    },
+    {
       test: /\.scss$/,
       use: [
-        'style-loader',
+        MiniCssExtractPlugin.loader,
         'css-loader',
         'sass-loader'
       ]
-    },
-    {
-      test: /\.ts?$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'ts-loader',
-      },
-    },
+    }
   ]
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [
-        { from: 'src/manifest.json', to: 'manifest.json' },
-        // добавьте любые другие файлы, которые вы хотите скопировать
-      ],
+      patterns: [{
+        from: 'src/manifest.json',
+        to: 'manifest.json'
+      }, ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{
+        from: 'src/images',
+        to: 'images'
+      }, ],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'popup.html',
+      template: './src/popup/popup.html',
+      chunks: ['popup'],
+      path: path.resolve(__dirname, 'extensionsNeolant', 'popup'),
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
     }),
   ],
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
+
 }
