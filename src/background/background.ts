@@ -6,7 +6,7 @@ async function start() {
         // chrome.tabs.get(tab.tabId, async (currentTab) => {
         //     await chrome.scripting.executeScript({
         //         target: { tabId: currentTab.id },
-        //         files: ['content2.js']
+        //         files: ['contentModalPaste.js']
         //     })
         // })
 
@@ -17,7 +17,7 @@ async function start() {
 
                 const cookiesStr = cookies?.map(item => `${item.name}=${item.value}`).toString()
                 const idEntites = getParamFromUrl(tabs[0].url).id
-                console.log("🚀 ~ file: background.ts:16 ~ idEntites:", idEntites)
+
                 try {
                     const allEntites: EntitiesType[] = await fetch('https://pdm-kueg.io.neolant.su/api/structure/entities', {
                         headers: {
