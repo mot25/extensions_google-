@@ -4,12 +4,20 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const glob = require('glob');
-
+const pathFileDinymic = (path) => {
+  return glob.sync(path).reduce((entries, entry) => {
+    const key = entry.replace('./src/ts/', '').replace(/\.js$/, '').split('\\').at(-1).split('.ts').join('')
+    const value = './' + entry.split('\\').join('/').toString();
+    return {
+      [key]: value
+    };
+  }, {})
+}
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
   optimization: {
-    minimize: false, // отключаем минификацию
+    minimize: true, // отключаем минификацию
     minimizer: [
       new TerserPlugin({
         terserOptions: {
@@ -23,21 +31,15 @@ module.exports = {
   entry: {
     background: './src/background/background.ts',
     popup: './src/popup/popup.ts',
-    ...glob.sync('./src/content/**/*.ts').reduce((entries, entry) => {
-      const key = entry.replace('./src/ts/', '').replace(/\.js$/, '').split('\\').at(-1).split('.ts').join('')
-      const value = './' + entry.split('\\').join('/').toString();
-      return {
-        [key]: value
-      };
-    }, {})
+    popupVisual: './src/popup/popupVisual.ts',
+    ...pathFileDinymic('./src/content/**/*.ts')
   },
   output: {
     path: path.resolve(__dirname, 'extensionsNeolant'),
     filename: '[name].js',
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
@@ -90,7 +92,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'popup.html',
       template: './src/popup/popup.html',
-      chunks: ['popup'],
+      chunks: ['popup', 'popupVisual'],
       path: path.resolve(__dirname, 'extensionsNeolant'),
     }),
     new MiniCssExtractPlugin({
@@ -98,3 +100,4 @@ module.exports = {
     })
   ]
 }
+

@@ -4,11 +4,11 @@ import './popup.scss'
 // chrome.runtime.sendMessage('viewers', response => {
 //     console.log(JSON.parse(response), 'response msg');
 // })
-const tbody = document.querySelector('.tbody')
-const tbodyStorage = document.querySelector('.tbodyStorage')
-const isSortViewer = document.getElementById('sortIsCheck') as HTMLInputElement
-const buttonPasteJS = document.getElementById('button')
-console.log("🚀 ~ file: popup.ts:11 ~ buttonPasteJS:", buttonPasteJS)
+// const tbody = document.querySelector('.tbody')
+// const tbodyStorage = document.querySelector('.tbodyStorage')
+// const isSortViewer = document.getElementById('sortIsCheck') as HTMLInputElement
+// const buttonPasteJS = document.getElementById('button')
+// console.log("🚀 ~ file: popup.ts:11 ~ buttonPasteJS:", buttonPasteJS)
 // setInterval(() => {
 //     (async () => {
 //         const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
@@ -17,25 +17,25 @@ console.log("🚀 ~ file: popup.ts:11 ~ buttonPasteJS:", buttonPasteJS)
 //         console.log(response);
 //       })();
 // }, 1000)
-chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    const currentTabId = tabs[0].id;
-    chrome.tabs.get(currentTabId, async (currentTab) => {
-        await chrome.scripting.executeScript({
-            target: { tabId: currentTab.id },
-            files: ['contentModalPaste.js']
-        })
-        await chrome.scripting.insertCSS({
-            files: ["contentModalPaste.css"],
-            target: { tabId: currentTabId },
-          });
-        // await chrome.runtime.sendMessage({ data: "Hello, world!" });
+// chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+//     const currentTabId = tabs[0].id;
+//     chrome.tabs.get(currentTabId, async (currentTab) => {
+//         await chrome.scripting.executeScript({
+//             target: { tabId: currentTab.id },
+//             files: ['contentModalPaste.js']
+//         })
+//         await chrome.scripting.insertCSS({
+//             files: ["contentModalPaste.css"],
+//             target: { tabId: currentTabId },
+//           });
+//         // await chrome.runtime.sendMessage({ data: "Hello, world!" });
 
-    })
-});
-buttonPasteJS.addEventListener('click', () => {
-    console.log(1231);
-    // console.log("🚀 ~ file: popup.ts:24 ~ chrome.tabs.onActivated.addListener ~ tab:", tab)
-})
+//     })
+// });
+// buttonPasteJS.addEventListener('click', () => {
+//     console.log(1231);
+//     // console.log("🚀 ~ file: popup.ts:24 ~ chrome.tabs.onActivated.addListener ~ tab:", tab)
+// })
 // chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 //     const viewers = request.message.payload as Viewer[]
 //     if (request.action !== "viewers") return

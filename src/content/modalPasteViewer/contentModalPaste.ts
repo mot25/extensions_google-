@@ -18,9 +18,9 @@ const clearBeforeNode = () => {
 }
 clearBeforeNode()
 const modalWrapepr = document.createElement('div')
-modalWrapepr.classList.add('modalWrapperEx')
+modalWrapepr.classList.add('modalWrapper__ex')
 modalWrapepr.classList.add('exNeolant')
 const modal = document.createElement('div')
-modal.classList.add('modalEx')
+modal.classList.add('modal__ex')
 modalWrapepr.append(modal)
 documentBody.append(modalWrapepr)
