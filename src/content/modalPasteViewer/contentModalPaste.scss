@@ -56,7 +56,6 @@
     // z-index: 5;
 }
 
-
 $borderRadius: 10px;
 $spacer: 1rem;
 $primary: #406ff3;
@@ -64,28 +63,7 @@ $text: #6a778e;
 $linkHeight: $spacer * 3.5;
 $timing: 250ms;
 $transition: $timing ease all;
-.navbar__item__active {
-    &:before {
-        content: '';
-        position: absolute;
-        opacity: 0;
-        z-index: 2;
-        top: 0;
-        left: $spacer;
-        width: $linkHeight;
-        height: $linkHeight;
-        background: $primary;
-        border-radius: $borderRadius * 1.75;
-        transition: $timing cubic-bezier(1, 0.2, 0.1, 1.2) all;
 
-    }
-    .navbar:not(:hover) &:focus {
-        span {
-            opacity: 1;
-            transform: translate(0);
-        }
-    }
-}
 @mixin gooeyEffect($i) {
     @keyframes gooeyEffect-#{$i} {
         0% {
