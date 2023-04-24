@@ -2,7 +2,7 @@ import { MenuLeftNavbar } from '../../type/components.dto';
 import './contentModalPaste.scss';
 
 const documentBody = document.body
-console.log(111);
+let currentPage = '1'
 const clearBeforeNode = () => {
   const nodes = document.querySelectorAll('.exNeolant')
   nodes.forEach(element => {
@@ -13,7 +13,7 @@ clearBeforeNode()
 const leftMenuConfig: MenuLeftNavbar[] = [
   {
     id: '1',
-    label: '11',
+    label: '131',
     title: '111'
   },
   {
@@ -31,7 +31,6 @@ const modalWrapepr = document.createElement('div')
 
 modalWrapepr.classList.add('modalWrapperex')
 modalWrapepr.classList.add('exNeolant')
-modalWrapepr.classList.add('modalWrapper__activeex')
 
 const modal = document.createElement('div')
 modal.classList.add('modalex')
@@ -47,10 +46,12 @@ wrapperLeftNavbar.classList.add('navbarex')
 
 const navbarUl = document.createElement('ul')
 navbarUl.classList.add('navbar__menuex')
-leftMenuConfig.forEach(item => {
+leftMenuConfig.forEach((item, i) => {
 
-  const categoryItem = document.createElement('li')
+  const categoryItem = document.createElement('l3i')
   categoryItem.classList.add('navbar__itemex')
+  categoryItem.setAttribute('idPage', i.toString())
+  i ===  1 && categoryItem.classList.add('navbar__item__activeex')
 
   const categoryItemLink = document.createElement('div')
   categoryItemLink.classList.add('navbar__linkex')
@@ -77,7 +78,7 @@ const top = document.createElement('div')
 top.classList.add('topex')
 top.onclick = () => {
   modalWrapepr.classList.toggle('modalWrapper__activeex')
-  setTimeout(() => {clearBeforeNode()}, 1000)
+  setTimeout(() => { clearBeforeNode() }, 1000)
 }
 top.innerHTML = '<span>close</span>'
 
@@ -87,27 +88,12 @@ modalWrapepr.append(modal)
 documentBody.append(modalWrapepr)
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
-    console.log("🚀 ~ file: contentModalPaste.ts:5 ~ request:", request)
     if (request.actions === 'isShowModal') {
-      if (request.payload) {
+      if (request.payload && modalWrapepr.classList.contains('modalWrapper__activeex')) {
         modalWrapepr.classList.add('modalWrapper__activeex')
       } else {
         modalWrapepr.classList.remove('modalWrapper__activeex')
       }
     }
-    // console.log(sender.tab ?
-    //             "from a content script:" + sender.tab.url :
-    //             "from the extension");
-    // if (request.greeting === "hello")
-    //   sendResponse({farewell: "goodbye"});
   }
 );
-/**
- * <nav class="navbar">
-  <ul class="navbar__menu">
-    <li class="navbar__item">
-      <a href="#" class="navbar__link">1<span>Home</span></a>
-    </li>
-  </ul>
-</nav>
- */
