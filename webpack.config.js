@@ -9,8 +9,7 @@ const pathFileDinymic = (path) => {
   const isWindows = os.platform() === 'win32';
 
   return glob.sync(path).reduce((entries, entry) => {
-    const regExp = isWindows ? /\\([^\\]+)\.ts/ : /\/([^\\.]+)\.ts$/
-    const key = entry.match(regExp)[1];
+    const key = isWindows ? entry.match(/\\([^\\]+)\.ts/)[1]: entry.split('/').at(-1).split('.ts')[0]
     const value = './' + entry.split('\\').join('/').toString();
     return {
       [key]: value
