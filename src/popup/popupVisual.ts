@@ -19,16 +19,12 @@ function move(id: string, position: string, color: string) {
 }
 
 const menuElement1 = document.querySelector('.menuElement1')
-console.log("🚀 ~ file: popupVisual.ts:21 ~ menuElement1:", menuElement1)
 
 const menuElement2 = document.querySelector('.menuElement2')
-console.log("🚀 ~ file: popupVisual.ts:24 ~ menuElement2:", menuElement2)
 
 const menuElement3 = document.querySelector('.menuElement3')
-console.log("🚀 ~ file: popupVisual.ts:27 ~ menuElement3:", menuElement3)
 
 const menuElemen4 = document.querySelector('.menuElemen4')
-console.log("🚀 ~ file: popupVisual.ts:30 ~ menuElemen4:", menuElemen4)
 
 menuElement1.addEventListener('click', () => move('1', '50px', '#ffcc80'))
 menuElement2.addEventListener('click', () => move('2', '150px', '#81d4fa'))

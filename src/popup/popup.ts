@@ -1,4 +1,4 @@
-import { EntitiesType, Viewer } from '../type/entities.dto';
+import { EntitiesType, ViewerType } from '../type/entities.dto';
 import './popup.scss'
 
 

@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const glob = require('glob');
 const pathFileDinymic = (path) => {
   return glob.sync(path).reduce((entries, entry) => {
-    const key = entry.replace('./src/ts/', '').replace(/\.js$/, '').split('\\').at(-1).split('.ts').join('')
+    const key = entry.split('/').at(-1).replace('.ts', '')
     const value = './' + entry.split('\\').join('/').toString();
     return {
       [key]: value
@@ -98,6 +98,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     })
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx']
+  },
 }
 

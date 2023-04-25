@@ -3,14 +3,14 @@ export type EntitiesType = {
     Level: number;
     Icon: string;
     Attributes: Attributes;
-    Viewers: Viewer[];
+    Viewers: ViewerType[];
     Id: string;
     Name: string;
     
     isCurrent?: boolean;
 }
 
-export type Viewer = {
+export type ViewerType = {
     Caption: string;
     Icon: string;
     Attributes: string[];

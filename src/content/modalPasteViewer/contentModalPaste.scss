@@ -48,7 +48,9 @@
     display: flex;
     flex: 1;
 }
-
+.wrapperRight {
+    flex: 1;
+}
 // left menu
 .navbar__item {
     list-style: none;
@@ -197,3 +199,44 @@ body {
 }
 
 // left menu
+
+// page content
+.wrapperPageOne {
+    // background: red;
+}
+.list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .name {
+    margin-right: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .delete-btn,
+  .add-btn {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    background-color: #f44336;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .add-btn {
+    background-color: #4CAF50;
+  }
+// page content

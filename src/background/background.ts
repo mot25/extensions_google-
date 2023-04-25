@@ -1,4 +1,5 @@
 import { EntitiesType } from "../type/entities.dto";
+import { getParamFromUrl } from "../utils/utils";
 
 async function start() {
 
@@ -13,52 +14,9 @@ async function start() {
 
         chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
             // console.log("🚀 ~ tabs:", tabs)
-            chrome.cookies.getAll({ url: tabs[0].url }, async function (cookies) {
 
-                const cookiesStr = cookies?.map(item => `${item.name}=${item.value}`).toString()
-                const idEntites = getParamFromUrl(tabs[0].url).id
 
-                try {
-                    const allEntites: EntitiesType[] = await fetch('https://pdm-kueg.io.neolant.su/api/structure/entities', {
-                        headers: {
-                            cookie: cookiesStr
-                        }
-                    })
-                        .then(e => e.json())
 
-                    const currentEntites = allEntites.find((item: { Id: string; }) => item.Id === idEntites)
-                    console.log("🚀 ~ file: background.ts:30 ~ allEntites:", allEntites)
-                    const objShow: any = {}
-                    allEntites.forEach((item) => {
-                        if (!item.Parent?.Id) return
-                        const key = item.Parent?.Id
-                        // if (item.Id !== idEntites) return
-                        if (Array.isArray(objShow[key])) {
-                            objShow[key].push({
-                                name: item.Name,
-                                id: item.Parent
-                            })
-                        } else {
-                            objShow[key] = [{
-                                name: item.Name,
-                                id: item.Parent
-                            }]
-                        }
-                    });
-                    console.log("🚀 ~ file: background.ts:31 ~ objShow:", objShow)
-
-                    const currentEntitesViewers = currentEntites?.Viewers
-                    if (!currentEntitesViewers) return
-                    await chrome.runtime.sendMessage({
-                        message: {
-                            action: 'viewers',
-                            payload: currentEntitesViewers
-                        }
-                    });
-                } catch (error) {
-
-                }
-            });
         });
 
     })
@@ -70,23 +28,54 @@ async function start() {
     //     sendResponse('hi1')
     // })
 
-    const getParamFromUrl = (url: string): Record<string, string> => {
-        // Разбиваем строку запроса на отдельные параметры
-        const params = new URLSearchParams(url);
 
-        // Создаем пустой объект для хранения параметров
-        const paramsObj: Record<string, string> = {};
-
-        // Проходимся по всем параметрам и добавляем их в объект
-        params.forEach((value, key) => {
-            const keyArr = key?.split("?")
-
-            const keyValue = keyArr.length > 1 ? keyArr[1] : keyArr[0]
-
-            paramsObj[keyValue] = value;
-        });
-
-        return paramsObj
-    }
 }
 start()
+
+chrome.runtime.onMessage.addListener(
+    async function (request, sender, sendResponse) {
+        console.log("🚀 ~ file: background.ts:96 ~ sender:", sender)
+        console.log("🚀 ~ file: background.ts:96 ~ request:", request)
+        if (request.action === 'getEntities') {
+            chrome.cookies.getAll({ url: sender.tab.url }, async function (cookies) {
+                try {
+                    const cookiesStr = cookies?.map(item => `${item.name}=${item.value}`).toString()
+                    const idEntites = getParamFromUrl(sender.tab.url).id
+                    const allEntites: EntitiesType[] = await fetch('https://pdm-kueg.io.neolant.su/api/structure/entities', {
+                        headers: {
+                            cookie: cookiesStr
+                        }
+                    })
+                        .then(e => e.json())
+                    const entitiesForPasteInsert = (entities: EntitiesType[], idEntities: string) => {
+                        const currentEntities = entities.find(item => item.Id === idEntities)
+                        const arrNested: EntitiesType[] = []
+                        const findNested = (entiti: EntitiesType) => {
+                            const chieldNesrtedEntiti = entities.filter(item => item?.Parent?.Id === entiti?.Id)
+                            arrNested.push({
+                                ...entiti,
+                                isCurrent: entiti.Id === idEntities
+                            })
+                            chieldNesrtedEntiti.length && chieldNesrtedEntiti.forEach(item => findNested(item));
+                        }
+                        findNested(currentEntities)
+                        return arrNested
+                    }
+                    const response = await chrome.tabs.sendMessage(sender.tab.id, {
+                        action: 'postEntitiesForPasteInsert',
+                        payload: entitiesForPasteInsert(allEntites, idEntites)
+                    });
+                } catch (error) {
+                    console.log("🚀 ~ file: background.ts:60 ~ error:", error)
+                }
+
+            })
+        }
+
+    }
+    //   const response = await chrome.tabs.sendMessage(sender.tab.id, {
+    //     actions: '555',
+    //     payload: true
+    // });
+
+);
