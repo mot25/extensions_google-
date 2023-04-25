@@ -122,6 +122,7 @@ async function insertContent(pageId: string = '1') {
           const viewers: EntitiesType = request.payload.find((_: EntitiesType) => _.isCurrent)
           if (!viewers) return
           const ulContainer = createElementNode('ul', ['list'])
+          wrapperRight.innerHTML = ''
           wrapperRight.append(wrapperPageOne)
 
           const addItem = (viewer: ViewerType) => {
@@ -158,26 +159,86 @@ async function insertContent(pageId: string = '1') {
   }
   if (pageId === '2') {
     const wrapperPageTwo = createElementNode('div', ['wrapperPageTwo'])
+
     wrapperRight.append(wrapperPageTwo)
     const renderStateViewer = (viewers: ViewerType[]) => {
-      // создание элементов
       const ul = createElementNode('ul', ['viewer-types'])
       viewers.forEach(el => {
         const li = document.createElement("li");
         const nameP = createElementNode('p', ['name'])
         nameP.textContent = el.Caption;
 
+        const checkPaste = document.createElement('input')
+        checkPaste.setAttribute('type', 'checkbox')
+
         li.appendChild(nameP);
+        li.append(checkPaste);
 
         ul.appendChild(li);
       })
 
       return ul
     }
+    const renderTreePaste = (pasteEntities: EntitiesType[]) => {
+      const wrapperTreePaste = createElementNode('div', ['wrapperTreePaste'])
+      function buildTree(arr: EntitiesType[]) {
+        const map: any = {};
+        const roots: any[] = [];
+
+        arr.forEach((node) => {
+          map[node.Id] = {
+            ...node,
+            children: []
+          };
+        });
+
+        Object.values(map).forEach((node: EntitiesType) => {
+          if (node.Id === null) {
+            roots.push(node);
+          } else if (node.Parent.Id in map) {
+            map[node.Parent.Id].children.push(node);
+          } else {
+            throw new Error(`Invalid array format: node ${node.Id} has missing parent ${node.Parent.Id}`);
+          }
+        });
+
+        return roots;
+      }
+      function buildHtmlTree(node: { value: any; children: any[]; }) {
+        let html = `<li>${node.value}`;
+        if (node.children.length > 0) {
+          html += '<ul>';
+          node.children.forEach((child: any) => {
+            html += buildHtmlTree(child);
+            html += `<div>rfer</div>`;
+          });
+          html += '</ul>';
+        }
+        html += '</li>';
+        return html;
+      }
+
+      const roots = buildTree(pasteEntities);
+      const html: string = `<ul>${roots.map((root: any) => buildHtmlTree(root)).join('')}</ul>`
+      wrapperTreePaste.innerHTML = html
+      console.log("🚀 ~ file: contentModalPaste.ts:224 ~ renderTreePaste ~ html:", html)
+      return wrapperTreePaste
+
+    }
+    const renderTree = (entities: EntitiesType[]) => {
+      console.log("🚀999999999 enderTreePaste(request.payload):", renderTreePaste(entities))
+    }
+    chrome.runtime.onMessage.addListener(
+      function (request, sender, sendResponse) {
+        console.log("🚀 ~ file: contentModalPaste.ts:238 ~ renderTree ~ request:", request)
+        if (request.action === "postEntitiesForPasteInsert") {
+          console.log(333, request.payload);
+          renderTree(request.payload)
+        }
+      })
     chrome.storage.local.get(["viewersState"], function (result) {
       const allView = result.viewersState && JSON.parse(result.viewersState)
-      const saveViewersStorage = Array.isArray(allView) ? allView : []
-      wrapperPageTwo.innerHTML = ''
+      const saveViewersStorage: ViewerType[] = Array.isArray(allView) ? allView : []
       wrapperPageTwo.append(renderStateViewer(saveViewersStorage))
     });
     chrome.storage.onChanged.addListener((changes, namespace) => {
@@ -188,6 +249,7 @@ async function insertContent(pageId: string = '1') {
         wrapperPageTwo.append(renderStateViewer(viewers))
       }
     });
+
 
   }
 

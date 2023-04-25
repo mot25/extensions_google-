@@ -3,10 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const os = require('os')
 const glob = require('glob');
 const pathFileDinymic = (path) => {
+  const isWindows = os.platform() === 'win32';
+
   return glob.sync(path).reduce((entries, entry) => {
-    const key = entry.split('/').at(-1).replace('.ts', '')
+    const regExp = isWindows ? /\\([^\\]+)\.ts/ : /\/([^\\.]+)\.ts$/
+    const key = entry.match(regExp)[1];
     const value = './' + entry.split('\\').join('/').toString();
     return {
       [key]: value
@@ -103,4 +107,3 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx']
   },
 }
-
