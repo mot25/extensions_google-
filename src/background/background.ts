@@ -34,8 +34,6 @@ start()
 
 chrome.runtime.onMessage.addListener(
     async function (request, sender, sendResponse) {
-        console.log("🚀 ~ file: background.ts:96 ~ sender:", sender)
-        console.log("🚀 ~ file: background.ts:96 ~ request:", request)
         if (request.action === 'getEntities') {
             chrome.cookies.getAll({ url: sender.tab.url }, async function (cookies) {
                 try {
@@ -63,7 +61,7 @@ chrome.runtime.onMessage.addListener(
                     }
                     const response = await chrome.tabs.sendMessage(sender.tab.id, {
                         action: 'postEntitiesForPasteInsert',
-                        payload: entitiesForPasteInsert(allEntites, idEntites)
+                        payload: Array.from(new Set(entitiesForPasteInsert(allEntites, idEntites)))
                     });
                 } catch (error) {
                     console.log("🚀 ~ file: background.ts:60 ~ error:", error)

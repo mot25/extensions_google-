@@ -240,3 +240,20 @@ body {
     background-color: #4CAF50;
   }
 // page content
+
+.viewer-types {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .viewer-types li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+
+  
+  .viewer-types .name {
+    margin: 0;
+  }

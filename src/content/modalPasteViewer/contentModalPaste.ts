@@ -4,7 +4,6 @@ import { EntitiesType, ViewerType } from '../../type/entities.dto';
 import './contentModalPaste.scss';
 
 const documentBody = document.body
-let selectage = '1'
 const clearBeforeNode = () => {
   const nodes = document.querySelectorAll('.exNeolant')
   nodes.forEach(element => {
@@ -46,9 +45,12 @@ const wrapper = createElementNode('div', ['wrapperModal'])
 const wrapperLeft = createElementNode('div', ['wrapperLeft'])
 
 const navbarUl = createElementNode('ul', ['navbar__menu'])
-leftMenuConfig.forEach(item => {
+leftMenuConfig.forEach((item, i) => {
 
   const categoryItem = createElementNode('li', ['navbar__item'])
+  categoryItem.onclick = () => {
+    insertContent((i + 1).toString())
+  }
 
   const categoryItemLink = createElementNode('div', ['navbar__link'])
   categoryItemLink.innerText = item.title
@@ -82,7 +84,7 @@ modalWrapepr.append(modal)
 documentBody.append(modalWrapepr)
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
-    console.log("🚀 ~ file: contentModalPaste.ts:83 ~ request:", request)
+    // console.log("🚀 ~ file: contentModalPaste.ts:83 ~ request:", request)
     if (request.actions === 'isShowModal') {
       if (request.payload) {
         modalWrapepr.classList.add('modalWrapper__activeex')
@@ -105,16 +107,11 @@ const addStateViewers = (view: ViewerType) => {
     });
   });
 }
-// chrome.storage.onChanged.addListener((changes, namespace) => {
-//     for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-//         const viewers = newValue && JSON.parse(newValue)
-//         console.log("🚀 ~ file: contentModalPaste.ts:111 ~ chrome.storage.onChanged.addListener ~ viewers:", viewers)
-//     }
-// });
 
-async function insertContent() {
-  if (selectage === '1') {
-    // page 1 
+
+async function insertContent(pageId: string = '1') {
+  wrapperRight.innerHTML = ''
+  if (pageId === '1') {
     const wrapperPageOne = createElementNode('div', ['wrapperPageOne'])
     const response = await chrome.runtime.sendMessage({
       action: 'getEntities'
@@ -150,6 +147,7 @@ async function insertContent() {
 
             ulContainer.appendChild(li);
           }
+          ulContainer.innerHTML = ''
           viewers?.Viewers?.forEach(el => {
             addItem(el)
           })
@@ -157,7 +155,40 @@ async function insertContent() {
         }
       }
     );
-    // page 1 
+  }
+  if (pageId === '2') {
+    const wrapperPageTwo = createElementNode('div', ['wrapperPageTwo'])
+    wrapperRight.append(wrapperPageTwo)
+    const renderStateViewer = (viewers: ViewerType[]) => {
+      // создание элементов
+      const ul = createElementNode('ul', ['viewer-types'])
+      viewers.forEach(el => {
+        const li = document.createElement("li");
+        const nameP = createElementNode('p', ['name'])
+        nameP.textContent = el.Caption;
+
+        li.appendChild(nameP);
+
+        ul.appendChild(li);
+      })
+
+      return ul
+    }
+    chrome.storage.local.get(["viewersState"], function (result) {
+      const allView = result.viewersState && JSON.parse(result.viewersState)
+      const saveViewersStorage = Array.isArray(allView) ? allView : []
+      wrapperPageTwo.innerHTML = ''
+      wrapperPageTwo.append(renderStateViewer(saveViewersStorage))
+    });
+    chrome.storage.onChanged.addListener((changes, namespace) => {
+      for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
+        if (!newValue) return
+        const viewers = JSON.parse(newValue)
+        wrapperPageTwo.innerHTML = ''
+        wrapperPageTwo.append(renderStateViewer(viewers))
+      }
+    });
+
   }
 
 }
