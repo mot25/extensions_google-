@@ -6,12 +6,6 @@ import { LRUCache } from "lru-cache";
 
 const cache = new LRUCache({ max: 5000 });
 // chrome.tabs.onActivated.addListener((tab) => {
-//     // chrome.tabs.get(tab.tabId, async (currentTab) => {
-//     //     await chrome.scripting.executeScript({
-//     //         target: { tabId: currentTab.id },
-//     //         files: ['contentModalPaste.js']
-//     //     })
-//     // })
 
 
 //     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
@@ -20,7 +14,6 @@ const cache = new LRUCache({ max: 5000 });
 
 
 //     });
-
 // })
 
 
@@ -49,12 +42,3 @@ chrome.runtime.onMessage.addListener(
     }
 
 );
-
- // const value = cache.get('getEntities') as string | undefined
-        // value && console.log("🚀 getEntities ~ value:", JSON.parse(value).length)
-        // if (value) {
-        //     return JSON.parse(value)
-        // // }
-        // const response = await api.get('https://pdm-kueg.io.neolant.su/api/structure/entities')
-        // cache.set('getEntities', JSON.stringify(response.data));
-        // return await response.data

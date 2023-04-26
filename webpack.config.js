@@ -7,15 +7,18 @@ const os = require('os')
 const glob = require('glob');
 const pathFileDinymic = (path) => {
   const isWindows = os.platform() === 'win32';
-
   return glob.sync(path).reduce((entries, entry) => {
-    const key = isWindows ? entry.match(/\\([^\\]+)\.ts/)[1]: entry.split('/').at(-1).split('.ts')[0]
+    const key = isWindows ? entry.match(/\\([^\\]+)\.ts/)[1] : entry.split('/').at(-1).split('.ts')[0]
     const value = './' + entry.split('\\').join('/').toString();
     return {
       [key]: value
     };
   }, {})
 }
+const moduleStyles = [
+  path.resolve(__dirname, 'src/content'),
+  path.resolve(__dirname, 'src/componets'),
+]
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
@@ -54,16 +57,11 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ],
-        exclude: [
-          path.resolve(__dirname, 'src/content'),
-        ],
+        exclude: moduleStyles
       },
       {
         test: /\.scss$/,
-        include: [
-          path.resolve(__dirname, 'src/content'),
-          path.resolve(__dirname, 'src/componets'),
-        ],
+        include: moduleStyles,
         use: [
           MiniCssExtractPlugin.loader,
           {

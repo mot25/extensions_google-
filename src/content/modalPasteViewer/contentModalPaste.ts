@@ -1,9 +1,9 @@
+import { SwitchWithText } from '../../componets/SwitchWithText';
 import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { MenuLeftNavbar } from '../../type/components.dto';
 import { EntitiesType, ViewerType } from '../../type/entities.dto';
 import { createElementNode } from '../../utils/components';
 import styles from './contentModalPaste.scss';
-console.log("🚀 ~ file: contentModalPaste.ts:6 ~ styles:", styles)
 
 const documentBody = document.body
 const clearBeforeNode = () => {
@@ -41,7 +41,6 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
     const viewers = JSON.parse(newValue)
     insertContent()
     glViewerForPaste = viewers
-
   }
 });
 
@@ -56,7 +55,7 @@ const wrapperPageOne = createElementNode('div', [styles.wrapperPageOne])
 const wrapperRight = createElementNode('div', [styles.wrapperRight])
 const top = createElementNode('div', [styles.top])
 
-modalWrapepr.classList.add(styles.exNeolant)
+modalWrapepr.classList.add('exNeolant')
 const leftMenuConfig: MenuLeftNavbar[] = [
   {
     id: '1',
@@ -97,12 +96,11 @@ renderLeftMenu()
 
 
 
-
 wrapper.append(wrapperLeft)
 wrapper.append(wrapperRight)
 
 top.onclick = () => {
-  modalWrapepr.classList.toggle('modalWrapper__activeex')
+  modalWrapepr.classList.toggle(styles.modalWrapper__active)
   setTimeout(() => { clearBeforeNode() }, 1000)
 }
 top.innerHTML = '<span>close</span>'
@@ -116,10 +114,10 @@ chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.actions === 'isShowModal') {
       if (request.payload) {
-        modalWrapepr.classList.add(styles.modalWrapper__activeex)
+        modalWrapepr.classList.add(styles.modalWrapper__active)
         insertContent()
       } else {
-        modalWrapepr.classList.remove('modalWrapper__activeex')
+        modalWrapepr.classList.remove(styles.modalWrapper__active)
       }
     }
   }
@@ -171,12 +169,12 @@ const renderPageOne = async () => {
   return wrapperPageOne
 
 }
-const renderPageTwo = () => {
+const renderPageTwo = async () => {
   const wrapperPageTwo = createElementNode('div', [styles.wrapperPageTwo])
   const wrapperViewersForPaste = createElementNode('div', [styles.wrapperViewersForPaste])
   const wrapperViewersConfigForPaste = createElementNode('div', [styles.wrapperViewersConfigForPaste])
   wrapperRight.append(wrapperPageTwo)
-  const renderStateViewer = () => {
+  const renderStateViewer = async () => {
     const ul = createElementNode('ul', [styles.viewer_types])
     glViewerForPaste.forEach(el => {
       const li = document.createElement("li");
@@ -193,7 +191,19 @@ const renderPageTwo = () => {
     })
     return ul
   }
-  wrapperViewersForPaste.append(renderStateViewer())
+  wrapperViewersForPaste.append(await renderStateViewer())
+  let valueSwitch = true
+
+  wrapperViewersForPaste.append(SwitchWithText({
+    onChange: (check) => {
+    console.log("🚀 ~ file: contentModalPaste.ts:205 ~ renderPageTwo ~ check:", check)
+    valueSwitch = check
+    },
+    text: 'test',
+    value: valueSwitch,
+    isRounded: true,
+  }))
+
 
 
 

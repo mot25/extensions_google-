@@ -6,22 +6,20 @@ import './popup.scss'
 const ButtonPasteViewer = document.getElementById('pasteViewer')
 ButtonPasteViewer.addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
-        const currentTabId = tabs[0].id;
-        chrome.tabs.get(currentTabId, async (currentTab) => {
-            await chrome.scripting.executeScript({
-                target: { tabId: currentTab.id },
-                files: ['contentModalPaste.js']
-            })
-            await chrome.scripting.insertCSS({
-                files: ["contentModalPaste.css"],
-                target: { tabId: currentTabId },
-            });
-            const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
-            const response = await chrome.tabs.sendMessage(tab.id, {
-                actions: 'isShowModal',
-                payload: true
-            });
+        const currentTabId =  tabs[0].id;
+        console.log("🚀 ~ file: popup.ts:10 ~ currentTabId:", currentTabId)
+        await chrome.scripting.executeScript({
+            target: { tabId: currentTabId },
+            files: ['contentModalPaste.js']
         })
+        await chrome.scripting.insertCSS({
+            files: ["contentModalPaste.css"],
+            target: { tabId: currentTabId },
+        });
+        await chrome.tabs.sendMessage(currentTabId, {
+            actions: 'isShowModal',
+            payload: true
+        });
     });
 
 })
