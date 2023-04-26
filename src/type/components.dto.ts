@@ -3,3 +3,8 @@ export type MenuLeftNavbar = {
     id: string
     label: string
 }
+
+export type OptionsType = {
+    labal: string
+    value: string
+}

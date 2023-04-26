@@ -1,3 +1,4 @@
+import { DropDown } from '../../componets/DropDown';
 import { SwitchWithText } from '../../componets/SwitchWithText';
 import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { MenuLeftNavbar } from '../../type/components.dto';
@@ -245,8 +246,14 @@ const renderPageTwo = async () => {
 
 
 
-
   wrapperPageTwo.appendChild(wrapperViewersForPaste)
+  wrapperPageTwo.append(DropDown({
+    list: [{
+      labal: '123',
+      value: '123'
+    }],
+    onChange: () => null
+  }))
   return wrapperPageTwo
 
 }
