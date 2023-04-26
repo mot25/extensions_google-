@@ -2,7 +2,8 @@ import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { MenuLeftNavbar } from '../../type/components.dto';
 import { EntitiesType, ViewerType } from '../../type/entities.dto';
 import { createElementNode } from '../../utils/components';
-import './contentModalPaste.scss';
+import styles from './contentModalPaste.scss';
+console.log("🚀 ~ file: contentModalPaste.ts:6 ~ styles:", styles)
 
 const documentBody = document.body
 const clearBeforeNode = () => {
@@ -23,7 +24,6 @@ chrome.runtime.sendMessage({
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.action === 'postEntitiesForPasteInsert') {
-      console.log("🚀 ~ postEntitiesForPasteInsert:")
       glEntitiesFromPaste = request.payload
       insertContent()
     }
@@ -46,17 +46,17 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 });
 
 
-const modalWrapepr = createElementNode('div', ['modalWrapper', 'modalWrapper__active'])
-const modal = createElementNode('div', ['modal'])
-const wrapper = createElementNode('div', ['wrapperModal'])
-const wrapperLeft = createElementNode('div', ['wrapperLeft'])
-const navbarUl = createElementNode('ul', ['navbar__menu'])
-const ulContainer = createElementNode('ul', ['list'])
-const wrapperPageOne = createElementNode('div', ['wrapperPageOne'])
-const wrapperRight = createElementNode('div', ['wrapperRight'])
-const top = createElementNode('div', ['top'])
+const modalWrapepr = createElementNode('div', [styles.modalWrapper, styles.modalWrapper__active])
+const modal = createElementNode('div', [styles.modal])
+const wrapper = createElementNode('div', [styles.wrapperModal])
+const wrapperLeft = createElementNode('div', [styles.wrapperLeft])
+const navbarUl = createElementNode('ul', [styles.navbar__menu])
+const ulContainer = createElementNode('ul', [styles.list])
+const wrapperPageOne = createElementNode('div', [styles.wrapperPageOne])
+const wrapperRight = createElementNode('div', [styles.wrapperRight])
+const top = createElementNode('div', [styles.top])
 
-modalWrapepr.classList.add('exNeolant')
+modalWrapepr.classList.add(styles.exNeolant)
 const leftMenuConfig: MenuLeftNavbar[] = [
   {
     id: '1',
@@ -69,16 +69,17 @@ const leftMenuConfig: MenuLeftNavbar[] = [
     title: 'P'
   }
 ]
+
 const renderLeftMenu = () => {
   leftMenuConfig.forEach((item, i) => {
 
-    const categoryItem = createElementNode('li', ['navbar__item'])
+    const categoryItem = createElementNode('li', [styles.navbar__item])
     categoryItem.onclick = () => {
       insertContent((i + 1).toString())
       glCurrentRightPage = (i + 1).toString()
     }
 
-    const categoryItemLink = createElementNode('div', ['navbar__link'])
+    const categoryItemLink = createElementNode('div', [styles.navbar__link])
     categoryItemLink.innerText = item.title
     categoryItem.append(categoryItemLink)
 
@@ -115,7 +116,7 @@ chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.actions === 'isShowModal') {
       if (request.payload) {
-        modalWrapepr.classList.add('modalWrapper__activeex')
+        modalWrapepr.classList.add(styles.modalWrapper__activeex)
         insertContent()
       } else {
         modalWrapepr.classList.remove('modalWrapper__activeex')
@@ -139,20 +140,20 @@ const addStateViewers = (view: ViewerType) => {
 
 const renderPageOne = async () => {
   const addItem = (viewer: ViewerType, idEntities: string) => {
-    const li = createElementNode("li", ['item']);
+    const li = createElementNode("li", [styles.item]);
 
-    const nameNode = createElementNode("span", ['name']);
+    const nameNode = createElementNode("span", [styles.name]);
     nameNode.innerText = viewer.Caption
     li.append(nameNode)
 
-    const addButton = createElementNode("button", ['delete-btn']);
+    const addButton = createElementNode("button", [styles.delete_btn]);
     addButton.innerText = 'Удалить'
     addButton.onclick = () => {
       ManagerVieversService.deleteViewer(idEntities, viewer.Id)
     }
     li.append(addButton)
 
-    const deleteButton = createElementNode("button", ['add-btn']);
+    const deleteButton = createElementNode("button", [styles.add_btn]);
     deleteButton.innerText = 'Добавить'
     deleteButton.onclick = () => {
       addStateViewers(viewer)
@@ -171,14 +172,15 @@ const renderPageOne = async () => {
 
 }
 const renderPageTwo = () => {
-  const wrapperPageTwo = createElementNode('div', ['wrapperPageTwo'])
-  const wrapperViewersForPaste = createElementNode('div', ['wrapperViewersForPaste'])
+  const wrapperPageTwo = createElementNode('div', [styles.wrapperPageTwo])
+  const wrapperViewersForPaste = createElementNode('div', [styles.wrapperViewersForPaste])
+  const wrapperViewersConfigForPaste = createElementNode('div', [styles.wrapperViewersConfigForPaste])
   wrapperRight.append(wrapperPageTwo)
   const renderStateViewer = () => {
-    const ul = createElementNode('ul', ['viewer-types'])
+    const ul = createElementNode('ul', [styles.viewer_types])
     glViewerForPaste.forEach(el => {
       const li = document.createElement("li");
-      const nameP = createElementNode('p', ['name'])
+      const nameP = createElementNode('p', [styles.name])
       nameP.textContent = el.Caption;
 
       const checkPaste = document.createElement('input')
@@ -191,9 +193,11 @@ const renderPageTwo = () => {
     })
     return ul
   }
-  wrapperPageTwo.append(renderStateViewer())
+  wrapperViewersForPaste.append(renderStateViewer())
 
 
+
+  wrapperPageTwo.appendChild(wrapperViewersForPaste)
   return wrapperPageTwo
 
 }

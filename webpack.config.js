@@ -62,6 +62,7 @@ module.exports = {
         test: /\.scss$/,
         include: [
           path.resolve(__dirname, 'src/content'),
+          path.resolve(__dirname, 'src/componets'),
         ],
         use: [
           MiniCssExtractPlugin.loader,
@@ -69,7 +70,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[local]ex'
+                localIdentName: 'extentions__[local]__[hash:base64:5]'
               }
             }
           },
@@ -103,6 +104,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', '.ts', '.tsx', '.scss']
   },
 }

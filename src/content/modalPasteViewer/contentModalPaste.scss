@@ -227,8 +227,8 @@ body {
     align-items: center;
   }
   
-  .delete-btn,
-  .add-btn {
+  .delete_btn,
+  .add_btn {
     padding: 5px 10px;
     margin-left: 10px;
     border: none;
@@ -237,17 +237,17 @@ body {
     cursor: pointer;
   }
   
-  .add-btn {
+  .add_btn {
     background-color: #4CAF50;
   }
 // page content
 
-.viewer-types {
+.viewer_types {
     list-style-type: none;
     padding: 0;
   }
   
-  .viewer-types li {
+  .viewer_types li {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -255,6 +255,6 @@ body {
 
 
   
-  .viewer-types .name {
+  .viewer_types .name {
     margin: 0;
   }
