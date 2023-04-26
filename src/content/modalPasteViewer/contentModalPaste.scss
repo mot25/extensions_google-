@@ -27,6 +27,7 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
+
     span {
         cursor: pointer;
         padding: 2px;
@@ -49,9 +50,11 @@
     display: flex;
     flex: 1;
 }
+
 .wrapperRight {
     flex: 1;
 }
+
 // left menu
 .navbar__item {
     list-style: none;
@@ -205,56 +208,63 @@ body {
 .wrapperPageOne {
     // background: red;
 }
+
 .list {
     list-style-type: none;
     padding: 0;
-  }
-  
-  .list li {
+}
+
+.list li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #ccc;
-  }
-  
-  .name {
+}
+
+.name {
     margin-right: 10px;
-  }
-  
-  .actions {
+}
+
+.actions {
     display: flex;
     align-items: center;
-  }
-  
-  .delete_btn,
-  .add_btn {
+}
+
+.delete_btn,
+.add_btn {
     padding: 5px 10px;
     margin-left: 10px;
     border: none;
     background-color: #f44336;
     color: #fff;
     cursor: pointer;
-  }
-  
-  .add_btn {
+}
+
+.add_btn {
     background-color: #4CAF50;
-  }
+}
+
 // page content
 
 .viewer_types {
     list-style-type: none;
     padding: 0;
-  }
-  
-  .viewer_types li {
+}
+
+.viewer_types li {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-  }
+}
 
 
-  
-  .viewer_types .name {
+
+.viewer_types .name {
     margin: 0;
-  }
+}
+
+.wrapperViewersForPaste {
+    display: flex;
+    gap: 20px;
+}

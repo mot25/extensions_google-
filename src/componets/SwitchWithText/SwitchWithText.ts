@@ -42,6 +42,9 @@ const SwitchWithText = ({
         label.append(input)
         label.append(span)
         wrapper.append(label)
+        const labelText = createElementNode('p', [styles.labelText])
+        labelText.innerText = text
+        wrapper.append(labelText)
     }
     render()
     return wrapper

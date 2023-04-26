@@ -2,7 +2,7 @@ import { SwitchWithText } from '../../componets/SwitchWithText';
 import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { MenuLeftNavbar } from '../../type/components.dto';
 import { EntitiesType, ViewerType } from '../../type/entities.dto';
-import { createElementNode } from '../../utils/components';
+import { createElementNode, useState } from '../../utils/components';
 import styles from './contentModalPaste.scss';
 
 const documentBody = document.body
@@ -170,11 +170,38 @@ const renderPageOne = async () => {
 
 }
 const renderPageTwo = async () => {
+
+  const configPasteEntities = new useState([
+    {
+      id: '1',
+      text: 'Коппировать в текущий',
+      value: true
+    },
+    {
+      id: '2',
+      text: 'Коппировать во все вложенные',
+    },
+    {
+      id: '3',
+      text: 'Применить настройки',
+    },
+    {
+      id: '4',
+      text: 'Установить иконку',
+    }
+  ], () => renderConfigPaste)
+
+  const changeValueConfigPaste = (id: string, value: boolean) => {
+    configPasteEntities.update(configPasteEntities.value.map(_ => {
+      if (_.id === id) _.value = value;
+      return _
+    }))
+  }
+
   const wrapperPageTwo = createElementNode('div', [styles.wrapperPageTwo])
   const wrapperViewersForPaste = createElementNode('div', [styles.wrapperViewersForPaste])
-  const wrapperViewersConfigForPaste = createElementNode('div', [styles.wrapperViewersConfigForPaste])
-  wrapperRight.append(wrapperPageTwo)
-  const renderStateViewer = async () => {
+
+  const renderStateViewer = () => {
     const ul = createElementNode('ul', [styles.viewer_types])
     glViewerForPaste.forEach(el => {
       const li = document.createElement("li");
@@ -191,18 +218,30 @@ const renderPageTwo = async () => {
     })
     return ul
   }
-  wrapperViewersForPaste.append(await renderStateViewer())
-  let valueSwitch = true
+  wrapperViewersForPaste.append(renderStateViewer())
 
-  wrapperViewersForPaste.append(SwitchWithText({
-    onChange: (check) => {
-    console.log("🚀 ~ file: contentModalPaste.ts:205 ~ renderPageTwo ~ check:", check)
-    valueSwitch = check
-    },
-    text: 'test',
-    value: valueSwitch,
-    isRounded: true,
-  }))
+
+  const renderConfigPaste = (): any => {
+    const wrapperList = createElementNode('div', [styles.wrapperListConfig])
+    wrapperList.innerHTML = ''
+    configPasteEntities.value.forEach((switchEl) => {
+      const rowSwitch = createElementNode('div', [styles.rowSwitch]);
+      const listSwitchs = SwitchWithText({
+        onChange: (check) => {
+          changeValueConfigPaste(switchEl.id, check);
+        },
+        text: switchEl.text,
+        value: switchEl.value,
+        isRounded: true,
+      });
+      rowSwitch.append(listSwitchs)
+      wrapperList.append(rowSwitch)
+    })
+    wrapperViewersForPaste.append(wrapperList)
+  }
+  renderConfigPaste()
+
+
 
 
 

@@ -1,4 +1,13 @@
-.wrapperButton {}
+.wrapperButton {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  p {
+    margin: 0;
+  }
+}
 
 /* The switch - the box around the slider */
 .switch {
