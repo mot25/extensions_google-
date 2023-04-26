@@ -1,6 +1,7 @@
 import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { MenuLeftNavbar } from '../../type/components.dto';
 import { EntitiesType, ViewerType } from '../../type/entities.dto';
+import { createElementNode } from '../../utils/components';
 import './contentModalPaste.scss';
 
 const documentBody = document.body
@@ -11,6 +12,51 @@ const clearBeforeNode = () => {
   });
 }
 clearBeforeNode()
+
+let glEntitiesFromPaste: EntitiesType[] = []
+let glCurrentRightPage = '1'
+let glViewerForPaste: ViewerType[] = []
+
+chrome.runtime.sendMessage({
+  action: 'getEntities'
+})
+chrome.runtime.onMessage.addListener(
+  function (request, sender, sendResponse) {
+    if (request.action === 'postEntitiesForPasteInsert') {
+      console.log("🚀 ~ postEntitiesForPasteInsert:")
+      glEntitiesFromPaste = request.payload
+      insertContent()
+    }
+  }
+);
+chrome.storage.local.get(["viewersState"], function (result) {
+  const allView = result.viewersState && JSON.parse(result.viewersState)
+  const saveViewersStorage: ViewerType[] = Array.isArray(allView) ? allView : []
+  insertContent()
+  glViewerForPaste = saveViewersStorage
+});
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
+    if (!newValue) return
+    const viewers = JSON.parse(newValue)
+    insertContent()
+    glViewerForPaste = viewers
+
+  }
+});
+
+
+const modalWrapepr = createElementNode('div', ['modalWrapper', 'modalWrapper__active'])
+const modal = createElementNode('div', ['modal'])
+const wrapper = createElementNode('div', ['wrapperModal'])
+const wrapperLeft = createElementNode('div', ['wrapperLeft'])
+const navbarUl = createElementNode('ul', ['navbar__menu'])
+const ulContainer = createElementNode('ul', ['list'])
+const wrapperPageOne = createElementNode('div', ['wrapperPageOne'])
+const wrapperRight = createElementNode('div', ['wrapperRight'])
+const top = createElementNode('div', ['top'])
+
+modalWrapepr.classList.add('exNeolant')
 const leftMenuConfig: MenuLeftNavbar[] = [
   {
     id: '1',
@@ -21,57 +67,39 @@ const leftMenuConfig: MenuLeftNavbar[] = [
     id: '2',
     label: 'Вставить в текущий класс',
     title: 'P'
-  },
-  {
-    id: '3',
-    label: '33',
-    title: '333'
-  },
-]
-const createElementNode = (tag: keyof HTMLElementTagNameMap, classes?: string[]) => {
-  const node = document.createElement(tag)
-  classes.forEach(clas => {
-    node.classList.add(clas + 'ex')
-  });
-  return node
-}
-const modalWrapepr = createElementNode('div', ['modalWrapper', 'modalWrapper__active'])
-modalWrapepr.classList.add('exNeolant')
-
-const modal = createElementNode('div', ['modal'])
-
-const wrapper = createElementNode('div', ['wrapperModal'])
-
-const wrapperLeft = createElementNode('div', ['wrapperLeft'])
-
-const navbarUl = createElementNode('ul', ['navbar__menu'])
-leftMenuConfig.forEach((item, i) => {
-
-  const categoryItem = createElementNode('li', ['navbar__item'])
-  categoryItem.onclick = () => {
-    insertContent((i + 1).toString())
   }
+]
+const renderLeftMenu = () => {
+  leftMenuConfig.forEach((item, i) => {
 
-  const categoryItemLink = createElementNode('div', ['navbar__link'])
-  categoryItemLink.innerText = item.title
-  categoryItem.append(categoryItemLink)
+    const categoryItem = createElementNode('li', ['navbar__item'])
+    categoryItem.onclick = () => {
+      insertContent((i + 1).toString())
+      glCurrentRightPage = (i + 1).toString()
+    }
 
-  const label = document.createElement('span')
-  label.innerText = item.label
+    const categoryItemLink = createElementNode('div', ['navbar__link'])
+    categoryItemLink.innerText = item.title
+    categoryItem.append(categoryItemLink)
 
-  categoryItemLink.append(label)
+    const label = document.createElement('span')
+    label.innerText = item.label
 
-  navbarUl.append(categoryItem)
-})
-wrapperLeft.append(navbarUl)
+    categoryItemLink.append(label)
+
+    navbarUl.append(categoryItem)
+  })
+  wrapperLeft.append(navbarUl)
+
+}
+renderLeftMenu()
 
 
-const wrapperRight = createElementNode('div', ['wrapperRight'])
+
 
 wrapper.append(wrapperLeft)
 wrapper.append(wrapperRight)
 
-const top = createElementNode('div', ['top'])
 top.onclick = () => {
   modalWrapepr.classList.toggle('modalWrapper__activeex')
   setTimeout(() => { clearBeforeNode() }, 1000)
@@ -82,12 +110,13 @@ modal.append(top)
 modal.append(wrapper)
 modalWrapepr.append(modal)
 documentBody.append(modalWrapepr)
+
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
-    // console.log("🚀 ~ file: contentModalPaste.ts:83 ~ request:", request)
     if (request.actions === 'isShowModal') {
       if (request.payload) {
         modalWrapepr.classList.add('modalWrapper__activeex')
+        insertContent()
       } else {
         modalWrapepr.classList.remove('modalWrapper__activeex')
       }
@@ -108,150 +137,82 @@ const addStateViewers = (view: ViewerType) => {
   });
 }
 
+const renderPageOne = async () => {
+  const addItem = (viewer: ViewerType, idEntities: string) => {
+    const li = createElementNode("li", ['item']);
 
-async function insertContent(pageId: string = '1') {
-  wrapperRight.innerHTML = ''
-  if (pageId === '1') {
-    const wrapperPageOne = createElementNode('div', ['wrapperPageOne'])
-    const response = await chrome.runtime.sendMessage({
-      action: 'getEntities'
-    })
-    chrome.runtime.onMessage.addListener(
-      function (request, sender, sendResponse) {
-        if (request.action === 'postEntitiesForPasteInsert') {
-          const viewers: EntitiesType = request.payload.find((_: EntitiesType) => _.isCurrent)
-          if (!viewers) return
-          const ulContainer = createElementNode('ul', ['list'])
-          wrapperRight.innerHTML = ''
-          wrapperRight.append(wrapperPageOne)
+    const nameNode = createElementNode("span", ['name']);
+    nameNode.innerText = viewer.Caption
+    li.append(nameNode)
 
-          const addItem = (viewer: ViewerType) => {
-            const li = createElementNode("li", ['item']);
+    const addButton = createElementNode("button", ['delete-btn']);
+    addButton.innerText = 'Удалить'
+    addButton.onclick = () => {
+      ManagerVieversService.deleteViewer(idEntities, viewer.Id)
+    }
+    li.append(addButton)
 
-            const nameNode = createElementNode("span", ['name']);
-            nameNode.innerText = viewer.Caption
-            li.append(nameNode)
+    const deleteButton = createElementNode("button", ['add-btn']);
+    deleteButton.innerText = 'Добавить'
+    deleteButton.onclick = () => {
+      addStateViewers(viewer)
+    }
+    li.append(deleteButton)
 
-            const addButton = createElementNode("button", ['delete-btn']);
-            addButton.innerText = 'Удалить'
-            addButton.onclick = () => {
-              ManagerVieversService.deleteViewer(viewers.Id, viewer.Id)
-            }
-            li.append(addButton)
-
-            const deleteButton = createElementNode("button", ['add-btn']);
-            deleteButton.innerText = 'Добавить'
-            deleteButton.onclick = () => {
-              addStateViewers(viewer)
-            }
-            li.append(deleteButton)
-
-            ulContainer.appendChild(li);
-          }
-          ulContainer.innerHTML = ''
-          viewers?.Viewers?.forEach(el => {
-            addItem(el)
-          })
-          wrapperPageOne.append(ulContainer)
-        }
-      }
-    );
+    return li;
   }
-  if (pageId === '2') {
-    const wrapperPageTwo = createElementNode('div', ['wrapperPageTwo'])
 
-    wrapperRight.append(wrapperPageTwo)
-    const renderStateViewer = (viewers: ViewerType[]) => {
-      const ul = createElementNode('ul', ['viewer-types'])
-      viewers.forEach(el => {
-        const li = document.createElement("li");
-        const nameP = createElementNode('p', ['name'])
-        nameP.textContent = el.Caption;
-
-        const checkPaste = document.createElement('input')
-        checkPaste.setAttribute('type', 'checkbox')
-
-        li.appendChild(nameP);
-        li.append(checkPaste);
-
-        ul.appendChild(li);
-      })
-
-      return ul
-    }
-    const renderTreePaste = (pasteEntities: EntitiesType[]) => {
-      const wrapperTreePaste = createElementNode('div', ['wrapperTreePaste'])
-      function buildTree(arr: EntitiesType[]) {
-        const map: any = {};
-        const roots: any[] = [];
-
-        arr.forEach((node) => {
-          map[node.Id] = {
-            ...node,
-            children: []
-          };
-        });
-
-        Object.values(map).forEach((node: EntitiesType) => {
-          if (node.Id === null) {
-            roots.push(node);
-          } else if (node.Parent.Id in map) {
-            map[node.Parent.Id].children.push(node);
-          } else {
-            throw new Error(`Invalid array format: node ${node.Id} has missing parent ${node.Parent.Id}`);
-          }
-        });
-
-        return roots;
-      }
-      function buildHtmlTree(node: { value: any; children: any[]; }) {
-        let html = `<li>${node.value}`;
-        if (node.children.length > 0) {
-          html += '<ul>';
-          node.children.forEach((child: any) => {
-            html += buildHtmlTree(child);
-            html += `<div>rfer</div>`;
-          });
-          html += '</ul>';
-        }
-        html += '</li>';
-        return html;
-      }
-
-      const roots = buildTree(pasteEntities);
-      const html: string = `<ul>${roots.map((root: any) => buildHtmlTree(root)).join('')}</ul>`
-      wrapperTreePaste.innerHTML = html
-      console.log("🚀 ~ file: contentModalPaste.ts:224 ~ renderTreePaste ~ html:", html)
-      return wrapperTreePaste
-
-    }
-    const renderTree = (entities: EntitiesType[]) => {
-      console.log("🚀999999999 enderTreePaste(request.payload):", renderTreePaste(entities))
-    }
-    chrome.runtime.onMessage.addListener(
-      function (request, sender, sendResponse) {
-        console.log("🚀 ~ file: contentModalPaste.ts:238 ~ renderTree ~ request:", request)
-        if (request.action === "postEntitiesForPasteInsert") {
-          console.log(333, request.payload);
-          renderTree(request.payload)
-        }
-      })
-    chrome.storage.local.get(["viewersState"], function (result) {
-      const allView = result.viewersState && JSON.parse(result.viewersState)
-      const saveViewersStorage: ViewerType[] = Array.isArray(allView) ? allView : []
-      wrapperPageTwo.append(renderStateViewer(saveViewersStorage))
-    });
-    chrome.storage.onChanged.addListener((changes, namespace) => {
-      for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-        if (!newValue) return
-        const viewers = JSON.parse(newValue)
-        wrapperPageTwo.innerHTML = ''
-        wrapperPageTwo.append(renderStateViewer(viewers))
-      }
-    });
-
-
-  }
+  const entities: EntitiesType = glEntitiesFromPaste.find((_: EntitiesType) => _.isCurrent)
+  if (!entities) return ''
+  ulContainer.innerHTML = ''
+  ulContainer.append(...entities?.Viewers?.map(el => addItem(el, entities.Id)))
+  wrapperPageOne.append(ulContainer)
+  return wrapperPageOne
 
 }
-insertContent()
+const renderPageTwo = () => {
+  const wrapperPageTwo = createElementNode('div', ['wrapperPageTwo'])
+  const wrapperViewersForPaste = createElementNode('div', ['wrapperViewersForPaste'])
+  wrapperRight.append(wrapperPageTwo)
+  const renderStateViewer = () => {
+    const ul = createElementNode('ul', ['viewer-types'])
+    glViewerForPaste.forEach(el => {
+      const li = document.createElement("li");
+      const nameP = createElementNode('p', ['name'])
+      nameP.textContent = el.Caption;
+
+      const checkPaste = document.createElement('input')
+      checkPaste.setAttribute('type', 'checkbox')
+
+      li.appendChild(nameP);
+      li.append(checkPaste);
+
+      ul.appendChild(li);
+    })
+    return ul
+  }
+  wrapperPageTwo.append(renderStateViewer())
+
+
+  return wrapperPageTwo
+
+}
+
+
+
+async function insertContent(pageId?: string) {
+  wrapperRight.innerHTML = ''
+  wrapperRight.append(await getHtml(pageId || glCurrentRightPage))
+}
+const getHtml = async (idPage: string) => {
+  if (idPage === '1') {
+    const component = await renderPageOne() as unknown as Node
+    return component
+  }
+  if (idPage === '2') {
+    return renderPageTwo()
+  }
+  return ''
+}
+
+

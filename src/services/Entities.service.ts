@@ -7,14 +7,14 @@ import { LRUCache } from "lru-cache";
 const cache = new LRUCache({ max: 5000 });
 
 export class EntitiesService {
-    static async getEntities(): Promise<any[]> {
-        // const value = cache.get('getEntities') as string | undefined
-        // value && console.log("🚀 getEntities ~ value:", JSON.parse(value).length)
-        // if (value) {
-        //     return JSON.parse(value)
-        // }
-        const response = await api.get('https://pdm-kueg.io.neolant.su/api/structure/entities')
-        cache.set('getEntities', JSON.stringify(response.data));
-        return await response.data
+    static async getEntities(): Promise<EntitiesType[]> {
+        const value = cache.get('getEntities') as string | undefined
+        if (value) {
+            return JSON.parse(value) as EntitiesType[]
+        }
+        const response: Promise<EntitiesType[]> = await fetch('https://pdm-kueg.io.neolant.su/api/structure/entities')
+            .then(_ => _.json())
+        cache.set('getEntities', JSON.stringify(response));
+        return response
     }
 }

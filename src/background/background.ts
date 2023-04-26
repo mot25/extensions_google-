@@ -32,49 +32,13 @@ chrome.runtime.onMessage.addListener(
     async function (request, sender, sendResponse) {
         if (request.action === 'getEntities') {
             chrome.cookies.getAll({ url: sender.tab.url }, async function (cookies) {
-                const fetchedEntities = async () => {
-                    const value = cache.get('getEntities') as string | undefined
-                    value && console.log("🚀 getEntities ~ value:", JSON.parse(value).length)
-                    if (value) {
-                        return JSON.parse(value) as EntitiesType[]
-                    }
-                    const cookiesStr = cookies?.map(item => `${item.name}=${item.value}`).toString()
-                    const allEntites: EntitiesType[] = await fetch('https://pdm-kueg.io.neolant.su/api/structure/entities', {
-                        headers: {
-                            cookie: cookiesStr
-                        }
-                    })
-                        .then(e => e.json())
-
-                    cache.set('getEntities', JSON.stringify(allEntites));
-                    const objShow: any = {}
-                    allEntites.forEach((item) => {
-                        if (!item.Parent?.Id) return
-                        const key = item.Parent?.Id
-                        // if (item.Id !== idEntites) return
-                        if (Array.isArray(objShow[key])) {
-                            objShow[key].push({
-                                name: item.Name,
-                                id: item.Parent
-                            })
-                        } else {
-                            objShow[key] = [{
-                                name: item.Name,
-                                id: item.Parent
-                            }]
-                        }
-                    });
-                    console.log("🚀 ~ file: background.ts:31 ~ objShow:", objShow)
-                    return allEntites
-                }
+                const response = await EntitiesService.getEntities()
 
                 try {
                     const idEntites = getParamFromUrl(sender.tab.url).id
-
-                    console.log(555, await fetchedEntities())
-                    const response = await chrome.tabs.sendMessage(sender.tab.id, {
+                    await chrome.tabs.sendMessage(sender.tab.id, {
                         action: 'postEntitiesForPasteInsert',
-                        payload: Array.from(new Set(entitiesForPasteInsert(await fetchedEntities(), idEntites)))
+                        payload: Array.from(new Set(entitiesForPasteInsert(response, idEntites)))
                     });
                 } catch (error) {
                     console.log("🚀 ~ file: background.ts:60 ~ error:", error)
