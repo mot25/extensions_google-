@@ -46,6 +46,7 @@ fetchIcons()
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.action === 'postEntitiesForPasteInsert') {
+
       glEntitiesFromPaste.update(request.payload)
       insertContent()
     }
@@ -159,6 +160,8 @@ const addStateViewers = (view: ViewerType) => {
 
 const renderPageOne = async () => {
   const addItem = (viewer: ViewerType, idEntities: string) => {
+    if (viewer.Name !== 'VIEWER_EXTERNAL') return
+
     const li = createElementNode("li", [styles.item]);
 
     const nameNode = createElementNode("span", [styles.name]);
@@ -185,7 +188,7 @@ const renderPageOne = async () => {
   const entities: EntitiesType = glEntitiesFromPaste.value.find((_: EntitiesType) => _.isCurrent)
   if (!entities) return ''
   ulContainer.innerHTML = ''
-  ulContainer.append(...entities?.Viewers?.map(el => addItem(el, entities.Id)))
+  ulContainer.append(...entities?.Viewers?.filter(_ => _.Name === 'VIEWER_EXTERNAL' ).map(el => addItem(el, entities.Id)))
   wrapperPageOne.append(ulContainer)
   return wrapperPageOne
 
@@ -421,6 +424,7 @@ const renderPageTwo = async () => {
       urlValue: urlValue.value,
     })
     window.location.reload()
+    modalWrapepr.classList.remove(styles.modalWrapper__active)
   }
   wrapperPageTwo.append(button)
 
