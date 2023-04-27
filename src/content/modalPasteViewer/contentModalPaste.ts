@@ -1,9 +1,10 @@
 import { DropDown } from '../../componets/DropDown';
 import { SwitchWithText } from '../../componets/SwitchWithText';
+import { EntitiesService } from '../../services/Entities.service';
 import { IconService } from '../../services/Icon.service';
 import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { MenuLeftNavbar, SwitchRenderListType } from '../../type/components.dto';
-import { EntitiesType, ViewerType } from '../../type/entities.dto';
+import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
 import { IconType } from '../../type/icon.dto';
 import { createElementNode, useState } from '../../utils/components';
 import styles from './contentModalPaste.scss';
@@ -23,7 +24,12 @@ const glViewerForPaste = new useState<ViewerType[]>([], () => { })
 const glicons = new useState<IconType[]>([], () => {
   insertContent()
 })
-
+const changeSelectedToggleiewer = (id: string) => {
+  glViewerForPaste.update(glViewerForPaste.value.map(item => {
+    if (item.Id === id) item.isSelected = !item.isSelected
+    return item
+  }))
+}
 
 chrome.runtime.sendMessage({
   action: 'getEntities'
@@ -91,7 +97,7 @@ const leftMenuConfig: MenuLeftNavbar[] = [
   },
   {
     id: '2',
-    label: 'Вставить в текущий класс',
+    label: 'Коппировать',
     title: 'P'
   }
 ]
@@ -184,14 +190,79 @@ const renderPageOne = async () => {
   return wrapperPageOne
 
 }
+
+const pasteViewers = async ({
+  glViewerForPaste,
+  configPasteEntities,
+  glValueIcons,
+  settingForPaste,
+  urlValue,
+}: {
+  glViewerForPaste: ViewerType[]
+  configPasteEntities: SwitchRenderListType[],
+  glValueIcons: string
+  settingForPaste: Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> }>
+  urlValue: string
+}) => {
+  const isApplySettingsCustom = configPasteEntities.find(_ => _.id === '3').value
+  const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
+  const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
+  const customSettings: Record<keyof Omit<RequestForPasteViewerType['Settings'], 'Url'>, boolean> = {
+    hideInStructureOfObject: false,
+    hideInViewingModel: false,
+    SendParams: false,
+  }
+  settingForPaste.forEach(setting => {
+    customSettings[setting.id] = !!setting?.value
+  })
+  // @ts-ignore
+  customSettings.Url = urlValue
+  // console.log("🚀 ~ file: contentModalPaste.ts:230 ~ customSettings:", customSettings)
+  glViewerForPaste.forEach(async viewer => {
+    const settingForPost = (isApplySettingsCustom ? customSettings : viewer.Settings) as RequestForPasteViewerType['Settings']
+    const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
+    const dataPost: RequestForPasteViewerType = {
+      Caption: viewer.Caption,
+      Icon: IconForPost,
+      Attributes: viewer.Attributes,
+      Name: viewer.Name,
+      Settings: settingForPost
+    }
+    // console.log("🚀 ~ file: contentModalPaste.ts:243 ~ dataPost:", dataPost)
+    // console.log("🚀 ~ file: contentModalPaste.ts:230 ~ viewer:", viewer)
+    // const response = await EntitiesService.pasteViewerInEntities('234', dataPost)
+  })
+  glEntitiesFromPaste.value.forEach(entity => {
+    if (!entity.isCurrent) if (!isApplyNestedEntities) return
+
+    glViewerForPaste.forEach(async viewer => {
+      if (!viewer.isSelected) return
+      const settingForPost = (isApplySettingsCustom ? customSettings : viewer.Settings) as RequestForPasteViewerType['Settings']
+      const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
+      const dataPost: RequestForPasteViewerType = {
+        Caption: viewer.Caption,
+        Icon: IconForPost,
+        Attributes: viewer.Attributes,
+        Name: viewer.Name,
+        Settings: settingForPost
+      }
+
+      const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
+      console.log("🚀 response add new viewer id ", response)
+    })
+  })
+  // console.log(glEntitiesFromPaste.value);
+
+
+}
 const renderPageTwo = async () => {
 
   const configPasteEntities = new useState<SwitchRenderListType[]>([
-    {
-      id: '1',
-      text: 'Коппировать в текущий',
-      value: true
-    },
+    // {
+    //   id: '1',
+    //   text: 'Коппировать в текущий',
+    //   value: true
+    // },
     {
       id: '2',
       text: 'Коппировать во все вложенные',
@@ -215,6 +286,7 @@ const renderPageTwo = async () => {
 
 
   const wrapperPageTwo = createElementNode('div', [styles.wrapperPageTwo])
+
   const wrapperViewersForPaste = createElementNode('div', [styles.wrapperViewersForPaste])
 
   const renderStateViewer = () => {
@@ -226,7 +298,9 @@ const renderPageTwo = async () => {
 
       const checkPaste = document.createElement('input')
       checkPaste.setAttribute('type', 'checkbox')
-
+      checkPaste.onclick = () => {
+        changeSelectedToggleiewer(el.Id)
+      }
       li.appendChild(nameP);
       li.append(checkPaste);
 
@@ -276,17 +350,17 @@ const renderPageTwo = async () => {
     wrapperDropDownIcon.append(wrapperTitleDropDown)
   }
   renderDropDown()
-  const settingForPaste = new useState<SwitchRenderListType[]>([
+  const settingForPaste = new useState<Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> }>>([
     {
-      id: '1',
+      id: 'SendParams',
       text: 'Передавать данные внешнему сервису',
     },
     {
-      id: '2',
+      id: 'hideInStructureOfObject',
       text: 'Скрывать в структуре объектов',
     },
     {
-      id: '3',
+      id: 'hideInViewingModel',
       text: 'Скрывать в модели',
     },
   ], () => renderSettinWithView)
@@ -316,7 +390,6 @@ const renderPageTwo = async () => {
   renderSettinWithView()
   const urlValue = new useState('https://', () => {
     renderInput()
-    console.log("🚀 ~ file: contentModalPaste.ts:320 ~ urlValue ~ urlValue:", urlValue)
   })
   const inputSettingUrlWrapper = createElementNode('div', [styles.inputSettingUrlWrapper]);
   function renderInput() {
@@ -327,7 +400,7 @@ const renderPageTwo = async () => {
     inputSettingUrl.setAttribute('value', urlValue.value)
     inputSettingUrl.onchange = (e) => {
       // @ts-ignore
-      console.dir(e.target?.value);
+      urlValue.update(e.target?.value);
     }
     inputSettingUrlWrapper.append(inputSettingUrl)
   }
@@ -336,6 +409,22 @@ const renderPageTwo = async () => {
   wrapperViewersForPaste.append(wrapperDropDownIcon)
   wrapperViewersForPaste.append(wrapperSettinWithView)
   wrapperPageTwo.appendChild(wrapperViewersForPaste)
+
+  const button = createElementNode('button', [styles.reload])
+  button.innerText = 'Коппировать'
+  button.onclick = async () => {
+    await pasteViewers({
+      glViewerForPaste: glViewerForPaste.value,
+      configPasteEntities: configPasteEntities.value,
+      glValueIcons: glValueIcons.value,
+      settingForPaste: settingForPaste.value,
+      urlValue: urlValue.value,
+    })
+    window.location.reload()
+  }
+  wrapperPageTwo.append(button)
+
+
   return wrapperPageTwo
 
 }
