@@ -7,6 +7,7 @@ type Props = {
     list: OptionsType[]
     onChange: (id: string) => void
     value?: string
+    title: string
 }
 
 
@@ -14,7 +15,8 @@ type Props = {
 const DropDown = ({
     onChange,
     list,
-    value
+    value,
+    title
 }: Props) => {
 
     const valueState = new useState<string>(value, () => {
@@ -35,7 +37,7 @@ const DropDown = ({
         button.onclick = () => {
             isShow.update(!isShow.value)
         }
-        button.textContent = "Dropdown";
+        button.textContent = title;
 
         const menu = createElementNode('div')
         menu.className = classNames(styles.dropdown_content, {
@@ -43,7 +45,10 @@ const DropDown = ({
         })
         list.forEach(el => {
             const selected = createElementNode('div', [styles.selectItem])
-            selected.textContent = el.labal;
+            const selectedText = createElementNode('p', [styles.selectItemText])
+            selectedText.innerText = el.label;
+            selected.append(selectedText)
+            selected.setAttribute('title', el.label)
             selected.onclick = () => {
                 onChange(el.value)
             }

@@ -5,6 +5,12 @@ export type MenuLeftNavbar = {
 }
 
 export type OptionsType = {
-    labal: string
+    label: string
     value: string
+}
+
+export type SwitchRenderListType = {
+    id: string
+    text: string
+    value?: boolean
 }
