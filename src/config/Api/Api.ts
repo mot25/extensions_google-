@@ -2,8 +2,6 @@ import axios from "axios";
 const instance = axios.create({
     headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache, max-age=3600',
-        'Expires': new Date(Date.now() + 3600 * 1000).toUTCString()
     },
     withCredentials: true
 });

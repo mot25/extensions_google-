@@ -8,6 +8,9 @@ import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../type/
 import { IconType } from '../../type/icon.dto';
 import { createElementNode, useState } from '../../utils/components';
 import styles from './contentModalPaste.scss';
+import JSAlert from 'js-alert'
+
+
 
 const documentBody = document.body
 const clearBeforeNode = () => {
@@ -20,13 +23,20 @@ clearBeforeNode()
 
 const glEntitiesFromPaste = new useState<EntitiesType[]>([], () => { })
 const glCurrentRightPage = new useState<string>('1', () => { })
-const glViewerForPaste = new useState<ViewerType[]>([], () => { })
+const glViewerForPaste = new useState<ViewerType[]>([], () => {
+  // console.log("🚀ewerForPaste:", glViewerForPaste.value)
+  console.log("🚀 ~ file: contentModalPaste.ts:30 ~ glViewerForPaste ~ glViewerForPaste:", glViewerForPaste.value)
+  insertContent()
+})
 const glicons = new useState<IconType[]>([], () => {
   insertContent()
 })
 const changeSelectedToggleiewer = (id: string) => {
   glViewerForPaste.update(glViewerForPaste.value.map(item => {
-    if (item.Id === id) item.isSelected = !item.isSelected
+    if (item.Id === id) {
+      console.log("🚀 ~ file: contentModalPaste.ts:36 ~ changeSelectedToggleiewer ~ item:", item)
+      item.isSelected = !item?.isSelected
+    }
     return item
   }))
 }
@@ -55,14 +65,12 @@ chrome.runtime.onMessage.addListener(
 chrome.storage.local.get(["viewersState"], function (result) {
   const allView = result.viewersState && JSON.parse(result.viewersState)
   const saveViewersStorage: ViewerType[] = Array.isArray(allView) ? allView : []
-  insertContent()
   glViewerForPaste.update(saveViewersStorage)
 });
 chrome.storage.onChanged.addListener((changes, namespace) => {
   for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
     if (!newValue) return
     const viewers = JSON.parse(newValue)
-    insertContent()
     glViewerForPaste.update(viewers)
   }
 });
@@ -188,10 +196,9 @@ const renderPageOne = async () => {
   const entities: EntitiesType = glEntitiesFromPaste.value.find((_: EntitiesType) => _.isCurrent)
   if (!entities) return ''
   ulContainer.innerHTML = ''
-  ulContainer.append(...entities?.Viewers?.filter(_ => _.Name === 'VIEWER_EXTERNAL' ).map(el => addItem(el, entities.Id)))
+  ulContainer.append(...entities?.Viewers?.map(el => addItem(el, entities.Id)))
   wrapperPageOne.append(ulContainer)
   return wrapperPageOne
-
 }
 
 const pasteViewers = async ({
@@ -220,26 +227,14 @@ const pasteViewers = async ({
   })
   // @ts-ignore
   customSettings.Url = urlValue
-  // console.log("🚀 ~ file: contentModalPaste.ts:230 ~ customSettings:", customSettings)
-  glViewerForPaste.forEach(async viewer => {
-    const settingForPost = (isApplySettingsCustom ? customSettings : viewer.Settings) as RequestForPasteViewerType['Settings']
-    const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
-    const dataPost: RequestForPasteViewerType = {
-      Caption: viewer.Caption,
-      Icon: IconForPost,
-      Attributes: viewer.Attributes,
-      Name: viewer.Name,
-      Settings: settingForPost
-    }
-    // console.log("🚀 ~ file: contentModalPaste.ts:243 ~ dataPost:", dataPost)
-    // console.log("🚀 ~ file: contentModalPaste.ts:230 ~ viewer:", viewer)
-    // const response = await EntitiesService.pasteViewerInEntities('234', dataPost)
-  })
   glEntitiesFromPaste.value.forEach(entity => {
     if (!entity.isCurrent) if (!isApplyNestedEntities) return
+    console.log(1);
 
     glViewerForPaste.forEach(async viewer => {
       if (!viewer.isSelected) return
+      console.log(2);
+
       const settingForPost = (isApplySettingsCustom ? customSettings : viewer.Settings) as RequestForPasteViewerType['Settings']
       const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
       const dataPost: RequestForPasteViewerType = {
@@ -249,23 +244,24 @@ const pasteViewers = async ({
         Name: viewer.Name,
         Settings: settingForPost
       }
-
-      const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
-      console.log("🚀 response add new viewer id ", response)
+      const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
+      if (isHaveViewer) {
+        // const response = await EntitiesService.changeViewerInEntities(entity.Id, {
+        //   ...dataPost,
+        //   Id: isHaveViewer.Id
+        // })
+        // console.log("🚀 response add change viewer id ", response)
+      } else {
+        // const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
+        // console.log("🚀 response add new viewer id ", response)
+      }
     })
   })
-  // console.log(glEntitiesFromPaste.value);
-
 
 }
 const renderPageTwo = async () => {
 
   const configPasteEntities = new useState<SwitchRenderListType[]>([
-    // {
-    //   id: '1',
-    //   text: 'Коппировать в текущий',
-    //   value: true
-    // },
     {
       id: '2',
       text: 'Коппировать во все вложенные',
@@ -423,8 +419,16 @@ const renderPageTwo = async () => {
       settingForPaste: settingForPaste.value,
       urlValue: urlValue.value,
     })
-    window.location.reload()
     modalWrapepr.classList.remove(styles.modalWrapper__active)
+    const alert = new JSAlert("Страница будет перезагружена", "Новые виды были вставлены");
+    // alert.addButton("Yes").then(function () {
+    //   console.log("Alert button Yes pressed");
+    // });
+    // alert.addButton("No").then(function () {
+    //   console.log("Alert button No pressed");
+    // });
+    // alert.show();
+    // window.location.reload()
   }
   wrapperPageTwo.append(button)
 
