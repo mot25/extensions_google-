@@ -17,7 +17,10 @@ export type ViewerType = {
     Id: string;
     Name: string;
     Settings: Partial<RequestForPasteViewerType['Settings']>
+
+
     isSelected?: boolean;
+    order?: number;
 }
 
 type Attributes = {

@@ -1,6 +1,6 @@
+import * as classNames from 'classnames';
 import { DropDown } from '../../componets/DropDown';
 import { SwitchWithText } from '../../componets/SwitchWithText';
-import { EntitiesService } from '../../services/Entities.service';
 import { IconService } from '../../services/Icon.service';
 import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { MenuLeftNavbar, SwitchRenderListType } from '../../type/components.dto';
@@ -9,6 +9,7 @@ import { IconType } from '../../type/icon.dto';
 import { createElementNode, useState } from '../../utils/components';
 import styles from './contentModalPaste.scss';
 import JSAlert from 'js-alert'
+import { EntitiesService } from './../../services/Entities.service';
 
 
 
@@ -32,7 +33,10 @@ const deleteView = (id: string) => {
     });
   });
 }
-const glEntitiesFromPaste = new useState<EntitiesType[]>([], () => { })
+const glEntitiesFromPaste = new useState<EntitiesType[]>([], () => {
+  insertContent()
+  renderShowLoading()
+})
 const glCurrentRightPage = new useState<string>('1', () => { })
 const glViewerForPaste = new useState<ViewerType[]>([], () => {
   insertContent()
@@ -47,6 +51,16 @@ const changeSelectedToggleiewer = (id: string) => {
     }
     return item
   }))
+}
+
+const changeOrderViewerInEntities = (id: string, order: number) => {
+  const newViewers = glViewerForPaste.value.map(item => {
+    if (item.Id === id) {
+      item.order = order
+    }
+    return item
+  })
+  glViewerForPaste.update(newViewers)
 }
 
 chrome.runtime.sendMessage({
@@ -64,9 +78,7 @@ fetchIcons()
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.action === 'postEntitiesForPasteInsert') {
-
       glEntitiesFromPaste.update(request.payload)
-      insertContent()
     }
   }
 );
@@ -98,6 +110,24 @@ chrome.runtime.onMessage.addListener(
 const modalWrapepr = createElementNode('div', [styles.modalWrapper, styles.modalWrapper__active])
 const modal = createElementNode('div', [styles.modal])
 const wrapper = createElementNode('div', [styles.wrapperModal])
+
+const loadingModal = createElementNode('div')
+function renderShowLoading() {
+  loadingModal.className = classNames(styles.modalLoading, {
+    [styles.modalLoading__show]: !glEntitiesFromPaste?.value?.length
+  })
+  if (glEntitiesFromPaste?.value?.length) {
+    setTimeout(() => {
+      loadingModal.remove()
+    }, 1000)
+  }
+  loadingModal.innerHTML = 'Loading...'
+}
+renderShowLoading()
+wrapper.append(loadingModal)
+
+
+
 const wrapperLeft = createElementNode('div', [styles.wrapperLeft])
 const navbarUl = createElementNode('ul', [styles.navbar__menu])
 const ulContainer = createElementNode('ul', [styles.list])
@@ -175,7 +205,7 @@ const addStateViewers = (view: ViewerType) => {
 }
 
 const renderPageOne = async () => {
-  const addItem = (viewer: ViewerType, idEntities: string) => {
+  const addItem = (viewer: ViewerType, idEntities: string, index: number) => {
 
     const li = createElementNode("li", [styles.item]);
 
@@ -193,7 +223,10 @@ const renderPageOne = async () => {
     const deleteButton = createElementNode("button", [styles.add_btn]);
     deleteButton.innerText = 'Добавить'
     deleteButton.onclick = () => {
-      addStateViewers(viewer)
+      addStateViewers({
+        ...viewer,
+        order: index + 1
+      })
     }
     li.append(deleteButton)
 
@@ -203,7 +236,7 @@ const renderPageOne = async () => {
   const entities: EntitiesType = glEntitiesFromPaste.value.find((_: EntitiesType) => _.isCurrent)
   if (!entities) return ''
   ulContainer.innerHTML = ''
-  ulContainer.append(...entities?.Viewers?.map(el => addItem(el, entities.Id)))
+  ulContainer.append(...entities?.Viewers?.map((el, i) => addItem(el, entities.Id, i)))
   wrapperPageOne.append(ulContainer)
   return wrapperPageOne
 }
@@ -221,6 +254,7 @@ const pasteViewers = async ({
   settingForPaste: Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> }>
   urlValue: string
 }) => {
+
   const isApplySettingsCustom = configPasteEntities.find(_ => _.id === '3').value
   const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
   const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
@@ -232,6 +266,7 @@ const pasteViewers = async ({
     hideEmptyFields: false,
     viewMode: 0
   }
+
   settingForPaste.forEach(setting => {
     if (setting.id === 'viewMode') {
       customSettings[setting.id] = Number(setting?.value)
@@ -239,13 +274,15 @@ const pasteViewers = async ({
     }
     customSettings[setting.id] = !!setting?.value
   })
+
   // @ts-ignore
   customSettings.Url = urlValue
-  glEntitiesFromPaste.value.forEach(entity => {
+  glEntitiesFromPaste.value.forEach(async entity => {
     if (!entity.isCurrent) if (!isApplyNestedEntities) return
+    const newViewers: ViewerType[] = []
+    const promises: any[] = [];
 
     glViewerForPaste.forEach(async viewer => {
-      console.log("🚀 ~ file: contentModalPaste.ts:265 ~ viewer:", viewer)
       if (!viewer.isSelected) return
 
       const settingForPost = (isApplySettingsCustom ? customSettings : viewer.Settings) as RequestForPasteViewerType['Settings']
@@ -258,19 +295,79 @@ const pasteViewers = async ({
         Settings: settingForPost
       }
       const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
-      console.log("🚀 ~ file: contentModalPaste.ts:253 ~ isHaveViewer:", isHaveViewer)
-      if (isHaveViewer) {
-        const response = await EntitiesService.changeViewerInEntities(entity.Id, {
-          ...dataPost,
-          Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
-          Id: isHaveViewer.Id
-        })
-        console.log("🚀 response add change viewer id ", response)
-      } else {
-        const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
-        console.log("🚀 response add new viewer id ", response)
-      }
+
+      let newViwer = (async () => {
+        if (isHaveViewer) {
+          const dataCreate = {
+            ...dataPost,
+            Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
+            Id: isHaveViewer.Id
+          }
+          const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
+          newViewers.push(dataCreate)
+          console.log("🚀 response add change viewer id ", response)
+          return dataCreate
+        } else {
+          const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
+          newViewers.push({
+            ...dataPost,
+            Id: response.Id
+          })
+          console.log("🚀 response add new viewer id ", response)
+          return {
+            ...dataPost,
+            Id: response.Id
+          }
+        }
+      })()
+      promises.push(
+        newViwer
+      )
     })
+    Promise.all(promises).then(async (e) => {
+      console.log("🚀 ~ file: contentModalPaste.ts:353 ~ e:", e)
+      console.log('newViewers', newViewers);
+      const orderHash: Record<string, number> = {}
+      // e.forEach((item, i, arr) => {
+      //   orderHash[item.Id] = arr.length - i + 1
+
+      // });
+      // console.log(111111111111, e.map((item, i, arr) => {
+      //   return {
+      //     id: item.Id,
+      //     index: arr.length - i + 1,
+      //     name: item.Caption
+      //   }
+      // }));
+
+      // console.log("🚀 ~ file: contentModalPaste.ts:316 ~ orderHash:", orderHash)
+      // const response = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
+
+
+    })
+    // setTimeout(() => { 
+    //   console.log('newViewers', newViewers);
+    // }, 2000)
+
+    // const currentOrder = [...entity.Viewers.map((_, i) => _)]
+    // glViewerForPaste.forEach(async viewer => {
+    //   if (!viewer.isSelected) return
+    //   currentOrder.splice(viewer.order - 1, 0, viewer)
+    // })
+
+    // console.log(111111111111, currentOrder.map((item, i, arr) => {
+    //   return {
+    //     id: item.Id,
+    //     index: arr.length - i + 1,
+    //     name: item.Caption
+    //   }
+    // }));
+
+
+
+
+
+
   })
 
 }
@@ -329,8 +426,21 @@ const renderPageTwo = async () => {
       deleteButton.onclick = () => {
         deleteView(el.Id)
       }
+
+      const orderInput = createElementNode('input', [styles.orderInput])
+      orderInput.setAttribute('type', 'number')
+      orderInput.setAttribute('value', el.order.toString())
+      orderInput.setAttribute('min', "1")
+      orderInput.onchange = (e) => {
+        // @ts-ignore
+        changeOrderViewerInEntities(el.Id, e.target?.value);
+      }
+
+
+
       li.appendChild(nameP);
       li.append(checkPaste);
+      li.append(orderInput);
       li.append(deleteButton);
 
       ul.appendChild(li);
@@ -465,8 +575,8 @@ const renderPageTwo = async () => {
     // alert.addButton("No").then(function () {
     //   console.log("Alert button No pressed");
     // });
-    alert.show();
-    window.location.reload()
+    // alert.show();
+    // window.location.reload()
   }
   wrapperPageTwo.append(button)
 

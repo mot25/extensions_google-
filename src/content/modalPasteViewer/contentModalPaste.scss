@@ -49,6 +49,7 @@
 .wrapperModal {
     display: flex;
     flex: 1;
+    position: relative;
 }
 
 .wrapperRight {
@@ -115,7 +116,7 @@ body {
         transition: $transition;
         transform: translateX(-40px);
         color: #000;
-        z-index: 5;
+        // z-index: 5;
 
         span {
             position: absolute;
@@ -154,7 +155,7 @@ body {
                 content: '';
                 position: absolute;
                 opacity: 0;
-                z-index: 2;
+                // z-index: 2;
                 top: 0;
                 left: $spacer;
                 width: $linkHeight;
@@ -269,6 +270,27 @@ body {
     gap: 20px;
 }
 
-.wrapperDropDownIcon {
+.wrapperDropDownIcon {}
 
+.orderInput {
+    width: 40px;
+}
+
+
+.modalLoading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    &__show {
+        z-index: 500;
+        opacity: 1;
+    }
 }
