@@ -280,7 +280,7 @@ const pasteViewers = async ({
   glEntitiesFromPaste.value.forEach(async entity => {
     if (!entity.isCurrent) if (!isApplyNestedEntities) return
     const newViewers: ViewerType[] = []
-    const promises: any[] = [];
+    const promisesListResponse: Promise<ViewerType>[] = [];
 
     glViewerForPaste.forEach(async viewer => {
       if (!viewer.isSelected) return
@@ -320,56 +320,24 @@ const pasteViewers = async ({
           }
         }
       })()
-      promises.push(
-        newViwer
-      )
+      promisesListResponse.push(newViwer)
     })
-    Promise.all(promises).then(async (e) => {
-      console.log("🚀 ~ file: contentModalPaste.ts:353 ~ e:", e)
-      console.log('newViewers', newViewers);
+
+    Promise.all(promisesListResponse).then(async (e) => {
+      const currentOrder = [...entity.Viewers]
+
+      glViewerForPaste.forEach(async viewer => {
+        if (!viewer.isSelected) return
+        const newViewer = e.find(item => item.Caption === viewer.Caption)
+        const order: number = glViewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 0
+        currentOrder.splice(order - 1, 0, newViewer)
+      })
       const orderHash: Record<string, number> = {}
-      // e.forEach((item, i, arr) => {
-      //   orderHash[item.Id] = arr.length - i + 1
-
-      // });
-      // console.log(111111111111, e.map((item, i, arr) => {
-      //   return {
-      //     id: item.Id,
-      //     index: arr.length - i + 1,
-      //     name: item.Caption
-      //   }
-      // }));
-
-      // console.log("🚀 ~ file: contentModalPaste.ts:316 ~ orderHash:", orderHash)
-      // const response = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
-
-
+      currentOrder.forEach((_, ind) => orderHash[_.Id] = ind)
+      const responseOrdert = await EntitiesService.changeOrderPosition(entity.Id, orderHash)  
     })
-    // setTimeout(() => { 
-    //   console.log('newViewers', newViewers);
-    // }, 2000)
-
-    // const currentOrder = [...entity.Viewers.map((_, i) => _)]
-    // glViewerForPaste.forEach(async viewer => {
-    //   if (!viewer.isSelected) return
-    //   currentOrder.splice(viewer.order - 1, 0, viewer)
-    // })
-
-    // console.log(111111111111, currentOrder.map((item, i, arr) => {
-    //   return {
-    //     id: item.Id,
-    //     index: arr.length - i + 1,
-    //     name: item.Caption
-    //   }
-    // }));
-
-
-
-
-
 
   })
-
 }
 const renderPageTwo = async () => {
 
@@ -575,8 +543,8 @@ const renderPageTwo = async () => {
     // alert.addButton("No").then(function () {
     //   console.log("Alert button No pressed");
     // });
-    // alert.show();
-    // window.location.reload()
+    alert.show();
+    window.location.reload()
   }
   wrapperPageTwo.append(button)
 
