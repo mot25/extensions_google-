@@ -50,5 +50,7 @@ export type RequestForPasteViewerType = {
         SendParams: boolean
         hideInStructureOfObject: boolean
         hideInViewingModel: boolean
+        viewMode: number
+        hideEmptyFields: boolean
     }
 }
