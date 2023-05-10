@@ -51,6 +51,15 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.svg$/,
+        use: [{
+          loader: 'svg-url-loader',
+          options: {
+            limit: 8192,
+          },
+        }, ],
+      },
+      {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -102,6 +111,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.scss']
+    extensions: ['.js', '.ts', '.tsx', '.scss', '.svg']
   },
 }

@@ -23,16 +23,11 @@
 
 .top {
     height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
+    margin-left: auto;
+    width: auto;
+    cursor: pointer;
+    padding: 2px;
 
-    span {
-        cursor: pointer;
-        padding: 2px;
-        border: 1px solid #0000003b;
-    }
 }
 
 .modal {
@@ -289,6 +284,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #fff;
+
     &__show {
         z-index: 500;
         opacity: 1;

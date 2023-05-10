@@ -10,7 +10,7 @@ import { createElementNode, useState } from '../../utils/components';
 import styles from './contentModalPaste.scss';
 import JSAlert from 'js-alert'
 import { EntitiesService } from './../../services/Entities.service';
-
+import IconClose from '../../assets/icon/IconClose.svg'
 
 
 const documentBody = document.body
@@ -121,7 +121,7 @@ function renderShowLoading() {
       loadingModal.remove()
     }, 1000)
   }
-  loadingModal.innerHTML = 'Loading...'
+  loadingModal.innerHTML = 'Загрузка...'
 }
 renderShowLoading()
 wrapper.append(loadingModal)
@@ -133,7 +133,7 @@ const navbarUl = createElementNode('ul', [styles.navbar__menu])
 const ulContainer = createElementNode('ul', [styles.list])
 const wrapperPageOne = createElementNode('div', [styles.wrapperPageOne])
 const wrapperRight = createElementNode('div', [styles.wrapperRight])
-const top = createElementNode('div', [styles.top])
+const top = createElementNode('img', [styles.top])
 
 modalWrapepr.classList.add('exNeolant')
 const leftMenuConfig: MenuLeftNavbar[] = [
@@ -183,7 +183,23 @@ top.onclick = () => {
   modalWrapepr.classList.toggle(styles.modalWrapper__active)
   setTimeout(() => { clearBeforeNode() }, 1000)
 }
-top.innerHTML = '<span>close</span>'
+top.setAttribute('src', require('../../assets/icon/IconClose.svg'))
+// top.innerHTML = `<span>
+// <svg xmlns="http://www.w3.org/2000/svg" width="20.82" height="20.82" viewBox="0 0 45.82 45.82">
+//     <defs>
+//         <style>.cls-1{fill:#00c569}.cls-2{fill:#111}</style>
+//     </defs>
+//     <title>Close</title>
+//     <g id="Layer_2" data-name="Layer 2">
+//         <g id="Close">
+//             <path class="cls-1"
+//                 d="M45.09 45.09a2.52 2.52 0 0 1-3.54 0L28.91 32.45l-1.77-1.77a2.5 2.5 0 0 1 0-3.54 2.5 2.5 0 0 1 3.54 0l1.77 1.77 12.64 12.64a2.52 2.52 0 0 1 0 3.54z" />
+//             <path class="cls-2"
+//                 d="M45.09.73a2.52 2.52 0 0 0-3.54 0L22.91 19.37 4.27.73a2.51 2.51 0 0 0-3.54 0 2.52 2.52 0 0 0 0 3.54l18.64 18.64L.73 41.55a2.5 2.5 0 0 0 3.54 3.54L45.09 4.27a2.51 2.51 0 0 0 0-3.54z" />
+//         </g>
+//     </g>
+// </svg>
+// </span>`
 
 modal.append(top)
 modal.append(wrapper)
@@ -334,7 +350,7 @@ const pasteViewers = async ({
       })
       const orderHash: Record<string, number> = {}
       currentOrder.forEach((_, ind) => orderHash[_.Id] = ind)
-      const responseOrdert = await EntitiesService.changeOrderPosition(entity.Id, orderHash)  
+      const responseOrdert = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
     })
 
   })
@@ -445,7 +461,7 @@ const renderPageTwo = async () => {
   function renderDropDown() {
     wrapperDropDownIcon.innerHTML = ''
     wrapperDropDownIcon.append(DropDown({
-      title: 'icon select',
+      title: 'Выберите иконку',
       list: glicons.value.map(icon => ({ label: icon.Name, value: icon.Id })),
       onChange: (idIcon) => glValueIcons.update(idIcon),
     }))
