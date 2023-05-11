@@ -560,7 +560,6 @@ const renderPageTwo = async () => {
 
 
   return wrapperPageTwo
-
 }
 
 

@@ -6,7 +6,7 @@ import './popup.scss'
 const ButtonPasteViewer = document.getElementById('pasteViewer')
 ButtonPasteViewer.addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
-        const currentTabId =  tabs[0].id;
+        const currentTabId = tabs[0].id;
         console.log("🚀 ~ file: popup.ts:10 ~ currentTabId:", currentTabId)
         await chrome.scripting.executeScript({
             target: { tabId: currentTabId },
@@ -129,7 +129,7 @@ ButtonPasteViewer.addEventListener('click', () => {
 //     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
 //         const idEntites = getParamFromUrl(tabs[0].url).id
 //         try {
-//             const responseCreate = await fetch(`https://pdm-kueg.io.neolant.su/api/structure/entities/${idEntites}/viewers`, {
+//             const responseCreate = await fetch(`https://lukoil-test.io.neolant.su/api/structure/entities/${idEntites}/viewers`, {
 //                 method: "POST",
 //                 body: JSON.stringify({
 //                     "Name": "VIEWER_EXTERNAL",
