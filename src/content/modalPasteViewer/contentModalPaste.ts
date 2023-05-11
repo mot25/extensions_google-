@@ -163,7 +163,7 @@ const renderLeftMenu = () => {
     const categoryItemLink = createElementNode('div', [styles.navbar__link])
     const categoryItemLink_img = createElementNode('img', [styles.navbar__link_img])
     categoryItemLink_img.setAttribute('src', item.title)
-  
+
     categoryItemLink.append(categoryItemLink_img)
     categoryItem.append(categoryItemLink)
     const label = document.createElement('span')
@@ -227,11 +227,16 @@ const renderPageOne = async () => {
 
     const deleteButton = createElementNode("button", [styles.add_btn]);
     deleteButton.innerText = 'Добавить'
-    deleteButton.onclick = () => {
-      addStateViewers({
-        ...viewer,
-        order: index + 1
-      })
+    const isHave = !!~glViewerForPaste.value.findIndex(_ => _.Caption === viewer.Caption)
+
+    deleteButton.style.background = isHave ? '#d3d3d3' : '#4CAF50'
+    if (!isHave) {
+      deleteButton.onclick = () => {
+        addStateViewers({
+          ...viewer,
+          order: index + 1
+        })
+      }
     }
     li.append(deleteButton)
 

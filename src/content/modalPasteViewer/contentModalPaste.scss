@@ -220,6 +220,7 @@ body {
 
 .name {
     margin-right: 10px;
+    flex: 1;
 }
 
 .actions {
@@ -237,9 +238,6 @@ body {
     cursor: pointer;
 }
 
-.add_btn {
-    background-color: #4CAF50;
-}
 
 // page content
 

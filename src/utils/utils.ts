@@ -20,13 +20,13 @@ export const getParamFromUrl = (url: string): Record<string, string> => {
 }
 
 export const entitiesForPasteInsert = (entities: EntitiesType[], idEntities: string) => {
-    const currentEntities = entities.find(item => item.Id === idEntities)
+    const currentEntities = entities.find(item => item?.Id === idEntities)
     const arrNested: EntitiesType[] = []
     const findNested = (entiti: EntitiesType) => {
         const chieldNesrtedEntiti = entities.filter(item => item?.Parent?.Id === entiti?.Id)
         arrNested.push({
             ...entiti,
-            isCurrent: entiti.Id === idEntities
+            isCurrent: entiti?.Id === idEntities
         })
         chieldNesrtedEntiti.length && chieldNesrtedEntiti.forEach(item => findNested(item));
     }
