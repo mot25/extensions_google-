@@ -1,4 +1,6 @@
+import { Ignore } from 'glob/dist/mjs/ignore';
 import { EntitiesType, ViewerType } from '../type/entities.dto';
+import { createElementNode } from '../utils/components';
 import './popup.scss'
 
 
@@ -7,7 +9,13 @@ const ButtonPasteViewer = document.getElementById('pasteViewer')
 ButtonPasteViewer.addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
         const currentTabId = tabs[0].id;
-        console.log("🚀 ~ file: popup.ts:10 ~ currentTabId:", currentTabId)
+        const allowBaseUrl = ['pdm-kueg', 'lukoil-test']
+        const url = new URL(tabs[0].url)
+
+        if (!allowBaseUrl.some(_ => tabs[0].url.includes(_))) return new RenderWarningTextInPopup('Расширение открыто вне портала').render()
+        if (url.pathname !== "/structure/entities") return new RenderWarningTextInPopup('Не открыт раздел с классами').render()
+        if (!url.searchParams.get('id')) return new RenderWarningTextInPopup('Не выбран класс').render()
+
         await chrome.scripting.executeScript({
             target: { tabId: currentTabId },
             files: ['contentModalPaste.js']
@@ -21,8 +29,38 @@ ButtonPasteViewer.addEventListener('click', () => {
             payload: true
         });
     });
-
 })
+class RenderWarningTextInPopup {
+    private warningText: string
+    private body = document.body
+    constructor(message: string) {
+        this.warningText = message;
+    }
+
+    render() {
+        const wrapperWarnign = createElementNode('div', ['wrapperWarnign'])
+        const warningText = createElementNode('span', ['warningText'])
+        warningText.innerText = this.warningText
+        wrapperWarnign.append(warningText)
+        this.body.appendChild(wrapperWarnign);
+        setTimeout(() => {
+            wrapperWarnign.remove()
+        }, 3000)
+    }
+}
+// class RenderWarningTextInPopup {
+//     private warningText: string
+//     constructor(message: string) {
+//         this.warningText = message;
+//     }
+//     private body = document.body
+
+//     // wrapperWarnignText
+//     private wrapperWarnignText = createElementNode('div', ['wrapperWarnignText']);
+
+//            wrapperWarnignText.innerText = this.warningText;
+
+// }
 // chrome.runtime.sendMessage('viewers', response => {
 //     console.log(JSON.parse(response), 'response msg');
 // })
