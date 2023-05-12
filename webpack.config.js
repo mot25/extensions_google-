@@ -37,7 +37,6 @@ module.exports = {
   entry: {
     background: './src/background/background.ts',
     popup: './src/popup/popup.ts',
-    popupVisual: './src/popup/popupVisual.ts',
     ...pathFileDinymic('./src/content/**/*.ts')
   },
   output: {

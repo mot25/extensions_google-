@@ -1,12 +1,15 @@
 import { Ignore } from 'glob/dist/mjs/ignore';
 import { EntitiesType, ViewerType } from '../type/entities.dto';
-import { createElementNode } from '../utils/components';
 import './popup.scss'
 
+import { gsap } from "gsap";
+import { createElementNode, useState } from "../utils/components";
 
-
-const ButtonPasteViewer = document.getElementById('pasteViewer')
-ButtonPasteViewer.addEventListener('click', () => {
+type PageNavigatorType = Record<string, () => HTMLElement>
+const selectPage = new useState<string>('1', () => {
+    renderBlock()
+})
+const showModalPasteInterface = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
         const currentTabId = tabs[0].id;
         const allowBaseUrl = ['pdm-kueg', 'lukoil-test']
@@ -29,7 +32,74 @@ ButtonPasteViewer.addEventListener('click', () => {
             payload: true
         });
     });
-})
+}
+function move(id: string, position: string, color: string) {
+    selectPage.update(id)
+    const tl = gsap.timeline();
+
+    tl.to("#bgBubble", { duration: 0.15, bottom: "-30px", ease: "ease-out" }, 0)
+        .to("#bubble1", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
+        .to("#bubble2", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
+        .to("#bubble3", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
+        .to("#bubble4", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
+        .to(".icon", { duration: 0.05, opacity: 0, ease: "ease-out", }, 0)
+        .to("#bgBubble", { duration: 0.2, left: position, ease: "ease-in-out" }, 0.1)
+        .to("#bgBubble", { duration: 0.15, bottom: "-50px", ease: "ease-out" }, '-=0.2')
+        .to(`#bubble${id}`, { duration: 0.15, y: "0%", opacity: 1, boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)', ease: "ease-out" }, '-=0.1')
+        .to(`#bubble${id}> span`, { duration: 0.15, y: "0%", opacity: 0.7, ease: "ease-out" }, '-=0.1')
+        .to("#navbarContainer", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
+        .to("#bg", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
+        .to("#bgBubble", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
+}
+
+const menuElement1 = document.querySelector('.menuElement1')
+
+const menuElement2 = document.querySelector('.menuElement2')
+
+const menuElement3 = document.querySelector('.menuElement3')
+
+const menuElemen4 = document.querySelector('.menuElemen4')
+
+
+
+menuElement1.addEventListener('click', () => move('1', '50px', '#ffcc80'))
+menuElement2.addEventListener('click', () => move('2', '150px', '#81d4fa'))
+menuElement3.addEventListener('click', () => move('3', '250px', '#c5e1a5'))
+menuElemen4.addEventListener('click', () => move('4', '350px', '#ce93d8'))
+
+const renderBlock = () => {
+    const objPage: PageNavigatorType = {
+        '1': renderOnePage,
+        '2': renderTwoPage,
+        '3': renderOnePage,
+        '4': renderOnePage,
+    }
+    const placeContent = document.querySelector('.bodyContent')
+    placeContent.innerHTML = ''
+    placeContent.appendChild(objPage[selectPage.value]())
+}
+renderBlock()
+
+const renderOnePage = () => {
+    const wrapper = createElementNode('div')
+    const warapperButton = createElementNode('div')
+    wrapper.innerHTML = '1'
+    // <div id="pasteViewer" class="buttonActions reverse dark">Копировать/Вставить</div>
+
+    return wrapper
+}
+const renderTwoPage = () => {
+    const wrapper = createElementNode('div')
+    wrapper.innerHTML = '2'
+    return wrapper
+}
+
+
+// button actions
+document.querySelectorAll('.buttonActions').forEach(button => button.innerHTML = '<div><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></div>');
+// button actions
+
+
 class RenderWarningTextInPopup {
     private warningText: string
     private body = document.body
