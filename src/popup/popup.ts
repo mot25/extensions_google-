@@ -1,11 +1,10 @@
-import { Ignore } from 'glob/dist/mjs/ignore';
-import { EntitiesType, ViewerType } from '../type/entities.dto';
 import './popup.scss'
 
 import { gsap } from "gsap";
 import { createElementNode, useState } from "../utils/components";
 import { ButtonInPopupAnim } from '../componets/ButtonInPopupAnim';
 import { api } from '../config/Api';
+import { SwagerInData } from '../componets/SwagerInData';
 
 type PageNavigatorType = Record<number, () => HTMLElement>
 const selectPage = new useState<number>(1, () => {
@@ -57,7 +56,6 @@ function move(id: string, position: string, color: string) {
 
 const divideByGroups = async () => {
     const tabs = await chrome.tabs.query({});
-    console.log("🚀 ~ file: popup.ts:65 ~ divideByGroups ~ tabs:", tabs)
     const tabsGroupIds: Record<string, number[]> = {
         "swagger": [],
         "pdm-kueg.io.neolant.su": [],
@@ -112,12 +110,18 @@ const renderTwoPage = () => {
     wrapper.appendChild(button)
     return wrapper
 }
+const renderThreePage = () => {
+    const wrapper = createElementNode('div')
+    const content = SwagerInData()
+    wrapper.appendChild(content)
+    return wrapper
+}
 
 const renderBlock = () => {
     const objPage: PageNavigatorType = {
         '1': renderOnePage,
         '2': renderTwoPage,
-        '3': renderOnePage,
+        '3': renderThreePage,
         '4': renderOnePage,
     }
     const placeContent = document.querySelector('.bodyContent')
