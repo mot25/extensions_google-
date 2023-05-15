@@ -64,9 +64,9 @@ const changeOrderViewerInEntities = (id: string, order: number) => {
   })
   glViewerForPaste.update(newViewers)
 }
-
 chrome.runtime.sendMessage({
-  action: 'getEntities'
+  action: 'getEntities',
+  payload: window.location.origin
 })
 const fetchIcons = async () => {
   try {

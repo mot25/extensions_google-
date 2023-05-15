@@ -5,6 +5,7 @@ import './popup.scss'
 import { gsap } from "gsap";
 import { createElementNode, useState } from "../utils/components";
 import { ButtonInPopupAnim } from '../componets/ButtonInPopupAnim';
+import { api } from '../config/Api';
 
 type PageNavigatorType = Record<number, () => HTMLElement>
 const selectPage = new useState<number>(1, () => {
@@ -19,6 +20,7 @@ const showModalPasteInterface = () => {
         if (!allowBaseUrl.some(_ => tabs[0].url.includes(_))) return new RenderWarningTextInPopup('Расширение открыто вне портала').render()
         if (url.pathname !== "/structure/entities") return new RenderWarningTextInPopup('Не открыт раздел с классами').render()
         if (!url.searchParams.get('id')) return new RenderWarningTextInPopup('Не выбран класс').render()
+        api.defaults.baseURL = url.origin
 
         await chrome.scripting.executeScript({
             target: { tabId: currentTabId },
