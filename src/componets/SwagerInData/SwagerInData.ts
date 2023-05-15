@@ -1,5 +1,6 @@
 import { createElementNode, useState } from '../../utils/components'
 import { InputCustom } from '../InputCustom'
+import { SimpleButton } from '../SimpleButton'
 import styles from './SwagerInData.module.scss'
 
 const SwagerInData = () => {
@@ -28,6 +29,26 @@ const SwagerInData = () => {
         $wrapperInput.append(Input)
         $wrapper.append($wrapperInput)
     })
+    const fieldFell = async () => {
+        chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+            const currentTabId = tabs[0].id;
+            await chrome.scripting.executeScript({
+                target: { tabId: currentTabId },
+                files: ['fieldSwagger.js']
+            })
+        })
+        const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+        const response = await chrome.tabs.sendMessage(tab.id, {
+            action: 'dataForInpur',
+            payload: valueData.value
+        });
+
+
+    }
+    $wrapper.append(SimpleButton({
+        text: "Вставить",
+        onClick: fieldFell
+    }))
     return $wrapper
 }
 export default SwagerInData
