@@ -15,7 +15,8 @@
         "bookmarks",
         "scripting",
         "cookies",
-        "tabs"
+        "tabs",
+        "tabGroups"
     ],
     "host_permissions": [
         "https://*/*"

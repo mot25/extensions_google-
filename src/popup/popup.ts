@@ -55,6 +55,28 @@ function move(id: string, position: string, color: string) {
         .to("#bgBubble", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
 }
 
+const divideByGroups = async () => {
+    const tabs = await chrome.tabs.query({});
+    console.log("🚀 ~ file: popup.ts:65 ~ divideByGroups ~ tabs:", tabs)
+    const tabsGroupIds: Record<string, number[]> = {
+        "swagger": [],
+        "pdm-kueg.io.neolant.su": [],
+        "lukoil-test.io.neolant.su": [],
+        "confluence": [],
+        "tfs": [],
+        "mail.neolant": [],
+    }
+    const entriesTabGroup = Object.entries(tabsGroupIds)
+    tabs.forEach(({ url, id }) => {
+        const key = entriesTabGroup.map(_ => _[0]).find(k => url.includes(k))
+        if (!key) return
+        tabsGroupIds[key].push(id)
+    })
+    Object.entries(tabsGroupIds).forEach(async tabContent => {
+        const group = await chrome.tabs.group({ tabIds: tabContent[1] });
+        await chrome.tabGroups.update(group, { title: tabContent[0] });
+    })
+}
 const menuElement1 = document.querySelector('.menuElement1')
 
 const menuElement2 = document.querySelector('.menuElement2')
@@ -83,7 +105,11 @@ const renderOnePage = () => {
 }
 const renderTwoPage = () => {
     const wrapper = createElementNode('div')
-    wrapper.innerHTML = '2'
+    const button = ButtonInPopupAnim({
+        text: 'Разделить по группам',
+        onClick: divideByGroups
+    })
+    wrapper.appendChild(button)
     return wrapper
 }
 
