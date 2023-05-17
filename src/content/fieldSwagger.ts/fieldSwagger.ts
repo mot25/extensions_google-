@@ -16,16 +16,16 @@ chrome.runtime.onMessage.addListener(
     if (request.action === 'dataForInpur') {
       const data = request.payload
       getFielsObjectId.forEach(_ => {
-        // @ts-ignore
-        if (!_.value) _.value = data.ObjectId
+        const el = _ as HTMLInputElement
+        if (!el.value) el.value = data.ObjectId
       })
       getFielsToken.forEach(_ => {
-        // @ts-ignore
-        if (!_.value) _.value = data.Token
+        const el = _ as HTMLInputElement
+        if (!el.value) el.value = data.Token
       })
       getFielsUrl.forEach(_ => {
-        // @ts-ignore
-        if (!_.value) _.value = data.Url
+        const el = _ as HTMLInputElement
+        if (!el.value) el.value = data.Url
       })
     }
   }
