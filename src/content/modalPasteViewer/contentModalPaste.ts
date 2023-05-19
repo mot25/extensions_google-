@@ -220,8 +220,9 @@ const renderPageOne = async () => {
 
     const addButton = createElementNode("button", [styles.delete_btn]);
     addButton.innerText = 'Удалить'
-    addButton.onclick = () => {
-      ManagerVieversService.deleteViewer(idEntities, viewer.Id)
+    addButton.onclick = (e) => {
+      console.log("🚀 ~ file: contentModalPaste.ts:224 ~ addItem ~ e:", e)
+      // ManagerVieversService.deleteViewer(idEntities, viewer.Id)
     }
     li.append(addButton)
 
@@ -295,7 +296,7 @@ const pasteViewers = async ({
     glViewerForPaste.forEach(async viewer => {
       if (!viewer.isSelected) return
 
-      const settingForPost = (isApplySettingsCustom ? customSettings : viewer.Settings) as RequestForPasteViewerType['Settings']
+      const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...customSettings } : viewer.Settings) as RequestForPasteViewerType['Settings']
       const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
       const dataPost: RequestForPasteViewerType = {
         Caption: viewer.Caption,
@@ -306,7 +307,7 @@ const pasteViewers = async ({
       }
       const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
 
-      let newViwer = (async () => {
+      const newViwer = (async () => {
         if (isHaveViewer) {
           const dataCreate = {
             ...dataPost,

@@ -13,7 +13,8 @@ const selectPage = new useState<number>(1, () => {
 const showModalPasteInterface = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
         const currentTabId = tabs[0].id;
-        const allowBaseUrl = ['pdm-kueg', 'lukoil-test']
+        const allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-kueg.lukoil']
+
         const url = new URL(tabs[0].url)
 
         if (!allowBaseUrl.some(_ => tabs[0].url.includes(_))) return new RenderWarningTextInPopup('Расширение открыто вне портала').render()
@@ -114,7 +115,7 @@ const renderThreePage = () => {
     const wrapper = createElementNode('div')
     const content = SwagerInData()
     wrapper.appendChild(content)
-    
+
     return wrapper
 }
 
