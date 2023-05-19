@@ -2,7 +2,6 @@ import * as classNames from 'classnames';
 import { DropDown } from '../../componets/DropDown';
 import { SwitchWithText } from '../../componets/SwitchWithText';
 import { IconService } from '../../services/Icon.service';
-import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { MenuLeftNavbar, SwitchRenderListType } from '../../type/components.dto';
 import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
 import { IconType } from '../../type/icon.dto';
@@ -13,6 +12,7 @@ import { EntitiesService } from './../../services/Entities.service';
 import IconClose from '../../assets/icon/IconClose.svg'
 import IconPlus from '../../assets/icon/IconPlus.svg'
 import IconPaste from '../../assets/icon/IconPaste.svg'
+import { ManagerVieversService } from '../../services/ManagerVievers.service';
 
 
 const documentBody = document.body
@@ -38,6 +38,7 @@ const deleteView = (id: string) => {
 const glEntitiesFromPaste = new useState<EntitiesType[]>([], () => {
   insertContent()
   renderShowLoading()
+  console.log("🚀 ~ file: contentModalPaste.ts:41 ~ glEntitiesFromPaste ~ glEntitiesFromPaste:", glEntitiesFromPaste.value)
 })
 const glCurrentRightPage = new useState<string>('1', () => { })
 const glViewerForPaste = new useState<ViewerType[]>([], () => {
@@ -221,8 +222,20 @@ const renderPageOne = async () => {
     const addButton = createElementNode("button", [styles.delete_btn]);
     addButton.innerText = 'Удалить'
     addButton.onclick = (e) => {
-      console.log("🚀 ~ file: contentModalPaste.ts:224 ~ addItem ~ e:", e)
-      // ManagerVieversService.deleteViewer(idEntities, viewer.Id)
+      const alert = new JSAlert(`Вы хотите удалить ${viewer.Caption}`, "Выберите опции для удаления");
+      alert.addButton("Удалить в текущем классе").then(function () {
+        ManagerVieversService.deleteViewer(idEntities, viewer.Id)
+      });
+      alert.addButton("Удалить во вложенных классах").then(function () {
+        glEntitiesFromPaste.value.forEach(entit => {
+          const idViewer = entit.Viewers.find(viewer => viewer.Caption === viewer.Caption).Id
+          if (!idViewer) return
+          ManagerVieversService.deleteViewer(entit.Id, idViewer)
+        })
+      });
+      alert.show();
+      // @ts-ignore
+      e.target.style.backgroundColor = 'rgb(211, 211, 211)'
     }
     li.append(addButton)
 
