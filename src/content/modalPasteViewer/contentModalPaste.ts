@@ -225,17 +225,20 @@ const renderPageOne = async () => {
       const alert = new JSAlert(`Вы хотите удалить ${viewer.Caption}`, "Выберите опции для удаления");
       alert.addButton("Удалить в текущем классе").then(function () {
         ManagerVieversService.deleteViewer(idEntities, viewer.Id)
+        // @ts-ignore
+        e.target.style.backgroundColor = 'rgb(211, 211, 211)'
       });
       alert.addButton("Удалить во вложенных классах").then(function () {
         glEntitiesFromPaste.value.forEach(entit => {
-          const idViewer = entit.Viewers.find(viewer => viewer.Caption === viewer.Caption).Id
-          if (!idViewer) return
-          ManagerVieversService.deleteViewer(entit.Id, idViewer)
+          const idViewerDelete = entit?.Viewers?.find(V => V?.Caption === viewer?.Caption)
+          ManagerVieversService.deleteViewer(entit.Id, idViewerDelete?.Id)
+
         })
+        // @ts-ignore
+        e.target.style.backgroundColor = 'rgb(211, 211, 211)'
       });
       alert.show();
-      // @ts-ignore
-      e.target.style.backgroundColor = 'rgb(211, 211, 211)'
+
     }
     li.append(addButton)
 
