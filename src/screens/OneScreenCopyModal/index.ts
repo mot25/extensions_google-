@@ -1,0 +1,1 @@
+export { default as OneScreenCopyModal } from './OneScreenCopyModal'

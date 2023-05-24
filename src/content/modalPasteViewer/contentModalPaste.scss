@@ -218,56 +218,19 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
-.name {
-    margin-right: 10px;
-    flex: 1;
-}
 
 .actions {
     display: flex;
     align-items: center;
 }
 
-.delete_btn,
-.add_btn {
-    padding: 5px 10px;
-    margin-left: 10px;
-    border: none;
-    background-color: #f44336;
-    color: #fff;
-    cursor: pointer;
-}
-
-
-// page content
-
-.viewer_types {
-    list-style-type: none;
-    padding: 0;
-}
-
-.viewer_types li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
 
 
 
-.viewer_types .name {
-    margin: 0;
-}
 
-.wrapperViewersForPaste {
-    display: flex;
-    gap: 20px;
-}
 
-.wrapperDropDownIcon {}
 
-.orderInput {
-    width: 40px;
-}
+
 
 
 .modalLoading {
@@ -294,11 +257,7 @@ body {
     width: 20px;
 }
 
-.wrapperPageTwo {
-    width: 100%;
-    overflow: auto;
-    min-height: 550px;
-}
+
 
 .wrapperRight {
     width: 100%;

@@ -1,0 +1,43 @@
+
+.name {
+    margin-right: 10px;
+    flex: 1;
+}
+
+.viewer_types .name {
+    margin: 0;
+}
+
+.delete_btn,
+.add_btn {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    background-color: #f44336;
+    color: #fff;
+    cursor: pointer;
+}
+.wrapperPageTwo {
+    width: 100%;
+    overflow: auto;
+    min-height: 550px;
+}
+.wrapperViewersForPaste {
+    display: flex;
+    gap: 20px;
+}
+
+.viewer_types {
+    list-style-type: none;
+    padding: 0;
+}
+
+.viewer_types li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.orderInput {
+    width: 40px;
+}
