@@ -2,7 +2,7 @@ import * as classNames from 'classnames';
 import { DropDown } from '../../componets/DropDown';
 import { SwitchWithText } from '../../componets/SwitchWithText';
 import { IconService } from '../../services/Icon.service';
-import { MenuLeftNavbar, SwitchRenderListType } from '../../type/components.dto';
+import { MenuLeftNavbar, SwitchRenderListType, TypePasteViewers } from '../../type/components.dto';
 import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
 import { IconType } from '../../type/icon.dto';
 import { createElementNode, useState } from '../../utils/components';
@@ -13,6 +13,8 @@ import IconClose from '../../assets/icon/IconClose.svg'
 import IconPlus from '../../assets/icon/IconPlus.svg'
 import IconPaste from '../../assets/icon/IconPaste.svg'
 import { ManagerVieversService } from '../../services/ManagerVievers.service';
+import renderPageOne from '../../screens/OneScreenCopyModal/OneScreenCopyModal';
+import renderPageTwo from '../../screens/TwoScreenCopyModal/TwoScreenCopyModal';
 
 
 const documentBody = document.body
@@ -44,7 +46,7 @@ const glCurrentRightPage = new useState<string>('1', () => { })
 const glViewerForPaste = new useState<ViewerType[]>([], () => {
   insertContent()
 })
-const glicons = new useState<IconType[]>([], () => {
+const glIcons = new useState<IconType[]>([], () => {
   insertContent()
 })
 const changeSelectedToggleiewer = (id: string) => {
@@ -72,7 +74,7 @@ chrome.runtime.sendMessage({
 const fetchIcons = async () => {
   try {
     const response = await IconService.getIcons()
-    glicons.update(response)
+    glIcons.update(response)
   } catch (error) {
     console.log("🚀 ~ file: contentModalPaste.ts:30 ~ fetchIcons ~ error:", error)
   }
@@ -210,60 +212,8 @@ const addStateViewers = (view: ViewerType) => {
   });
 }
 
-const renderPageOne = async () => {
-  const addItem = (viewer: ViewerType, idEntities: string, index: number) => {
 
-    const li = createElementNode("li", [styles.item]);
 
-    const nameNode = createElementNode("span", [styles.name]);
-    nameNode.innerText = viewer.Caption
-    li.append(nameNode)
-
-    const addButton = createElementNode("button", [styles.delete_btn]);
-    addButton.innerText = 'Удалить'
-    addButton.onclick = (e) => {
-      const alert = new JSAlert(`Вы хотите удалить ${viewer.Caption}`, "Выберите опции для удаления");
-      alert.addButton("Удалить в текущем классе").then(function () {
-        ManagerVieversService.deleteViewer(idEntities, viewer.Id)
-      });
-      alert.addButton("Удалить во вложенных классах").then(function () {
-        glEntitiesFromPaste.value.forEach(entit => {
-          const idViewer = entit.Viewers.find(viewer => viewer.Caption === viewer.Caption).Id
-          if (!idViewer) return
-          ManagerVieversService.deleteViewer(entit.Id, idViewer)
-        })
-      });
-      alert.show();
-      // @ts-ignore
-      e.target.style.backgroundColor = 'rgb(211, 211, 211)'
-    }
-    li.append(addButton)
-
-    const deleteButton = createElementNode("button", [styles.add_btn]);
-    deleteButton.innerText = 'Добавить'
-    const isHave = !!~glViewerForPaste.value.findIndex(_ => _.Caption === viewer.Caption)
-
-    deleteButton.style.background = isHave ? '#d3d3d3' : '#4CAF50'
-    if (!isHave) {
-      deleteButton.onclick = () => {
-        addStateViewers({
-          ...viewer,
-          order: index + 1
-        })
-      }
-    }
-    li.append(deleteButton)
-
-    return li;
-  }
-
-  const entities: EntitiesType = glEntitiesFromPaste.value.find((_: EntitiesType) => _.isCurrent)
-  if (!entities) return ''
-  ulContainer.innerHTML = ''
-  ulContainer.append(...entities?.Viewers?.map((el, i) => addItem(el, entities.Id, i)))
-  wrapperPageOne.append(ulContainer)
-  return wrapperPageOne
-}
 
 const pasteViewers = async ({
   glViewerForPaste,
@@ -271,13 +221,7 @@ const pasteViewers = async ({
   glValueIcons,
   settingForPaste,
   urlValue,
-}: {
-  glViewerForPaste: ViewerType[]
-  configPasteEntities: SwitchRenderListType[],
-  glValueIcons: string
-  settingForPaste: Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> }>
-  urlValue: string
-}) => {
+}: TypePasteViewers) => {
 
   const isApplySettingsCustom = configPasteEntities.find(_ => _.id === '3').value
   const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
@@ -363,218 +307,7 @@ const pasteViewers = async ({
 
   })
 }
-const renderPageTwo = async () => {
 
-  const configPasteEntities = new useState<SwitchRenderListType[]>([
-    {
-      id: '2',
-      text: 'Коппировать во все вложенные',
-    },
-    {
-      id: '3',
-      text: 'Применить настройки',
-    },
-    {
-      id: '4',
-      text: 'Установить иконку',
-    },
-    {
-      id: '5',
-      text: 'Перезатирать существующию икноку при изменение',
-    }
-  ], () => renderConfigPaste)
-
-  const changeValueConfigPaste = (id: string, value: boolean) => {
-    configPasteEntities.update(configPasteEntities.value.map(_ => {
-      if (_.id === id) _.value = value;
-      return _
-    }))
-  }
-
-
-  const wrapperPageTwo = createElementNode('div', [styles.wrapperPageTwo])
-
-  const wrapperViewersForPaste = createElementNode('div', [styles.wrapperViewersForPaste])
-
-  const renderStateViewer = () => {
-    const ul = createElementNode('ul', [styles.viewer_types])
-    glViewerForPaste.value.forEach(el => {
-      const li = document.createElement("li");
-      const nameP = createElementNode('p', [styles.name])
-      nameP.textContent = el.Caption;
-
-      const checkPaste = document.createElement('input')
-      checkPaste.setAttribute('type', 'checkbox')
-      if (el.isSelected) {
-        checkPaste.setAttribute('checked', 'true')
-      } else {
-        checkPaste.removeAttribute('checked')
-      }
-      checkPaste.onclick = () => {
-        changeSelectedToggleiewer(el.Id)
-      }
-      const deleteButton = createElementNode('button', [styles.deleteViewer])
-      deleteButton.innerText = 'd'
-      deleteButton.onclick = () => {
-        deleteView(el.Id)
-      }
-
-      const orderInput = createElementNode('input', [styles.orderInput])
-      orderInput.setAttribute('type', 'number')
-      orderInput.setAttribute('value', el.order.toString())
-      orderInput.setAttribute('min', "1")
-      orderInput.onchange = (e) => {
-        // @ts-ignore
-        changeOrderViewerInEntities(el.Id, e.target?.value);
-      }
-
-
-
-      li.appendChild(nameP);
-      li.append(checkPaste);
-      li.append(orderInput);
-      li.append(deleteButton);
-
-      ul.appendChild(li);
-    })
-    return ul
-  }
-  wrapperViewersForPaste.append(renderStateViewer())
-
-
-  const renderConfigPaste = (): any => {
-    const wrapperList = createElementNode('div', [styles.wrapperListConfig])
-    wrapperList.innerHTML = ''
-    configPasteEntities.value.forEach((switchEl) => {
-      const rowSwitch = createElementNode('div', [styles.rowSwitch]);
-      const listSwitchs = SwitchWithText({
-        onChange: (check) => {
-          changeValueConfigPaste(switchEl.id, check);
-        },
-        text: switchEl.text,
-        value: switchEl.value,
-        isRounded: true,
-      });
-      rowSwitch.append(listSwitchs)
-      wrapperList.append(rowSwitch)
-    })
-    wrapperViewersForPaste.append(wrapperList)
-  }
-  renderConfigPaste()
-
-  const glValueIcons = new useState<string>('', () => {
-    renderDropDown()
-  })
-  const wrapperDropDownIcon = createElementNode('div', [styles.wrapperDropDownIcon])
-  function renderDropDown() {
-    wrapperDropDownIcon.innerHTML = ''
-    wrapperDropDownIcon.append(DropDown({
-      title: 'Выберите иконку',
-      list: glicons.value.map(icon => ({ label: icon.Name, value: icon.Id })),
-      onChange: (idIcon) => glValueIcons.update(idIcon),
-    }))
-    const wrapperTitleDropDown = createElementNode('div', [styles.wrapperSelectTitleIcon])
-    const title = glicons.value.find(ic => ic.Id === glValueIcons.value)?.Name
-    wrapperTitleDropDown.innerHTML = title ? `
-    <span>Вы выбрали иконку:</span> ${title}
-    ` : ''
-    wrapperDropDownIcon.append(wrapperTitleDropDown)
-  }
-  renderDropDown()
-  const settingForPaste = new useState<Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> }>>([
-    {
-      id: 'SendParams',
-      text: 'Передавать данные внешнему сервису',
-    },
-    {
-      id: 'hideInStructureOfObject',
-      text: 'Скрывать в структуре объектов',
-    },
-    {
-      id: 'hideInViewingModel',
-      text: 'Скрывать в модели',
-    },
-    {
-      id: 'viewMode',
-      text: 'Только для чтения',
-    },
-    {
-      id: 'hideEmptyFields',
-      text: 'Скрывать пустые поля',
-    },
-  ], () => renderSettinWithView)
-  const changeValueSettingForPaste = (id: string, value: boolean) => {
-    settingForPaste.update(settingForPaste.value.map(_ => {
-      if (_.id === id) _.value = value;
-      return _
-    }))
-  }
-  const wrapperSettinWithView = createElementNode('div', [styles.wrapperSettinWithView])
-  function renderSettinWithView() {
-    wrapperSettinWithView.innerHTML = ''
-    const rowSwitch = createElementNode('div', [styles.rowSwitchSetting]);
-    settingForPaste.value.forEach((switchEl) => {
-      const listSwitchs = SwitchWithText({
-        onChange: (check) => {
-          changeValueSettingForPaste(switchEl.id, check);
-        },
-        text: switchEl.text,
-        value: switchEl.value,
-        isRounded: true,
-      });
-      rowSwitch.append(listSwitchs)
-    })
-    wrapperSettinWithView.append(rowSwitch)
-  }
-  renderSettinWithView()
-  const urlValue = new useState('https://', () => {
-    renderInput()
-  })
-  const inputSettingUrlWrapper = createElementNode('div', [styles.inputSettingUrlWrapper]);
-  function renderInput() {
-    inputSettingUrlWrapper.innerHTML = ''
-    const inputSettingUrl = createElementNode('input', [styles.inputSettingUrl]);
-    inputSettingUrl.setAttribute('placeholder', 'URL контента')
-    inputSettingUrl.setAttribute('type', 'text')
-    inputSettingUrl.setAttribute('value', urlValue.value)
-    inputSettingUrl.onchange = (e) => {
-      // @ts-ignore
-      urlValue.update(e.target?.value);
-    }
-    inputSettingUrlWrapper.append(inputSettingUrl)
-  }
-  renderInput()
-  wrapperSettinWithView.append(inputSettingUrlWrapper)
-  wrapperViewersForPaste.append(wrapperDropDownIcon)
-  wrapperViewersForPaste.append(wrapperSettinWithView)
-  wrapperPageTwo.appendChild(wrapperViewersForPaste)
-
-  const button = createElementNode('button', [styles.reload])
-  button.innerText = 'Коппировать'
-  button.onclick = async () => {
-    await pasteViewers({
-      glViewerForPaste: glViewerForPaste.value,
-      configPasteEntities: configPasteEntities.value,
-      glValueIcons: glValueIcons.value,
-      settingForPaste: settingForPaste.value,
-      urlValue: urlValue.value,
-    })
-    modalWrapepr.classList.remove(styles.modalWrapper__active)
-    const alert = new JSAlert("Страница будет перезагружена", "Новые виды были вставлены");
-    // alert.addButton("Yes").then(function () {
-    //   console.log("Alert button Yes pressed");
-    // });
-    // alert.addButton("No").then(function () {
-    //   console.log("Alert button No pressed");
-    // });
-    alert.show();
-    window.location.reload()
-  }
-  wrapperPageTwo.append(button)
-
-
-  return wrapperPageTwo
-}
 
 
 
@@ -584,11 +317,25 @@ async function insertContent(pageId?: string) {
 }
 const getHtml = async (idPage: string) => {
   if (idPage === '1') {
-    const component = await renderPageOne() as unknown as Node
+    const component = await renderPageOne({
+      addStateViewers,
+      glEntitiesFromPaste,
+      glViewerForPaste,
+      ulContainer,
+      wrapperPageOne
+    }) as unknown as Node
     return component
   }
   if (idPage === '2') {
-    return renderPageTwo()
+    return renderPageTwo({
+      changeSelectedToggleiewer,
+      deleteView,
+      glIcons,
+      glViewerForPaste,
+      modalWrapepr,
+      pasteViewers,
+      changeOrderViewerInEntities
+    })
   }
   return ''
 }
