@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "My webpack project",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack --watch",
     "build:dev": "webpack serve",
     "build:prod": "webpack",
     "clear:win": "rd /s /q extensionsNeolant",
-    "clear:mac": "rm -rf extensionsNeolant",
-    "watch": "webpack --watch"
+    "clear:mac": "rm -rf extensionsNeolant"
   },
   "keywords": [],
   "author": "",

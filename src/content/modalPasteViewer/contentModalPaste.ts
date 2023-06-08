@@ -1,20 +1,16 @@
 import * as classNames from 'classnames';
-import { DropDown } from '../../componets/DropDown';
-import { SwitchWithText } from '../../componets/SwitchWithText';
+import IconClose from '../../assets/icon/IconClose.svg';
+import IconPaste from '../../assets/icon/IconPaste.svg';
+import IconPlus from '../../assets/icon/IconPlus.svg';
+import renderPageOne from '../../screens/OneScreenCopyModal/OneScreenCopyModal';
+import renderPageTwo from '../../screens/TwoScreenCopyModal/TwoScreenCopyModal';
 import { IconService } from '../../services/Icon.service';
-import { MenuLeftNavbar, SwitchRenderListType, TypePasteViewers } from '../../type/components.dto';
+import { MenuLeftNavbar, TypePasteViewers } from '../../type/components.dto';
 import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
 import { IconType } from '../../type/icon.dto';
 import { createElementNode, useState } from '../../utils/components';
-import styles from './contentModalPaste.scss';
-import JSAlert from 'js-alert'
 import { EntitiesService } from './../../services/Entities.service';
-import IconClose from '../../assets/icon/IconClose.svg'
-import IconPlus from '../../assets/icon/IconPlus.svg'
-import IconPaste from '../../assets/icon/IconPaste.svg'
-import { ManagerVieversService } from '../../services/ManagerVievers.service';
-import renderPageOne from '../../screens/OneScreenCopyModal/OneScreenCopyModal';
-import renderPageTwo from '../../screens/TwoScreenCopyModal/TwoScreenCopyModal';
+import styles from './contentModalPaste.scss';
 
 
 const documentBody = document.body
@@ -40,7 +36,6 @@ const deleteView = (id: string) => {
 const glEntitiesFromPaste = new useState<EntitiesType[]>([], () => {
   insertContent()
   renderShowLoading()
-  console.log("🚀 ~ file: contentModalPaste.ts:41 ~ glEntitiesFromPaste ~ glEntitiesFromPaste:", glEntitiesFromPaste.value)
 })
 const glCurrentRightPage = new useState<string>('1', () => { })
 const glViewerForPaste = new useState<ViewerType[]>([], () => {
@@ -76,7 +71,6 @@ const fetchIcons = async () => {
     const response = await IconService.getIcons()
     glIcons.update(response)
   } catch (error) {
-    console.log("🚀 ~ file: contentModalPaste.ts:30 ~ fetchIcons ~ error:", error)
   }
 }
 fetchIcons()
@@ -264,6 +258,7 @@ const pasteViewers = async ({
       }
       const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
 
+      // console.log("🚀 ~ file: contentModalPaste.ts:281 ~ newViwer ~ entity:", entity)
       const newViwer = (async () => {
         if (isHaveViewer) {
           const dataCreate = {
@@ -273,7 +268,8 @@ const pasteViewers = async ({
           }
           const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
           newViewers.push(dataCreate)
-          console.log("🚀 response add change viewer id ", response)
+          console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
+          // console.log("🚀 response add change viewer id ", response)
           return dataCreate
         } else {
           const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
@@ -281,7 +277,8 @@ const pasteViewers = async ({
             ...dataPost,
             Id: response.Id
           })
-          console.log("🚀 response add new viewer id ", response)
+          console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
+          // console.log("🚀 response add new viewer id ", response)
           return {
             ...dataPost,
             Id: response.Id

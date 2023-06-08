@@ -45,7 +45,7 @@ const renderPageOne = async ({ glEntitiesFromPaste, glViewerForPaste, addStateVi
         li.append(addButton)
 
         const deleteButton = createElementNode("button", [styles.add_btn]);
-        deleteButton.innerText = 'Добавить'
+        deleteButton.innerText = 'Запомнить вид'
         const isHave = !!~glViewerForPaste.value.findIndex(_ => _.Caption === viewer.Caption)
 
         deleteButton.style.background = isHave ? '#d3d3d3' : '#4CAF50'

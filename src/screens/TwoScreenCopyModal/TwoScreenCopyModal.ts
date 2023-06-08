@@ -36,7 +36,7 @@ const renderPageTwo = async ({
         },
         {
             id: '4',
-            text: 'Установить иконку',
+            text: 'Заменить иконку для новых классов',
         },
         {
             id: '5',
@@ -74,7 +74,7 @@ const renderPageTwo = async ({
                 changeSelectedToggleiewer(el.Id)
             }
             const deleteButton = createElementNode('button', [styles.deleteViewer])
-            deleteButton.innerText = 'd'
+            deleteButton.innerText = 'Удалить из памяти'
             deleteButton.onclick = () => {
                 deleteView(el.Id)
             }
@@ -222,7 +222,7 @@ const renderPageTwo = async ({
         modalWrapepr.classList.remove(styles.modalWrapper__active)
         const alert = new JSAlert("Страница будет перезагружена", "Новые виды были вставлены");
         alert.show();
-        window.location.reload()
+        // window.location.reload()
     }
     wrapperPageTwo.append(button)
 
