@@ -13,7 +13,7 @@ const selectPage = new useState<number>(1, () => {
 const showModalPasteInterface = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
         const currentTabId = tabs[0].id;
-        const allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil']
+        const allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg','pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil']
 
  
         const url = new URL(tabs[0].url)

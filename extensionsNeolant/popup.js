@@ -10748,7 +10748,7 @@ var showModalPasteInterface = function () {
                 switch (_a.label) {
                     case 0:
                         currentTabId = tabs[0].id;
-                        allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil'];
+                        allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil'];
                         url = new URL(tabs[0].url);
                         if (!allowBaseUrl.some(function (_) { return tabs[0].url.includes(_); }))
                             return [2 /*return*/, new RenderWarningTextInPopup('Расширение открыто вне портала').render()];
