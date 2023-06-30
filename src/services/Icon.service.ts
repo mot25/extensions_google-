@@ -1,5 +1,5 @@
-import { api } from "../config/Api";
-import { IconType } from "../type/icon.dto";
+import { api } from '../config/Api';
+import { IconType } from '../type/icon.dto';
 
 export class IconService {
     static async getIcons(): Promise<IconType[]> {

@@ -1,10 +1,11 @@
-import './popup.scss'
+import './popup.scss';
 
-import { gsap } from "gsap";
-import { createElementNode, useState } from "../utils/components";
+import { gsap } from 'gsap';
+
 import { ButtonInPopupAnim } from '../componets/ButtonInPopupAnim';
-import { api } from '../config/Api';
 import { SwagerInData } from '../componets/SwagerInData';
+import { api } from '../config/Api';
+import { createElementNode, useState } from '../utils/components';
 
 type PageNavigatorType = Record<number, () => HTMLElement>
 const selectPage = new useState<number>(1, () => {

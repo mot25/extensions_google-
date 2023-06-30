@@ -1,7 +1,8 @@
-import * as classNames from "classnames";
-import { createElementNode, useState } from "../../utils/components";
-import styles from './DropDown.module.scss'
-import { OptionsType } from "../../type/components.dto";
+import * as classNames from 'classnames';
+
+import { OptionsType } from '../../type/components.dto';
+import { createElementNode, useState } from '../../utils/components';
+import styles from './DropDown.module.scss';
 
 type Props = {
     list: OptionsType[]

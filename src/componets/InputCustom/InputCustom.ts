@@ -1,5 +1,6 @@
-import { createElementNode } from "../../utils/components"
-import styles from './InputCustom.module.scss'
+import { createElementNode } from '../../utils/components';
+import styles from './InputCustom.module.scss';
+
 type Props = {
     placeholder?: string
     value: string

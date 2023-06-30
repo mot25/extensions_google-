@@ -1,11 +1,13 @@
-import { DropDown } from "../../componets/DropDown";
-import { SwitchWithText } from "../../componets/SwitchWithText";
-import { SwitchRenderListType, TypePasteViewers } from "../../type/components.dto";
-import { RequestForPasteViewerType, ViewerType } from "../../type/entities.dto";
-import { IconType } from "../../type/icon.dto";
-import { useState, createElementNode } from "../../utils/components";
-import styles from './TwoScreenCopyModal.module.scss'
 import JSAlert from 'js-alert';
+
+import { DropDown } from '../../componets/DropDown';
+import { SwitchWithText } from '../../componets/SwitchWithText';
+import { SwitchRenderListType, TypePasteViewers } from '../../type/components.dto';
+import { RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
+import { IconType } from '../../type/icon.dto';
+import { createElementNode, useState } from '../../utils/components';
+import styles from './TwoScreenCopyModal.module.scss';
+
 type Props = {
     deleteView: (id: string) => void
     changeSelectedToggleiewer: (id: string) => void

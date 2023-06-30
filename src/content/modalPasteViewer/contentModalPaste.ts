@@ -1,4 +1,5 @@
 import * as classNames from 'classnames';
+
 import IconClose from '../../assets/icon/IconClose.svg';
 import IconPaste from '../../assets/icon/IconPaste.svg';
 import IconPlus from '../../assets/icon/IconPlus.svg';

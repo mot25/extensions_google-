@@ -1,7 +1,7 @@
-import { createElementNode, useState } from '../../utils/components'
-import { InputCustom } from '../InputCustom'
-import { SimpleButton } from '../SimpleButton'
-import styles from './SwagerInData.module.scss'
+import { createElementNode, useState } from '../../utils/components';
+import { InputCustom } from '../InputCustom';
+import { SimpleButton } from '../SimpleButton';
+import styles from './SwagerInData.module.scss';
 
 const SwagerInData = () => {
     const $wrapper = createElementNode('div', [styles.wrapper])

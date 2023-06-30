@@ -1,8 +1,9 @@
-import { ManagerVieversService } from "../../services/ManagerVievers.service";
-import { EntitiesType, ViewerType } from "../../type/entities.dto";
-import { createElementNode, useState } from "../../utils/components";
-import styles from './OneScreenCopyModal.module.scss'
 import JSAlert from 'js-alert';
+
+import { ManagerVieversService } from '../../services/ManagerVievers.service';
+import { EntitiesType, ViewerType } from '../../type/entities.dto';
+import { createElementNode, useState } from '../../utils/components';
+import styles from './OneScreenCopyModal.module.scss';
 
 type Props = {
     glEntitiesFromPaste: useState<EntitiesType[]>
