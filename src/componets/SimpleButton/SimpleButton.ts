@@ -1,5 +1,6 @@
-import { createElementNode } from '../../utils/components'
-import styles from './SimpleButton.module.scss'
+import { createElementNode } from '../../utils/components';
+import styles from './SimpleButton.module.scss';
+
 type Props = {
     onClick: VoidFunction
     text: string

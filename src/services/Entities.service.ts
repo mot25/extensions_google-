@@ -1,7 +1,6 @@
-import axios from "axios"
-import { EntitiesType, RequestForPasteViewerType } from "../type/entities.dto"
-import { api } from "../config/Api"
-import { LRUCache } from "lru-cache";
+import { api } from '../config/Api';
+import { EntitiesType, RequestForPasteViewerType } from '../type/entities.dto';
+
 export class EntitiesService {
     static async getEntities(baseUrl: string
         ): Promise<EntitiesType[]> {

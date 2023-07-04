@@ -1,4 +1,4 @@
-import { RequestForPasteViewerType, ViewerType } from "./entities.dto"
+import { RequestForPasteViewerType, ViewerType } from './entities.dto';
 
 export type MenuLeftNavbar = {
     title: string
