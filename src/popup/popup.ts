@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import { createElementNode, useState } from "../utils/components";
 import { ButtonInPopupAnim } from '../componets/ButtonInPopupAnim';
 import { api } from '../config/Api';
-import { SwagerInData } from '../componets/SwagerInData';
 
 type PageNavigatorType = Record<number, () => HTMLElement>
 const selectPage = new useState<number>(1, () => {
@@ -114,8 +113,7 @@ const renderTwoPage = () => {
 }
 const renderThreePage = () => {
     const wrapper = createElementNode('div')
-    const content = SwagerInData()
-    wrapper.appendChild(content)
+
 
     return wrapper
 }
