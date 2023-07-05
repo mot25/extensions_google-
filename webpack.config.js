@@ -103,7 +103,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'popup.html',
       template: './src/popup/popup.html',
-      chunks: ['popup', 'popupVisual'],
+      chunks: ['popup'],
       path: path.resolve(__dirname, 'extensionsNeolant'),
     }),
     new MiniCssExtractPlugin({

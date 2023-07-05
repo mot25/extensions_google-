@@ -723,10 +723,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/ManagerVievers.service */ "./src/services/ManagerVievers.service.ts");
-/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/components */ "./src/utils/components.ts");
-/* harmony import */ var _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OneScreenCopyModal.module.scss */ "./src/screens/OneScreenCopyModal/OneScreenCopyModal.module.scss");
-/* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js-alert */ "./node_modules/js-alert/src/index.js");
+/* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-alert */ "./node_modules/js-alert/src/index.js");
+/* harmony import */ var _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/ManagerVievers.service */ "./src/services/ManagerVievers.service.ts");
+/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/components */ "./src/utils/components.ts");
+/* harmony import */ var _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./OneScreenCopyModal.module.scss */ "./src/screens/OneScreenCopyModal/OneScreenCopyModal.module.scss");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -785,16 +785,16 @@ var renderPageOne = function (_a) {
         var _b;
         return __generator(this, function (_c) {
             addItem = function (viewer, idEntities, index) {
-                var li = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)("li", [_OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].item]);
-                var nameNode = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)("span", [_OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name]);
+                var li = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)("li", [_OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].item]);
+                var nameNode = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)("span", [_OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].name]);
                 nameNode.innerText = viewer.Caption;
                 li.append(nameNode);
-                var addButton = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)("button", [_OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].delete_btn]);
+                var addButton = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)("button", [_OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].delete_btn]);
                 addButton.innerText = 'Удалить';
                 addButton.onclick = function (e) {
-                    var alert = new js_alert__WEBPACK_IMPORTED_MODULE_3__["default"]("\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C ".concat(viewer.Caption), "Выберите опции для удаления");
+                    var alert = new js_alert__WEBPACK_IMPORTED_MODULE_0__["default"]("\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C ".concat(viewer.Caption), "Выберите опции для удаления");
                     alert.addButton("Удалить в текущем классе").then(function () {
-                        _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_0__.ManagerVieversService.deleteViewer(idEntities, viewer.Id);
+                        _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_1__.ManagerVieversService.deleteViewer(idEntities, viewer.Id);
                         // @ts-ignore
                         e.target.style.backgroundColor = 'rgb(211, 211, 211)';
                     });
@@ -802,7 +802,7 @@ var renderPageOne = function (_a) {
                         glEntitiesFromPaste.value.forEach(function (entit) {
                             var _a;
                             var idViewerDelete = (_a = entit === null || entit === void 0 ? void 0 : entit.Viewers) === null || _a === void 0 ? void 0 : _a.find(function (V) { return (V === null || V === void 0 ? void 0 : V.Caption) === (viewer === null || viewer === void 0 ? void 0 : viewer.Caption); });
-                            (idViewerDelete === null || idViewerDelete === void 0 ? void 0 : idViewerDelete.Id) !== undefined && _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_0__.ManagerVieversService.deleteViewer(entit.Id, idViewerDelete === null || idViewerDelete === void 0 ? void 0 : idViewerDelete.Id);
+                            (idViewerDelete === null || idViewerDelete === void 0 ? void 0 : idViewerDelete.Id) !== undefined && _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_1__.ManagerVieversService.deleteViewer(entit.Id, idViewerDelete === null || idViewerDelete === void 0 ? void 0 : idViewerDelete.Id);
                         });
                         // @ts-ignore
                         e.target.style.backgroundColor = 'rgb(211, 211, 211)';
@@ -810,7 +810,7 @@ var renderPageOne = function (_a) {
                     alert.show();
                 };
                 li.append(addButton);
-                var deleteButton = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)("button", [_OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].add_btn]);
+                var deleteButton = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)("button", [_OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].add_btn]);
                 deleteButton.innerText = 'Запомнить вид';
                 var isHave = !!~glViewerForPaste.value.findIndex(function (_) { return _.Caption === viewer.Caption; });
                 deleteButton.style.background = isHave ? '#d3d3d3' : '#4CAF50';
@@ -848,11 +848,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _componets_DropDown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../componets/DropDown */ "./src/componets/DropDown/index.ts");
-/* harmony import */ var _componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../componets/SwitchWithText */ "./src/componets/SwitchWithText/index.ts");
-/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/components */ "./src/utils/components.ts");
-/* harmony import */ var _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TwoScreenCopyModal.module.scss */ "./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.module.scss");
-/* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! js-alert */ "./node_modules/js-alert/src/index.js");
+/* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-alert */ "./node_modules/js-alert/src/index.js");
+/* harmony import */ var _componets_DropDown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../componets/DropDown */ "./src/componets/DropDown/index.ts");
+/* harmony import */ var _componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../componets/SwitchWithText */ "./src/componets/SwitchWithText/index.ts");
+/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/components */ "./src/utils/components.ts");
+/* harmony import */ var _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TwoScreenCopyModal.module.scss */ "./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.module.scss");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -900,21 +900,21 @@ var renderPageTwo = function (_a) {
         function renderDropDown() {
             var _a;
             wrapperDropDownIcon.innerHTML = '';
-            wrapperDropDownIcon.append((0,_componets_DropDown__WEBPACK_IMPORTED_MODULE_0__.DropDown)({
+            wrapperDropDownIcon.append((0,_componets_DropDown__WEBPACK_IMPORTED_MODULE_1__.DropDown)({
                 title: 'Выберите иконку',
                 list: glIcons.value.map(function (icon) { return ({ label: icon.Name, value: icon.Id }); }),
                 onChange: function (idIcon) { return glValueIcons.update(idIcon); },
             }));
-            var wrapperTitleDropDown = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].wrapperSelectTitleIcon]);
+            var wrapperTitleDropDown = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperSelectTitleIcon]);
             var title = (_a = glIcons.value.find(function (ic) { return ic.Id === glValueIcons.value; })) === null || _a === void 0 ? void 0 : _a.Name;
             wrapperTitleDropDown.innerHTML = title ? "\n      <span>\u0412\u044B \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u0438\u043A\u043E\u043D\u043A\u0443:</span> ".concat(title, "\n      ") : '';
             wrapperDropDownIcon.append(wrapperTitleDropDown);
         }
         function renderSettinWithView() {
             wrapperSettinWithView.innerHTML = '';
-            var rowSwitch = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].rowSwitchSetting]);
+            var rowSwitch = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].rowSwitchSetting]);
             settingForPaste.value.forEach(function (switchEl) {
-                var listSwitchs = (0,_componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_1__.SwitchWithText)({
+                var listSwitchs = (0,_componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_2__.SwitchWithText)({
                     onChange: function (check) {
                         changeValueSettingForPaste(switchEl.id, check);
                     },
@@ -928,7 +928,7 @@ var renderPageTwo = function (_a) {
         }
         function renderInput() {
             inputSettingUrlWrapper.innerHTML = '';
-            var inputSettingUrl = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('input', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].inputSettingUrl]);
+            var inputSettingUrl = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('input', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].inputSettingUrl]);
             inputSettingUrl.setAttribute('placeholder', 'URL контента');
             inputSettingUrl.setAttribute('type', 'text');
             inputSettingUrl.setAttribute('value', urlValue.value);
@@ -941,7 +941,7 @@ var renderPageTwo = function (_a) {
         }
         var configPasteEntities, changeValueConfigPaste, wrapperPageTwo, wrapperViewersForPaste, renderStateViewer, renderConfigPaste, glValueIcons, wrapperDropDownIcon, settingForPaste, changeValueSettingForPaste, wrapperSettinWithView, urlValue, inputSettingUrlWrapper, button;
         return __generator(this, function (_b) {
-            configPasteEntities = new _utils_components__WEBPACK_IMPORTED_MODULE_2__.useState([
+            configPasteEntities = new _utils_components__WEBPACK_IMPORTED_MODULE_3__.useState([
                 {
                     id: '2',
                     text: 'Коппировать во все вложенные',
@@ -966,13 +966,13 @@ var renderPageTwo = function (_a) {
                     return _;
                 }));
             };
-            wrapperPageTwo = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].wrapperPageTwo]);
-            wrapperViewersForPaste = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].wrapperViewersForPaste]);
+            wrapperPageTwo = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperPageTwo]);
+            wrapperViewersForPaste = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperViewersForPaste]);
             renderStateViewer = function () {
-                var ul = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('ul', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].viewer_types]);
+                var ul = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('ul', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].viewer_types]);
                 glViewerForPaste.value.forEach(function (el) {
                     var li = document.createElement("li");
-                    var nameP = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('p', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].name]);
+                    var nameP = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('p', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].name]);
                     nameP.textContent = el.Caption;
                     var checkPaste = document.createElement('input');
                     checkPaste.setAttribute('type', 'checkbox');
@@ -985,12 +985,12 @@ var renderPageTwo = function (_a) {
                     checkPaste.onclick = function () {
                         changeSelectedToggleiewer(el.Id);
                     };
-                    var deleteButton = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('button', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].deleteViewer]);
+                    var deleteButton = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('button', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].deleteViewer]);
                     deleteButton.innerText = 'Удалить из памяти';
                     deleteButton.onclick = function () {
                         deleteView(el.Id);
                     };
-                    var orderInput = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('input', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].orderInput]);
+                    var orderInput = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('input', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].orderInput]);
                     orderInput.setAttribute('type', 'number');
                     orderInput.setAttribute('value', el.order.toString());
                     orderInput.setAttribute('min', "1");
@@ -1009,11 +1009,11 @@ var renderPageTwo = function (_a) {
             };
             wrapperViewersForPaste.append(renderStateViewer());
             renderConfigPaste = function () {
-                var wrapperList = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].wrapperListConfig]);
+                var wrapperList = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperListConfig]);
                 wrapperList.innerHTML = '';
                 configPasteEntities.value.forEach(function (switchEl) {
-                    var rowSwitch = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].rowSwitch]);
-                    var listSwitchs = (0,_componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_1__.SwitchWithText)({
+                    var rowSwitch = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].rowSwitch]);
+                    var listSwitchs = (0,_componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_2__.SwitchWithText)({
                         onChange: function (check) {
                             changeValueConfigPaste(switchEl.id, check);
                         },
@@ -1027,12 +1027,12 @@ var renderPageTwo = function (_a) {
                 wrapperViewersForPaste.append(wrapperList);
             };
             renderConfigPaste();
-            glValueIcons = new _utils_components__WEBPACK_IMPORTED_MODULE_2__.useState('', function () {
+            glValueIcons = new _utils_components__WEBPACK_IMPORTED_MODULE_3__.useState('', function () {
                 renderDropDown();
             });
-            wrapperDropDownIcon = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].wrapperDropDownIcon]);
+            wrapperDropDownIcon = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperDropDownIcon]);
             renderDropDown();
-            settingForPaste = new _utils_components__WEBPACK_IMPORTED_MODULE_2__.useState([
+            settingForPaste = new _utils_components__WEBPACK_IMPORTED_MODULE_3__.useState([
                 {
                     id: 'SendParams',
                     text: 'Передавать данные внешнему сервису',
@@ -1061,18 +1061,18 @@ var renderPageTwo = function (_a) {
                     return _;
                 }));
             };
-            wrapperSettinWithView = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].wrapperSettinWithView]);
+            wrapperSettinWithView = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperSettinWithView]);
             renderSettinWithView();
-            urlValue = new _utils_components__WEBPACK_IMPORTED_MODULE_2__.useState('https://', function () {
+            urlValue = new _utils_components__WEBPACK_IMPORTED_MODULE_3__.useState('https://', function () {
                 renderInput();
             });
-            inputSettingUrlWrapper = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].inputSettingUrlWrapper]);
+            inputSettingUrlWrapper = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].inputSettingUrlWrapper]);
             renderInput();
             wrapperSettinWithView.append(inputSettingUrlWrapper);
             wrapperViewersForPaste.append(wrapperDropDownIcon);
             wrapperViewersForPaste.append(wrapperSettinWithView);
             wrapperPageTwo.appendChild(wrapperViewersForPaste);
-            button = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('button', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].reload]);
+            button = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('button', [_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].reload]);
             button.innerText = 'Коппировать';
             button.onclick = function () { return __awaiter(void 0, void 0, void 0, function () {
                 var alert;
@@ -1087,8 +1087,8 @@ var renderPageTwo = function (_a) {
                             })];
                         case 1:
                             _a.sent();
-                            modalWrapepr.classList.remove(_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].modalWrapper__active);
-                            alert = new js_alert__WEBPACK_IMPORTED_MODULE_4__["default"]("Страница будет перезагружена", "Новые виды были вставлены");
+                            modalWrapepr.classList.remove(_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].modalWrapper__active);
+                            alert = new js_alert__WEBPACK_IMPORTED_MODULE_0__["default"]("Страница будет перезагружена", "Новые виды были вставлены");
                             alert.show();
                             return [2 /*return*/];
                     }

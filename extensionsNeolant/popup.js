@@ -10691,10 +10691,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _popup_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./popup.scss */ "./src/popup/popup.scss");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/components */ "./src/utils/components.ts");
-/* harmony import */ var _componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../componets/ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/index.ts");
+/* harmony import */ var _componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../componets/ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/index.ts");
+/* harmony import */ var _componets_SwagerInData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../componets/SwagerInData */ "./src/componets/SwagerInData/index.ts");
 /* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../config/Api */ "./src/config/Api/index.ts");
-/* harmony import */ var _componets_SwagerInData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../componets/SwagerInData */ "./src/componets/SwagerInData/index.ts");
+/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/components */ "./src/utils/components.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -10737,7 +10737,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-var selectPage = new _utils_components__WEBPACK_IMPORTED_MODULE_1__.useState(1, function () {
+var selectPage = new _utils_components__WEBPACK_IMPORTED_MODULE_4__.useState(1, function () {
     renderBlock();
 });
 var showModalPasteInterface = function () {
@@ -10848,8 +10848,8 @@ menuElement2.addEventListener('click', function () { return move('2', '150px', '
 menuElement3.addEventListener('click', function () { return move('3', '250px', '#c5e1a5'); });
 menuElemen4.addEventListener('click', function () { return move('4', '350px', '#ce93d8'); });
 var renderOnePage = function () {
-    var wrapper = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)('div');
-    var button = (0,_componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_2__.ButtonInPopupAnim)({
+    var wrapper = (0,_utils_components__WEBPACK_IMPORTED_MODULE_4__.createElementNode)('div');
+    var button = (0,_componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__.ButtonInPopupAnim)({
         text: 'Копировать/Вставить',
         onClick: showModalPasteInterface
     });
@@ -10857,8 +10857,8 @@ var renderOnePage = function () {
     return wrapper;
 };
 var renderTwoPage = function () {
-    var wrapper = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)('div');
-    var button = (0,_componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_2__.ButtonInPopupAnim)({
+    var wrapper = (0,_utils_components__WEBPACK_IMPORTED_MODULE_4__.createElementNode)('div');
+    var button = (0,_componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__.ButtonInPopupAnim)({
         text: 'Разделить по группам',
         onClick: divideByGroups
     });
@@ -10866,8 +10866,8 @@ var renderTwoPage = function () {
     return wrapper;
 };
 var renderThreePage = function () {
-    var wrapper = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)('div');
-    var content = (0,_componets_SwagerInData__WEBPACK_IMPORTED_MODULE_4__.SwagerInData)();
+    var wrapper = (0,_utils_components__WEBPACK_IMPORTED_MODULE_4__.createElementNode)('div');
+    var content = (0,_componets_SwagerInData__WEBPACK_IMPORTED_MODULE_2__.SwagerInData)();
     wrapper.appendChild(content);
     return wrapper;
 };
@@ -10889,8 +10889,8 @@ var RenderWarningTextInPopup = /** @class */ (function () {
         this.warningText = message;
     }
     RenderWarningTextInPopup.prototype.render = function () {
-        var wrapperWarnign = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)('div', ['wrapperWarnign']);
-        var warningText = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)('span', ['warningText']);
+        var wrapperWarnign = (0,_utils_components__WEBPACK_IMPORTED_MODULE_4__.createElementNode)('div', ['wrapperWarnign']);
+        var warningText = (0,_utils_components__WEBPACK_IMPORTED_MODULE_4__.createElementNode)('span', ['warningText']);
         warningText.innerText = this.warningText;
         wrapperWarnign.append(warningText);
         this.body.appendChild(wrapperWarnign);
