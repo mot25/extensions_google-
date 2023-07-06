@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import styles from './App.module.scss'
 import { createElementNode } from '../../../utils/components'
 import { api } from '../../../config/Api'
+import gsap from 'gsap'
 type Props = {}
 type PageNavigatorType = Record<number, () => HTMLElement>
 

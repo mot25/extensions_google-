@@ -1,0 +1,103 @@
+import React, { useState } from 'react';
+
+import { OptionsType } from '../../type/components.dto';
+import styles from './DropDown.module.scss';
+import classNames from 'classnames';
+
+type Props = {
+    list: OptionsType[]
+    onChange: (id: string) => void
+    value?: string
+    title: string
+}
+
+
+
+const DropDown = ({
+    onChange,
+    list,
+    value,
+    title
+}: Props) => {
+
+    // const valueState = new useState<string>(value, () => {
+    //     render()
+    // })
+    // const isShow = new useState(false, () => {
+    //     render()
+    // })
+    const [valueState, setValueState] = useState<string>(value)
+    const [isShow, setIsShow] = useState(false)
+
+
+    // const wrapper = createElementNode('div', [styles.wrapperDropDown])
+
+    // function render() {
+    //     wrapper.innerHTML = ''
+    //     const dropdown = createElementNode("div", [styles.dropdown]);
+
+    //     const button = createElementNode("button", [styles.dropbtn]);
+    //     button.onclick = () => {
+    //         setIsShow(!isShow)
+    //     }
+    //     button.textContent = title;
+
+    //     const menu = createElementNode('div')
+    //     menu.className = classNames(styles.dropdown_content, {
+    //         [styles.show]: isShow
+    //     })
+    //     list.forEach(el => {
+    //         const selected = createElementNode('div', [styles.selectItem])
+    //         const selectedText = createElementNode('p', [styles.selectItemText])
+    //         selectedText.innerText = el.label;
+    //         selected.append(selectedText)
+    //         selected.setAttribute('title', el.label)
+    //         selected.onclick = () => {
+    //             onChange(el.value)
+    //         }
+    //         menu.appendChild(selected);
+    //     })
+
+
+
+    //     dropdown.appendChild(button);
+    //     dropdown.appendChild(menu);
+
+    //     wrapper.appendChild(dropdown);
+
+
+    // }
+    // render()
+    return (
+        <div className={styles.wrapperDropDown}>
+            <div className={styles.dropdown}>
+                <button
+                    onClick={() => setIsShow(!isShow)}
+                    className={styles.dropbtn}
+                >{title}</button>
+                <div
+                    className={classNames(styles.dropdown_content, {
+                        [styles.show]: isShow
+                    })}
+                >
+                    {list.map(item => (
+                        <div
+                            onClick={() => onChange(item.value)}
+                            title={item.label}
+                            className={styles.selectItem}
+                        >
+                            <div
+                                className={styles.selectItemText}
+                            >
+                                {item.label}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div >
+    )
+
+}
+
+export default DropDown
