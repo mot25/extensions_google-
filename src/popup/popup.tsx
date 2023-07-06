@@ -1,18 +1,11 @@
 import './popup.scss';
 
-import { gsap } from 'gsap';
-
-import { ButtonInPopupAnim } from '../componets/ButtonInPopupAnim';
-import { SwagerInData } from '../componets/SwagerInData';
-import { api } from '../config/Api';
-import { createElementNode, useState } from '../utils/components';
-
-type PageNavigatorType = Record<number, () => HTMLElement>
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+type PageNavigatorType = Record<number, () => HTMLElement>
 const App = () => {
-  return <h1>Hello, World!</h1>;
+  return <h1>Hello, World545445454!</h1>;
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));

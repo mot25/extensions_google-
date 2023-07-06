@@ -37,7 +37,7 @@ module.exports = {
   },
   entry: {
     background: './src/background/background.ts',
-    // popup: './src/popup/popup.ts',
+    popup: './src/popup/popup.tsx',
     ...pathFileDinymic('./src/content/**/*.ts')
   },
   output: {
@@ -103,6 +103,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/popup/index.html',
+      chunks: ['popup'],
       path: path.resolve(__dirname, 'extensionsNeolant'),
     }),
     new MiniCssExtractPlugin({
