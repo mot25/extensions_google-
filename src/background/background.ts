@@ -14,7 +14,7 @@ chrome.runtime.onMessage.addListener(
                 const response = await EntitiesService.getEntities(request.payload)
                 try {
                     const idEntites = getParamFromUrl(sender.tab.url).id
-                    await chrome.tabs.sendMessage(sender.tab.id, {
+                    chrome.tabs.sendMessage(sender.tab.id, {
                         action: 'postEntitiesForPasteInsert',
                         payload: Array.from(new Set(entitiesForPasteInsert(response, idEntites)))
                     });

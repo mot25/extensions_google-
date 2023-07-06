@@ -1,4 +1,4 @@
-import * as classNames from "classnames";
+import classNames from "classnames";
 import { createElementNode, useState } from "../../utils/components";
 import styles from './SwitchWithText.module.scss'
 

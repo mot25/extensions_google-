@@ -1,4 +1,4 @@
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 import { OptionsType } from '../../type/components.dto';
 import { createElementNode, useState } from '../../utils/components';

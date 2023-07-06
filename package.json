@@ -4,7 +4,7 @@
   "description": "My webpack project",
   "scripts": {
     "start": "webpack --watch",
-    "build:dev": "webpack serve",
+    "build:dev": "webpack serve", 
     "build:prod": "webpack",
     "clear:win": "rd /s /q extensionsNeolant",
     "clear:mac": "rm -rf extensionsNeolant"
@@ -36,6 +36,8 @@
     "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.22.5",
     "@types/chrome": "^0.0.233",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "babel-loader": "^9.1.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",

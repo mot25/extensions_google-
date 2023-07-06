@@ -1,4 +1,4 @@
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 import IconClose from '../../assets/icon/IconClose.svg';
 import IconPaste from '../../assets/icon/IconPaste.svg';
@@ -221,7 +221,7 @@ const pasteViewers = async ({
   const isApplySettingsCustom = configPasteEntities.find(_ => _.id === '3').value
   const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
   const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
-  const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value
+  const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value || false
   const customSettings: Record<keyof Omit<RequestForPasteViewerType['Settings'], 'Url'>, boolean | number> = {
     hideInStructureOfObject: false,
     hideInViewingModel: false,
