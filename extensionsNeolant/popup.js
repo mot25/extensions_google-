@@ -1,6 +1,74 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/classnames/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/classnames/index.js ***!
+  \******************************************/
+/***/ ((module, exports) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+	var nativeCodeString = '[native code]';
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				if (arg.length) {
+					var inner = classNames.apply(null, arg);
+					if (inner) {
+						classes.push(inner);
+					}
+				}
+			} else if (argType === 'object') {
+				if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
+					classes.push(arg.toString());
+					continue;
+				}
+
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ }),
 
 /***/ "./node_modules/gsap/CSSPlugin.js":
 /*!****************************************!*\
@@ -8,6 +76,7 @@
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CSSPlugin: () => (/* binding */ CSSPlugin),
@@ -1577,6 +1646,7 @@ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(CSSPlugin);
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Animation: () => (/* binding */ Animation),
@@ -6111,6 +6181,7 @@ var Power0 = _easeMap.Power0,
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Back: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Back),
@@ -6156,9 +6227,26 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss":
+/*!***********************************************************************!*\
+  !*** ./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"buttonActions":"extentions__buttonActions__bdtsh","dark":"extentions__dark__yRmEw","reverse":"extentions__reverse__LM8XG","button":"extentions__button__Xn3hg"});
 
 /***/ }),
 
@@ -6168,6 +6256,7 @@ __webpack_require__.r(__webpack_exports__);
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 /**
  * @license React
  * react-dom.development.js
@@ -36041,6 +36130,7 @@ if (
   \******************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
 var m = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -36073,6 +36163,7 @@ if (false) {} else {
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 function checkDCE() {
@@ -36116,6 +36207,7 @@ if (false) {} else {
   \*****************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
+"use strict";
 /* module decorator */ module = __webpack_require__.nmd(module);
 /**
  * @license React
@@ -38866,6 +38958,7 @@ if (
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
@@ -38881,6 +38974,7 @@ if (false) {} else {
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 /**
  * @license React
  * scheduler.development.js
@@ -39525,11 +39619,73 @@ if (
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ "./node_modules/scheduler/cjs/scheduler.development.js");
 }
+
+
+/***/ }),
+
+/***/ "./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.tsx":
+/*!***************************************************************!*\
+  !*** ./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.tsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ButtonInPopupAnim_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ButtonInPopupAnim.module.scss */ "./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss");
+// import { createElementNode } from '../../utils/components';
+
+
+
+// const ButtonInPopupAnim = ({ text, onClick }: { text: string, onClick: VoidFunction }) => {
+//     const $button = createElementNode('div', [styles.buttonActions, 'buttonActions', styles.reverse, styles.dark])
+//     $button.innerHTML = '<div><span>' + text.trim().split('').join('</span><span>') + '</span></div>'
+//     // button actions
+//     // button actions
+//     $button.onclick = onClick
+//     return $button
+// }
+var ButtonInPopupAnim = function (_a) {
+    var onClick = _a.onClick, text = _a.text;
+    var refPlaceText = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+        if (!refPlaceText.current)
+            return;
+        refPlaceText.current.innerHTML = text.trim().split('').join('</span><span>');
+    }, [text]);
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { onClick: onClick, className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_ButtonInPopupAnim_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].buttonActions, 'buttonActions', _ButtonInPopupAnim_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].reverse, _ButtonInPopupAnim_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].dark) },
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, text)));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonInPopupAnim);
+
+
+/***/ }),
+
+/***/ "./src/componets/ButtonInPopupAnim/index.ts":
+/*!**************************************************!*\
+  !*** ./src/componets/ButtonInPopupAnim/index.ts ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ButtonInPopupAnim: () => (/* reexport safe */ _ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.tsx");
+
 
 
 /***/ }),
@@ -39540,6 +39696,7 @@ if (false) {} else {
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -39577,6 +39734,7 @@ instance.interceptors.response.use(function (response) {
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   api: () => (/* reexport safe */ _Api__WEBPACK_IMPORTED_MODULE_0__["default"])
@@ -39593,15 +39751,15 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/components */ "./src/utils/components.ts");
-/* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../config/Api */ "./src/config/Api/index.ts");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _PasteClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../PasteClass */ "./src/popup/comonents/PasteClass/index.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -39641,56 +39799,14 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-
 var App = function (props) {
     // const selectPage =  useState<number>(1, () => {
     //   renderBlock()
     // })
     var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1), selectPage = _a[0], setSelectPage = _a[1];
-    var showModalPasteInterface = function () {
-        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            return __awaiter(this, void 0, void 0, function () {
-                var currentTabId, allowBaseUrl, url;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            currentTabId = tabs[0].id;
-                            allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil'];
-                            url = new URL(tabs[0].url);
-                            if (!allowBaseUrl.some(function (_) { return tabs[0].url.includes(_); }))
-                                return [2 /*return*/, new RenderWarningTextInPopup('Расширение открыто вне портала').render()];
-                            if (url.pathname !== "/structure/entities")
-                                return [2 /*return*/, new RenderWarningTextInPopup('Не открыт раздел с классами').render()];
-                            if (!url.searchParams.get('id'))
-                                return [2 /*return*/, new RenderWarningTextInPopup('Не выбран класс').render()];
-                            _config_Api__WEBPACK_IMPORTED_MODULE_2__.api.defaults.baseURL = url.origin;
-                            return [4 /*yield*/, chrome.scripting.executeScript({
-                                    target: { tabId: currentTabId },
-                                    files: ['contentModalPaste.js']
-                                })];
-                        case 1:
-                            _a.sent();
-                            return [4 /*yield*/, chrome.scripting.insertCSS({
-                                    files: ["contentModalPaste.css"],
-                                    target: { tabId: currentTabId },
-                                })];
-                        case 2:
-                            _a.sent();
-                            return [4 /*yield*/, chrome.tabs.sendMessage(currentTabId, {
-                                    actions: 'isShowModal',
-                                    payload: true
-                                })];
-                        case 3:
-                            _a.sent();
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        });
-    };
     function move(id, position, color) {
         setSelectPage(+id);
-        var tl = gsap__WEBPACK_IMPORTED_MODULE_3__["default"].timeline();
+        var tl = gsap__WEBPACK_IMPORTED_MODULE_2__["default"].timeline();
         tl.to("#bgBubble", { duration: 0.15, bottom: "-30px", ease: "ease-out" }, 0)
             .to("#bubble1", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
             .to("#bubble2", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
@@ -39782,27 +39898,16 @@ var App = function (props) {
     //   placeContent.appendChild(objPage[selectPage.value]())
     // }
     // renderBlock()
-    var RenderWarningTextInPopup = /** @class */ (function () {
-        function RenderWarningTextInPopup(message) {
-            this.body = document.body;
-            this.warningText = message;
-        }
-        RenderWarningTextInPopup.prototype.render = function () {
-            var wrapperWarnign = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)('div', ['wrapperWarnign']);
-            var warningText = (0,_utils_components__WEBPACK_IMPORTED_MODULE_1__.createElementNode)('span', ['warningText']);
-            warningText.innerText = this.warningText;
-            wrapperWarnign.append(warningText);
-            this.body.appendChild(wrapperWarnign);
-            setTimeout(function () {
-                wrapperWarnign.remove();
-            }, 3000);
-        };
-        return RenderWarningTextInPopup;
-    }());
+    var objPage = {
+        '1': react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_PasteClass__WEBPACK_IMPORTED_MODULE_1__.PasteClass, null),
+        // '2': renderTwoPage,
+        // '3': renderThreePage,
+        // '4': renderOnePage,
+    };
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "navbarContainer" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "navbar" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bodyContent" }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bodyContent" }, objPage[selectPage] || react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_PasteClass__WEBPACK_IMPORTED_MODULE_1__.PasteClass, null)),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubbleWrapper" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble1", className: "bubble" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" }, "1")),
@@ -39838,11 +39943,152 @@ var App = function (props) {
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   App: () => (/* reexport safe */ _App__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App */ "./src/popup/comonents/App/App.tsx");
+
+
+
+/***/ }),
+
+/***/ "./src/popup/comonents/PasteClass/PasteClass.tsx":
+/*!*******************************************************!*\
+  !*** ./src/popup/comonents/PasteClass/PasteClass.tsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../componets/ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/index.ts");
+/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utils/components */ "./src/utils/components.ts");
+/* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../config/Api */ "./src/config/Api/index.ts");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+var RenderWarningTextInPopup = /** @class */ (function () {
+    function RenderWarningTextInPopup(message) {
+        this.body = document.body;
+        this.warningText = message;
+    }
+    RenderWarningTextInPopup.prototype.render = function () {
+        var wrapperWarnign = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', ['wrapperWarnign']);
+        var warningText = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('span', ['warningText']);
+        warningText.innerText = this.warningText;
+        wrapperWarnign.append(warningText);
+        this.body.appendChild(wrapperWarnign);
+        setTimeout(function () {
+            wrapperWarnign.remove();
+        }, 3000);
+    };
+    return RenderWarningTextInPopup;
+}());
+var PasteClass = function (props) {
+    var showModalPasteInterface = function () {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            return __awaiter(this, void 0, void 0, function () {
+                var currentTabId, allowBaseUrl, url;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            currentTabId = tabs[0].id;
+                            allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil'];
+                            url = new URL(tabs[0].url);
+                            if (!allowBaseUrl.some(function (_) { return tabs[0].url.includes(_); }))
+                                return [2 /*return*/, new RenderWarningTextInPopup('Расширение открыто вне портала').render()];
+                            if (url.pathname !== "/structure/entities")
+                                return [2 /*return*/, new RenderWarningTextInPopup('Не открыт раздел с классами').render()];
+                            if (!url.searchParams.get('id'))
+                                return [2 /*return*/, new RenderWarningTextInPopup('Не выбран класс').render()];
+                            _config_Api__WEBPACK_IMPORTED_MODULE_3__.api.defaults.baseURL = url.origin;
+                            return [4 /*yield*/, chrome.scripting.executeScript({
+                                    target: { tabId: currentTabId },
+                                    files: ['contentModalPaste.js']
+                                })];
+                        case 1:
+                            _a.sent();
+                            return [4 /*yield*/, chrome.scripting.insertCSS({
+                                    files: ["contentModalPaste.css"],
+                                    target: { tabId: currentTabId },
+                                })];
+                        case 2:
+                            _a.sent();
+                            return [4 /*yield*/, chrome.tabs.sendMessage(currentTabId, {
+                                    actions: 'isShowModal',
+                                    payload: true
+                                })];
+                        case 3:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        });
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__.ButtonInPopupAnim, { onClick: showModalPasteInterface, text: '\u041A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C/\u0412\u0441\u0442\u0430\u0432\u0438\u0442\u044C' })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PasteClass);
+
+
+/***/ }),
+
+/***/ "./src/popup/comonents/PasteClass/index.ts":
+/*!*************************************************!*\
+  !*** ./src/popup/comonents/PasteClass/index.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   PasteClass: () => (/* reexport safe */ _PasteClass__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _PasteClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasteClass */ "./src/popup/comonents/PasteClass/PasteClass.tsx");
 
 
 
@@ -39854,6 +40100,7 @@ __webpack_require__.r(__webpack_exports__);
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createElementNode: () => (/* binding */ createElementNode)
@@ -39892,6 +40139,7 @@ var createElementNode = function (tag, classes) {
   \*****************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -39969,6 +40217,7 @@ _utils_js__WEBPACK_IMPORTED_MODULE_2__["default"].forEach(knownAdapters, (fn, va
   \************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -40245,6 +40494,7 @@ const isXHRAdapterSupported = typeof XMLHttpRequest !== 'undefined';
   \*****************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -40361,6 +40611,7 @@ axios.default = axios;
   \******************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -40497,6 +40748,7 @@ class CancelToken {
   \********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -40538,6 +40790,7 @@ _utils_js__WEBPACK_IMPORTED_MODULE_1__["default"].inherits(CanceledError, _core_
   \***************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ isCancel)
@@ -40557,6 +40810,7 @@ function isCancel(value) {
   \**********************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -40782,6 +41036,7 @@ _utils_js__WEBPACK_IMPORTED_MODULE_3__["default"].forEach(['post', 'put', 'patch
   \***************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -40897,6 +41152,7 @@ AxiosError.from = (error, code, config, request, response, customProps) => {
   \*****************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -41201,6 +41457,7 @@ _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].freezeMethods(AxiosHeaders);
   \***********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -41287,6 +41544,7 @@ class InterceptorManager {
   \******************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ buildFullPath)
@@ -41324,6 +41582,7 @@ function buildFullPath(baseURL, requestedURL) {
   \********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ dispatchRequest)
@@ -41425,6 +41684,7 @@ function dispatchRequest(config) {
   \****************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ mergeConfig)
@@ -41546,6 +41806,7 @@ function mergeConfig(config1, config2) {
   \***********************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ settle)
@@ -41588,6 +41849,7 @@ function settle(resolve, reject, response) {
   \******************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ transformData)
@@ -41633,6 +41895,7 @@ function transformData(fns, response) {
   \**************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -41820,6 +42083,7 @@ _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].forEach(['post', 'put', 'patch
   \*********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -41841,6 +42105,7 @@ __webpack_require__.r(__webpack_exports__);
   \********************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   VERSION: () => (/* binding */ VERSION)
@@ -41855,6 +42120,7 @@ const VERSION = "1.3.6";
   \****************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -41928,6 +42194,7 @@ prototype.toString = function toString(encoder) {
   \**********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -42013,6 +42280,7 @@ Object.entries(HttpStatusCode).forEach(([key, value]) => {
   \************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ bind)
@@ -42034,6 +42302,7 @@ function bind(fn, thisArg) {
   \****************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ buildURL)
@@ -42113,6 +42382,7 @@ function buildURL(url, params, options) {
   \*******************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ combineURLs)
@@ -42142,6 +42412,7 @@ function combineURLs(baseURL, relativeURL) {
   \***************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -42210,6 +42481,7 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -42317,6 +42589,7 @@ function formDataToJSON(formData) {
   \*********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ isAbsoluteURL)
@@ -42346,6 +42619,7 @@ function isAbsoluteURL(url) {
   \********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ isAxiosError)
@@ -42375,6 +42649,7 @@ function isAxiosError(payload) {
   \***********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -42458,6 +42733,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -42474,6 +42750,7 @@ __webpack_require__.r(__webpack_exports__);
   \********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -42544,6 +42821,7 @@ const ignoreDuplicateOf = _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].toOb
   \*********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ parseProtocol)
@@ -42564,6 +42842,7 @@ function parseProtocol(url) {
   \*******************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -42633,6 +42912,7 @@ function speedometer(samplesCount, min) {
   \**************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ spread)
@@ -42675,6 +42955,7 @@ function spread(callback) {
   \******************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -42911,6 +43192,7 @@ function toFormData(obj, formData, options) {
   \************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ toURLEncodedForm)
@@ -42946,6 +43228,7 @@ function toURLEncodedForm(data, options) {
   \*****************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -43053,6 +43336,7 @@ function assertOptions(options, schema, allowUnknown) {
   \*****************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -43070,6 +43354,7 @@ __webpack_require__.r(__webpack_exports__);
   \*********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -43087,6 +43372,7 @@ __webpack_require__.r(__webpack_exports__);
   \****************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -43106,6 +43392,7 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -43187,6 +43474,7 @@ const isStandardBrowserEnv = (() => {
   \*****************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -43992,8 +44280,9 @@ const toJSONObject = (obj) => {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!*****************************!*\
   !*** ./src/popup/popup.tsx ***!
   \*****************************/

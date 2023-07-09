@@ -38,7 +38,7 @@ module.exports = {
   entry: {
     background: './src/background/background.ts',
     popup: './src/popup/popup.tsx',
-    ...pathFileDinymic('./src/content/**/*.ts')
+    ...pathFileDinymic('./src/content/**/*.tsx')
   },
   output: {
     path: path.resolve(__dirname, 'extensionsNeolant'),

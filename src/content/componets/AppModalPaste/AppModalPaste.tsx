@@ -1,27 +1,85 @@
-// import classNames from 'classnames';
-
-// import IconClose from '../../assets/icon/IconClose.svg';
-// import IconPaste from '../../assets/icon/IconPaste.svg';
-// import IconPlus from '../../assets/icon/IconPlus.svg';
+import React, { useEffect, useRef, useState } from 'react'
+import styles from './AppModalPaste.module.scss'
+import classNames from 'classnames'
+import IconClose from '../../../assets/icon/IconClose.svg';
+import IconPlus from '../../../assets/icon/IconPlus.svg';
+import IconPaste from '../../../assets/icon/IconPaste.svg';
 // import renderPageOne from '../../screens/OneScreenCopyModal/OneScreenCopyModal';
 // import renderPageTwo from '../../screens/TwoScreenCopyModal/TwoScreenCopyModal';
 // import { IconService } from '../../services/Icon.service';
-// import { MenuLeftNavbar, TypePasteViewers } from '../../type/components.dto';
-// import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
+import { MenuLeftNavbar, TypePasteViewers } from '../../../type/components.dto';
+import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../../type/entities.dto';
 // import { IconType } from '../../type/icon.dto';
-// import { createElementNode } from '../../utils/components';
 // import { EntitiesService } from './../../services/Entities.service';
 // import styles from './contentModalPaste.scss';
+type Props = {}
+const leftMenuConfig: MenuLeftNavbar[] = [
+    {
+        id: '1',
+        label: 'Виды в текущем классе',
+        title: IconPlus
+    },
+    {
+        id: '2',
+        label: 'Коппировать',
+        title: IconPaste
+    }
+]
+const AppModalPaste = (props: Props) => {
+
+    const refModalWrapepr = useRef<HTMLDivElement>(null)
+
+    const [glEntitiesFromPaste, setGlEntitiesFromPaste] = useState<EntitiesType[]>([])
 
 
-// const documentBody = document.body
-// const clearBeforeNode = () => {
-//   const nodes = document.querySelectorAll('.exNeolant')
-//   nodes.forEach(element => {
-//     element.remove();
-//   });
-// }
-// clearBeforeNode()
+    const clearBeforeNode = () => {
+        refModalWrapepr.current.classList.toggle(styles.modalWrapper__active)
+        const nodes = document.querySelectorAll('.exNeolant')
+        nodes.forEach(element => {
+            element.remove();
+        });
+    }
+    useEffect(() => {
+        clearBeforeNode()
+    }, [])
+
+    return (
+        <div ref={refModalWrapepr} className={classNames(styles.modalWrapper, styles.modalWrapper__active)} >
+            <div className={classNames(styles.modal)}>
+                <img
+                    onClick={() => {
+                        setTimeout(clearBeforeNode, 1000)
+                    }}
+                    src={IconClose}
+                    className={styles.top}
+                />
+                <div className={styles.wrapperModal}>
+                    <div
+                        className={classNames(styles.modalLoading, {
+                            [styles.modalLoading__show]: !glEntitiesFromPaste?.length
+                        })}
+                    >
+                        {!glEntitiesFromPaste?.length ? 'Загрузка...' : null}
+                    </div>
+                    <div className={styles.wrapperLeft}>
+                        <ul className={styles.navbar__menu}>
+                            <li className={styles.navbar__item}>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+
+export default AppModalPaste
+
+
 // const deleteView = (id: string) => {
 //   chrome.storage.local.get(["viewersState"], function (result) {
 //     const allView = result.viewersState && JSON.parse(result.viewersState)
@@ -111,21 +169,6 @@
 // const modal = createElementNode('div', [styles.modal])
 // const wrapper = createElementNode('div', [styles.wrapperModal])
 
-// const loadingModal = createElementNode('div')
-// function renderShowLoading() {
-//   loadingModal.className = classNames(styles.modalLoading, {
-//     [styles.modalLoading__show]: !glEntitiesFromPaste?.value?.length
-//   })
-//   if (glEntitiesFromPaste?.value?.length) {
-//     setTimeout(() => {
-//       loadingModal.remove()
-//     }, 1000)
-//   }
-//   loadingModal.innerHTML = 'Загрузка...'
-// }
-// renderShowLoading()
-// wrapper.append(loadingModal)
-
 
 
 // const wrapperLeft = createElementNode('div', [styles.wrapperLeft])
@@ -133,21 +176,9 @@
 // const ulContainer = createElementNode('ul', [styles.list])
 // const wrapperPageOne = createElementNode('div', [styles.wrapperPageOne])
 // const wrapperRight = createElementNode('div', [styles.wrapperRight])
-// const top = createElementNode('img', [styles.top])
 
 // modalWrapepr.classList.add('exNeolant')
-// const leftMenuConfig: MenuLeftNavbar[] = [
-//   {
-//     id: '1',
-//     label: 'Виды в текущем классе',
-//     title: IconPlus
-//   },
-//   {
-//     id: '2',
-//     label: 'Коппировать',
-//     title: IconPaste
-//   }
-// ]
+
 
 // const renderLeftMenu = () => {
 //   leftMenuConfig.forEach((item, i) => {
@@ -181,14 +212,9 @@
 // wrapper.append(wrapperLeft)
 // wrapper.append(wrapperRight)
 
-// top.onclick = () => {
-//   modalWrapepr.classList.toggle(styles.modalWrapper__active)
-//   setTimeout(() => { clearBeforeNode() }, 1000)
-// }
-// top.setAttribute('src', IconClose)
 
 
-// modal.append(top)
+
 // modal.append(wrapper)
 // modalWrapepr.append(modal)
 // documentBody.append(modalWrapepr)

@@ -3,8 +3,9 @@ import styles from './App.module.scss'
 import { createElementNode } from '../../../utils/components'
 import { api } from '../../../config/Api'
 import gsap from 'gsap'
+import { PasteClass } from '../PasteClass'
 type Props = {}
-type PageNavigatorType = Record<number, () => HTMLElement>
+type PageNavigatorType = Record<number, React.JSX.Element>
 
 const App = (props: Props) => {
     // const selectPage =  useState<number>(1, () => {
@@ -15,33 +16,7 @@ const App = (props: Props) => {
 
 
 
-    const showModalPasteInterface = () => {
-        chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
-            const currentTabId = tabs[0].id;
-            const allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil']
 
-
-            const url = new URL(tabs[0].url)
-
-            if (!allowBaseUrl.some(_ => tabs[0].url.includes(_))) return new RenderWarningTextInPopup('Расширение открыто вне портала').render()
-            if (url.pathname !== "/structure/entities") return new RenderWarningTextInPopup('Не открыт раздел с классами').render()
-            if (!url.searchParams.get('id')) return new RenderWarningTextInPopup('Не выбран класс').render()
-            api.defaults.baseURL = url.origin
-
-            await chrome.scripting.executeScript({
-                target: { tabId: currentTabId },
-                files: ['contentModalPaste.js']
-            })
-            await chrome.scripting.insertCSS({
-                files: ["contentModalPaste.css"],
-                target: { tabId: currentTabId },
-            });
-            await chrome.tabs.sendMessage(currentTabId, {
-                actions: 'isShowModal',
-                payload: true
-            });
-        });
-    }
     function move(id: string, position: string, color: string) {
         setSelectPage(+id)
         const tl = gsap.timeline();
@@ -127,32 +102,21 @@ const App = (props: Props) => {
     //   placeContent.appendChild(objPage[selectPage.value]())
     // }
     // renderBlock()
-
-
-
-    class RenderWarningTextInPopup {
-        private warningText: string
-        private body = document.body
-        constructor(message: string) {
-            this.warningText = message;
-        }
-
-        render() {
-            const wrapperWarnign = createElementNode('div', ['wrapperWarnign'])
-            const warningText = createElementNode('span', ['warningText'])
-            warningText.innerText = this.warningText
-            wrapperWarnign.append(warningText)
-            this.body.appendChild(wrapperWarnign);
-            setTimeout(() => {
-                wrapperWarnign.remove()
-            }, 3000)
-        }
+    const objPage: PageNavigatorType = {
+        '1': <PasteClass />,
+        // '2': renderTwoPage,
+        // '3': renderThreePage,
+        // '4': renderOnePage,
     }
+
+
+
     return (
         <div className="wrapper">
             <div id="navbarContainer">
                 <div id="navbar">
                     <div className="bodyContent">
+                        {objPage[selectPage] || <PasteClass />}
                     </div>
                     <div id="bubbleWrapper">
                         <div id="bubble1" className="bubble"><span className="icon">1</span></div>
