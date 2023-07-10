@@ -51,11 +51,13 @@ const SwitchWithText = ({
     return (
         <div className={styles.wrapperButton}>
             <label className={styles.switch}>
-                <input onClick={() => {
-                    setValueState(!valueState)
-                    onChange(valueState)
-                }} type="checkbox"
-                    checked={valueState}
+                <input
+                    onChange={() => {
+                        setValueState(!valueState)
+                        onChange(valueState)
+                    }}
+                    type="checkbox"
+                    defaultChecked={valueState}
                 />
                 <span className={classNames(styles.slider, {
                     [styles.round]: isRounded

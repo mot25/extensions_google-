@@ -411,6 +411,54 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.module.scss":
+/*!***********************************************************************!*\
+  !*** ./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.module.scss ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"name":"LEOl7NZKac2Rdg_4PQL5","viewer_types":"zh7LeZH_DCii28KdGMsT","delete_btn":"vtih_LET3wVo9J7G7rcw","add_btn":"EcfAqNTFL8AVZQPPf8Ad","wrapperPageTwo":"tV1gpY50kQqDDwNmI6A_","wrapperViewersForPaste":"NSO5MoecOEeShrm1bfee","orderInput":"mPSZcwjM9xYdmdFJdAst"});
+
+/***/ }),
+
+/***/ "./src/componets/DropDown/DropDown.module.scss":
+/*!*****************************************************!*\
+  !*** ./src/componets/DropDown/DropDown.module.scss ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"dropbtn":"extentions__dropbtn__rCIWU","dropdown":"extentions__dropdown__WVsqX","dropdown_content":"extentions__dropdown_content__NGFn2","show":"extentions__show__TVv2G","selectItem":"extentions__selectItem__z1lVt","selectItemText":"extentions__selectItemText__fyjwf"});
+
+/***/ }),
+
+/***/ "./src/componets/SwitchWithText/SwitchWithText.module.scss":
+/*!*****************************************************************!*\
+  !*** ./src/componets/SwitchWithText/SwitchWithText.module.scss ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"wrapperButton":"extentions__wrapperButton__ksVHI","switch":"extentions__switch__rIF1O","slider":"extentions__slider__P_nG9","round":"extentions__round__gWSrN"});
+
+/***/ }),
+
 /***/ "./src/content/componets/AppModalPaste/AppModalPaste.module.scss":
 /*!***********************************************************************!*\
   !*** ./src/content/componets/AppModalPaste/AppModalPaste.module.scss ***!
@@ -33836,6 +33884,140 @@ module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' v
 
 /***/ }),
 
+/***/ "./src/componets/DropDown/DropDown.tsx":
+/*!*********************************************!*\
+  !*** ./src/componets/DropDown/DropDown.tsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DropDown.module.scss */ "./src/componets/DropDown/DropDown.module.scss");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var DropDown = function (_a) {
+    var _b;
+    var onChange = _a.onChange, list = _a.list, value = _a.value, title = _a.title;
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(value), valueState = _c[0], setValueState = _c[1];
+    var _d = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isShow = _d[0], setIsShow = _d[1];
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].wrapperDropDown },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].dropdown },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: function () { return setIsShow(!isShow); }, className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].dropbtn }, title),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].dropdown_content, (_b = {},
+                    _b[_DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].show] = isShow,
+                    _b)) }, list.map(function (item, i) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { key: i, onClick: function () { return onChange(item.value); }, title: item.label, className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].selectItem },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].selectItemText }, item.label))); })))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropDown);
+
+
+/***/ }),
+
+/***/ "./src/componets/DropDown/index.ts":
+/*!*****************************************!*\
+  !*** ./src/componets/DropDown/index.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DropDown: () => (/* reexport safe */ _DropDown__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _DropDown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DropDown */ "./src/componets/DropDown/DropDown.tsx");
+
+
+
+/***/ }),
+
+/***/ "./src/componets/SwitchWithText/SwitchWithText.tsx":
+/*!*********************************************************!*\
+  !*** ./src/componets/SwitchWithText/SwitchWithText.tsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SwitchWithText.module.scss */ "./src/componets/SwitchWithText/SwitchWithText.module.scss");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var SwitchWithText = function (_a) {
+    var _b;
+    var onChange = _a.onChange, text = _a.text, value = _a.value, isRounded = _a.isRounded;
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(!!value), valueState = _c[0], setValueState = _c[1];
+    // const wrapper = createElementNode('div', [styles.wrapperButton])
+    // function render() {
+    //     wrapper.innerHTML = ''
+    //     const label = createElementNode('label', [styles.switch])
+    //     const input = createElementNode('input') as HTMLInputElement
+    //     input.onclick = (e: any) => {
+    //         valueState.update(!valueState.value)
+    //         onChange(valueState.value)
+    //     }
+    //     input.setAttribute('type', 'checkbox')
+    //     input.checked = valueState.value
+    //     const span = createElementNode('span')
+    //     span.className = classNames(styles.slider, {
+    //         [styles.round]: isRounded
+    //     })
+    //     label.append(input)
+    //     label.append(span)
+    //     wrapper.append(label)
+    //     const labelText = createElementNode('p', [styles.labelText])
+    //     labelText.innerText = text
+    //     wrapper.append(labelText)
+    // }
+    // render()
+    // return wrapper
+    return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", { className: _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].wrapperButton },
+        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("label", { className: _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].switch },
+            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("input", { onChange: function () {
+                    setValueState(!valueState);
+                    onChange(valueState);
+                }, type: "checkbox", defaultChecked: valueState }),
+            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].slider, (_b = {},
+                    _b[_SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].round] = isRounded,
+                    _b)) })),
+        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("p", { className: _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].labelText }, text)));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SwitchWithText);
+
+
+/***/ }),
+
+/***/ "./src/componets/SwitchWithText/index.ts":
+/*!***********************************************!*\
+  !*** ./src/componets/SwitchWithText/index.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SwitchWithText: () => (/* reexport safe */ _SwitchWithText__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _SwitchWithText__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SwitchWithText */ "./src/componets/SwitchWithText/SwitchWithText.tsx");
+
+
+
+/***/ }),
+
 /***/ "./src/config/Api/Api.ts":
 /*!*******************************!*\
   !*** ./src/config/Api/Api.ts ***!
@@ -33915,6 +34097,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _screens_OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../screens/OneScreenCopyModal */ "./src/screens/OneScreenCopyModal/index.ts");
 /* harmony import */ var _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AppModalPaste.module.scss */ "./src/content/componets/AppModalPaste/AppModalPaste.module.scss");
 /* harmony import */ var _services_Icon_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../services/Icon.service */ "./src/services/Icon.service.ts");
+/* harmony import */ var _screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../screens/TwoScreenCopyModal */ "./src/screens/TwoScreenCopyModal/index.ts");
+/* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../services/Entities.service */ "./src/services/Entities.service.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -33951,6 +34146,17 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+
+
 
 
 
@@ -33961,12 +34167,12 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 var leftMenuConfig = [
     {
-        id: '1',
+        id: 1,
         label: 'Виды в текущем классе',
         title: (_assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4___default())
     },
     {
-        id: '2',
+        id: 2,
         label: 'Коппировать',
         title: (_assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3___default())
     }
@@ -34030,8 +34236,138 @@ var AppModalPaste = function (props) {
             });
         });
     };
+    var deleteView = function (id) {
+        chrome.storage.local.get(["viewersState"], function (result) {
+            var allView = result.viewersState && JSON.parse(result.viewersState);
+            var saveViewersStorage = allView.filter(function (item) { return item.Id !== id; });
+            chrome.storage.local.set({
+                viewersState: JSON.stringify(saveViewersStorage)
+            }, function () {
+                console.log("Данные сохранены");
+            });
+        });
+    };
+    var changeSelectedToggleiewer = function (id) {
+        setGlViewerForPaste(function (prev) { return prev.map(function (item) {
+            if (item.Id === id) {
+                item.isSelected = !(item === null || item === void 0 ? void 0 : item.isSelected);
+            }
+            return item;
+        }); });
+    };
+    var pasteViewers = function (_a) {
+        var glViewerForPaste = _a.glViewerForPaste, configPasteEntities = _a.configPasteEntities, glValueIcons = _a.glValueIcons, settingForPaste = _a.settingForPaste, urlValue = _a.urlValue;
+        return __awaiter(void 0, void 0, void 0, function () {
+            var isApplySettingsCustom, isApplyIconCustom, isApplyNestedEntities, isApplyReWriteIconWithEdit, customSettings;
+            return __generator(this, function (_b) {
+                isApplySettingsCustom = configPasteEntities.find(function (_) { return _.id === '3'; }).value;
+                isApplyIconCustom = configPasteEntities.find(function (_) { return _.id === '4'; }).value;
+                isApplyNestedEntities = configPasteEntities.find(function (_) { return _.id === '2'; }).value;
+                isApplyReWriteIconWithEdit = configPasteEntities.find(function (_) { return _.id === '5'; }).value || false;
+                customSettings = {
+                    hideInStructureOfObject: false,
+                    hideInViewingModel: false,
+                    SendParams: false,
+                    hideEmptyFields: false,
+                    viewMode: 0
+                };
+                settingForPaste.forEach(function (setting) {
+                    if (setting.id === 'viewMode') {
+                        customSettings[setting.id] = Number(setting === null || setting === void 0 ? void 0 : setting.value);
+                        return;
+                    }
+                    customSettings[setting.id] = !!(setting === null || setting === void 0 ? void 0 : setting.value);
+                });
+                // @ts-ignore
+                customSettings.Url = urlValue;
+                glEntitiesFromPaste.forEach(function (entity) { return __awaiter(void 0, void 0, void 0, function () {
+                    var newViewers, promisesListResponse;
+                    return __generator(this, function (_a) {
+                        if (!entity.isCurrent)
+                            if (!isApplyNestedEntities)
+                                return [2 /*return*/];
+                        newViewers = [];
+                        promisesListResponse = [];
+                        glViewerForPaste.forEach(function (viewer) { return __awaiter(void 0, void 0, void 0, function () {
+                            var settingForPost, IconForPost, dataPost, isHaveViewer, newViwer;
+                            return __generator(this, function (_a) {
+                                if (!viewer.isSelected)
+                                    return [2 /*return*/];
+                                settingForPost = (isApplySettingsCustom ? __assign(__assign({}, viewer.Settings), customSettings) : viewer.Settings);
+                                IconForPost = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon);
+                                dataPost = {
+                                    Caption: viewer.Caption,
+                                    Icon: IconForPost,
+                                    Attributes: viewer.Attributes,
+                                    Name: viewer.Name,
+                                    Settings: settingForPost
+                                };
+                                isHaveViewer = entity.Viewers.find(function (_) { return _.Caption === viewer.Caption; });
+                                newViwer = (function () { return __awaiter(void 0, void 0, void 0, function () {
+                                    var dataCreate, response, response;
+                                    return __generator(this, function (_a) {
+                                        switch (_a.label) {
+                                            case 0:
+                                                if (!isHaveViewer) return [3 /*break*/, 2];
+                                                dataCreate = __assign(__assign({}, dataPost), { Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon, Id: isHaveViewer.Id });
+                                                return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_9__.EntitiesService.changeViewerInEntities(entity.Id, dataCreate)];
+                                            case 1:
+                                                response = _a.sent();
+                                                newViewers.push(dataCreate);
+                                                console.log("\u0418\u0437\u043C\u0435\u043D\u0438\u043B\u0438 \u0432\u0438\u0434: ".concat(dataCreate.Caption, " \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 ").concat(entity.Name));
+                                                // console.log("🚀 response add change viewer id ", response)
+                                                return [2 /*return*/, dataCreate];
+                                            case 2: return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_9__.EntitiesService.pasteViewerInEntities(entity.Id, dataPost)];
+                                            case 3:
+                                                response = _a.sent();
+                                                newViewers.push(__assign(__assign({}, dataPost), { Id: response.Id }));
+                                                console.log("\u0421\u043E\u0437\u0434\u0430\u043B\u0438 \u0432\u0438\u0434: ".concat(dataPost.Caption, " \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 ").concat(entity.Name));
+                                                // console.log("🚀 response add new viewer id ", response)
+                                                return [2 /*return*/, __assign(__assign({}, dataPost), { Id: response.Id })];
+                                        }
+                                    });
+                                }); })();
+                                promisesListResponse.push(newViwer);
+                                return [2 /*return*/];
+                            });
+                        }); });
+                        Promise.all(promisesListResponse).then(function (e) { return __awaiter(void 0, void 0, void 0, function () {
+                            var currentOrder, orderHash, responseOrdert;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0:
+                                        currentOrder = __spreadArray([], entity.Viewers, true);
+                                        glViewerForPaste.forEach(function (viewer) { return __awaiter(void 0, void 0, void 0, function () {
+                                            var newViewer, order;
+                                            var _a;
+                                            return __generator(this, function (_b) {
+                                                if (!viewer.isSelected)
+                                                    return [2 /*return*/];
+                                                newViewer = e.find(function (item) { return item.Caption === viewer.Caption; });
+                                                order = ((_a = glViewerForPaste.find(function (_) { return _.Caption === newViewer.Caption; })) === null || _a === void 0 ? void 0 : _a.order) || 0;
+                                                currentOrder.splice(order - 1, 0, newViewer);
+                                                return [2 /*return*/];
+                                            });
+                                        }); });
+                                        orderHash = {};
+                                        currentOrder.forEach(function (_, ind) { return orderHash[_.Id] = ind; });
+                                        return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_9__.EntitiesService.changeOrderPosition(entity.Id, orderHash)];
+                                    case 1:
+                                        responseOrdert = _a.sent();
+                                        return [2 /*return*/];
+                                }
+                            });
+                        }); });
+                        return [2 /*return*/];
+                    });
+                }); });
+                return [2 /*return*/];
+            });
+        });
+    };
     var objRoutePage = {
-        1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_5__.OneScreenCopyModal, { addStateViewers: addStateViewers, glEntitiesFromPaste: glEntitiesFromPaste, glViewerForPaste: glViewerForPaste })
+        1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_5__.OneScreenCopyModal, { addStateViewers: addStateViewers, glEntitiesFromPaste: glEntitiesFromPaste, glViewerForPaste: glViewerForPaste }),
+        2: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_8__.TwoScreenCopyModal, { deleteView: deleteView, pasteViewers: pasteViewers, changeOrderViewerInEntities: changeOrderViewerInEntities, changeSelectedToggleiewer: changeSelectedToggleiewer, glIcons: glIcons, glViewerForPaste: glViewerForPaste })
     };
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         fetchIcons();
@@ -34068,30 +34404,6 @@ var AppModalPaste = function (props) {
             }
         });
     }, []);
-    // const getHtml = async (idPage: string) => {
-    //     if (idPage === '1') {
-    //         const component = await renderPageOne({
-    //             addStateViewers,
-    //             glEntitiesFromPaste,
-    //             glViewerForPaste,
-    //             ulContainer,
-    //             wrapperPageOne
-    //         }) as unknown as Node
-    //         return component
-    //     }
-    //     if (idPage === '2') {
-    //         return renderPageTwo({
-    //             changeSelectedToggleiewer,
-    //             deleteView,
-    //             glIcons,
-    //             glViewerForPaste,
-    //             modalWrapepr,
-    //             pasteViewers,
-    //             changeOrderViewerInEntities
-    //         })
-    //     }
-    //     return ''
-    // }
     return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { ref: refModalWrapepr, className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalWrapper, _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalWrapper__active) },
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modal) },
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { onClick: function () {
@@ -34102,8 +34414,8 @@ var AppModalPaste = function (props) {
                         _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalLoading__show] = !(glEntitiesFromPaste === null || glEntitiesFromPaste === void 0 ? void 0 : glEntitiesFromPaste.length),
                         _a)) }, !(glEntitiesFromPaste === null || glEntitiesFromPaste === void 0 ? void 0 : glEntitiesFromPaste.length) ? 'Загрузка...' : null),
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperLeft },
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__menu }, leftMenuConfig.map(function (item, i) {
-                        return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: i, onClick: function () { return setGlCurrentRightPage((i + 1)); }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__item },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__menu }, leftMenuConfig.map(function (item) {
+                        return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: item.id, onClick: function () { return setGlCurrentRightPage(item.id); }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__item },
                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__link },
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__link_img, src: item.title }),
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, item.label)));
@@ -34111,36 +34423,6 @@ var AppModalPaste = function (props) {
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperRight }, objRoutePage[glCurrentRightPage])))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppModalPaste);
-// const deleteView = (id: string) => {
-//   chrome.storage.local.get(["viewersState"], function (result) {
-//     const allView = result.viewersState && JSON.parse(result.viewersState)
-//     const saveViewersStorage = allView.filter((item: any) => item.Id !== id)
-//     chrome.storage.local.set({
-//       viewersState: JSON.stringify(saveViewersStorage)
-//     }, function () {
-//       console.log("Данные сохранены");
-//     });
-//   });
-// }
-// const glEntitiesFromPaste = new useState<EntitiesType[]>([], () => {
-//   insertContent()
-//   renderShowLoading()
-// })
-// const glCurrentRightPage = new useState<string>('1', () => { })
-// const glViewerForPaste = new useState<ViewerType[]>([], () => {
-//   insertContent()
-// })
-// const glIcons = new useState<IconType[]>([], () => {
-//   insertContent()
-// })
-// const changeSelectedToggleiewer = (id: string) => {
-//   glViewerForPaste.update(glViewerForPaste.value.map(item => {
-//     if (item.Id === id) {
-//       item.isSelected = !item?.isSelected
-//     }
-//     return item
-//   }))
-// }
 // const modalWrapepr = createElementNode('div', [styles.modalWrapper, styles.modalWrapper__active])
 // const modal = createElementNode('div', [styles.modal])
 // const wrapper = createElementNode('div', [styles.wrapperModal])
@@ -34175,92 +34457,6 @@ var AppModalPaste = function (props) {
 // modal.append(wrapper)
 // modalWrapepr.append(modal)
 // documentBody.append(modalWrapepr)
-// const pasteViewers = async ({
-//   glViewerForPaste,
-//   configPasteEntities,
-//   glValueIcons,
-//   settingForPaste,
-//   urlValue,
-// }: TypePasteViewers) => {
-//   const isApplySettingsCustom = configPasteEntities.find(_ => _.id === '3').value
-//   const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
-//   const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
-//   const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value || false
-//   const customSettings: Record<keyof Omit<RequestForPasteViewerType['Settings'], 'Url'>, boolean | number> = {
-//     hideInStructureOfObject: false,
-//     hideInViewingModel: false,
-//     SendParams: false,
-//     hideEmptyFields: false,
-//     viewMode: 0
-//   }
-//   settingForPaste.forEach(setting => {
-//     if (setting.id === 'viewMode') {
-//       customSettings[setting.id] = Number(setting?.value)
-//       return
-//     }
-//     customSettings[setting.id] = !!setting?.value
-//   })
-//   // @ts-ignore
-//   customSettings.Url = urlValue
-//   glEntitiesFromPaste.value.forEach(async entity => {
-//     if (!entity.isCurrent) if (!isApplyNestedEntities) return
-//     const newViewers: ViewerType[] = []
-//     const promisesListResponse: Promise<ViewerType>[] = [];
-//     glViewerForPaste.forEach(async viewer => {
-//       if (!viewer.isSelected) return
-//       const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...customSettings } : viewer.Settings) as RequestForPasteViewerType['Settings']
-//       const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
-//       const dataPost: RequestForPasteViewerType = {
-//         Caption: viewer.Caption,
-//         Icon: IconForPost,
-//         Attributes: viewer.Attributes,
-//         Name: viewer.Name,
-//         Settings: settingForPost
-//       }
-//       const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
-//       // console.log("🚀 ~ file: contentModalPaste.ts:281 ~ newViwer ~ entity:", entity)
-//       const newViwer = (async () => {
-//         if (isHaveViewer) {
-//           const dataCreate = {
-//             ...dataPost,
-//             Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
-//             Id: isHaveViewer.Id
-//           }
-//           const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
-//           newViewers.push(dataCreate)
-//           console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
-//           // console.log("🚀 response add change viewer id ", response)
-//           return dataCreate
-//         } else {
-//           const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
-//           newViewers.push({
-//             ...dataPost,
-//             Id: response.Id
-//           })
-//           console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
-//           // console.log("🚀 response add new viewer id ", response)
-//           return {
-//             ...dataPost,
-//             Id: response.Id
-//           }
-//         }
-//       })()
-//       promisesListResponse.push(newViwer)
-//     })
-//     Promise.all(promisesListResponse).then(async (e) => {
-//       const currentOrder = [...entity.Viewers]
-//       glViewerForPaste.forEach(async viewer => {
-//         if (!viewer.isSelected) return
-//         const newViewer = e.find(item => item.Caption === viewer.Caption)
-//         const order: number = glViewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 0
-//         currentOrder.splice(order - 1, 0, newViewer)
-//       })
-//       const orderHash: Record<string, number> = {}
-//       currentOrder.forEach((_, ind) => orderHash[_.Id] = ind)
-//       const responseOrdert = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
-//     })
-//   })
-// }
 
 
 /***/ }),
@@ -34311,7 +34507,6 @@ var __assign = (undefined && undefined.__assign) || function () {
 };
 
 
-// import { createElementNode, useState } from '../../utils/components';
 
 
 var OneScreenCopyModal = function (_a) {
@@ -34368,6 +34563,271 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   OneScreenCopyModal: () => (/* reexport safe */ _OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OneScreenCopyModal */ "./src/screens/OneScreenCopyModal/OneScreenCopyModal.tsx");
+
+
+
+/***/ }),
+
+/***/ "./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.tsx":
+/*!***************************************************************!*\
+  !*** ./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.tsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-alert */ "./node_modules/js-alert/src/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _componets_DropDown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../componets/DropDown */ "./src/componets/DropDown/index.ts");
+/* harmony import */ var _componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../componets/SwitchWithText */ "./src/componets/SwitchWithText/index.ts");
+/* harmony import */ var _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TwoScreenCopyModal.module.scss */ "./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.module.scss");
+
+
+
+
+
+var TwoScreenCopyModal = function (_a) {
+    var _b;
+    var glViewerForPaste = _a.glViewerForPaste, changeSelectedToggleiewer = _a.changeSelectedToggleiewer, deleteView = _a.deleteView, changeOrderViewerInEntities = _a.changeOrderViewerInEntities, glIcons = _a.glIcons, pasteViewers = _a.pasteViewers;
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([
+        {
+            id: '2',
+            text: 'Коппировать во все вложенные',
+        },
+        {
+            id: '3',
+            text: 'Применить настройки',
+        },
+        {
+            id: '4',
+            text: 'Заменить иконку для новых классов',
+        },
+        {
+            id: '5',
+            text: 'Перезатирать существующию икноку при изменение',
+        }
+    ]), configPasteEntities = _c[0], setConfigPasteEntities = _c[1];
+    var _d = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([
+        {
+            id: 'SendParams',
+            text: 'Передавать данные внешнему сервису',
+        },
+        {
+            id: 'hideInStructureOfObject',
+            text: 'Скрывать в структуре объектов',
+        },
+        {
+            id: 'hideInViewingModel',
+            text: 'Скрывать в модели',
+        },
+        {
+            id: 'viewMode',
+            text: 'Только для чтения',
+        },
+        {
+            id: 'hideEmptyFields',
+            text: 'Скрывать пустые поля',
+        },
+    ]), settingForPaste = _d[0], setSettingForPaste = _d[1];
+    var _e = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''), glValueIdIcon = _e[0], setGlValueIdIcon = _e[1];
+    var _f = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('https://'), urlValue = _f[0], setUrlValue = _f[1];
+    var titleIconSelect = (_b = glIcons.find(function (ic) { return ic.Id === glValueIdIcon; })) === null || _b === void 0 ? void 0 : _b.Name;
+    var changeValueSettingForPaste = function (id, value) {
+        setSettingForPaste(settingForPaste === null || settingForPaste === void 0 ? void 0 : settingForPaste.map(function (_) {
+            if (_.id === id)
+                _.value = value;
+            return _;
+        }));
+    };
+    var changeValueConfigPaste = function (id, value) {
+        setConfigPasteEntities(configPasteEntities === null || configPasteEntities === void 0 ? void 0 : configPasteEntities.map(function (_) {
+            if (_.id === id)
+                _.value = value;
+            return _;
+        }));
+    };
+    var pasteViewerInEntitie = function () {
+        pasteViewers({
+            glViewerForPaste: glViewerForPaste,
+            configPasteEntities: configPasteEntities,
+            glValueIcons: glValueIdIcon,
+            settingForPaste: settingForPaste,
+            urlValue: urlValue,
+        });
+        // modalWrapepr.classList.remove(styles.modalWrapper__active)
+        var alert = new js_alert__WEBPACK_IMPORTED_MODULE_0__["default"]("Страница будет перезагружена", "Новые виды были вставлены");
+        alert.show();
+        // window.location.reload()
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperPageTwo },
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperViewersForPaste },
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].viewer_types }, glViewerForPaste.map(function (el) {
+                return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: el.Id },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].name }, el.Caption),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { type: "checkbox", checked: el.isSelected, onChange: function () { return changeSelectedToggleiewer(el.Id); } }),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { type: 'number', value: el.order, min: 1, onChange: function (e) { var _a; return changeOrderViewerInEntities(el.Id, +((_a = e.target) === null || _a === void 0 ? void 0 : _a.value)); } }),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { onClick: function () { return deleteView(el.Id); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0437 \u043F\u0430\u043C\u044F\u0442\u0438"));
+            })),
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperListConfig }, configPasteEntities.map(function (switchEl) {
+                return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { key: switchEl.id, className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].rowSwitch },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_3__.SwitchWithText, { onChange: function (check) {
+                            changeValueConfigPaste(switchEl.id, check);
+                        }, text: switchEl.text, value: switchEl.value, isRounded: true }));
+            })),
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperDropDownIcon },
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_DropDown__WEBPACK_IMPORTED_MODULE_2__.DropDown, { onChange: function (idIcon) { return setGlValueIdIcon(idIcon); }, title: '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u043A\u043E\u043D\u043A\u0443', list: glIcons.map(function (icon) { return ({ label: icon.Name, value: icon.Id }); }) }),
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperSelectTitleIcon }, titleIconSelect ? react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null,
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, "\u0412\u044B \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u0438\u043A\u043E\u043D\u043A\u0443:"),
+                    " ",
+                    titleIconSelect) : '')),
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperSettinWithView },
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].rowSwitchSetting }, settingForPaste.map(function (switchEl) { return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_SwitchWithText__WEBPACK_IMPORTED_MODULE_3__.SwitchWithText, { key: switchEl.id, onChange: function (check) { return changeValueSettingForPaste(switchEl.id, check); }, text: switchEl.text, value: switchEl.value, isRounded: true }); })),
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].inputSettingUrlWrapper },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { type: "text", className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].inputSettingUrl, placeholder: 'URL \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430', value: urlValue, onChange: function (e) { return setUrlValue(e.target.value); } })))),
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].reload, onClick: pasteViewerInEntitie }, "\u041A\u043E\u043F\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C")));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TwoScreenCopyModal);
+
+
+/***/ }),
+
+/***/ "./src/screens/TwoScreenCopyModal/index.ts":
+/*!*************************************************!*\
+  !*** ./src/screens/TwoScreenCopyModal/index.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TwoScreenCopyModal: () => (/* reexport safe */ _TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TwoScreenCopyModal */ "./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.tsx");
+
+
+
+/***/ }),
+
+/***/ "./src/services/Entities.service.ts":
+/*!******************************************!*\
+  !*** ./src/services/Entities.service.ts ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EntitiesService: () => (/* binding */ EntitiesService)
+/* harmony export */ });
+/* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/Api */ "./src/config/Api/index.ts");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+var EntitiesService = /** @class */ (function () {
+    function EntitiesService() {
+    }
+    EntitiesService.getEntities = function (baseUrl) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, fetch(baseUrl + '/api/structure/entities')
+                            .then(function (_) { return _.json(); })];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    EntitiesService.pasteViewerInEntities = function (id, config) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, _config_Api__WEBPACK_IMPORTED_MODULE_0__.api.post("/api/structure/entities/".concat(id, "/viewers"), config)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response.data];
+                }
+            });
+        });
+    };
+    EntitiesService.changeViewerInEntities = function (id, config) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, _config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put("/api/structure/entities/".concat(id, "/viewers"), config, {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                Accept: 'application/json, text/plain, */*'
+                            }
+                        })];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response.data];
+                }
+            });
+        });
+    };
+    EntitiesService.changeOrderPosition = function (id, positionOrders) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, _config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put("/api/structure/entities/".concat(id, "/viewers/order"), positionOrders, {
+                            headers: {
+                                "content-type": "application/json;charset=UTF-8",
+                            }
+                        })];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response.data];
+                }
+            });
+        });
+    };
+    return EntitiesService;
+}());
 
 
 

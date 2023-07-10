@@ -5,23 +5,25 @@ import IconClose from '../../../assets/icon/IconClose.svg';
 import IconPaste from '../../../assets/icon/IconPaste.svg';
 import IconPlus from '../../../assets/icon/IconPlus.svg';
 import { OneScreenCopyModal } from '../../../screens/OneScreenCopyModal';
-import { MenuLeftNavbar, PageNavigatorType } from '../../../type/components.dto';
-import { EntitiesType, ViewerType } from '../../../type/entities.dto';
+import { MenuLeftNavbar, PageNavigatorType, TypePasteViewers } from '../../../type/components.dto';
+import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../../type/entities.dto';
 import styles from './AppModalPaste.module.scss';
 import { IconType } from '../../../type/icon.dto';
 import { IconService } from '../../../services/Icon.service';
+import { TwoScreenCopyModal } from '../../../screens/TwoScreenCopyModal';
+import { EntitiesService } from '../../../services/Entities.service';
 
 // import renderPageOne from '../../screens/OneScreenCopyModal/OneScreenCopyModal';
 // import renderPageTwo from '../../screens/TwoScreenCopyModal/TwoScreenCopyModal';
 type Props = {}
 const leftMenuConfig: MenuLeftNavbar[] = [
     {
-        id: '1',
+        id: 1,
         label: 'Виды в текущем классе',
         title: IconPlus
     },
     {
-        id: '2',
+        id: 2,
         label: 'Коппировать',
         title: IconPaste
     }
@@ -31,10 +33,6 @@ chrome.runtime.sendMessage({
     action: 'getEntities',
     payload: window.location.origin
 })
-
-
-
-
 
 
 const AppModalPaste = (props: Props) => {
@@ -86,17 +84,141 @@ const AppModalPaste = (props: Props) => {
             });
         });
     }
+    const deleteView = (id: string) => {
+        chrome.storage.local.get(["viewersState"], function (result) {
+            const allView = result.viewersState && JSON.parse(result.viewersState)
+            const saveViewersStorage = allView.filter((item: any) => item.Id !== id)
+
+            chrome.storage.local.set({
+                viewersState: JSON.stringify(saveViewersStorage)
+            }, function () {
+                console.log("Данные сохранены");
+            });
+        });
+    }
+    const changeSelectedToggleiewer = (id: string) => {
+        setGlViewerForPaste(prev => prev.map(item => {
+            if (item.Id === id) {
+                item.isSelected = !item?.isSelected
+            }
+            return item
+        }))
+    }
+    const pasteViewers = async ({
+        glViewerForPaste,
+        configPasteEntities,
+        glValueIcons,
+        settingForPaste,
+        urlValue,
+    }: TypePasteViewers) => {
+
+        const isApplySettingsCustom = configPasteEntities.find(_ => _.id === '3').value
+        const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
+        const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
+        const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value || false
+        const customSettings: Record<keyof Omit<RequestForPasteViewerType['Settings'], 'Url'>, boolean | number> = {
+            hideInStructureOfObject: false,
+            hideInViewingModel: false,
+            SendParams: false,
+            hideEmptyFields: false,
+            viewMode: 0
+        }
+
+        settingForPaste.forEach(setting => {
+            if (setting.id === 'viewMode') {
+                customSettings[setting.id] = Number(setting?.value)
+                return
+            }
+            customSettings[setting.id] = !!setting?.value
+        })
+
+        // @ts-ignore
+        customSettings.Url = urlValue
+        glEntitiesFromPaste.forEach(async entity => {
+            if (!entity.isCurrent) if (!isApplyNestedEntities) return
+            const newViewers: ViewerType[] = []
+            const promisesListResponse: Promise<ViewerType>[] = [];
+
+            glViewerForPaste.forEach(async viewer => {
+                if (!viewer.isSelected) return
+
+                const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...customSettings } : viewer.Settings) as RequestForPasteViewerType['Settings']
+                const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
+                const dataPost: RequestForPasteViewerType = {
+                    Caption: viewer.Caption,
+                    Icon: IconForPost,
+                    Attributes: viewer.Attributes,
+                    Name: viewer.Name,
+                    Settings: settingForPost
+                }
+                const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
+
+                // console.log("🚀 ~ file: contentModalPaste.ts:281 ~ newViwer ~ entity:", entity)
+                const newViwer = (async () => {
+                    if (isHaveViewer) {
+                        const dataCreate = {
+                            ...dataPost,
+                            Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
+                            Id: isHaveViewer.Id
+                        }
+                        const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
+                        newViewers.push(dataCreate)
+                        console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
+                        // console.log("🚀 response add change viewer id ", response)
+                        return dataCreate
+                    } else {
+                        const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
+                        newViewers.push({
+                            ...dataPost,
+                            Id: response.Id
+                        })
+                        console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
+                        // console.log("🚀 response add new viewer id ", response)
+                        return {
+                            ...dataPost,
+                            Id: response.Id
+                        }
+                    }
+                })()
+                promisesListResponse.push(newViwer)
+            })
+
+            Promise.all(promisesListResponse).then(async (e) => {
+                const currentOrder = [...entity.Viewers]
+
+                glViewerForPaste.forEach(async viewer => {
+                    if (!viewer.isSelected) return
+                    const newViewer = e.find(item => item.Caption === viewer.Caption)
+                    const order: number = glViewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 0
+                    currentOrder.splice(order - 1, 0, newViewer)
+                })
+                const orderHash: Record<string, number> = {}
+                currentOrder.forEach((_, ind) => orderHash[_.Id] = ind)
+                const responseOrdert = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
+            })
+
+        })
+    }
 
     const objRoutePage: PageNavigatorType = {
         1: <OneScreenCopyModal
             addStateViewers={addStateViewers}
             glEntitiesFromPaste={glEntitiesFromPaste}
             glViewerForPaste={glViewerForPaste}
+        />,
+        2: <TwoScreenCopyModal
+            deleteView={deleteView}
+            pasteViewers={pasteViewers}
+            changeOrderViewerInEntities={changeOrderViewerInEntities}
+            changeSelectedToggleiewer={changeSelectedToggleiewer}
+            glIcons={glIcons}
+            glViewerForPaste={glViewerForPaste}
         />
     }
     useEffect(() => {
         fetchIcons()
     }, [])
+
     // chrome
     useEffect(() => {
         chrome.runtime.onMessage.addListener(
@@ -130,30 +252,6 @@ const AppModalPaste = (props: Props) => {
             }
         );
     }, [])
-    // const getHtml = async (idPage: string) => {
-    //     if (idPage === '1') {
-    //         const component = await renderPageOne({
-    //             addStateViewers,
-    //             glEntitiesFromPaste,
-    //             glViewerForPaste,
-    //             ulContainer,
-    //             wrapperPageOne
-    //         }) as unknown as Node
-    //         return component
-    //     }
-    //     if (idPage === '2') {
-    //         return renderPageTwo({
-    //             changeSelectedToggleiewer,
-    //             deleteView,
-    //             glIcons,
-    //             glViewerForPaste,
-    //             modalWrapepr,
-    //             pasteViewers,
-    //             changeOrderViewerInEntities
-    //         })
-    //     }
-    //     return ''
-    // }
 
     return (
         <div ref={refModalWrapepr} className={classNames(styles.modalWrapper, styles.modalWrapper__active)} >
@@ -175,10 +273,10 @@ const AppModalPaste = (props: Props) => {
                     </div>
                     <div className={styles.wrapperLeft}>
                         <ul className={styles.navbar__menu}>
-                            {leftMenuConfig.map((item, i) => {
+                            {leftMenuConfig.map((item) => {
                                 return <li
-                                    key={i}
-                                    onClick={() => setGlCurrentRightPage((i + 1))}
+                                    key={item.id}
+                                    onClick={() => setGlCurrentRightPage(item.id)}
                                     className={styles.navbar__item}
                                 >
                                     <div className={styles.navbar__link}>
@@ -205,37 +303,6 @@ const AppModalPaste = (props: Props) => {
 export default AppModalPaste
 
 
-// const deleteView = (id: string) => {
-//   chrome.storage.local.get(["viewersState"], function (result) {
-//     const allView = result.viewersState && JSON.parse(result.viewersState)
-//     const saveViewersStorage = allView.filter((item: any) => item.Id !== id)
-
-//     chrome.storage.local.set({
-//       viewersState: JSON.stringify(saveViewersStorage)
-//     }, function () {
-//       console.log("Данные сохранены");
-//     });
-//   });
-// }
-// const glEntitiesFromPaste = new useState<EntitiesType[]>([], () => {
-//   insertContent()
-//   renderShowLoading()
-// })
-// const glCurrentRightPage = new useState<string>('1', () => { })
-// const glViewerForPaste = new useState<ViewerType[]>([], () => {
-//   insertContent()
-// })
-// const glIcons = new useState<IconType[]>([], () => {
-//   insertContent()
-// })
-// const changeSelectedToggleiewer = (id: string) => {
-//   glViewerForPaste.update(glViewerForPaste.value.map(item => {
-//     if (item.Id === id) {
-//       item.isSelected = !item?.isSelected
-//     }
-//     return item
-//   }))
-// }
 
 
 // const modalWrapepr = createElementNode('div', [styles.modalWrapper, styles.modalWrapper__active])
@@ -297,101 +364,7 @@ export default AppModalPaste
 
 
 
-// const pasteViewers = async ({
-//   glViewerForPaste,
-//   configPasteEntities,
-//   glValueIcons,
-//   settingForPaste,
-//   urlValue,
-// }: TypePasteViewers) => {
 
-//   const isApplySettingsCustom = configPasteEntities.find(_ => _.id === '3').value
-//   const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
-//   const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
-//   const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value || false
-//   const customSettings: Record<keyof Omit<RequestForPasteViewerType['Settings'], 'Url'>, boolean | number> = {
-//     hideInStructureOfObject: false,
-//     hideInViewingModel: false,
-//     SendParams: false,
-//     hideEmptyFields: false,
-//     viewMode: 0
-//   }
-
-//   settingForPaste.forEach(setting => {
-//     if (setting.id === 'viewMode') {
-//       customSettings[setting.id] = Number(setting?.value)
-//       return
-//     }
-//     customSettings[setting.id] = !!setting?.value
-//   })
-
-//   // @ts-ignore
-//   customSettings.Url = urlValue
-//   glEntitiesFromPaste.value.forEach(async entity => {
-//     if (!entity.isCurrent) if (!isApplyNestedEntities) return
-//     const newViewers: ViewerType[] = []
-//     const promisesListResponse: Promise<ViewerType>[] = [];
-
-//     glViewerForPaste.forEach(async viewer => {
-//       if (!viewer.isSelected) return
-
-//       const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...customSettings } : viewer.Settings) as RequestForPasteViewerType['Settings']
-//       const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
-//       const dataPost: RequestForPasteViewerType = {
-//         Caption: viewer.Caption,
-//         Icon: IconForPost,
-//         Attributes: viewer.Attributes,
-//         Name: viewer.Name,
-//         Settings: settingForPost
-//       }
-//       const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
-
-//       // console.log("🚀 ~ file: contentModalPaste.ts:281 ~ newViwer ~ entity:", entity)
-//       const newViwer = (async () => {
-//         if (isHaveViewer) {
-//           const dataCreate = {
-//             ...dataPost,
-//             Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
-//             Id: isHaveViewer.Id
-//           }
-//           const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
-//           newViewers.push(dataCreate)
-//           console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
-//           // console.log("🚀 response add change viewer id ", response)
-//           return dataCreate
-//         } else {
-//           const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
-//           newViewers.push({
-//             ...dataPost,
-//             Id: response.Id
-//           })
-//           console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
-//           // console.log("🚀 response add new viewer id ", response)
-//           return {
-//             ...dataPost,
-//             Id: response.Id
-//           }
-//         }
-//       })()
-//       promisesListResponse.push(newViwer)
-//     })
-
-//     Promise.all(promisesListResponse).then(async (e) => {
-//       const currentOrder = [...entity.Viewers]
-
-//       glViewerForPaste.forEach(async viewer => {
-//         if (!viewer.isSelected) return
-//         const newViewer = e.find(item => item.Caption === viewer.Caption)
-//         const order: number = glViewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 0
-//         currentOrder.splice(order - 1, 0, newViewer)
-//       })
-//       const orderHash: Record<string, number> = {}
-//       currentOrder.forEach((_, ind) => orderHash[_.Id] = ind)
-//       const responseOrdert = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
-//     })
-
-//   })
-// }
 
 
 
