@@ -24,3 +24,5 @@ export type TypePasteViewers = {
     settingForPaste: Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> }>
     urlValue: string
 }
+
+export type PageNavigatorType = Record<number, React.JSX.Element>

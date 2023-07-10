@@ -4,7 +4,6 @@
   "description": "My webpack project",
   "scripts": {
     "start": "webpack --watch",
-    "build:dev": "webpack serve", 
     "build:prod": "webpack",
     "clear:win": "rd /s /q extensionsNeolant",
     "clear:mac": "rm -rf extensionsNeolant"

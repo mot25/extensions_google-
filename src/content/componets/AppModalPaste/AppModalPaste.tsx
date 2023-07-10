@@ -1,17 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react'
-import styles from './AppModalPaste.module.scss'
-import classNames from 'classnames'
+import classNames from 'classnames';
+import React, { useEffect, useRef, useState } from 'react';
+
 import IconClose from '../../../assets/icon/IconClose.svg';
-import IconPlus from '../../../assets/icon/IconPlus.svg';
 import IconPaste from '../../../assets/icon/IconPaste.svg';
+import IconPlus from '../../../assets/icon/IconPlus.svg';
+import { OneScreenCopyModal } from '../../../screens/OneScreenCopyModal';
+import { MenuLeftNavbar, PageNavigatorType } from '../../../type/components.dto';
+import { EntitiesType, ViewerType } from '../../../type/entities.dto';
+import styles from './AppModalPaste.module.scss';
+import { IconType } from '../../../type/icon.dto';
+import { IconService } from '../../../services/Icon.service';
+
 // import renderPageOne from '../../screens/OneScreenCopyModal/OneScreenCopyModal';
 // import renderPageTwo from '../../screens/TwoScreenCopyModal/TwoScreenCopyModal';
-// import { IconService } from '../../services/Icon.service';
-import { MenuLeftNavbar, TypePasteViewers } from '../../../type/components.dto';
-import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../../type/entities.dto';
-// import { IconType } from '../../type/icon.dto';
-// import { EntitiesService } from './../../services/Entities.service';
-// import styles from './contentModalPaste.scss';
 type Props = {}
 const leftMenuConfig: MenuLeftNavbar[] = [
     {
@@ -25,23 +26,134 @@ const leftMenuConfig: MenuLeftNavbar[] = [
         title: IconPaste
     }
 ]
+
+chrome.runtime.sendMessage({
+    action: 'getEntities',
+    payload: window.location.origin
+})
+
+
+
+
+
+
 const AppModalPaste = (props: Props) => {
 
     const refModalWrapepr = useRef<HTMLDivElement>(null)
 
     const [glEntitiesFromPaste, setGlEntitiesFromPaste] = useState<EntitiesType[]>([])
+    console.log(Date.now());
+
+    const [glCurrentRightPage, setGlCurrentRightPage] = useState<number>(1)
+    const [glIcons, setGlIcons] = useState<IconType[]>([])
+    const [glViewerForPaste, setGlViewerForPaste] = useState<ViewerType[]>([])
 
 
+
+    const changeOrderViewerInEntities = (id: string, order: number) => {
+        const newViewers = glViewerForPaste.map(item => {
+            if (item.Id === id) {
+                item.order = order
+            }
+            return item
+        })
+        setGlViewerForPaste(newViewers)
+    }
     const clearBeforeNode = () => {
         refModalWrapepr.current.classList.toggle(styles.modalWrapper__active)
-        const nodes = document.querySelectorAll('.exNeolant')
+        const nodes = document.querySelectorAll('#rootContentEntry')
         nodes.forEach(element => {
             element.remove();
         });
+        console.log('extensions remove')
+    }
+    const fetchIcons = async () => {
+        try {
+            const response = await IconService.getIcons()
+            setGlIcons(response)
+        } catch (error) {
+        }
+    }
+    const addStateViewers = (view: ViewerType) => {
+        chrome.storage.local.get(["viewersState"], function (result) {
+            const allView = result.viewersState && JSON.parse(result.viewersState)
+            const saveViewersStorage = Array.isArray(allView) ? allView : []
+            saveViewersStorage.push(view)
+            chrome.storage.local.set({
+                viewersState: JSON.stringify(saveViewersStorage)
+            }, function () {
+                console.log("Данные сохранены");
+            });
+        });
+    }
+
+    const objRoutePage: PageNavigatorType = {
+        1: <OneScreenCopyModal
+            addStateViewers={addStateViewers}
+            glEntitiesFromPaste={glEntitiesFromPaste}
+            glViewerForPaste={glViewerForPaste}
+        />
     }
     useEffect(() => {
-        clearBeforeNode()
+        fetchIcons()
     }, [])
+    // chrome
+    useEffect(() => {
+        chrome.runtime.onMessage.addListener(
+            function (request, sender, sendResponse) {
+                if (request.action === 'postEntitiesForPasteInsert') {
+                    setGlEntitiesFromPaste(request.payload)
+                }
+            }
+        );
+        chrome.storage.local.get(["viewersState"], function (result) {
+            const allView = result.viewersState && JSON.parse(result.viewersState)
+            const saveViewersStorage: ViewerType[] = Array.isArray(allView) ? allView : []
+            setGlViewerForPaste(saveViewersStorage)
+        });
+        chrome.storage.onChanged.addListener((changes, namespace) => {
+            for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
+                if (!newValue) return
+                const viewers = JSON.parse(newValue)
+                setGlViewerForPaste(viewers)
+            }
+        });
+        chrome.runtime.onMessage.addListener(
+            function (request, sender, sendResponse) {
+                if (request.actions === 'isShowModal') {
+                    if (request.payload) {
+                        refModalWrapepr.current.classList.add(styles.modalWrapper__active)
+                    } else {
+                        refModalWrapepr.current.classList.remove(styles.modalWrapper__active)
+                    }
+                }
+            }
+        );
+    }, [])
+    // const getHtml = async (idPage: string) => {
+    //     if (idPage === '1') {
+    //         const component = await renderPageOne({
+    //             addStateViewers,
+    //             glEntitiesFromPaste,
+    //             glViewerForPaste,
+    //             ulContainer,
+    //             wrapperPageOne
+    //         }) as unknown as Node
+    //         return component
+    //     }
+    //     if (idPage === '2') {
+    //         return renderPageTwo({
+    //             changeSelectedToggleiewer,
+    //             deleteView,
+    //             glIcons,
+    //             glViewerForPaste,
+    //             modalWrapepr,
+    //             pasteViewers,
+    //             changeOrderViewerInEntities
+    //         })
+    //     }
+    //     return ''
+    // }
 
     return (
         <div ref={refModalWrapepr} className={classNames(styles.modalWrapper, styles.modalWrapper__active)} >
@@ -63,19 +175,32 @@ const AppModalPaste = (props: Props) => {
                     </div>
                     <div className={styles.wrapperLeft}>
                         <ul className={styles.navbar__menu}>
-                            <li className={styles.navbar__item}>
-                                
-                            </li>
+                            {leftMenuConfig.map((item, i) => {
+                                return <li
+                                    key={i}
+                                    onClick={() => setGlCurrentRightPage((i + 1))}
+                                    className={styles.navbar__item}
+                                >
+                                    <div className={styles.navbar__link}>
+                                        <img
+                                            className={styles.navbar__link_img}
+                                            src={item.title}
+                                        />
+                                        <span>{item.label}</span>
+                                    </div>
+                                </li>
+                            })}
+
                         </ul>
                     </div>
-                    <div></div>
+                    <div className={styles.wrapperRight}>
+                        {objRoutePage[glCurrentRightPage]}
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
-
-
 
 export default AppModalPaste
 
@@ -112,58 +237,6 @@ export default AppModalPaste
 //   }))
 // }
 
-// const changeOrderViewerInEntities = (id: string, order: number) => {
-//   const newViewers = glViewerForPaste.value.map(item => {
-//     if (item.Id === id) {
-//       item.order = order
-//     }
-//     return item
-//   })
-//   glViewerForPaste.update(newViewers)
-// }
-// chrome.runtime.sendMessage({
-//   action: 'getEntities',
-//   payload: window.location.origin
-// })
-// const fetchIcons = async () => {
-//   try {
-//     const response = await IconService.getIcons()
-//     glIcons.update(response)
-//   } catch (error) {
-//   }
-// }
-// fetchIcons()
-// chrome.runtime.onMessage.addListener(
-//   function (request, sender, sendResponse) {
-//     if (request.action === 'postEntitiesForPasteInsert') {
-//       glEntitiesFromPaste.update(request.payload)
-//     }
-//   }
-// );
-// chrome.storage.local.get(["viewersState"], function (result) {
-//   const allView = result.viewersState && JSON.parse(result.viewersState)
-//   const saveViewersStorage: ViewerType[] = Array.isArray(allView) ? allView : []
-//   glViewerForPaste.update(saveViewersStorage)
-// });
-// chrome.storage.onChanged.addListener((changes, namespace) => {
-//   for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-//     if (!newValue) return
-//     const viewers = JSON.parse(newValue)
-//     glViewerForPaste.update(viewers)
-//   }
-// });
-// chrome.runtime.onMessage.addListener(
-//   function (request, sender, sendResponse) {
-//     if (request.actions === 'isShowModal') {
-//       if (request.payload) {
-//         modalWrapepr.classList.add(styles.modalWrapper__active)
-//         insertContent()
-//       } else {
-//         modalWrapepr.classList.remove(styles.modalWrapper__active)
-//       }
-//     }
-//   }
-// );
 
 // const modalWrapepr = createElementNode('div', [styles.modalWrapper, styles.modalWrapper__active])
 // const modal = createElementNode('div', [styles.modal])
@@ -220,18 +293,6 @@ export default AppModalPaste
 // documentBody.append(modalWrapepr)
 
 
-// const addStateViewers = (view: ViewerType) => {
-//   chrome.storage.local.get(["viewersState"], function (result) {
-//     const allView = result.viewersState && JSON.parse(result.viewersState)
-//     const saveViewersStorage = Array.isArray(allView) ? allView : []
-//     saveViewersStorage.push(view)
-//     chrome.storage.local.set({
-//       viewersState: JSON.stringify(saveViewersStorage)
-//     }, function () {
-//       console.log("Данные сохранены");
-//     });
-//   });
-// }
 
 
 
@@ -332,36 +393,5 @@ export default AppModalPaste
 //   })
 // }
 
-
-
-
-// async function insertContent(pageId?: string) {
-//   wrapperRight.innerHTML = ''
-//   wrapperRight.append(await getHtml(pageId || glCurrentRightPage.value))
-// }
-// const getHtml = async (idPage: string) => {
-//   if (idPage === '1') {
-//     const component = await renderPageOne({
-//       addStateViewers,
-//       glEntitiesFromPaste,
-//       glViewerForPaste,
-//       ulContainer,
-//       wrapperPageOne
-//     }) as unknown as Node
-//     return component
-//   }
-//   if (idPage === '2') {
-//     return renderPageTwo({
-//       changeSelectedToggleiewer,
-//       deleteView,
-//       glIcons,
-//       glViewerForPaste,
-//       modalWrapepr,
-//       pasteViewers,
-//       changeOrderViewerInEntities
-//     })
-//   }
-//   return ''
-// }
 
 

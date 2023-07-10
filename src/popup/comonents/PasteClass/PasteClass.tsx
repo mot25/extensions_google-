@@ -1,8 +1,9 @@
-import React from 'react'
-import styles from './PasteClass.module.scss'
-import { ButtonInPopupAnim } from '../../../componets/ButtonInPopupAnim'
-import { createElementNode } from '../../../utils/components'
-import { api } from '../../../config/Api'
+import React from 'react';
+
+import { ButtonInPopupAnim } from '../../../componets/ButtonInPopupAnim';
+import { api } from '../../../config/Api';
+import { createElementNode } from '../../../utils/components';
+
 type Props = {}
 class RenderWarningTextInPopup {
   private warningText: string

@@ -39968,8 +39968,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../componets/ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/index.ts");
-/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utils/components */ "./src/utils/components.ts");
-/* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../config/Api */ "./src/config/Api/index.ts");
+/* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../config/Api */ "./src/config/Api/index.ts");
+/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../utils/components */ "./src/utils/components.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -40016,8 +40016,8 @@ var RenderWarningTextInPopup = /** @class */ (function () {
         this.warningText = message;
     }
     RenderWarningTextInPopup.prototype.render = function () {
-        var wrapperWarnign = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('div', ['wrapperWarnign']);
-        var warningText = (0,_utils_components__WEBPACK_IMPORTED_MODULE_2__.createElementNode)('span', ['warningText']);
+        var wrapperWarnign = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', ['wrapperWarnign']);
+        var warningText = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('span', ['warningText']);
         warningText.innerText = this.warningText;
         wrapperWarnign.append(warningText);
         this.body.appendChild(wrapperWarnign);
@@ -40044,7 +40044,7 @@ var PasteClass = function (props) {
                                 return [2 /*return*/, new RenderWarningTextInPopup('Не открыт раздел с классами').render()];
                             if (!url.searchParams.get('id'))
                                 return [2 /*return*/, new RenderWarningTextInPopup('Не выбран класс').render()];
-                            _config_Api__WEBPACK_IMPORTED_MODULE_3__.api.defaults.baseURL = url.origin;
+                            _config_Api__WEBPACK_IMPORTED_MODULE_2__.api.defaults.baseURL = url.origin;
                             return [4 /*yield*/, chrome.scripting.executeScript({
                                     target: { tabId: currentTabId },
                                     files: ['contentModalPaste.js']

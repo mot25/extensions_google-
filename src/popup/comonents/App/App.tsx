@@ -4,8 +4,8 @@ import { createElementNode } from '../../../utils/components'
 import { api } from '../../../config/Api'
 import gsap from 'gsap'
 import { PasteClass } from '../PasteClass'
+import { PageNavigatorType } from '../../../type/components.dto'
 type Props = {}
-type PageNavigatorType = Record<number, React.JSX.Element>
 
 const App = (props: Props) => {
     // const selectPage =  useState<number>(1, () => {
