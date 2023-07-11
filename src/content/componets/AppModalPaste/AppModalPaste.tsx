@@ -116,12 +116,13 @@ const AppModalPaste = (props: Props) => {
         const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
         const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
         const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value || false
-        const customSettings: Record<keyof Omit<RequestForPasteViewerType['Settings'], 'Url'>, boolean | number> = {
-            hideInStructureOfObject: false,
+        const customSettings: Record<keyof RequestForPasteViewerType['Settings'], boolean | number | string> = {
+        hideInStructureOfObject: false,
             hideInViewingModel: false,
             SendParams: false,
             hideEmptyFields: false,
-            viewMode: 0
+            viewMode: 0,
+            Url: ''
         }
 
         settingForPaste.forEach(setting => {
@@ -132,8 +133,8 @@ const AppModalPaste = (props: Props) => {
             customSettings[setting.id] = !!setting?.value
         })
 
-        // @ts-ignore
-        customSettings.Url = urlValue
+        customSettings['Url'] = urlValue
+
         glEntitiesFromPaste.forEach(async entity => {
             if (!entity.isCurrent) if (!isApplyNestedEntities) return
             const newViewers: ViewerType[] = []
@@ -189,7 +190,7 @@ const AppModalPaste = (props: Props) => {
                 glViewerForPaste.forEach(async viewer => {
                     if (!viewer.isSelected) return
                     const newViewer = e.find(item => item.Caption === viewer.Caption)
-                    const order: number = glViewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 0
+                    const order: number = glViewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 1
                     currentOrder.splice(order - 1, 0, newViewer)
                 })
                 const orderHash: Record<string, number> = {}
@@ -301,70 +302,4 @@ const AppModalPaste = (props: Props) => {
 }
 
 export default AppModalPaste
-
-
-
-
-// const modalWrapepr = createElementNode('div', [styles.modalWrapper, styles.modalWrapper__active])
-// const modal = createElementNode('div', [styles.modal])
-// const wrapper = createElementNode('div', [styles.wrapperModal])
-
-
-
-// const wrapperLeft = createElementNode('div', [styles.wrapperLeft])
-// const navbarUl = createElementNode('ul', [styles.navbar__menu])
-// const ulContainer = createElementNode('ul', [styles.list])
-// const wrapperPageOne = createElementNode('div', [styles.wrapperPageOne])
-// const wrapperRight = createElementNode('div', [styles.wrapperRight])
-
-// modalWrapepr.classList.add('exNeolant')
-
-
-// const renderLeftMenu = () => {
-//   leftMenuConfig.forEach((item, i) => {
-
-//     const categoryItem = createElementNode('li', [styles.navbar__item])
-//     categoryItem.onclick = () => {
-//       insertContent((i + 1).toString())
-//       glCurrentRightPage.update((i + 1).toString())
-//     }
-
-//     const categoryItemLink = createElementNode('div', [styles.navbar__link])
-//     const categoryItemLink_img = createElementNode('img', [styles.navbar__link_img])
-//     categoryItemLink_img.setAttribute('src', item.title)
-
-//     categoryItemLink.append(categoryItemLink_img)
-//     categoryItem.append(categoryItemLink)
-//     const label = document.createElement('span')
-//     label.innerText = item.label
-
-//     categoryItemLink.append(label)
-
-//     navbarUl.append(categoryItem)
-//   })
-//   wrapperLeft.append(navbarUl)
-
-// }
-// renderLeftMenu()
-
-
-
-// wrapper.append(wrapperLeft)
-// wrapper.append(wrapperRight)
-
-
-
-
-// modal.append(wrapper)
-// modalWrapepr.append(modal)
-// documentBody.append(modalWrapepr)
-
-
-
-
-
-
-
-
-
 

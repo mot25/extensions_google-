@@ -45,11 +45,10 @@
     display: flex;
     flex: 1;
     position: relative;
+    // margin-top: 15px;
 }
 
-.wrapperRight {
-    flex: 1;
-}
+
 
 // left menu
 .navbar__item {
@@ -264,4 +263,5 @@ body {
     width: 100%;
     overflow: auto;
     height: 100%;
+    // flex: 1;
 }

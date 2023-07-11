@@ -46,45 +46,45 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.svg$/,
-        use: [{
-          loader: 'svg-url-loader',
+      test: /\.tsx?$/,
+      use: 'ts-loader',
+      exclude: /node_modules/
+    },
+    {
+      test: /\.svg$/,
+      use: [{
+        loader: 'svg-url-loader',
+        options: {
+          limit: 8192,
+        },
+      },],
+    },
+    {
+      test: [/\.scss$/, /\.css$/,],
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'sass-loader'
+      ],
+      exclude: moduleStyles
+    },
+    {
+      test: /\.scss$/,
+      include: moduleStyles,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
           options: {
-            limit: 8192,
-          },
-        }, ],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ],
-        exclude: moduleStyles
-      },
-      {
-        test: /\.scss$/,
-        include: moduleStyles,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: 'extentions__[local]__[hash:base64:5]'
-              }
+            modules: {
+              localIdentName: 'extentions__[local]__[hash:base64:5]'
             }
-          },
-          'postcss-loader',
-          'sass-loader'
-        ]
-      }
+          }
+        },
+        'postcss-loader',
+        'sass-loader'
+      ]
+    }
     ]
   },
   plugins: [
@@ -92,13 +92,13 @@ module.exports = {
       patterns: [{
         from: 'src/manifest.json',
         to: 'manifest.json'
-      }, ],
+      },],
     }),
     new CopyWebpackPlugin({
       patterns: [{
         from: 'src/images',
         to: 'images'
-      }, ],
+      },],
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',

@@ -8,20 +8,38 @@
 .iZlqKEcmn70edAIq55Hz {
   margin-right: 10px;
   flex: 1;
+  font-size: 15px;
 }
 
 .kJD6_2rqpzLuhelloiS4 .iZlqKEcmn70edAIq55Hz {
   margin: 0;
 }
 
-.U0vQu8F9wQby1zZe7hr3,
-.SgA3bKZRijZY71ouIA23 {
-  padding: 5px 10px;
-  margin-left: 10px;
+.U0vQu8F9wQby1zZe7hr3 {
+  margin-right: 10px;
+}
+
+.nsxZ8bOqUOrxzjjW6Hsm {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/SimpleButton/SimpleButton.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************/
+.extentions__button__lZKEu {
+  width: 100%;
+  height: 40px;
   border: none;
-  background-color: #f44336;
-  color: #fff;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
   cursor: pointer;
+}
+.extentions__button__lZKEu span {
+  color: #fff;
 }
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/content/componets/AppModalPaste/AppModalPaste.module.scss (1) ***!
@@ -70,10 +88,6 @@
   display: flex;
   flex: 1;
   position: relative;
-}
-
-.extentions__wrapperRight__GJgjj {
-  flex: 1;
 }
 
 .extentions__navbar__item__z4wlN {
@@ -1426,6 +1440,7 @@ input:checked + .extentions__slider__P_nG9:before {
 
 .NSO5MoecOEeShrm1bfee {
   display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -1442,6 +1457,68 @@ input:checked + .extentions__slider__P_nG9:before {
 
 .mPSZcwjM9xYdmdFJdAst {
   width: 40px;
+}
+
+.wXJD56eyrOUWgAKUTtVU {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zwYN0XIZWwgzWSbjXeKg {
+  margin-top: 15px;
+}
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/InputCustom/InputCustom.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************/
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #31556f;
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  --size-radius: 4px;
+}
+
+.extentions__input__yuil0 {
+  position: relative;
+}
+.extentions__input__label__dEhCT {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  padding: 10px;
+  margin-left: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 3px;
+  white-space: nowrap;
+  transform: translate(0, -50%);
+  transform-origin: 0 0;
+  background: var(--color-background);
+  transition: transform 120ms ease-in;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.extentions__input__field__9RGSM {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  display: block;
+  border: 3px solid #dedede;
+  color: #000;
+  background: transparent;
+  border-radius: var(--size-radius);
+  background: #fff;
+  outline: none;
+}
+.extentions__input__field__9RGSM:focus + .extentions__input__label__dEhCT, .extentions__input__field__9RGSM:not(:placeholder-shown) + .extentions__input__label__dEhCT {
+  transform: translate(6px, -7px) scale(0.8);
+  color: var(--color-accent);
+  top: 0;
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
 /*# sourceMappingURL=AppModalPaste.css.map*/

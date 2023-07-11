@@ -7,6 +7,8 @@ import { SwitchRenderListType, TypePasteViewers } from '../../type/components.dt
 import { RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
 import { IconType } from '../../type/icon.dto';
 import styles from './TwoScreenCopyModal.module.scss';
+import { SimpleButton } from '../../componets/SimpleButton';
+import { InputCustom } from '../../componets/InputCustom';
 
 type Props = {
     glViewerForPaste: ViewerType[]
@@ -104,6 +106,7 @@ const TwoScreenCopyModal = ({
                     {glViewerForPaste.map((el) => {
                         return <li
                             key={el.Id}
+                            className={styles.viewerWrapper}
                         >
                             <p className={styles.name}>{el.Caption}</p>
                             <input
@@ -111,15 +114,23 @@ const TwoScreenCopyModal = ({
                                 checked={el.isSelected}
                                 onChange={() => changeSelectedToggleiewer(el.Id)}
                             />
-                            <input
-                                type='number'
-                                value={el.order}
-                                min={1}
-                                onChange={(e) => changeOrderViewerInEntities(el.Id, +e.target?.value)}
+
+                            <InputCustom
+                                addStyle={{
+                                    width: '30px'
+                                }}
+                                onChange={(e) => changeOrderViewerInEntities(el.Id, +e)}
+                                value={el.order.toString()}
                             />
-                            <button
+                            <SimpleButton
+                                wd='150px'
+                                addStyle={{
+                                    height: '30px',
+                                }}
+                                bg='#b43b3b'
                                 onClick={() => deleteView(el.Id)}
-                            >Удалить из памяти</button>
+                                text='Удалить из памяти'
+                            />
                         </li>
                     })}
                 </ul>
@@ -173,10 +184,16 @@ const TwoScreenCopyModal = ({
                     </div>
                 </div>
             </div>
-            <button
-                className={styles.reload}
+            <SimpleButton
+                wd='150px'
+                addStyle={{
+                    height: '30px',
+                }}
+                addClassName={styles.reload}
                 onClick={pasteViewerInEntitie}
-            >Коппировать</button>
+                text='Коппировать'
+            />
+           
         </div>
     )
 }

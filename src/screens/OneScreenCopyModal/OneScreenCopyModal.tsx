@@ -4,6 +4,7 @@ import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { EntitiesType, ViewerType } from '../../type/entities.dto';
 import styles from './OneScreenCopyModal.module.scss';
 import React from 'react'
+import { SimpleButton } from '../../componets/SimpleButton';
 
 
 type Props = {
@@ -52,26 +53,25 @@ const OneScreenCopyModal = ({
           >
             {viewer.Caption}
           </span>
-          <button
+          <SimpleButton
+            wd='150px'
+            bg='#f44336'
+            addClassName={styles.delete_btn}
             onClick={() => deleteViewer(viewer)}
-            className={styles.delete_btn}
-          >Удалить</button>
-          <button
-            style={{
-              background: isHave ? '#d3d3d3' : '#4CAF50'
-            }}
+            text='Удалить'
+          />
+          <SimpleButton
+            wd='150px'
+            bg={isHave ? '#d3d3d3' : '#4CAF50'}
             onClick={() => {
-              console.log('remember viewer')
               if (isHave) return
               addStateViewers({
                 ...viewer,
                 order: index + 1
               })
             }}
-            className={styles.add_btn}
-          >
-            Запомнить вид
-          </button>
+            text='Запомнить вид'
+          />
         </li>
 
       })}

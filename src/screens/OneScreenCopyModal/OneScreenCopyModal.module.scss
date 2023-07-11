@@ -1,19 +1,19 @@
-
 .name {
     margin-right: 10px;
     flex: 1;
+    font-size: 15px;
 }
 
 .viewer_types .name {
     margin: 0;
 }
 
-.delete_btn,
-.add_btn {
-    padding: 5px 10px;
-    margin-left: 10px;
-    border: none;
-    background-color: #f44336;
-    color: #fff;
-    cursor: pointer;
+.delete_btn {
+    margin-right: 10px;
+}
+
+.item {
+    list-style: none;
+    display: flex;
+    align-items: center;
 }

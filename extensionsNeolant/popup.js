@@ -6221,22 +6221,6 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 
 /***/ }),
 
-/***/ "./src/popup/comonents/screens/Setting/Setting.module.scss":
-/*!*****************************************************************!*\
-  !*** ./src/popup/comonents/screens/Setting/Setting.module.scss ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"wrapper":"Eu_eKDv69rVKm0JGgH0J","initAppContent":"jewnrXBW94zWJ2bLTyI4"});
-
-/***/ }),
-
 /***/ "./src/popup/popup.scss":
 /*!******************************!*\
   !*** ./src/popup/popup.scss ***!
@@ -6247,6 +6231,22 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./src/popup/source/screens/Setting/Setting.module.scss":
+/*!**************************************************************!*\
+  !*** ./src/popup/source/screens/Setting/Setting.module.scss ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"wrapper":"khDiFVIYtEPEZkzNeks_","initAppContent":"gpfY9LznMFUqrIIV_2Ap"});
 
 /***/ }),
 
@@ -39761,10 +39761,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/popup/comonents/App/App.tsx":
-/*!*****************************************!*\
-  !*** ./src/popup/comonents/App/App.tsx ***!
-  \*****************************************/
+/***/ "./src/popup/source/App/App.tsx":
+/*!**************************************!*\
+  !*** ./src/popup/source/App/App.tsx ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39775,8 +39775,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var _screens_Setting_Setting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../screens/Setting/Setting */ "./src/popup/comonents/screens/Setting/Setting.tsx");
-/* harmony import */ var _screens_PasteClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../screens/PasteClass */ "./src/popup/comonents/screens/PasteClass/index.ts");
+/* harmony import */ var _screens_Setting_Setting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../screens/Setting/Setting */ "./src/popup/source/screens/Setting/Setting.tsx");
+/* harmony import */ var _screens_PasteClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../screens/PasteClass */ "./src/popup/source/screens/PasteClass/index.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -39958,10 +39958,10 @@ var App = function (props) {
 
 /***/ }),
 
-/***/ "./src/popup/comonents/App/index.ts":
-/*!******************************************!*\
-  !*** ./src/popup/comonents/App/index.ts ***!
-  \******************************************/
+/***/ "./src/popup/source/App/index.ts":
+/*!***************************************!*\
+  !*** ./src/popup/source/App/index.ts ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39969,16 +39969,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   App: () => (/* reexport safe */ _App__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App */ "./src/popup/comonents/App/App.tsx");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App */ "./src/popup/source/App/App.tsx");
 
 
 
 /***/ }),
 
-/***/ "./src/popup/comonents/screens/PasteClass/PasteClass.tsx":
-/*!***************************************************************!*\
-  !*** ./src/popup/comonents/screens/PasteClass/PasteClass.tsx ***!
-  \***************************************************************/
+/***/ "./src/popup/source/screens/PasteClass/PasteClass.tsx":
+/*!************************************************************!*\
+  !*** ./src/popup/source/screens/PasteClass/PasteClass.tsx ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40098,10 +40098,10 @@ var PasteClass = function (props) {
 
 /***/ }),
 
-/***/ "./src/popup/comonents/screens/PasteClass/index.ts":
-/*!*********************************************************!*\
-  !*** ./src/popup/comonents/screens/PasteClass/index.ts ***!
-  \*********************************************************/
+/***/ "./src/popup/source/screens/PasteClass/index.ts":
+/*!******************************************************!*\
+  !*** ./src/popup/source/screens/PasteClass/index.ts ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40109,16 +40109,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   PasteClass: () => (/* reexport safe */ _PasteClass__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _PasteClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasteClass */ "./src/popup/comonents/screens/PasteClass/PasteClass.tsx");
+/* harmony import */ var _PasteClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasteClass */ "./src/popup/source/screens/PasteClass/PasteClass.tsx");
 
 
 
 /***/ }),
 
-/***/ "./src/popup/comonents/screens/Setting/Setting.tsx":
-/*!*********************************************************!*\
-  !*** ./src/popup/comonents/screens/Setting/Setting.tsx ***!
-  \*********************************************************/
+/***/ "./src/popup/source/screens/Setting/Setting.tsx":
+/*!******************************************************!*\
+  !*** ./src/popup/source/screens/Setting/Setting.tsx ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40128,7 +40128,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Setting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Setting.module.scss */ "./src/popup/comonents/screens/Setting/Setting.module.scss");
+/* harmony import */ var _Setting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Setting.module.scss */ "./src/popup/source/screens/Setting/Setting.module.scss");
 
 
 var Setting = function (props) {
@@ -44338,14 +44338,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _comonents_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comonents/App */ "./src/popup/comonents/App/index.ts");
+/* harmony import */ var _source_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./source/App */ "./src/popup/source/App/index.ts");
 
 
 
 
 var container = document.getElementById('root');
 var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot)(container); // createRoot(container!) if you use TypeScript
-root.render(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_comonents_App__WEBPACK_IMPORTED_MODULE_3__.App, null));
+root.render(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_source_App__WEBPACK_IMPORTED_MODULE_3__.App, null));
 
 })();
 

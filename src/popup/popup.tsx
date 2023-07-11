@@ -3,7 +3,7 @@ import './popup.scss';
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { App } from './comonents/App';
+import { App } from './source/App';
 
 
 
