@@ -3,19 +3,14 @@ import styles from './App.module.scss'
 import { createElementNode } from '../../../utils/components'
 import { api } from '../../../config/Api'
 import gsap from 'gsap'
-import { PasteClass } from '../PasteClass'
 import { PageNavigatorType } from '../../../type/components.dto'
+import Setting from '../screens/Setting/Setting';
+import { PasteClass } from '../screens/PasteClass'
 type Props = {}
 
 const App = (props: Props) => {
-    // const selectPage =  useState<number>(1, () => {
-    //   renderBlock()
-    // })
+
     const [selectPage, setSelectPage] = useState<number>(1)
-
-
-
-
 
     function move(id: string, position: string, color: string) {
         setSelectPage(+id)
@@ -103,11 +98,17 @@ const App = (props: Props) => {
     // }
     // renderBlock()
     const objPage: PageNavigatorType = {
-        '1': <PasteClass />,
-        // '2': renderTwoPage,
-        // '3': renderThreePage,
-        // '4': renderOnePage,
+        1: <PasteClass />,
+        2: <PasteClass />,
+        3: <PasteClass />,
+        4: <Setting />,
     }
+    // const objPage: PageNavigatorType = {
+    //     1: <PasteClass />,
+    //     2: ,
+    //     3: renderThreePage,
+    //     4: renderOnePage,
+    // }
 
 
 

@@ -272,6 +272,23 @@ body {
   animation: shopWarnPush 3s;
   animation-fill-mode: forwards;
 }
+/*!**************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/popup/comonents/screens/Setting/Setting.module.scss ***!
+  \**************************************************************************************************************************************************/
+.Eu_eKDv69rVKm0JGgH0J {
+  width: 100%;
+  height: 100%;
+}
+.Eu_eKDv69rVKm0JGgH0J h1 {
+  text-align: center;
+  font-size: 22px;
+}
+
+.jewnrXBW94zWJ2bLTyI4 {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
   \******************************************************************************************************************************************************************************************************************************/
