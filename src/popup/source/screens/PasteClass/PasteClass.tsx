@@ -25,6 +25,7 @@ class RenderWarningTextInPopup {
 }
 const PasteClass = (props: Props) => {
   const showModalPasteInterface = () => {
+    console.log('1212')
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
         const currentTabId = tabs[0].id;
         const allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil']
@@ -39,10 +40,10 @@ const PasteClass = (props: Props) => {
 
         await chrome.scripting.executeScript({
             target: { tabId: currentTabId },
-            files: ['contentModalPaste.js']
+            files: ['contentIndex.js']
         })
         await chrome.scripting.insertCSS({
-            files: ["contentModalPaste.css"],
+            files: ["contentIndex.css"],
             target: { tabId: currentTabId },
         });
         await chrome.tabs.sendMessage(currentTabId, {

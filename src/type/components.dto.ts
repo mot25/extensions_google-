@@ -15,13 +15,14 @@ export type SwitchRenderListType = {
     id: string
     text: string
     value?: boolean
+    bold?: boolean
 }
 
 export type TypePasteViewers = {
-    glViewerForPaste: ViewerType[]
+    viewerForPaste: ViewerType[]
     configPasteEntities: SwitchRenderListType[],
-    glValueIcons: string
-    settingForPaste: Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> }>
+    glValueIdIcon: string
+    settingForPaste: Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> | '3' }>
     urlValue: string
 }
 

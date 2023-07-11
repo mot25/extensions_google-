@@ -1,10 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { createElementNode } from '../../utils/components';
-import { AppModalPaste } from '../componets/AppModalPaste';
+import { createElementNode } from '../utils/components';
+import { AppModalPaste } from './componets/AppModalPaste';
 
 const documentBody = document.body
 

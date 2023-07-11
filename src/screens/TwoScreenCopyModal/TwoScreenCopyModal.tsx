@@ -9,6 +9,7 @@ import { IconType } from '../../type/icon.dto';
 import styles from './TwoScreenCopyModal.module.scss';
 import { SimpleButton } from '../../componets/SimpleButton';
 import { InputCustom } from '../../componets/InputCustom';
+import { WrapperNeumorphism } from '../../componets/WrapperNeumorphism';
 
 type Props = {
     glViewerForPaste: ViewerType[]
@@ -21,7 +22,7 @@ type Props = {
 }
 
 const TwoScreenCopyModal = ({
-    glViewerForPaste,
+    glViewerForPaste: viewerForPaste,
     changeSelectedToggleiewer,
     deleteView,
     changeOrderViewerInEntities,
@@ -33,20 +34,22 @@ const TwoScreenCopyModal = ({
             id: '2',
             text: 'Коппировать во все вложенные',
         },
-        {
-            id: '3',
-            text: 'Применить настройки',
-        },
+
         {
             id: '4',
-            text: 'Заменить иконку для новых классов',
+            text: 'Установить иконку',
         },
         {
             id: '5',
-            text: 'Перезатирать существующию икноку при изменение',
+            text: 'Заменить иконку',
         }
     ])
-    const [settingForPaste, setSettingForPaste] = useState<Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> }>>([
+    const [settingForPaste, setSettingForPaste] = useState<Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> | '3' }>>([
+        {
+            id: '3',
+            text: 'Применить настройки',
+            bold: true
+        },
         {
             id: 'SendParams',
             text: 'Передавать данные внешнему сервису',
@@ -75,7 +78,7 @@ const TwoScreenCopyModal = ({
 
 
     const changeValueSettingForPaste = (id: string, value: boolean) => {
-        setSettingForPaste(settingForPaste?.map(_ => {
+        setSettingForPaste(prev => prev?.map(_ => {
             if (_.id === id) _.value = value;
             return _
         }))
@@ -88,22 +91,24 @@ const TwoScreenCopyModal = ({
     }
     const pasteViewerInEntitie = () => {
         pasteViewers({
-            glViewerForPaste: glViewerForPaste,
-            configPasteEntities: configPasteEntities,
-            glValueIcons: glValueIdIcon,
-            settingForPaste: settingForPaste,
-            urlValue: urlValue,
+            viewerForPaste,
+            configPasteEntities,
+            glValueIdIcon,
+            settingForPaste,
+            urlValue,
         })
         // modalWrapepr.classList.remove(styles.modalWrapper__active)
         const alert = new JSAlert("Страница будет перезагружена", "Новые виды были вставлены");
         alert.show();
         // window.location.reload()
     }
+
     return (
         <div className={styles.wrapperPageTwo}>
             <div className={styles.wrapperViewersForPaste}>
+                <h4 style={{ fontWeight: 'bold' }}>Выберите вид для копирования</h4>
                 <ul className={styles.viewer_types}>
-                    {glViewerForPaste.map((el) => {
+                    {viewerForPaste.map((el) => {
                         return <li
                             key={el.Id}
                             className={styles.viewerWrapper}
@@ -134,55 +139,60 @@ const TwoScreenCopyModal = ({
                         </li>
                     })}
                 </ul>
-                <div className={styles.wrapperListConfig}>
-                    {configPasteEntities.map((switchEl) => {
-                        return <div
-                            key={switchEl.id}
-                            className={styles.rowSwitch}>
-                            <SwitchWithText
-                                onChange={(check) => {
-                                    changeValueConfigPaste(switchEl.id, check);
-                                }}
+                <WrapperNeumorphism>
+                    <div className={styles.wrapperListConfig}>
+                        {configPasteEntities.map((switchEl) => {
+                            return <div
+                                key={switchEl.id}
+                                className={styles.rowSwitch}>
+                                <SwitchWithText
+                                    onChange={(check) => {
+                                        changeValueConfigPaste(switchEl.id, check);
+                                    }}
+                                    text={switchEl.text}
+                                    value={switchEl.value}
+                                    isRounded
+                                />
+                            </div>
+                        })}
+                    </div>
+                    <div className={styles.wrapperDropDownIcon}>
+                        <DropDown
+                            onChange={(idIcon) => setGlValueIdIcon(idIcon)}
+                            title='Выберите иконку'
+                            list={glIcons.map(icon => ({ label: icon.Name, value: icon.Id }))}
+                        />
+                        <div className={styles.wrapperSelectTitleIcon}>
+                            {titleIconSelect ? <>
+                                <span>Вы выбрали иконку:</span> {titleIconSelect}
+                            </> : ''}
+                        </div>
+                    </div>
+                </WrapperNeumorphism>
+                <WrapperNeumorphism>
+                    <div className={styles.wrapperSettinWithView}>
+                        <div className={styles.rowSwitchSetting}>
+                            {settingForPaste.map(switchEl => <SwitchWithText
+                                key={switchEl.id}
+                                onChange={(check) => changeValueSettingForPaste(switchEl.id, check)}
                                 text={switchEl.text}
+                                bold={switchEl.bold}
                                 value={switchEl.value}
                                 isRounded
-                            />
+                            />)}
                         </div>
-                    })}
-                </div>
-                <div className={styles.wrapperDropDownIcon}>
-                    <DropDown
-                        onChange={(idIcon) => setGlValueIdIcon(idIcon)}
-                        title='Выберите иконку'
-                        list={glIcons.map(icon => ({ label: icon.Name, value: icon.Id }))}
-                    />
-                    <div className={styles.wrapperSelectTitleIcon}>
-                        {titleIconSelect ? <>
-                            <span>Вы выбрали иконку:</span> {titleIconSelect}
-                        </> : ''}
-                    </div>
-                </div>
-                <div className={styles.wrapperSettinWithView}>
-                    <div className={styles.rowSwitchSetting}>
-                        {settingForPaste.map(switchEl => <SwitchWithText
-                            key={switchEl.id}
-                            onChange={(check) => changeValueSettingForPaste(switchEl.id, check)}
-                            text={switchEl.text}
-                            value={switchEl.value}
-                            isRounded
-                        />)}
-                    </div>
-                    <div className={styles.inputSettingUrlWrapper}>
-                        <input
-                            type="text"
-                            className={styles.inputSettingUrl}
-                            placeholder='URL контента'
-                            value={urlValue}
-                            onChange={e => setUrlValue(e.target.value)}
-                        />
+                        <div className={styles.inputSettingUrlWrapper}>
+                            <input
+                                type="text"
+                                className={styles.inputSettingUrl}
+                                placeholder='URL контента'
+                                value={urlValue}
+                                onChange={e => setUrlValue(e.target.value)}
+                            />
 
+                        </div>
                     </div>
-                </div>
+                </WrapperNeumorphism>
             </div>
             <SimpleButton
                 wd='150px'
@@ -191,9 +201,9 @@ const TwoScreenCopyModal = ({
                 }}
                 addClassName={styles.reload}
                 onClick={pasteViewerInEntitie}
-                text='Коппировать'
+                text='Применить'
             />
-           
+
         </div>
     )
 }

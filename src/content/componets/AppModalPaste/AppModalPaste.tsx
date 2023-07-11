@@ -105,19 +105,19 @@ const AppModalPaste = (props: Props) => {
         }))
     }
     const pasteViewers = async ({
-        glViewerForPaste,
+        viewerForPaste: glViewerForPaste,
         configPasteEntities,
-        glValueIcons,
+        glValueIdIcon: glValueIcons,
         settingForPaste,
         urlValue,
     }: TypePasteViewers) => {
 
-        const isApplySettingsCustom = configPasteEntities.find(_ => _.id === '3').value
+        const isApplySettingsCustom = settingForPaste.find(_ => _.id === '3').value
         const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
         const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
         const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value || false
         const customSettings: Record<keyof RequestForPasteViewerType['Settings'], boolean | number | string> = {
-        hideInStructureOfObject: false,
+            hideInStructureOfObject: false,
             hideInViewingModel: false,
             SendParams: false,
             hideEmptyFields: false,
@@ -126,6 +126,7 @@ const AppModalPaste = (props: Props) => {
         }
 
         settingForPaste.forEach(setting => {
+            if (setting.id === '3') return
             if (setting.id === 'viewMode') {
                 customSettings[setting.id] = Number(setting?.value)
                 return
