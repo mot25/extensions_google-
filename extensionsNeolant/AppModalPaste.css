@@ -23,6 +23,12 @@
   list-style: none;
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+.hqgt3TAdhlmMqnVnODYA {
+  max-height: 400px;
+  overflow-y: auto;
 }
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/SimpleButton/SimpleButton.module.scss ***!
@@ -1528,6 +1534,59 @@ input:checked + .extentions__slider__P_nG9:before {
   background: #ffffff;
   box-shadow: inset 19px 19px 38px #d9d9d9, inset -19px -19px 38px #ffffff;
   padding: 20px;
+}
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+.extentions__input__dxY35 {
+  color: #000;
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+}
+
+.extentions__inputBorder__nSD26 {
+  position: absolute;
+  background: var(--border-after-color);
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.extentions__input__dxY35:focus {
+  outline: none;
+}
+
+.extentions__input__dxY35:focus + .extentions__inputBorder__nSD26 {
+  width: 100%;
+}
+
+.extentions__formControl__RcsRW {
+  position: relative;
+  --width-of-input: 300px;
+}
+
+.extentions__inputAlt__v3EPd {
+  font-size: 1.2rem;
+  padding-inline: 1em;
+  padding-block: 0.8em;
+}
+
+.extentions__inputBorderAlt__QWBpF {
+  height: 3px;
+  background: #31556f;
+  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.extentions__inputAlt__v3EPd:focus + .extentions__inputBorderAlt__QWBpF {
+  width: 100%;
 }
 
 /*# sourceMappingURL=AppModalPaste.css.map*/

@@ -39,23 +39,23 @@ const AppModalPaste = (props: Props) => {
 
     const refModalWrapepr = useRef<HTMLDivElement>(null)
 
-    const [glEntitiesFromPaste, setGlEntitiesFromPaste] = useState<EntitiesType[]>([])
+    const [entitiesFromPaste, setEntitiesFromPaste] = useState<EntitiesType[]>([])
     console.log(Date.now());
 
-    const [glCurrentRightPage, setGlCurrentRightPage] = useState<number>(1)
-    const [glIcons, setGlIcons] = useState<IconType[]>([])
-    const [glViewerForPaste, setGlViewerForPaste] = useState<ViewerType[]>([])
+    const [currentRightPage, setCurrentRightPage] = useState<number>(1)
+    const [icons, setIcons] = useState<IconType[]>([])
+    const [viewerForPaste, setViewerForPaste] = useState<ViewerType[]>([])
 
 
 
     const changeOrderViewerInEntities = (id: string, order: number) => {
-        const newViewers = glViewerForPaste.map(item => {
+        const newViewers = viewerForPaste.map(item => {
             if (item.Id === id) {
                 item.order = order
             }
             return item
         })
-        setGlViewerForPaste(newViewers)
+        setViewerForPaste(newViewers)
     }
     const clearBeforeNode = () => {
         refModalWrapepr.current.classList.toggle(styles.modalWrapper__active)
@@ -68,7 +68,7 @@ const AppModalPaste = (props: Props) => {
     const fetchIcons = async () => {
         try {
             const response = await IconService.getIcons()
-            setGlIcons(response)
+            setIcons(response)
         } catch (error) {
         }
     }
@@ -97,7 +97,7 @@ const AppModalPaste = (props: Props) => {
         });
     }
     const changeSelectedToggleiewer = (id: string) => {
-        setGlViewerForPaste(prev => prev.map(item => {
+        setViewerForPaste(prev => prev.map(item => {
             if (item.Id === id) {
                 item.isSelected = !item?.isSelected
             }
@@ -105,9 +105,9 @@ const AppModalPaste = (props: Props) => {
         }))
     }
     const pasteViewers = async ({
-        viewerForPaste: glViewerForPaste,
+        viewerForPaste,
         configPasteEntities,
-        glValueIdIcon: glValueIcons,
+        valueIdIcon,
         settingForPaste,
         urlValue,
     }: TypePasteViewers) => {
@@ -136,16 +136,16 @@ const AppModalPaste = (props: Props) => {
 
         customSettings['Url'] = urlValue
 
-        glEntitiesFromPaste.forEach(async entity => {
+        entitiesFromPaste.forEach(async entity => {
             if (!entity.isCurrent) if (!isApplyNestedEntities) return
             const newViewers: ViewerType[] = []
             const promisesListResponse: Promise<ViewerType>[] = [];
 
-            glViewerForPaste.forEach(async viewer => {
+            viewerForPaste.forEach(async viewer => {
                 if (!viewer.isSelected) return
 
                 const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...customSettings } : viewer.Settings) as RequestForPasteViewerType['Settings']
-                const IconForPost: string = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon)
+                const IconForPost: string = ((isApplyIconCustom && valueIdIcon) ? valueIdIcon : viewer.Icon)
                 const dataPost: RequestForPasteViewerType = {
                     Caption: viewer.Caption,
                     Icon: IconForPost,
@@ -155,7 +155,6 @@ const AppModalPaste = (props: Props) => {
                 }
                 const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
 
-                // console.log("🚀 ~ file: contentModalPaste.ts:281 ~ newViwer ~ entity:", entity)
                 const newViwer = (async () => {
                     if (isHaveViewer) {
                         const dataCreate = {
@@ -188,10 +187,10 @@ const AppModalPaste = (props: Props) => {
             Promise.all(promisesListResponse).then(async (e) => {
                 const currentOrder = [...entity.Viewers]
 
-                glViewerForPaste.forEach(async viewer => {
+                viewerForPaste.forEach(async viewer => {
                     if (!viewer.isSelected) return
                     const newViewer = e.find(item => item.Caption === viewer.Caption)
-                    const order: number = glViewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 1
+                    const order: number = viewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 1
                     currentOrder.splice(order - 1, 0, newViewer)
                 })
                 const orderHash: Record<string, number> = {}
@@ -205,18 +204,20 @@ const AppModalPaste = (props: Props) => {
     const objRoutePage: PageNavigatorType = {
         1: <OneScreenCopyModal
             addStateViewers={addStateViewers}
-            glEntitiesFromPaste={glEntitiesFromPaste}
-            glViewerForPaste={glViewerForPaste}
+            entitiesFromPaste={entitiesFromPaste}
+            viewerForPaste={viewerForPaste}
         />,
         2: <TwoScreenCopyModal
             deleteView={deleteView}
             pasteViewers={pasteViewers}
             changeOrderViewerInEntities={changeOrderViewerInEntities}
             changeSelectedToggleiewer={changeSelectedToggleiewer}
-            glIcons={glIcons}
-            glViewerForPaste={glViewerForPaste}
+            icons={icons}
+            viewerForPaste={viewerForPaste}
+            setViewerForPaste={setViewerForPaste}
         />
     }
+
     useEffect(() => {
         fetchIcons()
     }, [])
@@ -226,20 +227,20 @@ const AppModalPaste = (props: Props) => {
         chrome.runtime.onMessage.addListener(
             function (request, sender, sendResponse) {
                 if (request.action === 'postEntitiesForPasteInsert') {
-                    setGlEntitiesFromPaste(request.payload)
+                    setEntitiesFromPaste(request.payload)
                 }
             }
         );
         chrome.storage.local.get(["viewersState"], function (result) {
             const allView = result.viewersState && JSON.parse(result.viewersState)
             const saveViewersStorage: ViewerType[] = Array.isArray(allView) ? allView : []
-            setGlViewerForPaste(saveViewersStorage)
+            setViewerForPaste(saveViewersStorage)
         });
         chrome.storage.onChanged.addListener((changes, namespace) => {
             for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
                 if (!newValue) return
                 const viewers = JSON.parse(newValue)
-                setGlViewerForPaste(viewers)
+                setViewerForPaste(viewers)
             }
         });
         chrome.runtime.onMessage.addListener(
@@ -268,17 +269,17 @@ const AppModalPaste = (props: Props) => {
                 <div className={styles.wrapperModal}>
                     <div
                         className={classNames(styles.modalLoading, {
-                            [styles.modalLoading__show]: !glEntitiesFromPaste?.length
+                            [styles.modalLoading__show]: !entitiesFromPaste?.length
                         })}
                     >
-                        {!glEntitiesFromPaste?.length ? 'Загрузка...' : null}
+                        {!entitiesFromPaste?.length ? 'Загрузка...' : null}
                     </div>
                     <div className={styles.wrapperLeft}>
                         <ul className={styles.navbar__menu}>
                             {leftMenuConfig.map((item) => {
                                 return <li
                                     key={item.id}
-                                    onClick={() => setGlCurrentRightPage(item.id)}
+                                    onClick={() => setCurrentRightPage(item.id)}
                                     className={styles.navbar__item}
                                 >
                                     <div className={styles.navbar__link}>
@@ -294,7 +295,7 @@ const AppModalPaste = (props: Props) => {
                         </ul>
                     </div>
                     <div className={styles.wrapperRight}>
-                        {objRoutePage[glCurrentRightPage]}
+                        {objRoutePage[currentRightPage]}
                     </div>
                 </div>
             </div>

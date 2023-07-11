@@ -8,18 +8,18 @@ import { SimpleButton } from '../../componets/SimpleButton';
 
 
 type Props = {
-  glEntitiesFromPaste: EntitiesType[]
-  glViewerForPaste: ViewerType[]
+  entitiesFromPaste: EntitiesType[]
+  viewerForPaste: ViewerType[]
   addStateViewers: (view: ViewerType) => void
 
 }
 
 const OneScreenCopyModal = ({
-  glEntitiesFromPaste,
-  glViewerForPaste,
+  entitiesFromPaste,
+  viewerForPaste,
   addStateViewers
 }: Props) => {
-  const entities: EntitiesType = glEntitiesFromPaste.find((_: EntitiesType) => _.isCurrent)
+  const entities: EntitiesType = entitiesFromPaste.find((_: EntitiesType) => _.isCurrent)
   const deleteViewer = (viewer: ViewerType) => {
     const alert = new JSAlert(`Вы хотите удалить ${viewer.Caption}`, "Выберите опции для удаления");
     alert.addButton("Удалить в текущем классе").then(function () {
@@ -28,7 +28,7 @@ const OneScreenCopyModal = ({
       e.target.style.backgroundColor = 'rgb(211, 211, 211)'
     });
     alert.addButton("Удалить во вложенных классах").then(function () {
-      glEntitiesFromPaste.forEach(entit => {
+      entitiesFromPaste.forEach(entit => {
         const idViewerDelete = entit?.Viewers?.find(V => V?.Caption === viewer?.Caption)
         idViewerDelete?.Id !== undefined && ManagerVieversService.deleteViewer(entit.Id, idViewerDelete?.Id)
 
@@ -43,9 +43,9 @@ const OneScreenCopyModal = ({
   return (
     <div>
       <h4 style={{ fontWeight: 'bold' }}>Выберите вид для копирование</h4>
-      <ul>
+      <ul className={styles.wrapperItem}>
         {entities?.Viewers?.map((viewer, index) => {
-          const isHave = !!~glViewerForPaste.findIndex(_ => _?.Caption === viewer?.Caption)
+          const isHave = !!~viewerForPaste.findIndex(_ => _?.Caption === viewer?.Caption)
           return <li
             key={index}
             className={styles.item}

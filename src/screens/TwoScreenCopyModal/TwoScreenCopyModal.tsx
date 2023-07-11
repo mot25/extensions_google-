@@ -10,24 +10,26 @@ import styles from './TwoScreenCopyModal.module.scss';
 import { SimpleButton } from '../../componets/SimpleButton';
 import { InputCustom } from '../../componets/InputCustom';
 import { WrapperNeumorphism } from '../../componets/WrapperNeumorphism';
+import { InputWithUnderLineColor } from '../../componets/InputWithUnderLineColor';
 
 type Props = {
-    glViewerForPaste: ViewerType[]
+    viewerForPaste: ViewerType[]
     changeSelectedToggleiewer: (id: string) => void
     deleteView: (id: string) => void
     changeOrderViewerInEntities: (id: string, order: number) => void
-    glIcons: IconType[]
+    icons: IconType[]
     pasteViewers: (data: TypePasteViewers) => void
-
+    setViewerForPaste: (newViewer: ViewerType[]) => void
 }
 
 const TwoScreenCopyModal = ({
-    glViewerForPaste: viewerForPaste,
+    viewerForPaste,
     changeSelectedToggleiewer,
     deleteView,
     changeOrderViewerInEntities,
-    glIcons,
-    pasteViewers
+    icons: icons,
+    pasteViewers,
+    setViewerForPaste
 }: Props) => {
     const [configPasteEntities, setConfigPasteEntities] = useState<SwitchRenderListType[]>([
         {
@@ -71,10 +73,10 @@ const TwoScreenCopyModal = ({
             text: 'Скрывать пустые поля',
         },
     ])
-    const [glValueIdIcon, setGlValueIdIcon] = useState<string>('')
+    const [valueIdIcon, setValueIdIcon] = useState<string>('')
     const [urlValue, setUrlValue] = useState('https://')
 
-    const titleIconSelect = glIcons.find(ic => ic.Id === glValueIdIcon)?.Name
+    const titleIconSelect = icons.find(ic => ic.Id === valueIdIcon)?.Name
 
 
     const changeValueSettingForPaste = (id: string, value: boolean) => {
@@ -93,7 +95,7 @@ const TwoScreenCopyModal = ({
         pasteViewers({
             viewerForPaste,
             configPasteEntities,
-            glValueIdIcon,
+            valueIdIcon: valueIdIcon,
             settingForPaste,
             urlValue,
         })
@@ -101,6 +103,13 @@ const TwoScreenCopyModal = ({
         const alert = new JSAlert("Страница будет перезагружена", "Новые виды были вставлены");
         alert.show();
         // window.location.reload()
+    }
+    const renameViewer = (name: string, idViewer: string) => {
+        const newViewers = viewerForPaste.map(viewer => {
+            if (viewer.Id === idViewer) viewer.Caption = name
+            return viewer
+        })
+        setViewerForPaste(newViewers)
     }
 
     return (
@@ -113,7 +122,14 @@ const TwoScreenCopyModal = ({
                             key={el.Id}
                             className={styles.viewerWrapper}
                         >
-                            <p className={styles.name}>{el.Caption}</p>
+                            <div
+                                className={styles.name}
+                            >
+                                <InputWithUnderLineColor
+                                    onChange={(e) => renameViewer(e, el.Id)}
+                                    value={el.Caption}
+                                />
+                            </div>
                             <input
                                 type="checkbox"
                                 checked={el.isSelected}
@@ -158,9 +174,9 @@ const TwoScreenCopyModal = ({
                     </div>
                     <div className={styles.wrapperDropDownIcon}>
                         <DropDown
-                            onChange={(idIcon) => setGlValueIdIcon(idIcon)}
+                            onChange={(idIcon) => setValueIdIcon(idIcon)}
                             title='Выберите иконку'
-                            list={glIcons.map(icon => ({ label: icon.Name, value: icon.Id }))}
+                            list={icons.map(icon => ({ label: icon.Name, value: icon.Id }))}
                         />
                         <div className={styles.wrapperSelectTitleIcon}>
                             {titleIconSelect ? <>
@@ -189,7 +205,6 @@ const TwoScreenCopyModal = ({
                                 value={urlValue}
                                 onChange={e => setUrlValue(e.target.value)}
                             />
-
                         </div>
                     </div>
                 </WrapperNeumorphism>

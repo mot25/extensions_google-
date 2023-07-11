@@ -407,7 +407,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"name":"iZlqKEcmn70edAIq55Hz","viewer_types":"kJD6_2rqpzLuhelloiS4","delete_btn":"U0vQu8F9wQby1zZe7hr3","item":"nsxZ8bOqUOrxzjjW6Hsm"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"name":"iZlqKEcmn70edAIq55Hz","viewer_types":"kJD6_2rqpzLuhelloiS4","delete_btn":"U0vQu8F9wQby1zZe7hr3","item":"nsxZ8bOqUOrxzjjW6Hsm","wrapperItem":"hqgt3TAdhlmMqnVnODYA"});
 
 /***/ }),
 
@@ -456,6 +456,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"input":"extentions__input__yuil0","input__label":"extentions__input__label__dEhCT","input__field":"extentions__input__field__9RGSM"});
+
+/***/ }),
+
+/***/ "./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.module.scss":
+/*!***********************************************************************************!*\
+  !*** ./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"input":"extentions__input__dxY35","inputBorder":"extentions__inputBorder__nSD26","formControl":"extentions__formControl__RcsRW","inputAlt":"extentions__inputAlt__v3EPd","inputBorderAlt":"extentions__inputBorderAlt__QWBpF"});
 
 /***/ }),
 
@@ -3418,6 +3434,53 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.tsx":
+/*!***************************************************************************!*\
+  !*** ./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.tsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputWithUnderLineColor.module.scss */ "./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.module.scss");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var InputWithUnderLineColor = function (_a) {
+    var onChange = _a.onChange, placeholder = _a.placeholder, value = _a.value, addStyle = _a.addStyle;
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: addStyle, className: _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].formControl },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].input, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputAlt), placeholder: placeholder, required: true, onChange: function (e) { return onChange(e.target.value); }, value: value, type: "text" }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputBorder, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputBorderAlt) })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputWithUnderLineColor);
+
+
+/***/ }),
+
+/***/ "./src/componets/InputWithUnderLineColor/index.ts":
+/*!********************************************************!*\
+  !*** ./src/componets/InputWithUnderLineColor/index.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   InputWithUnderLineColor: () => (/* reexport safe */ _InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputWithUnderLineColor */ "./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.tsx");
+
+
+
+/***/ }),
+
 /***/ "./src/componets/SimpleButton/SimpleButton.tsx":
 /*!*****************************************************!*\
   !*** ./src/componets/SimpleButton/SimpleButton.tsx ***!
@@ -3665,8 +3728,8 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 var OneScreenCopyModal = function (_a) {
     var _b;
-    var glEntitiesFromPaste = _a.glEntitiesFromPaste, glViewerForPaste = _a.glViewerForPaste, addStateViewers = _a.addStateViewers;
-    var entities = glEntitiesFromPaste.find(function (_) { return _.isCurrent; });
+    var entitiesFromPaste = _a.entitiesFromPaste, viewerForPaste = _a.viewerForPaste, addStateViewers = _a.addStateViewers;
+    var entities = entitiesFromPaste.find(function (_) { return _.isCurrent; });
     var deleteViewer = function (viewer) {
         var alert = new js_alert__WEBPACK_IMPORTED_MODULE_0__["default"]("\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C ".concat(viewer.Caption), "Выберите опции для удаления");
         alert.addButton("Удалить в текущем классе").then(function () {
@@ -3675,7 +3738,7 @@ var OneScreenCopyModal = function (_a) {
             e.target.style.backgroundColor = 'rgb(211, 211, 211)';
         });
         alert.addButton("Удалить во вложенных классах").then(function () {
-            glEntitiesFromPaste.forEach(function (entit) {
+            entitiesFromPaste.forEach(function (entit) {
                 var _a;
                 var idViewerDelete = (_a = entit === null || entit === void 0 ? void 0 : entit.Viewers) === null || _a === void 0 ? void 0 : _a.find(function (V) { return (V === null || V === void 0 ? void 0 : V.Caption) === (viewer === null || viewer === void 0 ? void 0 : viewer.Caption); });
                 (idViewerDelete === null || idViewerDelete === void 0 ? void 0 : idViewerDelete.Id) !== undefined && _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_1__.ManagerVieversService.deleteViewer(entit.Id, idViewerDelete === null || idViewerDelete === void 0 ? void 0 : idViewerDelete.Id);
@@ -3687,8 +3750,8 @@ var OneScreenCopyModal = function (_a) {
     };
     return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", null,
         react__WEBPACK_IMPORTED_MODULE_3___default().createElement("h4", { style: { fontWeight: 'bold' } }, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0438\u0434 \u0434\u043B\u044F \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435"),
-        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("ul", null, (_b = entities === null || entities === void 0 ? void 0 : entities.Viewers) === null || _b === void 0 ? void 0 : _b.map(function (viewer, index) {
-            var isHave = !!~glViewerForPaste.findIndex(function (_) { return (_ === null || _ === void 0 ? void 0 : _.Caption) === (viewer === null || viewer === void 0 ? void 0 : viewer.Caption); });
+        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("ul", { className: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperItem }, (_b = entities === null || entities === void 0 ? void 0 : entities.Viewers) === null || _b === void 0 ? void 0 : _b.map(function (viewer, index) {
+            var isHave = !!~viewerForPaste.findIndex(function (_) { return (_ === null || _ === void 0 ? void 0 : _.Caption) === (viewer === null || viewer === void 0 ? void 0 : viewer.Caption); });
             return react__WEBPACK_IMPORTED_MODULE_3___default().createElement("li", { key: index, className: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].item },
                 react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", { className: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name }, viewer.Caption),
                 react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_componets_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: '150px', bg: '#f44336', addClassName: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].delete_btn, onClick: function () { return deleteViewer(viewer); }, text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C' }),
@@ -3741,6 +3804,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _componets_SimpleButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../componets/SimpleButton */ "./src/componets/SimpleButton/index.ts");
 /* harmony import */ var _componets_InputCustom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../componets/InputCustom */ "./src/componets/InputCustom/index.ts");
 /* harmony import */ var _componets_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../componets/WrapperNeumorphism */ "./src/componets/WrapperNeumorphism/index.ts");
+/* harmony import */ var _componets_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../componets/InputWithUnderLineColor */ "./src/componets/InputWithUnderLineColor/index.ts");
+
 
 
 
@@ -3751,7 +3816,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var TwoScreenCopyModal = function (_a) {
     var _b;
-    var viewerForPaste = _a.glViewerForPaste, changeSelectedToggleiewer = _a.changeSelectedToggleiewer, deleteView = _a.deleteView, changeOrderViewerInEntities = _a.changeOrderViewerInEntities, glIcons = _a.glIcons, pasteViewers = _a.pasteViewers;
+    var viewerForPaste = _a.viewerForPaste, changeSelectedToggleiewer = _a.changeSelectedToggleiewer, deleteView = _a.deleteView, changeOrderViewerInEntities = _a.changeOrderViewerInEntities, icons = _a.icons, pasteViewers = _a.pasteViewers, setViewerForPaste = _a.setViewerForPaste;
     var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([
         {
             id: '2',
@@ -3793,9 +3858,9 @@ var TwoScreenCopyModal = function (_a) {
             text: 'Скрывать пустые поля',
         },
     ]), settingForPaste = _d[0], setSettingForPaste = _d[1];
-    var _e = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''), glValueIdIcon = _e[0], setGlValueIdIcon = _e[1];
+    var _e = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''), valueIdIcon = _e[0], setValueIdIcon = _e[1];
     var _f = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('https://'), urlValue = _f[0], setUrlValue = _f[1];
-    var titleIconSelect = (_b = glIcons.find(function (ic) { return ic.Id === glValueIdIcon; })) === null || _b === void 0 ? void 0 : _b.Name;
+    var titleIconSelect = (_b = icons.find(function (ic) { return ic.Id === valueIdIcon; })) === null || _b === void 0 ? void 0 : _b.Name;
     var changeValueSettingForPaste = function (id, value) {
         setSettingForPaste(function (prev) { return prev === null || prev === void 0 ? void 0 : prev.map(function (_) {
             if (_.id === id)
@@ -3814,7 +3879,7 @@ var TwoScreenCopyModal = function (_a) {
         pasteViewers({
             viewerForPaste: viewerForPaste,
             configPasteEntities: configPasteEntities,
-            glValueIdIcon: glValueIdIcon,
+            valueIdIcon: valueIdIcon,
             settingForPaste: settingForPaste,
             urlValue: urlValue,
         });
@@ -3823,12 +3888,21 @@ var TwoScreenCopyModal = function (_a) {
         alert.show();
         // window.location.reload()
     };
+    var renameViewer = function (name, idViewer) {
+        var newViewers = viewerForPaste.map(function (viewer) {
+            if (viewer.Id === idViewer)
+                viewer.Caption = name;
+            return viewer;
+        });
+        setViewerForPaste(newViewers);
+    };
     return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperPageTwo },
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperViewersForPaste },
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h4", { style: { fontWeight: 'bold' } }, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0438\u0434 \u0434\u043B\u044F \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"),
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].viewer_types }, viewerForPaste.map(function (el) {
                 return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: el.Id, className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].viewerWrapper },
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].name }, el.Caption),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].name },
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_8__.InputWithUnderLineColor, { onChange: function (e) { return renameViewer(e, el.Id); }, value: el.Caption })),
                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { type: "checkbox", checked: el.isSelected, onChange: function () { return changeSelectedToggleiewer(el.Id); } }),
                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_InputCustom__WEBPACK_IMPORTED_MODULE_6__.InputCustom, { addStyle: {
                             width: '30px'
@@ -3845,7 +3919,7 @@ var TwoScreenCopyModal = function (_a) {
                             }, text: switchEl.text, value: switchEl.value, isRounded: true }));
                 })),
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperDropDownIcon },
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_DropDown__WEBPACK_IMPORTED_MODULE_2__.DropDown, { onChange: function (idIcon) { return setGlValueIdIcon(idIcon); }, title: '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u043A\u043E\u043D\u043A\u0443', list: glIcons.map(function (icon) { return ({ label: icon.Name, value: icon.Id }); }) }),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_DropDown__WEBPACK_IMPORTED_MODULE_2__.DropDown, { onChange: function (idIcon) { return setValueIdIcon(idIcon); }, title: '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u043A\u043E\u043D\u043A\u0443', list: icons.map(function (icon) { return ({ label: icon.Name, value: icon.Id }); }) }),
                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapperSelectTitleIcon }, titleIconSelect ? react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null,
                         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, "\u0412\u044B \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u0438\u043A\u043E\u043D\u043A\u0443:"),
                         " ",
@@ -9275,19 +9349,19 @@ chrome.runtime.sendMessage({
 var AppModalPaste = function (props) {
     var _a;
     var refModalWrapepr = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), glEntitiesFromPaste = _b[0], setGlEntitiesFromPaste = _b[1];
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), entitiesFromPaste = _b[0], setEntitiesFromPaste = _b[1];
     console.log(Date.now());
-    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(1), glCurrentRightPage = _c[0], setGlCurrentRightPage = _c[1];
-    var _d = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), glIcons = _d[0], setGlIcons = _d[1];
-    var _e = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), glViewerForPaste = _e[0], setGlViewerForPaste = _e[1];
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(1), currentRightPage = _c[0], setCurrentRightPage = _c[1];
+    var _d = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), icons = _d[0], setIcons = _d[1];
+    var _e = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), viewerForPaste = _e[0], setViewerForPaste = _e[1];
     var changeOrderViewerInEntities = function (id, order) {
-        var newViewers = glViewerForPaste.map(function (item) {
+        var newViewers = viewerForPaste.map(function (item) {
             if (item.Id === id) {
                 item.order = order;
             }
             return item;
         });
-        setGlViewerForPaste(newViewers);
+        setViewerForPaste(newViewers);
     };
     var clearBeforeNode = function () {
         refModalWrapepr.current.classList.toggle(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalWrapper__active);
@@ -9306,7 +9380,7 @@ var AppModalPaste = function (props) {
                     return [4 /*yield*/, _services_Icon_service__WEBPACK_IMPORTED_MODULE_7__.IconService.getIcons()];
                 case 1:
                     response = _a.sent();
-                    setGlIcons(response);
+                    setIcons(response);
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _a.sent();
@@ -9339,7 +9413,7 @@ var AppModalPaste = function (props) {
         });
     };
     var changeSelectedToggleiewer = function (id) {
-        setGlViewerForPaste(function (prev) { return prev.map(function (item) {
+        setViewerForPaste(function (prev) { return prev.map(function (item) {
             if (item.Id === id) {
                 item.isSelected = !(item === null || item === void 0 ? void 0 : item.isSelected);
             }
@@ -9347,7 +9421,7 @@ var AppModalPaste = function (props) {
         }); });
     };
     var pasteViewers = function (_a) {
-        var glViewerForPaste = _a.viewerForPaste, configPasteEntities = _a.configPasteEntities, glValueIcons = _a.glValueIdIcon, settingForPaste = _a.settingForPaste, urlValue = _a.urlValue;
+        var viewerForPaste = _a.viewerForPaste, configPasteEntities = _a.configPasteEntities, valueIdIcon = _a.valueIdIcon, settingForPaste = _a.settingForPaste, urlValue = _a.urlValue;
         return __awaiter(void 0, void 0, void 0, function () {
             var isApplySettingsCustom, isApplyIconCustom, isApplyNestedEntities, isApplyReWriteIconWithEdit, customSettings;
             return __generator(this, function (_b) {
@@ -9373,7 +9447,7 @@ var AppModalPaste = function (props) {
                     customSettings[setting.id] = !!(setting === null || setting === void 0 ? void 0 : setting.value);
                 });
                 customSettings['Url'] = urlValue;
-                glEntitiesFromPaste.forEach(function (entity) { return __awaiter(void 0, void 0, void 0, function () {
+                entitiesFromPaste.forEach(function (entity) { return __awaiter(void 0, void 0, void 0, function () {
                     var newViewers, promisesListResponse;
                     return __generator(this, function (_a) {
                         if (!entity.isCurrent)
@@ -9381,13 +9455,13 @@ var AppModalPaste = function (props) {
                                 return [2 /*return*/];
                         newViewers = [];
                         promisesListResponse = [];
-                        glViewerForPaste.forEach(function (viewer) { return __awaiter(void 0, void 0, void 0, function () {
+                        viewerForPaste.forEach(function (viewer) { return __awaiter(void 0, void 0, void 0, function () {
                             var settingForPost, IconForPost, dataPost, isHaveViewer, newViwer;
                             return __generator(this, function (_a) {
                                 if (!viewer.isSelected)
                                     return [2 /*return*/];
                                 settingForPost = (isApplySettingsCustom ? __assign(__assign({}, viewer.Settings), customSettings) : viewer.Settings);
-                                IconForPost = ((isApplyIconCustom && glValueIcons) ? glValueIcons : viewer.Icon);
+                                IconForPost = ((isApplyIconCustom && valueIdIcon) ? valueIdIcon : viewer.Icon);
                                 dataPost = {
                                     Caption: viewer.Caption,
                                     Icon: IconForPost,
@@ -9430,14 +9504,14 @@ var AppModalPaste = function (props) {
                                 switch (_a.label) {
                                     case 0:
                                         currentOrder = __spreadArray([], entity.Viewers, true);
-                                        glViewerForPaste.forEach(function (viewer) { return __awaiter(void 0, void 0, void 0, function () {
+                                        viewerForPaste.forEach(function (viewer) { return __awaiter(void 0, void 0, void 0, function () {
                                             var newViewer, order;
                                             var _a;
                                             return __generator(this, function (_b) {
                                                 if (!viewer.isSelected)
                                                     return [2 /*return*/];
                                                 newViewer = e.find(function (item) { return item.Caption === viewer.Caption; });
-                                                order = ((_a = glViewerForPaste.find(function (_) { return _.Caption === newViewer.Caption; })) === null || _a === void 0 ? void 0 : _a.order) || 1;
+                                                order = ((_a = viewerForPaste.find(function (_) { return _.Caption === newViewer.Caption; })) === null || _a === void 0 ? void 0 : _a.order) || 1;
                                                 currentOrder.splice(order - 1, 0, newViewer);
                                                 return [2 /*return*/];
                                             });
@@ -9459,8 +9533,8 @@ var AppModalPaste = function (props) {
         });
     };
     var objRoutePage = {
-        1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_5__.OneScreenCopyModal, { addStateViewers: addStateViewers, glEntitiesFromPaste: glEntitiesFromPaste, glViewerForPaste: glViewerForPaste }),
-        2: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_8__.TwoScreenCopyModal, { deleteView: deleteView, pasteViewers: pasteViewers, changeOrderViewerInEntities: changeOrderViewerInEntities, changeSelectedToggleiewer: changeSelectedToggleiewer, glIcons: glIcons, glViewerForPaste: glViewerForPaste })
+        1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_5__.OneScreenCopyModal, { addStateViewers: addStateViewers, entitiesFromPaste: entitiesFromPaste, viewerForPaste: viewerForPaste }),
+        2: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_8__.TwoScreenCopyModal, { deleteView: deleteView, pasteViewers: pasteViewers, changeOrderViewerInEntities: changeOrderViewerInEntities, changeSelectedToggleiewer: changeSelectedToggleiewer, icons: icons, viewerForPaste: viewerForPaste, setViewerForPaste: setViewerForPaste })
     };
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         fetchIcons();
@@ -9469,13 +9543,13 @@ var AppModalPaste = function (props) {
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             if (request.action === 'postEntitiesForPasteInsert') {
-                setGlEntitiesFromPaste(request.payload);
+                setEntitiesFromPaste(request.payload);
             }
         });
         chrome.storage.local.get(["viewersState"], function (result) {
             var allView = result.viewersState && JSON.parse(result.viewersState);
             var saveViewersStorage = Array.isArray(allView) ? allView : [];
-            setGlViewerForPaste(saveViewersStorage);
+            setViewerForPaste(saveViewersStorage);
         });
         chrome.storage.onChanged.addListener(function (changes, namespace) {
             for (var _i = 0, _a = Object.entries(changes); _i < _a.length; _i++) {
@@ -9483,7 +9557,7 @@ var AppModalPaste = function (props) {
                 if (!newValue)
                     return;
                 var viewers = JSON.parse(newValue);
-                setGlViewerForPaste(viewers);
+                setViewerForPaste(viewers);
             }
         });
         chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -9504,16 +9578,16 @@ var AppModalPaste = function (props) {
                 }, src: (_assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2___default()), className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].top }),
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperModal },
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalLoading, (_a = {},
-                        _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalLoading__show] = !(glEntitiesFromPaste === null || glEntitiesFromPaste === void 0 ? void 0 : glEntitiesFromPaste.length),
-                        _a)) }, !(glEntitiesFromPaste === null || glEntitiesFromPaste === void 0 ? void 0 : glEntitiesFromPaste.length) ? 'Загрузка...' : null),
+                        _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalLoading__show] = !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length),
+                        _a)) }, !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length) ? 'Загрузка...' : null),
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperLeft },
                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__menu }, leftMenuConfig.map(function (item) {
-                        return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: item.id, onClick: function () { return setGlCurrentRightPage(item.id); }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__item },
+                        return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: item.id, onClick: function () { return setCurrentRightPage(item.id); }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__item },
                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__link },
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__link_img, src: item.title }),
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, item.label)));
                     }))),
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperRight }, objRoutePage[glCurrentRightPage])))));
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperRight }, objRoutePage[currentRightPage])))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppModalPaste);
 

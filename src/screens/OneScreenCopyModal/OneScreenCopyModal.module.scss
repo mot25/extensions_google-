@@ -16,4 +16,9 @@
     list-style: none;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
+}
+.wrapperItem {
+    max-height: 400px;
+    overflow-y: auto;
 }

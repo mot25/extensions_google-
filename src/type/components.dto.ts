@@ -21,7 +21,7 @@ export type SwitchRenderListType = {
 export type TypePasteViewers = {
     viewerForPaste: ViewerType[]
     configPasteEntities: SwitchRenderListType[],
-    glValueIdIcon: string
+    valueIdIcon: string
     settingForPaste: Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> | '3' }>
     urlValue: string
 }
