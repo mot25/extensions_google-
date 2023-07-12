@@ -1,16 +1,38 @@
-import React from 'react'
-import styles from './Setting.module.scss'
+import React, { useState } from 'react';
+
+import { SimpleButton } from '../../componets/simple/SimpleButton';
+import styles from './Setting.module.scss';
+import ArrowBack from '../../assets/icon/Icon_arrowLeft.svg'
+import { AllowUrl } from '../AllowUrl';
 type Props = {}
 
 const Setting = (props: Props) => {
+    const pageRoute = {
+        'addPortal': <AllowUrl />
+    }
+    type keyPageType = keyof typeof pageRoute | ''
+    const [selectPage, setSelectPage] = useState<keyPageType>('addPortal')
     return (
         <div className={styles.wrapper}>
-            <h1>Настройки</h1>
-            <div
-                className={styles.initAppContent}
-            >
-                
+            <div className={styles.head}>
+                {selectPage && <div
+                    className={styles.left}
+                    onClick={() => setSelectPage('')}
+                >
+                    <ArrowBack />
+                </div>}
+                <h1>Настройки</h1>
             </div>
+            {selectPage ?
+                pageRoute[selectPage] || <AllowUrl />
+                :
+                <div>
+                    <SimpleButton
+                        onClick={() => setSelectPage('addPortal')}
+                        text='Добавить портал'
+                    />
+                </div>}
+
         </div>
     )
 }

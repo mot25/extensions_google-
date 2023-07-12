@@ -97,7 +97,8 @@ const App = () => {
     // }
     // renderBlock()
     const objPage: PageNavigatorType = {
-        1: <PasteClass />,
+        1: <Setting />,
+        // 1: <PasteClass />,
         2: <PasteClass />,
         3: <PasteClass />,
         4: <Setting />,

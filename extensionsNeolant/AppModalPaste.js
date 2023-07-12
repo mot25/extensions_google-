@@ -1,6 +1,114 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/assets/icon/IconClose.svg":
+/*!***************************************!*\
+  !*** ./src/assets/icon/IconClose.svg ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var SvgIconClose = function SvgIconClose(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 20.82,
+    height: 20.82,
+    viewBox: "0 0 45.82 45.82"
+  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
+    "data-name": "Layer 2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M45.09 45.09a2.52 2.52 0 0 1-3.54 0L28.91 32.45l-1.77-1.77a2.5 2.5 0 0 1 0-3.54 2.5 2.5 0 0 1 3.54 0l1.77 1.77 12.64 12.64a2.52 2.52 0 0 1 0 3.54z",
+    style: {
+      fill: "#31556f"
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M45.09.73a2.52 2.52 0 0 0-3.54 0L22.91 19.37 4.27.73a2.51 2.51 0 0 0-3.54 0 2.52 2.52 0 0 0 0 3.54l18.64 18.64L.73 41.55a2.5 2.5 0 0 0 3.54 3.54L45.09 4.27a2.51 2.51 0 0 0 0-3.54z",
+    style: {
+      fill: "#111"
+    }
+  })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgIconClose);
+
+/***/ }),
+
+/***/ "./src/assets/icon/IconPaste.svg":
+/*!***************************************!*\
+  !*** ./src/assets/icon/IconPaste.svg ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var SvgIconPaste = function SvgIconPaste(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 64,
+    height: 64,
+    fill: "none"
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    fill: "#000",
+    d: "M56.34 17.27a1.86 1.86 0 0 0-.28-.41L42.13 2.94a1.59 1.59 0 0 0-1.06-.44H20.92A4.93 4.93 0 0 0 16 7.42v3.2h-3.58a4.93 4.93 0 0 0-4.92 4.92v41a4.93 4.93 0 0 0 4.92 4.92h30.66A4.93 4.93 0 0 0 48 56.58v-3.2h3.58a4.93 4.93 0 0 0 4.92-4.92V17.93c0-.23-.056-.456-.16-.66ZM42.57 7.62l8.81 8.8h-8.81v-8.8Zm2.43 49a1.92 1.92 0 0 1-1.92 1.92H12.42a1.92 1.92 0 0 1-1.92-1.92v-41a1.92 1.92 0 0 1 1.92-1.92H16v34.76a4.93 4.93 0 0 0 4.92 4.92H45v3.24Zm6.58-6.2H20.92A1.919 1.919 0 0 1 19 48.46v-41a1.92 1.92 0 0 1 1.92-1.96h18.65v12.42a1.5 1.5 0 0 0 1.5 1.5H53.5v29a1.92 1.92 0 0 1-1.92 1.96v.04Z"
+  })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgIconPaste);
+
+/***/ }),
+
+/***/ "./src/assets/icon/IconPlus.svg":
+/*!**************************************!*\
+  !*** ./src/assets/icon/IconPlus.svg ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _circle, _path;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var SvgIconPlus = function SvgIconPlus(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    className: "IconPlus_svg__feather IconPlus_svg__feather-plus-circle",
+    viewBox: "0 0 24 24"
+  }, props), _circle || (_circle = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: 12,
+    cy: 12,
+    r: 10
+  })), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M12 8v8M8 12h8"
+  })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgIconPlus);
+
+/***/ }),
+
 /***/ "./node_modules/classnames/index.js":
 /*!******************************************!*\
   !*** ./node_modules/classnames/index.js ***!
@@ -3303,36 +3411,6 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "./node_modules/react/cjs/react.development.js");
 }
 
-
-/***/ }),
-
-/***/ "./src/assets/icon/IconClose.svg":
-/*!***************************************!*\
-  !*** ./src/assets/icon/IconClose.svg ***!
-  \***************************************/
-/***/ ((module) => {
-
-module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='20.82' height='20.82' viewBox='0 0 45.82 45.82'%3e %3cdefs%3e %3cstyle%3e.cls-1%7bfill:%2331556f%7d.cls-2%7bfill:%23111%7d%3c/style%3e %3c/defs%3e %3ctitle%3eClose%3c/title%3e %3cg id='Layer_2' data-name='Layer 2'%3e %3cg id='Close'%3e %3cpath class='cls-1' d='M45.09 45.09a2.52 2.52 0 0 1-3.54 0L28.91 32.45l-1.77-1.77a2.5 2.5 0 0 1 0-3.54 2.5 2.5 0 0 1 3.54 0l1.77 1.77 12.64 12.64a2.52 2.52 0 0 1 0 3.54z' /%3e %3cpath class='cls-2' d='M45.09.73a2.52 2.52 0 0 0-3.54 0L22.91 19.37 4.27.73a2.51 2.51 0 0 0-3.54 0 2.52 2.52 0 0 0 0 3.54l18.64 18.64L.73 41.55a2.5 2.5 0 0 0 3.54 3.54L45.09 4.27a2.51 2.51 0 0 0 0-3.54z' /%3e %3c/g%3e %3c/g%3e %3c/svg%3e"
-
-/***/ }),
-
-/***/ "./src/assets/icon/IconPaste.svg":
-/*!***************************************!*\
-  !*** ./src/assets/icon/IconPaste.svg ***!
-  \***************************************/
-/***/ ((module) => {
-
-module.exports = "data:image/svg+xml,%3csvg width='64' height='64' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M56.34 17.27C56.2654 17.1214 56.1712 16.9835 56.06 16.86L42.13 2.94C41.8438 2.66648 41.4658 2.50958 41.07 2.5H20.92C19.6159 2.50264 18.3661 3.02185 17.444 3.94395C16.5218 4.86606 16.0026 6.11595 16 7.42V10.62H12.42C11.1159 10.6226 9.86606 11.1418 8.94395 12.064C8.02185 12.9861 7.50264 14.2359 7.5 15.54V56.54C7.50264 57.8441 8.02185 59.0939 8.94395 60.016C9.86606 60.9382 11.1159 61.4574 12.42 61.46H43.08C44.3772 61.4574 45.6211 60.9437 46.542 60.0302C47.463 59.1168 47.9868 57.8771 48 56.58V53.38H51.58C52.8841 53.3774 54.1339 52.8582 55.056 51.936C55.9782 51.0139 56.4974 49.7641 56.5 48.46V17.93C56.4993 17.7005 56.4445 17.4744 56.34 17.27V17.27ZM42.57 7.62L51.38 16.42H42.57V7.62ZM45 56.62C45 57.1292 44.7977 57.6176 44.4376 57.9776C44.0776 58.3377 43.5892 58.54 43.08 58.54H12.42C11.9108 58.54 11.4224 58.3377 11.0624 57.9776C10.7023 57.6176 10.5 57.1292 10.5 56.62V15.62C10.5 15.1108 10.7023 14.6224 11.0624 14.2624C11.4224 13.9023 11.9108 13.7 12.42 13.7H16V48.46C16.0026 49.7641 16.5218 51.0139 17.444 51.936C18.3661 52.8582 19.6159 53.3774 20.92 53.38H45V56.62ZM51.58 50.42H20.92C20.6645 50.4201 20.4115 50.3691 20.1759 50.2701C19.9403 50.1711 19.7268 50.0261 19.548 49.8436C19.3692 49.661 19.2286 49.4446 19.1345 49.207C19.0404 48.9695 18.9947 48.7155 19 48.46V7.46C18.9947 7.20452 19.0404 6.95054 19.1345 6.71296C19.2286 6.47538 19.3692 6.25897 19.548 6.07642C19.7268 5.89388 19.9403 5.74886 20.1759 5.64988C20.4115 5.5509 20.6645 5.49994 20.92 5.5H39.57V17.92C39.57 18.3178 39.728 18.6994 40.0093 18.9807C40.2906 19.262 40.6722 19.42 41.07 19.42H53.5V48.42C53.5053 48.6755 53.4596 48.9295 53.3655 49.167C53.2714 49.4046 53.1308 49.621 52.952 49.8036C52.7732 49.9861 52.5597 50.1311 52.3241 50.2301C52.0885 50.3291 51.8355 50.3801 51.58 50.38V50.42Z' fill='black' /%3e %3c/svg%3e"
-
-/***/ }),
-
-/***/ "./src/assets/icon/IconPlus.svg":
-/*!**************************************!*\
-  !*** ./src/assets/icon/IconPlus.svg ***!
-  \**************************************/
-/***/ ((module) => {
-
-module.exports = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-plus-circle'%3e%3ccircle cx='12' cy='12' r='10'%3e%3c/circle%3e%3cline x1='12' y1='8' x2='12' y2='16'%3e%3c/line%3e%3cline x1='8' y1='12' x2='16' y2='12'%3e%3c/line%3e%3c/svg%3e"
 
 /***/ }),
 
@@ -9301,11 +9379,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/icon/IconClose.svg */ "./src/assets/icon/IconClose.svg");
-/* harmony import */ var _assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/icon/IconPaste.svg */ "./src/assets/icon/IconPaste.svg");
-/* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/icon/IconPlus.svg */ "./src/assets/icon/IconPlus.svg");
-/* harmony import */ var _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _screens_OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../screens/OneScreenCopyModal */ "./src/screens/OneScreenCopyModal/index.ts");
 /* harmony import */ var _screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../screens/TwoScreenCopyModal */ "./src/screens/TwoScreenCopyModal/index.ts");
 /* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../services/Entities.service */ "./src/services/Entities.service.ts");
@@ -9381,12 +9456,12 @@ var leftMenuConfig = [
     {
         id: 1,
         label: 'Виды в текущем классе',
-        title: (_assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4___default())
+        title: _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4__["default"]
     },
     {
         id: 2,
         label: 'Коппировать',
-        title: (_assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3___default())
+        title: _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3__["default"]
     }
 ];
 chrome.runtime.sendMessage({
@@ -9622,7 +9697,7 @@ var AppModalPaste = function (props) {
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modal) },
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { onClick: function () {
                     setTimeout(clearBeforeNode, 1000);
-                }, src: (_assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2___default()), className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].top }),
+                }, src: _assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2__["default"], className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].top }),
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].wrapperModal },
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalLoading, (_a = {},
                         _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalLoading__show] = !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length),
