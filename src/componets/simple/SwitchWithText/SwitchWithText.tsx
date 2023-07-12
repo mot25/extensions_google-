@@ -22,7 +22,9 @@ const SwitchWithText = ({
 
 
     return (
-        <div className={styles.wrapperButton}>
+        <div className={classNames(styles.wrapperButton, {
+            [styles.wrapperButton__bold]: bold
+        })}>
             <label className={styles.switch}>
                 <input
                     onChange={() => {
@@ -36,9 +38,7 @@ const SwitchWithText = ({
                     [styles.round]: isRounded
                 })}></span>
             </label>
-            <p style={{
-                fontWeight: bold ? 'bold' : 'normal'
-            }} className={styles.labelText}>{text}</p>
+            <p className={styles.labelText}>{text}</p>
         </div>
     )
 }

@@ -609,7 +609,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"wrapperButton":"extentions__wrapperButton__dw4Lp","switch":"extentions__switch__jXkN_","slider":"extentions__slider__x6pUc","round":"extentions__round__F3rf2"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"wrapperButton":"extentions__wrapperButton__dw4Lp","wrapperButton__bold":"extentions__wrapperButton__bold__eGt5H","switch":"extentions__switch__jXkN_","slider":"extentions__slider__x6pUc","round":"extentions__round__F3rf2"});
 
 /***/ }),
 
@@ -3634,21 +3634,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SwitchWithText = function (_a) {
-    var _b;
+    var _b, _c;
     var onChange = _a.onChange, text = _a.text, value = _a.value, isRounded = _a.isRounded, bold = _a.bold;
-    var _c = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(!!value), valueState = _c[0], setValueState = _c[1];
-    return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", { className: _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].wrapperButton },
+    var _d = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(!!value), valueState = _d[0], setValueState = _d[1];
+    return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].wrapperButton, (_b = {},
+            _b[_SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].wrapperButton__bold] = bold,
+            _b)) },
         react__WEBPACK_IMPORTED_MODULE_2___default().createElement("label", { className: _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].switch },
             react__WEBPACK_IMPORTED_MODULE_2___default().createElement("input", { onChange: function () {
                     setValueState(!valueState);
                     onChange(valueState);
                 }, type: "checkbox", defaultChecked: valueState }),
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].slider, (_b = {},
-                    _b[_SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].round] = isRounded,
-                    _b)) })),
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("p", { style: {
-                fontWeight: bold ? 'bold' : 'normal'
-            }, className: _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].labelText }, text)));
+            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].slider, (_c = {},
+                    _c[_SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].round] = isRounded,
+                    _c)) })),
+        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("p", { className: _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].labelText }, text)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SwitchWithText);
 
