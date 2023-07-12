@@ -6,6 +6,8 @@ import { PasteClass } from '../screens/PasteClass';
 import { Setting } from '../screens/Setting';
 import { PageNavigatorType } from '../type/components.dto';
 import { gsap } from 'gsap';
+import IconPaste from '../assets/icon/IconPaste.svg';
+import IconSetting from '../assets/icon/Icon_setting.svg';
 
 const App = () => {
 
@@ -97,8 +99,7 @@ const App = () => {
     // }
     // renderBlock()
     const objPage: PageNavigatorType = {
-        1: <Setting />,
-        // 1: <PasteClass />,
+        1: <PasteClass />,
         2: <PasteClass />,
         3: <PasteClass />,
         4: <Setting />,
@@ -120,15 +121,15 @@ const App = () => {
                         {objPage[selectPage] || <PasteClass />}
                     </div>
                     <div id="bubbleWrapper">
-                        <div id="bubble1" className="bubble"><span className="icon">1</span></div>
+                        <div id="bubble1" className="bubble"><span className="icon"><IconPaste /></span></div>
                         <div id="bubble2" className="bubble"><span className="icon">2</span></div>
                         <div id="bubble3" className="bubble"><span className="icon">3</span></div>
-                        <div id="bubble4" className="bubble"><span className="icon">4</span></div>
+                        <div id="bubble4" className="bubble"><span className="icon"><IconSetting /></span></div>
                     </div>
                     <div id="menuWrapper">
                         <div
                             onClick={() => move('1', '50px', '#ffcc80')}
-                            className="menuElement">11</div>
+                            className="menuElement">{selectPage !== 1 && <IconPaste />}</div>
                         <div
                             onClick={() => move('2', '150px', '#81d4fa')}
                             className="menuElement">22</div>
@@ -137,7 +138,8 @@ const App = () => {
                             className="menuElement ">33</div>
                         <div
                             onClick={() => move('4', '350px', '#ce93d8')}
-                            className="menuElement">44</div>
+                            className="menuElement">{selectPage !== 4 && <IconSetting />}</div>
+
                     </div>
                 </div>
                 <div id="bgWrapper">

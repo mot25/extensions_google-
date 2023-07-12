@@ -1,7 +1,7 @@
 import { RequestForPasteViewerType, ViewerType } from './entities.dto';
 
 export type MenuLeftNavbar = {
-    title: string
+    title: React.JSX.Element
     id: number
     label: string
 }

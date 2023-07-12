@@ -101,11 +101,14 @@ body {
 
 .menuElement {
   opacity: 0.4;
+  transition: all 0.4s;
   transform: translateY(100%);
   cursor: pointer;
+  width: 30px;
+  height: 19px;
 }
 .menuElement:hover {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 #contentWrapper {

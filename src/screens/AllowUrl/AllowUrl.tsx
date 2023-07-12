@@ -10,7 +10,7 @@ type Props = {}
 
 const AllowUrl = (props: Props) => {
     const allowBaseUrlDemo = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil']
-    const [allowBaseUrl, setAllowBaseUrl] = useState<OptionsType[]>([])
+    const [allowBaseUrl, setAllowBaseUrl] = useState<OptionsType[] | undefined>()
 
 
     const changeAllowUrl = (id: string, newUrl: string) => {
@@ -35,18 +35,17 @@ const AllowUrl = (props: Props) => {
         }, ...prev])
     }
     const resfreshStorage = async (): Promise<string[]> => {
-        if (allowBaseUrl.length)
+        if (Array.isArray(allowBaseUrl))
             chrome.storage.sync.set({ 'allowBaseUrl': allowBaseUrl.map(_ => _.label) }).then(() => {
                 console.log("Value is set");
             });
         const allowUrlsFromStorage = await chrome.storage.sync.get(["allowBaseUrl"]).then((result) => {
             return result.allowBaseUrl
         });
-        console.log("🚀 ~ file: AllowUrl.tsx:44 ~ allowUrlsFromStorage ~ allowUrlsFromStorage:", allowUrlsFromStorage)
         return Array.isArray(allowUrlsFromStorage) ? allowUrlsFromStorage : []
     }
     useEffect(() => {
-        console.log('refresh');
+        console.log('ref11');
 
         resfreshStorage()
     }, [allowBaseUrl])
@@ -67,7 +66,7 @@ const AllowUrl = (props: Props) => {
             <DropDownEditValues
                 deleteValue={deleteAllowUrl}
                 onChange={changeAllowUrl}
-                values={allowBaseUrl}
+                values={allowBaseUrl || []}
             />
         </div>
     )

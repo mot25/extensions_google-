@@ -10,8 +10,9 @@ const PasteClass = (props: Props) => {
     const showModalPasteInterface = () => {
         chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
             const currentTabId = tabs[0].id;
-            const allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil']
-            
+            const allowBaseUrl = await chrome.storage.sync.get(["allowBaseUrl"]).then((result) => {
+                return result.allowBaseUrl
+            }) as string[]
 
             const url = new URL(tabs[0].url)
 

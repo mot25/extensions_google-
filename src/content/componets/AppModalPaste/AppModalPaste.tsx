@@ -20,12 +20,12 @@ const leftMenuConfig: MenuLeftNavbar[] = [
     {
         id: 1,
         label: 'Виды в текущем классе',
-        title: IconPlus
+        title: <IconPlus />
     },
     {
         id: 2,
         label: 'Коппировать',
-        title: IconPaste
+        title: <IconPaste />
     }
 ]
 
@@ -259,13 +259,14 @@ const AppModalPaste = (props: Props) => {
     return (
         <div ref={refModalWrapepr} className={classNames(styles.modalWrapper, styles.modalWrapper__active)} >
             <div className={classNames(styles.modal)}>
-                <img
+                <div
                     onClick={() => {
                         setTimeout(clearBeforeNode, 1000)
                     }}
-                    src={IconClose}
                     className={styles.top}
-                />
+                >
+                    <IconClose />
+                </div>
                 <div className={styles.wrapperModal}>
                     <div
                         className={classNames(styles.modalLoading, {
@@ -283,10 +284,9 @@ const AppModalPaste = (props: Props) => {
                                     className={styles.navbar__item}
                                 >
                                     <div className={styles.navbar__link}>
-                                        <img
-                                            className={styles.navbar__link_img}
-                                            src={item.title}
-                                        />
+                                        <div className={styles.navbar__link_img}>
+                                            {item.title}
+                                        </div>
                                         <span>{item.label}</span>
                                     </div>
                                 </li>

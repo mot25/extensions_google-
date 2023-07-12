@@ -59,12 +59,10 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 var SvgIconPaste = function SvgIconPaste(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 64,
-    height: 64,
-    fill: "none"
+    width: 24,
+    height: 24
   }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#000",
-    d: "M56.34 17.27a1.86 1.86 0 0 0-.28-.41L42.13 2.94a1.59 1.59 0 0 0-1.06-.44H20.92A4.93 4.93 0 0 0 16 7.42v3.2h-3.58a4.93 4.93 0 0 0-4.92 4.92v41a4.93 4.93 0 0 0 4.92 4.92h30.66A4.93 4.93 0 0 0 48 56.58v-3.2h3.58a4.93 4.93 0 0 0 4.92-4.92V17.93c0-.23-.056-.456-.16-.66ZM42.57 7.62l8.81 8.8h-8.81v-8.8Zm2.43 49a1.92 1.92 0 0 1-1.92 1.92H12.42a1.92 1.92 0 0 1-1.92-1.92v-41a1.92 1.92 0 0 1 1.92-1.92H16v34.76a4.93 4.93 0 0 0 4.92 4.92H45v3.24Zm6.58-6.2H20.92A1.919 1.919 0 0 1 19 48.46v-41a1.92 1.92 0 0 1 1.92-1.96h18.65v12.42a1.5 1.5 0 0 0 1.5 1.5H53.5v29a1.92 1.92 0 0 1-1.92 1.96v.04Z"
+    d: "M21.129 6.477a.876.876 0 0 0-.106-.153l-5.226-5.222a.59.59 0 0 0-.395-.164H7.844a1.83 1.83 0 0 0-1.301.542A1.83 1.83 0 0 0 6 2.781v1.203H4.656a1.845 1.845 0 0 0-1.844 1.844v15.375a1.845 1.845 0 0 0 1.844 1.844h11.5c.485 0 .953-.192 1.297-.535s.543-.809.547-1.293v-1.203h1.344a1.845 1.845 0 0 0 1.844-1.844V6.722a.543.543 0 0 0-.06-.245zm-5.164-3.618 3.3 3.297h-3.3zm.91 18.375a.719.719 0 0 1-.719.72h-11.5a.719.719 0 0 1-.719-.719V5.858a.721.721 0 0 1 .72-.722H6v13.035a1.845 1.845 0 0 0 1.844 1.844h9.031zm2.469-2.328h-11.5a.696.696 0 0 1-.512-.215.682.682 0 0 1-.156-.238.691.691 0 0 1-.051-.281V2.797a.703.703 0 0 1 .207-.52.757.757 0 0 1 .234-.16.762.762 0 0 1 .278-.055h6.996V6.72a.558.558 0 0 0 .562.562h4.66v10.875a.691.691 0 0 1-.05.282.648.648 0 0 1-.157.238.644.644 0 0 1-.234.16.689.689 0 0 1-.277.055zm0 0"
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgIconPaste);
@@ -9456,12 +9454,12 @@ var leftMenuConfig = [
     {
         id: 1,
         label: 'Виды в текущем классе',
-        title: _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4__["default"]
+        title: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4__["default"], null)
     },
     {
         id: 2,
         label: 'Коппировать',
-        title: _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3__["default"]
+        title: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3__["default"], null)
     }
 ];
 chrome.runtime.sendMessage({
@@ -9695,9 +9693,10 @@ var AppModalPaste = function (props) {
     }, []);
     return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { ref: refModalWrapepr, className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalWrapper, _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalWrapper__active) },
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modal) },
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { onClick: function () {
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { onClick: function () {
                     setTimeout(clearBeforeNode, 1000);
-                }, src: _assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2__["default"], className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].top }),
+                }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].top },
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2__["default"], null)),
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].wrapperModal },
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalLoading, (_a = {},
                         _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalLoading__show] = !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length),
@@ -9706,7 +9705,7 @@ var AppModalPaste = function (props) {
                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__menu }, leftMenuConfig.map(function (item) {
                         return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: item.id, onClick: function () { return setCurrentRightPage(item.id); }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__item },
                             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link },
-                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link_img, src: item.title }),
+                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link_img }, item.title),
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, item.label)));
                     }))),
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].wrapperRight }, objRoutePage[currentRightPage])))));

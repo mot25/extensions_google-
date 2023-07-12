@@ -11,7 +11,7 @@ const Setting = (props: Props) => {
         'addPortal': <AllowUrl />
     }
     type keyPageType = keyof typeof pageRoute | ''
-    const [selectPage, setSelectPage] = useState<keyPageType>('addPortal')
+    const [selectPage, setSelectPage] = useState<keyPageType>('')
     return (
         <div className={styles.wrapper}>
             <div className={styles.head}>
