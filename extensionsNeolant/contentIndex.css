@@ -47,6 +47,329 @@
 .extentions__button__lZKEu span {
   color: #fff;
 }
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/DropDown/DropDown.module.scss ***!
+  \************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/* Dropdown Button */
+.extentions__dropbtn__rCIWU {
+  background-color: #31556f;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Dropdown button on hover & focus */
+.extentions__dropbtn__rCIWU:hover,
+.extentions__dropbtn__rCIWU:focus {
+  background-color: #31556f;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.extentions__dropdown__WVsqX {
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.extentions__dropdown_content__NGFn2 {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+/* Links inside the dropdown */
+.extentions__dropdown_content__NGFn2 a {
+  color: black;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.extentions__dropdown_content__NGFn2 a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown_content container when the user clicks on the dropdown button) */
+.extentions__show__TVv2G {
+  display: block;
+}
+
+.extentions__selectItem__z1lVt {
+  cursor: pointer;
+}
+
+.extentions__selectItemText__fyjwf {
+  white-space: nowrap;
+  /* Запрещаем перенос строк */
+  overflow: hidden;
+  /* Обрезаем все, что не помещается в область */
+  /* Цвет фона */
+  padding: 5px;
+  /* Поля вокруг текста */
+  text-overflow: ellipsis;
+  /* Добавляем многоточие */
+}
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/SwitchWithText/SwitchWithText.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************/
+.extentions__wrapperButton__ksVHI {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.extentions__wrapperButton__ksVHI p {
+  margin: 0;
+}
+
+/* The switch - the box around the slider */
+.extentions__switch__rIF1O {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 21px;
+}
+
+.extentions__switch__rIF1O input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  width: 35px;
+}
+
+/* The slider */
+.extentions__slider__P_nG9 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 35px;
+}
+
+.extentions__slider__P_nG9:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .extentions__slider__P_nG9 {
+  background-color: #31556f;
+}
+
+input:focus + .extentions__slider__P_nG9 {
+  box-shadow: 0 0 1px #31556f;
+}
+
+input:checked + .extentions__slider__P_nG9:before {
+  transition: all 0.7s;
+  transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.extentions__slider__P_nG9.extentions__round__gWSrN {
+  border-radius: 34px;
+}
+
+.extentions__slider__P_nG9.extentions__round__gWSrN:before {
+  border-radius: 50%;
+}
+/*!********************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.module.scss ***!
+  \********************************************************************************************************************************************************/
+.LEOl7NZKac2Rdg_4PQL5 {
+  margin-right: 10px;
+  flex: 1;
+}
+
+.zh7LeZH_DCii28KdGMsT .LEOl7NZKac2Rdg_4PQL5 {
+  margin: 0;
+}
+
+.vtih_LET3wVo9J7G7rcw,
+.EcfAqNTFL8AVZQPPf8Ad {
+  padding: 5px 10px;
+  margin-left: 10px;
+  border: none;
+  background-color: #f44336;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tV1gpY50kQqDDwNmI6A_ {
+  width: 100%;
+  overflow: auto;
+  min-height: 550px;
+}
+
+.NSO5MoecOEeShrm1bfee {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.zh7LeZH_DCii28KdGMsT {
+  list-style-type: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.zh7LeZH_DCii28KdGMsT li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mPSZcwjM9xYdmdFJdAst {
+  width: 40px;
+}
+
+.wXJD56eyrOUWgAKUTtVU {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zwYN0XIZWwgzWSbjXeKg {
+  margin-top: 15px;
+}
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/InputCustom/InputCustom.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************/
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #31556f;
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  --size-radius: 4px;
+}
+
+.extentions__input__yuil0 {
+  position: relative;
+}
+.extentions__input__label__dEhCT {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  padding: 10px;
+  margin-left: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 3px;
+  white-space: nowrap;
+  transform: translate(0, -50%);
+  transform-origin: 0 0;
+  background: var(--color-background);
+  transition: transform 120ms ease-in;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.extentions__input__field__9RGSM {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  display: block;
+  border: 3px solid #dedede;
+  color: #000;
+  background: transparent;
+  border-radius: var(--size-radius);
+  background: #fff;
+  outline: none;
+}
+.extentions__input__field__9RGSM:focus + .extentions__input__label__dEhCT, .extentions__input__field__9RGSM:not(:placeholder-shown) + .extentions__input__label__dEhCT {
+  transform: translate(6px, -7px) scale(0.8);
+  color: var(--color-accent);
+  top: 0;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/WrapperNeumorphism/WrapperNeumorphism.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************/
+.extentions__wrapper__KObdX {
+  border-radius: 51px;
+  background: #ffffff;
+  box-shadow: inset 19px 19px 38px #d9d9d9, inset -19px -19px 38px #ffffff;
+  padding: 20px;
+}
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+.extentions__input__dxY35 {
+  color: #000;
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+}
+
+.extentions__inputBorder__nSD26 {
+  position: absolute;
+  background: var(--border-after-color);
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.extentions__input__dxY35:focus {
+  outline: none;
+}
+
+.extentions__input__dxY35:focus + .extentions__inputBorder__nSD26 {
+  width: 100%;
+}
+
+.extentions__formControl__RcsRW {
+  position: relative;
+  --width-of-input: 300px;
+}
+
+.extentions__inputAlt__v3EPd {
+  font-size: 1.2rem;
+  padding-inline: 1em;
+  padding-block: 0.8em;
+}
+
+.extentions__inputBorderAlt__QWBpF {
+  height: 3px;
+  background: #31556f;
+  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.extentions__inputAlt__v3EPd:focus + .extentions__inputBorderAlt__QWBpF {
+  width: 100%;
+}
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/content/componets/AppModalPaste/AppModalPaste.module.scss (1) ***!
   \**********************************************************************************************************************************************************************************************************************************/
@@ -1266,327 +1589,6 @@ body {
   width: 100%;
   overflow: auto;
   height: 100%;
-}
-/*!************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/DropDown/DropDown.module.scss ***!
-  \************************************************************************************************************************************************************************************************************/
-@charset "UTF-8";
-/* Dropdown Button */
-.extentions__dropbtn__rCIWU {
-  background-color: #31556f;
-  color: white;
-  padding: 5px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-/* Dropdown button on hover & focus */
-.extentions__dropbtn__rCIWU:hover,
-.extentions__dropbtn__rCIWU:focus {
-  background-color: #31556f;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.extentions__dropdown__WVsqX {
-  position: relative;
-  display: inline-block;
-  min-width: 200px;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.extentions__dropdown_content__NGFn2 {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  overflow-y: auto;
-  max-height: 400px;
-}
-
-/* Links inside the dropdown */
-.extentions__dropdown_content__NGFn2 a {
-  color: black;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.extentions__dropdown_content__NGFn2 a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown_content container when the user clicks on the dropdown button) */
-.extentions__show__TVv2G {
-  display: block;
-}
-
-.extentions__selectItem__z1lVt {
-  cursor: pointer;
-}
-
-.extentions__selectItemText__fyjwf {
-  white-space: nowrap;
-  /* Запрещаем перенос строк */
-  overflow: hidden;
-  /* Обрезаем все, что не помещается в область */
-  /* Цвет фона */
-  padding: 5px;
-  /* Поля вокруг текста */
-  text-overflow: ellipsis;
-  /* Добавляем многоточие */
-}
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/SwitchWithText/SwitchWithText.module.scss ***!
-  \************************************************************************************************************************************************************************************************************************/
-.extentions__wrapperButton__ksVHI {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-.extentions__wrapperButton__ksVHI p {
-  margin: 0;
-}
-
-/* The switch - the box around the slider */
-.extentions__switch__rIF1O {
-  position: relative;
-  display: inline-block;
-  width: 35px;
-  height: 21px;
-}
-
-.extentions__switch__rIF1O input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  width: 35px;
-}
-
-/* The slider */
-.extentions__slider__P_nG9 {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  width: 35px;
-}
-
-.extentions__slider__P_nG9:before {
-  position: absolute;
-  content: "";
-  height: 15px;
-  width: 15px;
-  left: 4px;
-  bottom: 3px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .extentions__slider__P_nG9 {
-  background-color: #31556f;
-}
-
-input:focus + .extentions__slider__P_nG9 {
-  box-shadow: 0 0 1px #31556f;
-}
-
-input:checked + .extentions__slider__P_nG9:before {
-  transition: all 0.7s;
-  transform: translateX(14px);
-}
-
-/* Rounded sliders */
-.extentions__slider__P_nG9.extentions__round__gWSrN {
-  border-radius: 34px;
-}
-
-.extentions__slider__P_nG9.extentions__round__gWSrN:before {
-  border-radius: 50%;
-}
-/*!********************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/TwoScreenCopyModal/TwoScreenCopyModal.module.scss ***!
-  \********************************************************************************************************************************************************/
-.LEOl7NZKac2Rdg_4PQL5 {
-  margin-right: 10px;
-  flex: 1;
-}
-
-.zh7LeZH_DCii28KdGMsT .LEOl7NZKac2Rdg_4PQL5 {
-  margin: 0;
-}
-
-.vtih_LET3wVo9J7G7rcw,
-.EcfAqNTFL8AVZQPPf8Ad {
-  padding: 5px 10px;
-  margin-left: 10px;
-  border: none;
-  background-color: #f44336;
-  color: #fff;
-  cursor: pointer;
-}
-
-.tV1gpY50kQqDDwNmI6A_ {
-  width: 100%;
-  overflow: auto;
-  min-height: 550px;
-}
-
-.NSO5MoecOEeShrm1bfee {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.zh7LeZH_DCii28KdGMsT {
-  list-style-type: none;
-  padding: 0;
-}
-
-.zh7LeZH_DCii28KdGMsT li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.mPSZcwjM9xYdmdFJdAst {
-  width: 40px;
-}
-
-.wXJD56eyrOUWgAKUTtVU {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.zwYN0XIZWwgzWSbjXeKg {
-  margin-top: 15px;
-}
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/InputCustom/InputCustom.module.scss ***!
-  \******************************************************************************************************************************************************************************************************************/
-:root {
-  --color-light: white;
-  --color-dark: #212121;
-  --color-signal: #31556f;
-  --color-background: var(--color-light);
-  --color-text: var(--color-dark);
-  --color-accent: var(--color-signal);
-  --size-radius: 4px;
-}
-
-.extentions__input__yuil0 {
-  position: relative;
-}
-.extentions__input__label__dEhCT {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  padding: 10px;
-  margin-left: 10px;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-radius: 3px;
-  white-space: nowrap;
-  transform: translate(0, -50%);
-  transform-origin: 0 0;
-  background: var(--color-background);
-  transition: transform 120ms ease-in;
-  font-weight: bold;
-  line-height: 1.2;
-}
-.extentions__input__field__9RGSM {
-  width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-  display: block;
-  border: 3px solid #dedede;
-  color: #000;
-  background: transparent;
-  border-radius: var(--size-radius);
-  background: #fff;
-  outline: none;
-}
-.extentions__input__field__9RGSM:focus + .extentions__input__label__dEhCT, .extentions__input__field__9RGSM:not(:placeholder-shown) + .extentions__input__label__dEhCT {
-  transform: translate(6px, -7px) scale(0.8);
-  color: var(--color-accent);
-  top: 0;
-  font-size: 20px;
-  padding-bottom: 10px;
-}
-/*!********************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/WrapperNeumorphism/WrapperNeumorphism.module.scss ***!
-  \********************************************************************************************************************************************************************************************************************************/
-.extentions__wrapper__KObdX {
-  border-radius: 51px;
-  background: #ffffff;
-  box-shadow: inset 19px 19px 38px #d9d9d9, inset -19px -19px 38px #ffffff;
-  padding: 20px;
-}
-/*!******************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************/
-.extentions__input__dxY35 {
-  color: #000;
-  font-size: 0.9rem;
-  background-color: transparent;
-  width: 100%;
-  box-sizing: border-box;
-  padding-inline: 0.5em;
-  padding-block: 0.7em;
-  border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color);
-}
-
-.extentions__inputBorder__nSD26 {
-  position: absolute;
-  background: var(--border-after-color);
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-}
-
-.extentions__input__dxY35:focus {
-  outline: none;
-}
-
-.extentions__input__dxY35:focus + .extentions__inputBorder__nSD26 {
-  width: 100%;
-}
-
-.extentions__formControl__RcsRW {
-  position: relative;
-  --width-of-input: 300px;
-}
-
-.extentions__inputAlt__v3EPd {
-  font-size: 1.2rem;
-  padding-inline: 1em;
-  padding-block: 0.8em;
-}
-
-.extentions__inputBorderAlt__QWBpF {
-  height: 3px;
-  background: #31556f;
-  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-}
-
-.extentions__inputAlt__v3EPd:focus + .extentions__inputBorderAlt__QWBpF {
-  width: 100%;
 }
 
 /*# sourceMappingURL=contentIndex.css.map*/

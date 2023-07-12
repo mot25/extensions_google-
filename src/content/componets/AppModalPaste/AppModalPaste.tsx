@@ -5,13 +5,13 @@ import IconClose from '../../../assets/icon/IconClose.svg';
 import IconPaste from '../../../assets/icon/IconPaste.svg';
 import IconPlus from '../../../assets/icon/IconPlus.svg';
 import { OneScreenCopyModal } from '../../../screens/OneScreenCopyModal';
-import { MenuLeftNavbar, PageNavigatorType, TypePasteViewers } from '../../../type/components.dto';
-import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../../type/entities.dto';
-import styles from './AppModalPaste.module.scss';
-import { IconType } from '../../../type/icon.dto';
-import { IconService } from '../../../services/Icon.service';
 import { TwoScreenCopyModal } from '../../../screens/TwoScreenCopyModal';
 import { EntitiesService } from '../../../services/Entities.service';
+import { IconService } from '../../../services/Icon.service';
+import { MenuLeftNavbar, PageNavigatorType, TypePasteViewers } from '../../../type/components.dto';
+import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../../type/entities.dto';
+import { IconType } from '../../../type/icon.dto';
+import styles from './AppModalPaste.module.scss';
 
 // import renderPageOne from '../../screens/OneScreenCopyModal/OneScreenCopyModal';
 // import renderPageTwo from '../../screens/TwoScreenCopyModal/TwoScreenCopyModal';
@@ -114,7 +114,7 @@ const AppModalPaste = (props: Props) => {
 
         const isApplySettingsCustom = settingForPaste.find(_ => _.id === '3').value
         const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
-        const isApplyNestedEntities = configPasteEntities.find(_ => _.id === '2').value
+        const isApplyNestedEntities = !configPasteEntities.find(_ => _.id === '2').value
         const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value || false
         const customSettings: Record<keyof RequestForPasteViewerType['Settings'], boolean | number | string> = {
             hideInStructureOfObject: false,

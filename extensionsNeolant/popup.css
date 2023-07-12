@@ -272,23 +272,6 @@ body {
   animation: shopWarnPush 3s;
   animation-fill-mode: forwards;
 }
-/*!***********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/popup/source/screens/Setting/Setting.module.scss ***!
-  \***********************************************************************************************************************************************/
-.khDiFVIYtEPEZkzNeks_ {
-  width: 100%;
-  height: 100%;
-}
-.khDiFVIYtEPEZkzNeks_ h1 {
-  text-align: center;
-  font-size: 22px;
-}
-
-.gpfY9LznMFUqrIIV_2Ap {
-  height: 100%;
-  width: 100%;
-  overflow-y: auto;
-}
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
   \******************************************************************************************************************************************************************************************************************************/
@@ -486,6 +469,23 @@ html {
 }
 .extentions__button__Xn3hg.extentions__reverse__LM8XG:hover span {
   --m: calc(var(--font-size));
+}
+/*!**********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/Setting/Setting.module.scss ***!
+  \**********************************************************************************************************************************/
+.R6sFjnLS4PNGsog7vfYC {
+  width: 100%;
+  height: 100%;
+}
+.R6sFjnLS4PNGsog7vfYC h1 {
+  text-align: center;
+  font-size: 22px;
+}
+
+.qaduNYdqMSl9y9NhMTil {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
 }
 
 /*# sourceMappingURL=popup.css.map*/

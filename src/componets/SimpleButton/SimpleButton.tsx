@@ -1,10 +1,10 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, MouseEvent } from 'react';
 import { createElementNode } from '../../utils/components';
 import styles from './SimpleButton.module.scss';
 import classNames from 'classnames';
 
 type Props = {
-    onClick: VoidFunction
+    onClick: (e:MouseEvent) => void
     text: string
     wd?: string
     bg?: string
@@ -26,7 +26,7 @@ const SimpleButton = ({
             backgroundColor: bg,
             ...addStyle
         }}
-            onClick={onClick}
+            onClick={(event) => onClick(event)}
             className={classNames(styles.button, addClassName)}
         >
             <span>{text}</span>

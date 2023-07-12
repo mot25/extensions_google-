@@ -6242,10 +6242,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/popup/source/screens/Setting/Setting.module.scss":
-/*!**************************************************************!*\
-  !*** ./src/popup/source/screens/Setting/Setting.module.scss ***!
-  \**************************************************************/
+/***/ "./src/screens/Setting/Setting.module.scss":
+/*!*************************************************!*\
+  !*** ./src/screens/Setting/Setting.module.scss ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6254,7 +6254,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"wrapper":"khDiFVIYtEPEZkzNeks_","initAppContent":"gpfY9LznMFUqrIIV_2Ap"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"wrapper":"R6sFjnLS4PNGsog7vfYC","initAppContent":"qaduNYdqMSl9y9NhMTil"});
 
 /***/ }),
 
@@ -39769,10 +39769,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/popup/source/App/App.tsx":
-/*!**************************************!*\
-  !*** ./src/popup/source/App/App.tsx ***!
-  \**************************************/
+/***/ "./src/screens/PasteClass/PasteClass.tsx":
+/*!***********************************************!*\
+  !*** ./src/screens/PasteClass/PasteClass.tsx ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39782,223 +39782,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var _screens_Setting_Setting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../screens/Setting/Setting */ "./src/popup/source/screens/Setting/Setting.tsx");
-/* harmony import */ var _screens_PasteClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../screens/PasteClass */ "./src/popup/source/screens/PasteClass/index.ts");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-var App = function (props) {
-    var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1), selectPage = _a[0], setSelectPage = _a[1];
-    function move(id, position, color) {
-        setSelectPage(+id);
-        var tl = gsap__WEBPACK_IMPORTED_MODULE_3__["default"].timeline();
-        tl.to("#bgBubble", { duration: 0.15, bottom: "-30px", ease: "ease-out" }, 0)
-            .to("#bubble1", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
-            .to("#bubble2", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
-            .to("#bubble3", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
-            .to("#bubble4", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
-            .to(".icon", { duration: 0.05, opacity: 0, ease: "ease-out", }, 0)
-            .to("#bgBubble", { duration: 0.2, left: position, ease: "ease-in-out" }, 0.1)
-            .to("#bgBubble", { duration: 0.15, bottom: "-50px", ease: "ease-out" }, '-=0.2')
-            .to("#bubble".concat(id), { duration: 0.15, y: "0%", opacity: 1, boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)', ease: "ease-out" }, '-=0.1')
-            .to("#bubble".concat(id, "> span"), { duration: 0.15, y: "0%", opacity: 0.7, ease: "ease-out" }, '-=0.1')
-            .to("#navbarContainer", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
-            .to("#bg", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
-            .to("#bgBubble", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0);
-    }
-    var divideByGroups = function () { return __awaiter(void 0, void 0, void 0, function () {
-        var tabs, tabsGroupIds, entriesTabGroup;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, chrome.tabs.query({})];
-                case 1:
-                    tabs = _a.sent();
-                    tabsGroupIds = {
-                        "swagger": [],
-                        "pdm-kueg.io.neolant.su": [],
-                        "lukoil-test.io.neolant.su": [],
-                        "confluence": [],
-                        "tfs": [],
-                        "mail.neolant": [],
-                    };
-                    entriesTabGroup = Object.entries(tabsGroupIds);
-                    tabs.forEach(function (_a) {
-                        var url = _a.url, id = _a.id;
-                        var key = entriesTabGroup.map(function (_) { return _[0]; }).find(function (k) { return url.includes(k); });
-                        if (!key)
-                            return;
-                        tabsGroupIds[key].push(id);
-                    });
-                    Object.entries(tabsGroupIds).forEach(function (tabContent) { return __awaiter(void 0, void 0, void 0, function () {
-                        var group;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4 /*yield*/, chrome.tabs.group({ tabIds: tabContent[1] })];
-                                case 1:
-                                    group = _a.sent();
-                                    return [4 /*yield*/, chrome.tabGroups.update(group, { title: tabContent[0] })];
-                                case 2:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                    return [2 /*return*/];
-            }
-        });
-    }); };
-    // const renderOnePage = () => {
-    //   const wrapper = createElementNode('div')
-    //   const button = ButtonInPopupAnim({
-    //     text: 'Копировать/Вставить',
-    //     onClick: showModalPasteInterface
-    //   })
-    //   wrapper.appendChild(button)
-    //   return wrapper
-    // }
-    // const renderTwoPage = () => {
-    //   const wrapper = createElementNode('div')
-    //   const button = ButtonInPopupAnim({
-    //     text: 'Разделить по группам',
-    //     onClick: divideByGroups
-    //   })
-    //   wrapper.appendChild(button)
-    //   return wrapper
-    // }
-    // const renderThreePage = () => {
-    //   const wrapper = createElementNode('div')
-    //   const content = SwagerInData()
-    //   wrapper.appendChild(content)
-    //   return wrapper
-    // }
-    // const renderBlock = () => {
-    //   const objPage: PageNavigatorType = {
-    //     '1': renderOnePage,
-    //     '2': renderTwoPage,
-    //     '3': renderThreePage,
-    //     '4': renderOnePage,
-    //   }
-    //   const placeContent = document.querySelector('.bodyContent')
-    //   placeContent.innerHTML = ''
-    //   placeContent.appendChild(objPage[selectPage.value]())
-    // }
-    // renderBlock()
-    var objPage = {
-        1: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_PasteClass__WEBPACK_IMPORTED_MODULE_2__.PasteClass, null),
-        2: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_PasteClass__WEBPACK_IMPORTED_MODULE_2__.PasteClass, null),
-        3: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_PasteClass__WEBPACK_IMPORTED_MODULE_2__.PasteClass, null),
-        4: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_Setting_Setting__WEBPACK_IMPORTED_MODULE_1__["default"], null),
-    };
-    // const objPage: PageNavigatorType = {
-    //     1: <PasteClass />,
-    //     2: ,
-    //     3: renderThreePage,
-    //     4: renderOnePage,
-    // }
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "navbarContainer" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "navbar" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bodyContent" }, objPage[selectPage] || react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_screens_PasteClass__WEBPACK_IMPORTED_MODULE_2__.PasteClass, null)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubbleWrapper" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble1", className: "bubble" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" }, "1")),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble2", className: "bubble" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" }, "2")),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble3", className: "bubble" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" }, "3")),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble4", className: "bubble" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" }, "4"))),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "menuWrapper" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: function () { return move('1', '50px', '#ffcc80'); }, className: "menuElement" }, "11"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: function () { return move('2', '150px', '#81d4fa'); }, className: "menuElement" }, "22"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: function () { return move('3', '250px', '#c5e1a5'); }, className: "menuElement " }, "33"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: function () { return move('4', '350px', '#ce93d8'); }, className: "menuElement" }, "44"))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bgWrapper" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bg" }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bgBubble" }))),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { width: "0", height: "0" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("defs", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("filter", { id: "goo" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("feGaussianBlur", { in: "SourceGraphic", stdDeviation: "20", result: "blur", id: "blurFilter" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("feColorMatrix", { in: "blur", mode: "matrix", values: "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -15", result: "goo" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("feComposite", { in: "SourceGraphic", in2: "goo", operator: "atop" }))))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
-
-
-/***/ }),
-
-/***/ "./src/popup/source/App/index.ts":
-/*!***************************************!*\
-  !*** ./src/popup/source/App/index.ts ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   App: () => (/* reexport safe */ _App__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App */ "./src/popup/source/App/App.tsx");
-
-
-
-/***/ }),
-
-/***/ "./src/popup/source/screens/PasteClass/PasteClass.tsx":
-/*!************************************************************!*\
-  !*** ./src/popup/source/screens/PasteClass/PasteClass.tsx ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../componets/ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/index.ts");
-/* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../config/Api */ "./src/config/Api/index.ts");
-/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../utils/components */ "./src/utils/components.ts");
+/* harmony import */ var _componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../componets/ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/index.ts");
+/* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../config/Api */ "./src/config/Api/index.ts");
+/* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/components */ "./src/utils/components.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -40107,10 +39893,10 @@ var PasteClass = function (props) {
 
 /***/ }),
 
-/***/ "./src/popup/source/screens/PasteClass/index.ts":
-/*!******************************************************!*\
-  !*** ./src/popup/source/screens/PasteClass/index.ts ***!
-  \******************************************************/
+/***/ "./src/screens/PasteClass/index.ts":
+/*!*****************************************!*\
+  !*** ./src/screens/PasteClass/index.ts ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40118,16 +39904,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   PasteClass: () => (/* reexport safe */ _PasteClass__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _PasteClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasteClass */ "./src/popup/source/screens/PasteClass/PasteClass.tsx");
+/* harmony import */ var _PasteClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasteClass */ "./src/screens/PasteClass/PasteClass.tsx");
 
 
 
 /***/ }),
 
-/***/ "./src/popup/source/screens/Setting/Setting.tsx":
-/*!******************************************************!*\
-  !*** ./src/popup/source/screens/Setting/Setting.tsx ***!
-  \******************************************************/
+/***/ "./src/screens/Setting/Setting.tsx":
+/*!*****************************************!*\
+  !*** ./src/screens/Setting/Setting.tsx ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40137,7 +39923,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Setting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Setting.module.scss */ "./src/popup/source/screens/Setting/Setting.module.scss");
+/* harmony import */ var _Setting_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Setting.module.scss */ "./src/screens/Setting/Setting.module.scss");
 
 
 var Setting = function (props) {
@@ -40146,6 +39932,23 @@ var Setting = function (props) {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _Setting_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].initAppContent })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Setting);
+
+
+/***/ }),
+
+/***/ "./src/screens/Setting/index.ts":
+/*!**************************************!*\
+  !*** ./src/screens/Setting/index.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Setting: () => (/* reexport safe */ _Setting__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _Setting__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Setting */ "./src/screens/Setting/Setting.tsx");
+
 
 
 /***/ }),
@@ -40168,23 +39971,6 @@ var createElementNode = function (tag, classes) {
     });
     return node;
 };
-// export class useState<T> {
-//   value: T
-//   private cb: VoidFunction
-//   private initialValue: T
-//   constructor(value: T, cb?: VoidFunction) {
-//     this.value = value;
-//     this.initialValue = value;
-//     this.cb = cb;
-//   }
-//   update(newValue: T) {
-//     this.value = newValue;
-//     this.cb && this.cb()
-//   }
-//   reset() {
-//     this.value = this.initialValue;
-//   }
-// }
 
 
 /***/ }),
@@ -44358,14 +44144,190 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _source_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./source/App */ "./src/popup/source/App/index.ts");
+/* harmony import */ var _screens_PasteClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../screens/PasteClass */ "./src/screens/PasteClass/index.ts");
+/* harmony import */ var _screens_Setting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../screens/Setting */ "./src/screens/Setting/index.ts");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 
 
 
 
+
+
+var App = function () {
+    var _a = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(1), selectPage = _a[0], setSelectPage = _a[1];
+    function move(id, position, color) {
+        setSelectPage(+id);
+        var tl = gsap__WEBPACK_IMPORTED_MODULE_5__.gsap.timeline();
+        tl.to("#bgBubble", { duration: 0.15, bottom: "-30px", ease: "ease-out" }, 0)
+            .to("#bubble1", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
+            .to("#bubble2", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
+            .to("#bubble3", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
+            .to("#bubble4", { duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out", }, 0)
+            .to(".icon", { duration: 0.05, opacity: 0, ease: "ease-out", }, 0)
+            .to("#bgBubble", { duration: 0.2, left: position, ease: "ease-in-out" }, 0.1)
+            .to("#bgBubble", { duration: 0.15, bottom: "-50px", ease: "ease-out" }, '-=0.2')
+            .to("#bubble".concat(id), { duration: 0.15, y: "0%", opacity: 1, boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)', ease: "ease-out" }, '-=0.1')
+            .to("#bubble".concat(id, "> span"), { duration: 0.15, y: "0%", opacity: 0.7, ease: "ease-out" }, '-=0.1')
+            .to("#navbarContainer", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
+            .to("#bg", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
+            .to("#bgBubble", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0);
+    }
+    var divideByGroups = function () { return __awaiter(void 0, void 0, void 0, function () {
+        var tabs, tabsGroupIds, entriesTabGroup;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, chrome.tabs.query({})];
+                case 1:
+                    tabs = _a.sent();
+                    tabsGroupIds = {
+                        "swagger": [],
+                        "pdm-kueg.io.neolant.su": [],
+                        "lukoil-test.io.neolant.su": [],
+                        "confluence": [],
+                        "tfs": [],
+                        "mail.neolant": [],
+                    };
+                    entriesTabGroup = Object.entries(tabsGroupIds);
+                    tabs.forEach(function (_a) {
+                        var url = _a.url, id = _a.id;
+                        var key = entriesTabGroup.map(function (_) { return _[0]; }).find(function (k) { return url.includes(k); });
+                        if (!key)
+                            return;
+                        tabsGroupIds[key].push(id);
+                    });
+                    Object.entries(tabsGroupIds).forEach(function (tabContent) { return __awaiter(void 0, void 0, void 0, function () {
+                        var group;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, chrome.tabs.group({ tabIds: tabContent[1] })];
+                                case 1:
+                                    group = _a.sent();
+                                    return [4 /*yield*/, chrome.tabGroups.update(group, { title: tabContent[0] })];
+                                case 2:
+                                    _a.sent();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); });
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+    // const renderOnePage = () => {
+    //   const wrapper = createElementNode('div')
+    //   const button = ButtonInPopupAnim({
+    //     text: 'Копировать/Вставить',
+    //     onClick: showModalPasteInterface
+    //   })
+    //   wrapper.appendChild(button)
+    //   return wrapper
+    // }
+    // const renderTwoPage = () => {
+    //   const wrapper = createElementNode('div')
+    //   const button = ButtonInPopupAnim({
+    //     text: 'Разделить по группам',
+    //     onClick: divideByGroups
+    //   })
+    //   wrapper.appendChild(button)
+    //   return wrapper
+    // }
+    // const renderThreePage = () => {
+    //   const wrapper = createElementNode('div')
+    //   const content = SwagerInData()
+    //   wrapper.appendChild(content)
+    //   return wrapper
+    // }
+    // const renderBlock = () => {
+    //   const objPage: PageNavigatorType = {
+    //     '1': renderOnePage,
+    //     '2': renderTwoPage,
+    //     '3': renderThreePage,
+    //     '4': renderOnePage,
+    //   }
+    //   const placeContent = document.querySelector('.bodyContent')
+    //   placeContent.innerHTML = ''
+    //   placeContent.appendChild(objPage[selectPage.value]())
+    // }
+    // renderBlock()
+    var objPage = {
+        1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass, null),
+        2: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass, null),
+        3: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass, null),
+        4: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_Setting__WEBPACK_IMPORTED_MODULE_4__.Setting, null),
+    };
+    // const objPage: PageNavigatorType = {
+    //     1: <PasteClass />,
+    //     2: ,
+    //     3: renderThreePage,
+    //     4: renderOnePage,
+    // }
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "wrapper" },
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "navbarContainer" },
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "navbar" },
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: "bodyContent" }, objPage[selectPage] || react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass, null)),
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "bubbleWrapper" },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "bubble1", className: "bubble" },
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: "icon" }, "1")),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "bubble2", className: "bubble" },
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: "icon" }, "2")),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "bubble3", className: "bubble" },
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: "icon" }, "3")),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "bubble4", className: "bubble" },
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: "icon" }, "4"))),
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "menuWrapper" },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { onClick: function () { return move('1', '50px', '#ffcc80'); }, className: "menuElement" }, "11"),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { onClick: function () { return move('2', '150px', '#81d4fa'); }, className: "menuElement" }, "22"),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { onClick: function () { return move('3', '250px', '#c5e1a5'); }, className: "menuElement " }, "33"),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { onClick: function () { return move('4', '350px', '#ce93d8'); }, className: "menuElement" }, "44"))),
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "bgWrapper" },
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "bg" }),
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { id: "bgBubble" }))),
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", { width: "0", height: "0" },
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("defs", null,
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("filter", { id: "goo" },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("feGaussianBlur", { in: "SourceGraphic", stdDeviation: "20", result: "blur", id: "blurFilter" }),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("feColorMatrix", { in: "blur", mode: "matrix", values: "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -15", result: "goo" }),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("feComposite", { in: "SourceGraphic", in2: "goo", operator: "atop" }))))));
+};
 var container = document.getElementById('root');
 var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot)(container); // createRoot(container!) if you use TypeScript
-root.render(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_source_App__WEBPACK_IMPORTED_MODULE_3__.App, null));
+root.render(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(App, null));
 
 })();
 

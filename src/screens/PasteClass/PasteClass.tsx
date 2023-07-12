@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ButtonInPopupAnim } from '../../../../componets/ButtonInPopupAnim';
-import { api } from '../../../../config/Api';
-import { createElementNode } from '../../../../utils/components';
+import { ButtonInPopupAnim } from '../../componets/ButtonInPopupAnim';
+import { api } from '../../config/Api';
+import { createElementNode } from '../../utils/components';
 
 type Props = {}
 class RenderWarningTextInPopup {

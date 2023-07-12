@@ -5,24 +5,3 @@ export const createElementNode = (tag: keyof HTMLElementTagNameMap, classes?: st
   });
   return node
 }
-
-// export class useState<T> {
-//   value: T
-//   private cb: VoidFunction
-//   private initialValue: T
-//   constructor(value: T, cb?: VoidFunction) {
-//     this.value = value;
-//     this.initialValue = value;
-//     this.cb = cb;
-
-//   }
-
-//   update(newValue: T) {
-//     this.value = newValue;
-//     this.cb && this.cb()
-//   }
-
-//   reset() {
-//     this.value = this.initialValue;
-//   }
-// }

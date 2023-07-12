@@ -34125,7 +34125,7 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 var SimpleButton = function (_a) {
     var onClick = _a.onClick, text = _a.text, _b = _a.wd, wd = _b === void 0 ? '100%' : _b, _c = _a.bg, bg = _c === void 0 ? '#31556f' : _c, addStyle = _a.addStyle, addClassName = _a.addClassName;
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: __assign({ width: wd, backgroundColor: bg }, addStyle), onClick: onClick, className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].button, addClassName) },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: __assign({ width: wd, backgroundColor: bg }, addStyle), onClick: function (event) { return onClick(event); }, className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].button, addClassName) },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, text)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SimpleButton);
@@ -34327,10 +34327,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/icon/IconPlus.svg */ "./src/assets/icon/IconPlus.svg");
 /* harmony import */ var _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _screens_OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../screens/OneScreenCopyModal */ "./src/screens/OneScreenCopyModal/index.ts");
-/* harmony import */ var _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AppModalPaste.module.scss */ "./src/content/componets/AppModalPaste/AppModalPaste.module.scss");
-/* harmony import */ var _services_Icon_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../services/Icon.service */ "./src/services/Icon.service.ts");
-/* harmony import */ var _screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../screens/TwoScreenCopyModal */ "./src/screens/TwoScreenCopyModal/index.ts");
-/* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../services/Entities.service */ "./src/services/Entities.service.ts");
+/* harmony import */ var _screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../screens/TwoScreenCopyModal */ "./src/screens/TwoScreenCopyModal/index.ts");
+/* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../services/Entities.service */ "./src/services/Entities.service.ts");
+/* harmony import */ var _services_Icon_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../services/Icon.service */ "./src/services/Icon.service.ts");
+/* harmony import */ var _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AppModalPaste.module.scss */ "./src/content/componets/AppModalPaste/AppModalPaste.module.scss");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -34431,7 +34431,7 @@ var AppModalPaste = function (props) {
         setViewerForPaste(newViewers);
     };
     var clearBeforeNode = function () {
-        refModalWrapepr.current.classList.toggle(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalWrapper__active);
+        refModalWrapepr.current.classList.toggle(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalWrapper__active);
         var nodes = document.querySelectorAll('#rootContentEntry');
         nodes.forEach(function (element) {
             element.remove();
@@ -34444,7 +34444,7 @@ var AppModalPaste = function (props) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, _services_Icon_service__WEBPACK_IMPORTED_MODULE_7__.IconService.getIcons()];
+                    return [4 /*yield*/, _services_Icon_service__WEBPACK_IMPORTED_MODULE_8__.IconService.getIcons()];
                 case 1:
                     response = _a.sent();
                     setIcons(response);
@@ -34494,7 +34494,7 @@ var AppModalPaste = function (props) {
             return __generator(this, function (_b) {
                 isApplySettingsCustom = settingForPaste.find(function (_) { return _.id === '3'; }).value;
                 isApplyIconCustom = configPasteEntities.find(function (_) { return _.id === '4'; }).value;
-                isApplyNestedEntities = configPasteEntities.find(function (_) { return _.id === '2'; }).value;
+                isApplyNestedEntities = !configPasteEntities.find(function (_) { return _.id === '2'; }).value;
                 isApplyReWriteIconWithEdit = configPasteEntities.find(function (_) { return _.id === '5'; }).value || false;
                 customSettings = {
                     hideInStructureOfObject: false,
@@ -34544,14 +34544,14 @@ var AppModalPaste = function (props) {
                                             case 0:
                                                 if (!isHaveViewer) return [3 /*break*/, 2];
                                                 dataCreate = __assign(__assign({}, dataPost), { Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon, Id: isHaveViewer.Id });
-                                                return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_9__.EntitiesService.changeViewerInEntities(entity.Id, dataCreate)];
+                                                return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_7__.EntitiesService.changeViewerInEntities(entity.Id, dataCreate)];
                                             case 1:
                                                 response = _a.sent();
                                                 newViewers.push(dataCreate);
                                                 console.log("\u0418\u0437\u043C\u0435\u043D\u0438\u043B\u0438 \u0432\u0438\u0434: ".concat(dataCreate.Caption, " \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 ").concat(entity.Name));
                                                 // console.log("🚀 response add change viewer id ", response)
                                                 return [2 /*return*/, dataCreate];
-                                            case 2: return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_9__.EntitiesService.pasteViewerInEntities(entity.Id, dataPost)];
+                                            case 2: return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_7__.EntitiesService.pasteViewerInEntities(entity.Id, dataPost)];
                                             case 3:
                                                 response = _a.sent();
                                                 newViewers.push(__assign(__assign({}, dataPost), { Id: response.Id }));
@@ -34585,7 +34585,7 @@ var AppModalPaste = function (props) {
                                         }); });
                                         orderHash = {};
                                         currentOrder.forEach(function (_, ind) { return orderHash[_.Id] = ind; });
-                                        return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_9__.EntitiesService.changeOrderPosition(entity.Id, orderHash)];
+                                        return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_7__.EntitiesService.changeOrderPosition(entity.Id, orderHash)];
                                     case 1:
                                         responseOrdert = _a.sent();
                                         return [2 /*return*/];
@@ -34601,7 +34601,7 @@ var AppModalPaste = function (props) {
     };
     var objRoutePage = {
         1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_OneScreenCopyModal__WEBPACK_IMPORTED_MODULE_5__.OneScreenCopyModal, { addStateViewers: addStateViewers, entitiesFromPaste: entitiesFromPaste, viewerForPaste: viewerForPaste }),
-        2: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_8__.TwoScreenCopyModal, { deleteView: deleteView, pasteViewers: pasteViewers, changeOrderViewerInEntities: changeOrderViewerInEntities, changeSelectedToggleiewer: changeSelectedToggleiewer, icons: icons, viewerForPaste: viewerForPaste, setViewerForPaste: setViewerForPaste })
+        2: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_screens_TwoScreenCopyModal__WEBPACK_IMPORTED_MODULE_6__.TwoScreenCopyModal, { deleteView: deleteView, pasteViewers: pasteViewers, changeOrderViewerInEntities: changeOrderViewerInEntities, changeSelectedToggleiewer: changeSelectedToggleiewer, icons: icons, viewerForPaste: viewerForPaste, setViewerForPaste: setViewerForPaste })
     };
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         fetchIcons();
@@ -34630,31 +34630,31 @@ var AppModalPaste = function (props) {
         chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             if (request.actions === 'isShowModal') {
                 if (request.payload) {
-                    refModalWrapepr.current.classList.add(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalWrapper__active);
+                    refModalWrapepr.current.classList.add(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalWrapper__active);
                 }
                 else {
-                    refModalWrapepr.current.classList.remove(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalWrapper__active);
+                    refModalWrapepr.current.classList.remove(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalWrapper__active);
                 }
             }
         });
     }, []);
-    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { ref: refModalWrapepr, className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalWrapper, _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalWrapper__active) },
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modal) },
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { ref: refModalWrapepr, className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalWrapper, _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalWrapper__active) },
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modal) },
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { onClick: function () {
                     setTimeout(clearBeforeNode, 1000);
-                }, src: (_assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2___default()), className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].top }),
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperModal },
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalLoading, (_a = {},
-                        _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].modalLoading__show] = !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length),
+                }, src: (_assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2___default()), className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].top }),
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].wrapperModal },
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalLoading, (_a = {},
+                        _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalLoading__show] = !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length),
                         _a)) }, !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length) ? 'Загрузка...' : null),
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperLeft },
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__menu }, leftMenuConfig.map(function (item) {
-                        return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: item.id, onClick: function () { return setCurrentRightPage(item.id); }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__item },
-                            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__link },
-                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].navbar__link_img, src: item.title }),
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].wrapperLeft },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__menu }, leftMenuConfig.map(function (item) {
+                        return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: item.id, onClick: function () { return setCurrentRightPage(item.id); }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__item },
+                            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link },
+                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link_img, src: item.title }),
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, item.label)));
                     }))),
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].wrapperRight }, objRoutePage[currentRightPage])))));
+                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].wrapperRight }, objRoutePage[currentRightPage])))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppModalPaste);
 
@@ -34706,6 +34706,42 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 
 
 
@@ -34715,12 +34751,23 @@ var OneScreenCopyModal = function (_a) {
     var _b;
     var entitiesFromPaste = _a.entitiesFromPaste, viewerForPaste = _a.viewerForPaste, addStateViewers = _a.addStateViewers;
     var entities = entitiesFromPaste.find(function (_) { return _.isCurrent; });
-    var deleteViewer = function (viewer) {
+    var deleteViewer = function (viewer, e) {
+        console.log("🚀 ~ file: OneScreenCopyModal.tsx:42 ~ deleteViewer ~ e:", e);
         var alert = new js_alert__WEBPACK_IMPORTED_MODULE_0__["default"]("\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C ".concat(viewer.Caption), "Выберите опции для удаления");
         alert.addButton("Удалить в текущем классе").then(function () {
-            _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_1__.ManagerVieversService.deleteViewer(entities.Id, viewer.Id);
-            // @ts-ignore
-            e.target.style.backgroundColor = 'rgb(211, 211, 211)';
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_1__.ManagerVieversService.deleteViewer(entities.Id, viewer.Id)
+                            // @ts-ignore
+                            // e.target.style.backgroundColor = 'rgb(211, 211, 211)'
+                        ];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            });
         });
         alert.addButton("Удалить во вложенных классах").then(function () {
             entitiesFromPaste.forEach(function (entit) {
@@ -34729,7 +34776,7 @@ var OneScreenCopyModal = function (_a) {
                 (idViewerDelete === null || idViewerDelete === void 0 ? void 0 : idViewerDelete.Id) !== undefined && _services_ManagerVievers_service__WEBPACK_IMPORTED_MODULE_1__.ManagerVieversService.deleteViewer(entit.Id, idViewerDelete === null || idViewerDelete === void 0 ? void 0 : idViewerDelete.Id);
             });
             // @ts-ignore
-            e.target.style.backgroundColor = 'rgb(211, 211, 211)';
+            // e.target.style.backgroundColor = 'rgb(211, 211, 211)'
         });
         alert.show();
     };
@@ -34739,7 +34786,7 @@ var OneScreenCopyModal = function (_a) {
             var isHave = !!~viewerForPaste.findIndex(function (_) { return (_ === null || _ === void 0 ? void 0 : _.Caption) === (viewer === null || viewer === void 0 ? void 0 : viewer.Caption); });
             return react__WEBPACK_IMPORTED_MODULE_3___default().createElement("li", { key: index, className: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].item },
                 react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", { className: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name }, viewer.Caption),
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_componets_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: '150px', bg: '#f44336', addClassName: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].delete_btn, onClick: function () { return deleteViewer(viewer); }, text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C' }),
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_componets_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: '150px', bg: '#f44336', addClassName: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].delete_btn, onClick: function (event) { return deleteViewer(viewer, event); }, text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C' }),
                 react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_componets_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: '150px', bg: isHave ? '#d3d3d3' : '#4CAF50', onClick: function () {
                         if (isHave)
                             return;
@@ -35223,23 +35270,6 @@ var createElementNode = function (tag, classes) {
     });
     return node;
 };
-// export class useState<T> {
-//   value: T
-//   private cb: VoidFunction
-//   private initialValue: T
-//   constructor(value: T, cb?: VoidFunction) {
-//     this.value = value;
-//     this.initialValue = value;
-//     this.cb = cb;
-//   }
-//   update(newValue: T) {
-//     this.value = newValue;
-//     this.cb && this.cb()
-//   }
-//   reset() {
-//     this.value = this.initialValue;
-//   }
-// }
 
 
 /***/ }),
