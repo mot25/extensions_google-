@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { createElementNode } from "../../utils/components";
 import styles from './SwitchWithText.module.scss'
 import React, { useState } from "react";
 

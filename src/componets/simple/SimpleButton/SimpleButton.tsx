@@ -1,5 +1,4 @@
 import React, { CSSProperties, MouseEvent } from 'react';
-import { createElementNode } from '../../utils/components';
 import styles from './SimpleButton.module.scss';
 import classNames from 'classnames';
 

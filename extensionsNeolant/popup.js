@@ -6258,10 +6258,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss":
-/*!***********************************************************************!*\
-  !*** ./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
-  \***********************************************************************/
+/***/ "./src/componets/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss":
+/*!******************************************************************************!*\
+  !*** ./src/componets/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
+  \******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6270,7 +6270,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"buttonActions":"extentions__buttonActions__bdtsh","dark":"extentions__dark__yRmEw","reverse":"extentions__reverse__LM8XG","button":"extentions__button__Xn3hg"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"buttonActions":"extentions__buttonActions__mmZv_","dark":"extentions__dark__OsnOy","reverse":"extentions__reverse__F_zWX","button":"extentions__button__p9Nzl"});
 
 /***/ }),
 
@@ -39653,10 +39653,10 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.tsx":
-/*!***************************************************************!*\
-  !*** ./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.tsx ***!
-  \***************************************************************/
+/***/ "./src/componets/simple/ButtonInPopupAnim/ButtonInPopupAnim.tsx":
+/*!**********************************************************************!*\
+  !*** ./src/componets/simple/ButtonInPopupAnim/ButtonInPopupAnim.tsx ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39668,7 +39668,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ButtonInPopupAnim_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ButtonInPopupAnim.module.scss */ "./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss");
+/* harmony import */ var _ButtonInPopupAnim_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ButtonInPopupAnim.module.scss */ "./src/componets/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss");
 // import { createElementNode } from '../../utils/components';
 
 
@@ -39697,10 +39697,10 @@ var ButtonInPopupAnim = function (_a) {
 
 /***/ }),
 
-/***/ "./src/componets/ButtonInPopupAnim/index.ts":
-/*!**************************************************!*\
-  !*** ./src/componets/ButtonInPopupAnim/index.ts ***!
-  \**************************************************/
+/***/ "./src/componets/simple/ButtonInPopupAnim/index.ts":
+/*!*********************************************************!*\
+  !*** ./src/componets/simple/ButtonInPopupAnim/index.ts ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39708,7 +39708,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ButtonInPopupAnim: () => (/* reexport safe */ _ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.tsx");
+/* harmony import */ var _ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonInPopupAnim */ "./src/componets/simple/ButtonInPopupAnim/ButtonInPopupAnim.tsx");
 
 
 
@@ -39782,7 +39782,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../componets/ButtonInPopupAnim */ "./src/componets/ButtonInPopupAnim/index.ts");
+/* harmony import */ var _componets_simple_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../componets/simple/ButtonInPopupAnim */ "./src/componets/simple/ButtonInPopupAnim/index.ts");
 /* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../config/Api */ "./src/config/Api/index.ts");
 /* harmony import */ var _utils_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/components */ "./src/utils/components.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -39825,26 +39825,8 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-var RenderWarningTextInPopup = /** @class */ (function () {
-    function RenderWarningTextInPopup(message) {
-        this.body = document.body;
-        this.warningText = message;
-    }
-    RenderWarningTextInPopup.prototype.render = function () {
-        var wrapperWarnign = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('div', ['wrapperWarnign']);
-        var warningText = (0,_utils_components__WEBPACK_IMPORTED_MODULE_3__.createElementNode)('span', ['warningText']);
-        warningText.innerText = this.warningText;
-        wrapperWarnign.append(warningText);
-        this.body.appendChild(wrapperWarnign);
-        setTimeout(function () {
-            wrapperWarnign.remove();
-        }, 3000);
-    };
-    return RenderWarningTextInPopup;
-}());
 var PasteClass = function (props) {
     var showModalPasteInterface = function () {
-        console.log('1212');
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             return __awaiter(this, void 0, void 0, function () {
                 var currentTabId, allowBaseUrl, url;
@@ -39855,11 +39837,11 @@ var PasteClass = function (props) {
                             allowBaseUrl = ['pdm-kueg', 'lukoil-test', 'pdm-tst-kueg', 'pdm-base', 'pdm-kueg.lukoil', 'pdm-tst-kueg.lukoil', 'pdm-base.lukoil'];
                             url = new URL(tabs[0].url);
                             if (!allowBaseUrl.some(function (_) { return tabs[0].url.includes(_); }))
-                                return [2 /*return*/, new RenderWarningTextInPopup('Расширение открыто вне портала').render()];
+                                return [2 /*return*/, new _utils_components__WEBPACK_IMPORTED_MODULE_3__.RenderWarningTextInPopup('Расширение открыто вне портала').render()];
                             if (url.pathname !== "/structure/entities")
-                                return [2 /*return*/, new RenderWarningTextInPopup('Не открыт раздел с классами').render()];
+                                return [2 /*return*/, new _utils_components__WEBPACK_IMPORTED_MODULE_3__.RenderWarningTextInPopup('Не открыт раздел с классами').render()];
                             if (!url.searchParams.get('id'))
-                                return [2 /*return*/, new RenderWarningTextInPopup('Не выбран класс').render()];
+                                return [2 /*return*/, new _utils_components__WEBPACK_IMPORTED_MODULE_3__.RenderWarningTextInPopup('Не выбран класс').render()];
                             _config_Api__WEBPACK_IMPORTED_MODULE_2__.api.defaults.baseURL = url.origin;
                             return [4 /*yield*/, chrome.scripting.executeScript({
                                     target: { tabId: currentTabId },
@@ -39886,7 +39868,7 @@ var PasteClass = function (props) {
         });
     };
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_componets_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__.ButtonInPopupAnim, { onClick: showModalPasteInterface, text: '\u041A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C/\u0412\u0441\u0442\u0430\u0432\u0438\u0442\u044C' })));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_componets_simple_ButtonInPopupAnim__WEBPACK_IMPORTED_MODULE_1__.ButtonInPopupAnim, { onClick: showModalPasteInterface, text: '\u041A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C/\u0412\u0441\u0442\u0430\u0432\u0438\u0442\u044C' })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PasteClass);
 
@@ -39962,6 +39944,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   RenderWarningTextInPopup: () => (/* binding */ RenderWarningTextInPopup),
 /* harmony export */   createElementNode: () => (/* binding */ createElementNode)
 /* harmony export */ });
 var createElementNode = function (tag, classes) {
@@ -39971,6 +39954,24 @@ var createElementNode = function (tag, classes) {
     });
     return node;
 };
+var RenderWarningTextInPopup = /** @class */ (function () {
+    function RenderWarningTextInPopup(message) {
+        this.body = document.body;
+        this.warningText = message;
+    }
+    RenderWarningTextInPopup.prototype.render = function () {
+        var wrapperWarnign = createElementNode('div', ['wrapperWarnign']);
+        var warningText = createElementNode('span', ['warningText']);
+        warningText.innerText = this.warningText;
+        wrapperWarnign.append(warningText);
+        this.body.appendChild(wrapperWarnign);
+        setTimeout(function () {
+            wrapperWarnign.remove();
+        }, 3000);
+    };
+    return RenderWarningTextInPopup;
+}());
+
 
 
 /***/ }),

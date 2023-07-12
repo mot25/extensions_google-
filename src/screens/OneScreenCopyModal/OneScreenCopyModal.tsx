@@ -4,7 +4,7 @@ import { ManagerVieversService } from '../../services/ManagerVievers.service';
 import { EntitiesType, ViewerType } from '../../type/entities.dto';
 import styles from './OneScreenCopyModal.module.scss';
 import React, { MouseEvent } from 'react'
-import { SimpleButton } from '../../componets/SimpleButton';
+import { SimpleButton } from '../../componets/simple/SimpleButton';
 
 
 type Props = {

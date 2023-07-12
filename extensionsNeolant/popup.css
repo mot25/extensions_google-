@@ -272,9 +272,9 @@ body {
   animation: shopWarnPush 3s;
   animation-fill-mode: forwards;
 }
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
-  \******************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************/
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -287,13 +287,13 @@ html {
   box-sizing: inherit;
 }
 
-.extentions__buttonActions__bdtsh.extentions__dark__yRmEw {
+.extentions__buttonActions__mmZv_.extentions__dark__OsnOy {
   --background: #fafbfd;
   --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
   --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
 }
 
-.extentions__buttonActions__bdtsh {
+.extentions__buttonActions__mmZv_ {
   --background: #275efe;
   --text: #000;
   --font-size: 16px;
@@ -318,76 +318,76 @@ html {
   transform: translateY(var(--y)) translateZ(0);
   transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
-.extentions__buttonActions__bdtsh div {
+.extentions__buttonActions__mmZv_ div {
   display: flex;
   overflow: hidden;
   text-shadow: 0 var(--font-shadow) 0 var(--text);
 }
-.extentions__buttonActions__bdtsh div span {
+.extentions__buttonActions__mmZv_ div span {
   display: block;
   backface-visibility: hidden;
   font-style: normal;
   transition: transform var(--duration) ease;
   transform: translateY(var(--m)) translateZ(0);
 }
-.extentions__buttonActions__bdtsh div span:nth-child(1) {
+.extentions__buttonActions__mmZv_ div span:nth-child(1) {
   transition-delay: 0.05s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(2) {
+.extentions__buttonActions__mmZv_ div span:nth-child(2) {
   transition-delay: 0.1s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(3) {
+.extentions__buttonActions__mmZv_ div span:nth-child(3) {
   transition-delay: 0.15s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(4) {
+.extentions__buttonActions__mmZv_ div span:nth-child(4) {
   transition-delay: 0.2s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(5) {
+.extentions__buttonActions__mmZv_ div span:nth-child(5) {
   transition-delay: 0.25s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(6) {
+.extentions__buttonActions__mmZv_ div span:nth-child(6) {
   transition-delay: 0.3s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(7) {
+.extentions__buttonActions__mmZv_ div span:nth-child(7) {
   transition-delay: 0.35s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(8) {
+.extentions__buttonActions__mmZv_ div span:nth-child(8) {
   transition-delay: 0.4s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(9) {
+.extentions__buttonActions__mmZv_ div span:nth-child(9) {
   transition-delay: 0.45s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(10) {
+.extentions__buttonActions__mmZv_ div span:nth-child(10) {
   transition-delay: 0.5s;
 }
-.extentions__buttonActions__bdtsh div span:nth-child(11) {
+.extentions__buttonActions__mmZv_ div span:nth-child(11) {
   transition-delay: 0.55s;
 }
-.extentions__buttonActions__bdtsh:hover {
+.extentions__buttonActions__mmZv_:hover {
   --y: var(--move-hover);
   --shadow: var(--shadow-hover);
 }
-.extentions__buttonActions__bdtsh:hover span {
+.extentions__buttonActions__mmZv_:hover span {
   --m: calc(var(--font-size) * -1);
 }
-.extentions__buttonActions__bdtsh.extentions__reverse__LM8XG {
+.extentions__buttonActions__mmZv_.extentions__reverse__F_zWX {
   --font-shadow: calc(var(--font-size) * -1);
 }
-.extentions__buttonActions__bdtsh.extentions__reverse__LM8XG:hover span {
+.extentions__buttonActions__mmZv_.extentions__reverse__F_zWX:hover span {
   --m: calc(var(--font-size));
 }
 
-.extentions__buttonActions__bdtsh {
+.extentions__buttonActions__mmZv_ {
   cursor: pointer;
 }
 
-.extentions__button__Xn3hg.extentions__dark__yRmEw {
+.extentions__button__p9Nzl.extentions__dark__OsnOy {
   --background: #000;
   --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
   --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
 }
 
-.extentions__button__Xn3hg {
+.extentions__button__p9Nzl {
   --background: #275efe;
   --text: #000;
   --font-size: 16px;
@@ -412,62 +412,62 @@ html {
   transform: translateY(var(--y)) translateZ(0);
   transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
-.extentions__button__Xn3hg div {
+.extentions__button__p9Nzl div {
   display: flex;
   overflow: hidden;
   text-shadow: 0 var(--font-shadow) 0 var(--text);
 }
-.extentions__button__Xn3hg div span {
+.extentions__button__p9Nzl div span {
   display: block;
   backface-visibility: hidden;
   font-style: normal;
   transition: transform var(--duration) ease;
   transform: translateY(var(--m)) translateZ(0);
 }
-.extentions__button__Xn3hg div span:nth-child(1) {
+.extentions__button__p9Nzl div span:nth-child(1) {
   transition-delay: 0.05s;
 }
-.extentions__button__Xn3hg div span:nth-child(2) {
+.extentions__button__p9Nzl div span:nth-child(2) {
   transition-delay: 0.1s;
 }
-.extentions__button__Xn3hg div span:nth-child(3) {
+.extentions__button__p9Nzl div span:nth-child(3) {
   transition-delay: 0.15s;
 }
-.extentions__button__Xn3hg div span:nth-child(4) {
+.extentions__button__p9Nzl div span:nth-child(4) {
   transition-delay: 0.2s;
 }
-.extentions__button__Xn3hg div span:nth-child(5) {
+.extentions__button__p9Nzl div span:nth-child(5) {
   transition-delay: 0.25s;
 }
-.extentions__button__Xn3hg div span:nth-child(6) {
+.extentions__button__p9Nzl div span:nth-child(6) {
   transition-delay: 0.3s;
 }
-.extentions__button__Xn3hg div span:nth-child(7) {
+.extentions__button__p9Nzl div span:nth-child(7) {
   transition-delay: 0.35s;
 }
-.extentions__button__Xn3hg div span:nth-child(8) {
+.extentions__button__p9Nzl div span:nth-child(8) {
   transition-delay: 0.4s;
 }
-.extentions__button__Xn3hg div span:nth-child(9) {
+.extentions__button__p9Nzl div span:nth-child(9) {
   transition-delay: 0.45s;
 }
-.extentions__button__Xn3hg div span:nth-child(10) {
+.extentions__button__p9Nzl div span:nth-child(10) {
   transition-delay: 0.5s;
 }
-.extentions__button__Xn3hg div span:nth-child(11) {
+.extentions__button__p9Nzl div span:nth-child(11) {
   transition-delay: 0.55s;
 }
-.extentions__button__Xn3hg:hover {
+.extentions__button__p9Nzl:hover {
   --y: var(--move-hover);
   --shadow: var(--shadow-hover);
 }
-.extentions__button__Xn3hg:hover span {
+.extentions__button__p9Nzl:hover span {
   --m: calc(var(--font-size) * -1);
 }
-.extentions__button__Xn3hg.extentions__reverse__LM8XG {
+.extentions__button__p9Nzl.extentions__reverse__F_zWX {
   --font-shadow: calc(var(--font-size) * -1);
 }
-.extentions__button__Xn3hg.extentions__reverse__LM8XG:hover span {
+.extentions__button__p9Nzl.extentions__reverse__F_zWX:hover span {
   --m: calc(var(--font-size));
 }
 /*!**********************************************************************************************************************************!*\

@@ -1,16 +1,17 @@
 import JSAlert from 'js-alert';
 import React, { useState } from 'react';
 
-import { DropDown } from '../../componets/DropDown';
-import { SwitchWithText } from '../../componets/SwitchWithText';
 import { SwitchRenderListType, TypePasteViewers } from '../../type/components.dto';
 import { RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
 import { IconType } from '../../type/icon.dto';
 import styles from './TwoScreenCopyModal.module.scss';
-import { SimpleButton } from '../../componets/SimpleButton';
-import { InputCustom } from '../../componets/InputCustom';
-import { WrapperNeumorphism } from '../../componets/WrapperNeumorphism';
-import { InputWithUnderLineColor } from '../../componets/InputWithUnderLineColor';
+import { DropDown } from '../../componets/simple/DropDown';
+import { InputCustom } from '../../componets/simple/InputCustom';
+import { InputWithUnderLineColor } from '../../componets/simple/InputWithUnderLineColor';
+import { SimpleButton } from '../../componets/simple/SimpleButton';
+import { SwitchWithText } from '../../componets/simple/SwitchWithText';
+import { WrapperNeumorphism } from '../../componets/simple/WrapperNeumorphism';
+
 
 type Props = {
     viewerForPaste: ViewerType[]
