@@ -29,7 +29,7 @@ const Setting = (props: Props) => {
                 <div>
                     <SimpleButton
                         onClick={() => setSelectPage('addPortal')}
-                        text='Добавить портал'
+                        text='Посмотреть настройки расширения'
                     />
                 </div>}
 

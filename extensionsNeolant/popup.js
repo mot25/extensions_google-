@@ -40441,7 +40441,7 @@ var Setting = function (props) {
             pageRoute[selectPage] || react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AllowUrl__WEBPACK_IMPORTED_MODULE_4__.AllowUrl, null)
             :
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_componets_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton, { onClick: function () { return setSelectPage('addPortal'); }, text: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u043E\u0440\u0442\u0430\u043B' }))));
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_componets_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton, { onClick: function () { return setSelectPage('addPortal'); }, text: '\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F' }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Setting);
 
