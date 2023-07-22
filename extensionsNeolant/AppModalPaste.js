@@ -529,7 +529,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"name":"LEOl7NZKac2Rdg_4PQL5","viewer_types":"zh7LeZH_DCii28KdGMsT","delete_btn":"vtih_LET3wVo9J7G7rcw","add_btn":"EcfAqNTFL8AVZQPPf8Ad","wrapperPageTwo":"tV1gpY50kQqDDwNmI6A_","wrapperViewersForPaste":"NSO5MoecOEeShrm1bfee","orderInput":"mPSZcwjM9xYdmdFJdAst","viewerWrapper":"wXJD56eyrOUWgAKUTtVU","reload":"zwYN0XIZWwgzWSbjXeKg"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"name":"LEOl7NZKac2Rdg_4PQL5","viewer_types":"zh7LeZH_DCii28KdGMsT","delete_btn":"vtih_LET3wVo9J7G7rcw","add_btn":"EcfAqNTFL8AVZQPPf8Ad","wrapperPageTwo":"tV1gpY50kQqDDwNmI6A_","wrapperViewersForPaste":"NSO5MoecOEeShrm1bfee","orderInput":"mPSZcwjM9xYdmdFJdAst","viewerWrapper":"wXJD56eyrOUWgAKUTtVU","viewerWrapper__even":"cC35arjVKEFeMG9wSTVt","reload":"zwYN0XIZWwgzWSbjXeKg"});
 
 /***/ }),
 
@@ -3928,6 +3928,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _componets_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../componets/simple/SimpleButton */ "./src/componets/simple/SimpleButton/index.ts");
 /* harmony import */ var _componets_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../componets/simple/SwitchWithText */ "./src/componets/simple/SwitchWithText/index.ts");
 /* harmony import */ var _componets_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../componets/simple/WrapperNeumorphism */ "./src/componets/simple/WrapperNeumorphism/index.ts");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_9__);
+
 
 
 
@@ -4022,8 +4025,11 @@ var TwoScreenCopyModal = function (_a) {
     return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperPageTwo },
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperViewersForPaste },
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h4", { style: { fontWeight: 'bold' } }, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0438\u0434 \u0434\u043B\u044F \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"),
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].viewer_types }, viewerForPaste.map(function (el) {
-                return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: el.Id, className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].viewerWrapper },
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].viewer_types }, viewerForPaste.map(function (el, indexViewer) {
+                var _a;
+                return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: el.Id, className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].viewerWrapper, (_a = {},
+                        _a[_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].viewerWrapper__even] = indexViewer % 2 === 0,
+                        _a)) },
                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name },
                         react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_5__.InputWithUnderLineColor, { onChange: function (e) { return renameViewer(e, el.Id); }, value: el.Caption })),
                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { type: "checkbox", checked: el.isSelected, onChange: function () { return changeSelectedToggleiewer(el.Id); } }),

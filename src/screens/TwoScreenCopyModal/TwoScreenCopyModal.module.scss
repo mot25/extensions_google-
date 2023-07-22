@@ -50,6 +50,15 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
+    &__even {
+
+        input {
+            color: #fff !important;
+        }
+
+        background-color: #3c6684;
+    }
 }
 
 .reload {

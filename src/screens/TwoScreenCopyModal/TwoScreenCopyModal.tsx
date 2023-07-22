@@ -11,6 +11,7 @@ import { InputWithUnderLineColor } from '../../componets/simple/InputWithUnderLi
 import { SimpleButton } from '../../componets/simple/SimpleButton';
 import { SwitchWithText } from '../../componets/simple/SwitchWithText';
 import { WrapperNeumorphism } from '../../componets/simple/WrapperNeumorphism';
+import classNames from 'classnames';
 
 
 type Props = {
@@ -118,10 +119,12 @@ const TwoScreenCopyModal = ({
             <div className={styles.wrapperViewersForPaste}>
                 <h4 style={{ fontWeight: 'bold' }}>Выберите вид для копирования</h4>
                 <ul className={styles.viewer_types}>
-                    {viewerForPaste.map((el) => {
+                    {viewerForPaste.map((el, indexViewer) => {
                         return <li
                             key={el.Id}
-                            className={styles.viewerWrapper}
+                            className={classNames(styles.viewerWrapper, {
+                                [styles.viewerWrapper__even]: indexViewer % 2 === 0
+                            })}
                         >
                             <div
                                 className={styles.name}
