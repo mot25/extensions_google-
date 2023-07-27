@@ -99,6 +99,15 @@ body {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
     height: calc(100vh - #{$spacer*4});
 
+    &__link__active {
+        border-radius: 5px;
+        background-color: $primary;
+
+        svg {
+            stroke: #fff;
+        }
+    }
+
     &__link {
         position: relative;
         display: flex;
@@ -141,9 +150,23 @@ body {
 
     &__menu {
         position: relative;
+
+        &:hover {
+            .navbar__link__active {
+                background-color: transparent;
+                svg {
+                    stroke: #000;
+                }
+            }
+        }
     }
 
+
+
+
+
     &__item {
+
         &:last-child {
             &:before {
                 content: '';

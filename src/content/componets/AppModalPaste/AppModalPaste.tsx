@@ -40,9 +40,9 @@ const AppModalPaste = (props: Props) => {
     const refModalWrapepr = useRef<HTMLDivElement>(null)
 
     const [entitiesFromPaste, setEntitiesFromPaste] = useState<EntitiesType[]>([])
-    console.log(Date.now());
 
     const [currentRightPage, setCurrentRightPage] = useState<number>(1)
+    console.log("🚀 ~ file: AppModalPaste.tsx:46 ~ AppModalPaste ~ currentRightPage:", currentRightPage)
     const [icons, setIcons] = useState<IconType[]>([])
     const [viewerForPaste, setViewerForPaste] = useState<ViewerType[]>([])
 
@@ -277,13 +277,15 @@ const AppModalPaste = (props: Props) => {
                     </div>
                     <div className={styles.wrapperLeft}>
                         <ul className={styles.navbar__menu}>
-                            {leftMenuConfig.map((item) => {
+                            {leftMenuConfig.map((item, indexCategory) => {
                                 return <li
                                     key={item.id}
                                     onClick={() => setCurrentRightPage(item.id)}
                                     className={styles.navbar__item}
                                 >
-                                    <div className={styles.navbar__link}>
+                                    <div className={classNames(styles.navbar__link, {
+                                        [styles.navbar__link__active]: indexCategory + 1 === currentRightPage
+                                    })}>
                                         <div className={styles.navbar__link_img}>
                                             {item.title}
                                         </div>

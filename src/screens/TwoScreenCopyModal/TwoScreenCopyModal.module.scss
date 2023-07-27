@@ -1,6 +1,14 @@
 .name {
     margin-right: 10px;
     flex: 1;
+
+    div {
+        input {
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+    }
+
 }
 
 .viewer_types .name {
@@ -12,7 +20,7 @@
     padding: 5px 10px;
     margin-left: 10px;
     border: none;
-    background-color: #f44336;
+    background-color: #CC3333;
     color: #fff;
     cursor: pointer;
 }
@@ -39,7 +47,7 @@
 .viewer_types li {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
 }
 
 .orderInput {
@@ -50,14 +58,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 0 5px;
 
     &__even {
 
-        input {
-            color: #fff !important;
-        }
-
-        background-color: #3c6684;
+        background-color: #e5f6ff;
     }
 }
 

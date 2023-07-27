@@ -21,7 +21,6 @@ const OneScreenCopyModal = ({
 }: Props) => {
   const entities: EntitiesType = entitiesFromPaste.find((_: EntitiesType) => _.isCurrent)
   const deleteViewer = (viewer: ViewerType, e: MouseEvent) => {
-    console.log("🚀 ~ file: OneScreenCopyModal.tsx:42 ~ deleteViewer ~ e:", e)
 
     const alert = new JSAlert(`Вы хотите удалить ${viewer.Caption}`, "Выберите опции для удаления");
     alert.addButton("Удалить в текущем классе").then(async function () {
@@ -44,7 +43,7 @@ const OneScreenCopyModal = ({
 
   return (
     <div>
-      <h4 style={{ fontWeight: 'bold' }}>Выберите вид для копирование</h4>
+      <h4 style={{ fontWeight: 'bold' }}>Выберите вид для копирование/удаления</h4>
       <ul className={styles.wrapperItem}>
         {entities?.Viewers?.map((viewer, index) => {
           const isHave = !!~viewerForPaste.findIndex(_ => _?.Caption === viewer?.Caption)
@@ -59,13 +58,19 @@ const OneScreenCopyModal = ({
             </span>
             <SimpleButton
               wd='150px'
-              bg='#f44336'
+              addStyle={{
+                height: '24px',
+              }}
+              bg='#CC3333'
               addClassName={styles.delete_btn}
               onClick={(event) => deleteViewer(viewer, event)}
               text='Удалить'
             />
             <SimpleButton
               wd='150px'
+              addStyle={{
+                height: '24px',
+              }}
               bg={isHave ? '#d3d3d3' : '#4CAF50'}
               onClick={() => {
                 if (isHave) return

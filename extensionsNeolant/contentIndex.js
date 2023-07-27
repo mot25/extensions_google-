@@ -641,7 +641,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"modalWrapper":"extentions__modalWrapper__wlCv1","modalWrapper__active":"extentions__modalWrapper__active__pil5F","top":"extentions__top__Y2yfH","modal":"extentions__modal__Rpor7","wrapperModal":"extentions__wrapperModal__ffGoT","navbar__item":"extentions__navbar__item__z4wlN","navbar":"extentions__navbar__voMcx","navbar__link":"extentions__navbar__link__Xu1kj","navbar__menu":"extentions__navbar__menu__kiGAW","gooeyEffect-1":"extentions__gooeyEffect-1__PZbEI","gooeyEffect-2":"extentions__gooeyEffect-2__qoBNz","gooeyEffect-3":"extentions__gooeyEffect-3__BaL8b","gooeyEffect-4":"extentions__gooeyEffect-4__yIvsO","gooeyEffect-5":"extentions__gooeyEffect-5__BNpHW","gooeyEffect-6":"extentions__gooeyEffect-6__OuczS","gooeyEffect-7":"extentions__gooeyEffect-7__POL0u","gooeyEffect-8":"extentions__gooeyEffect-8__jV37B","gooeyEffect-9":"extentions__gooeyEffect-9__At2fg","gooeyEffect-10":"extentions__gooeyEffect-10__AWt21","gooeyEffect-11":"extentions__gooeyEffect-11__Q5oLn","list":"extentions__list__YyOwh","actions":"extentions__actions__brR0d","modalLoading":"extentions__modalLoading__yBZZF","modalLoading__show":"extentions__modalLoading__show__fSHmp","navbar__link_img":"extentions__navbar__link_img__zDXT0","wrapperRight":"extentions__wrapperRight__GJgjj"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"modalWrapper":"extentions__modalWrapper__wlCv1","modalWrapper__active":"extentions__modalWrapper__active__pil5F","top":"extentions__top__Y2yfH","modal":"extentions__modal__Rpor7","wrapperModal":"extentions__wrapperModal__ffGoT","navbar__item":"extentions__navbar__item__z4wlN","navbar":"extentions__navbar__voMcx","navbar__link__active":"extentions__navbar__link__active__O8Z6a","navbar__link":"extentions__navbar__link__Xu1kj","navbar__menu":"extentions__navbar__menu__kiGAW","gooeyEffect-1":"extentions__gooeyEffect-1__PZbEI","gooeyEffect-2":"extentions__gooeyEffect-2__qoBNz","gooeyEffect-3":"extentions__gooeyEffect-3__BaL8b","gooeyEffect-4":"extentions__gooeyEffect-4__yIvsO","gooeyEffect-5":"extentions__gooeyEffect-5__BNpHW","gooeyEffect-6":"extentions__gooeyEffect-6__OuczS","gooeyEffect-7":"extentions__gooeyEffect-7__POL0u","gooeyEffect-8":"extentions__gooeyEffect-8__jV37B","gooeyEffect-9":"extentions__gooeyEffect-9__At2fg","gooeyEffect-10":"extentions__gooeyEffect-10__AWt21","gooeyEffect-11":"extentions__gooeyEffect-11__Q5oLn","list":"extentions__list__YyOwh","actions":"extentions__actions__brR0d","modalLoading":"extentions__modalLoading__yBZZF","modalLoading__show":"extentions__modalLoading__show__fSHmp","navbar__link_img":"extentions__navbar__link_img__zDXT0","wrapperRight":"extentions__wrapperRight__GJgjj"});
 
 /***/ }),
 
@@ -34490,8 +34490,8 @@ var AppModalPaste = function (props) {
     var _a;
     var refModalWrapepr = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
     var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), entitiesFromPaste = _b[0], setEntitiesFromPaste = _b[1];
-    console.log(Date.now());
     var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(1), currentRightPage = _c[0], setCurrentRightPage = _c[1];
+    console.log("🚀 ~ file: AppModalPaste.tsx:46 ~ AppModalPaste ~ currentRightPage:", currentRightPage);
     var _d = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), icons = _d[0], setIcons = _d[1];
     var _e = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), viewerForPaste = _e[0], setViewerForPaste = _e[1];
     var changeOrderViewerInEntities = function (id, order) {
@@ -34722,9 +34722,12 @@ var AppModalPaste = function (props) {
                         _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].modalLoading__show] = !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length),
                         _a)) }, !(entitiesFromPaste === null || entitiesFromPaste === void 0 ? void 0 : entitiesFromPaste.length) ? 'Загрузка...' : null),
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].wrapperLeft },
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__menu }, leftMenuConfig.map(function (item) {
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__menu }, leftMenuConfig.map(function (item, indexCategory) {
+                        var _a;
                         return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: item.id, onClick: function () { return setCurrentRightPage(item.id); }, className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__item },
-                            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link },
+                            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link, (_a = {},
+                                    _a[_AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link__active] = indexCategory + 1 === currentRightPage,
+                                    _a)) },
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].navbar__link_img }, item.title),
                                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, item.label)));
                     }))),
@@ -34826,7 +34829,6 @@ var OneScreenCopyModal = function (_a) {
     var entitiesFromPaste = _a.entitiesFromPaste, viewerForPaste = _a.viewerForPaste, addStateViewers = _a.addStateViewers;
     var entities = entitiesFromPaste.find(function (_) { return _.isCurrent; });
     var deleteViewer = function (viewer, e) {
-        console.log("🚀 ~ file: OneScreenCopyModal.tsx:42 ~ deleteViewer ~ e:", e);
         var alert = new js_alert__WEBPACK_IMPORTED_MODULE_0__["default"]("\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C ".concat(viewer.Caption), "Выберите опции для удаления");
         alert.addButton("Удалить в текущем классе").then(function () {
             return __awaiter(this, void 0, void 0, function () {
@@ -34855,13 +34857,17 @@ var OneScreenCopyModal = function (_a) {
         alert.show();
     };
     return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", null,
-        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("h4", { style: { fontWeight: 'bold' } }, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0438\u0434 \u0434\u043B\u044F \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435"),
+        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("h4", { style: { fontWeight: 'bold' } }, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0438\u0434 \u0434\u043B\u044F \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435/\u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044F"),
         react__WEBPACK_IMPORTED_MODULE_3___default().createElement("ul", { className: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperItem }, (_b = entities === null || entities === void 0 ? void 0 : entities.Viewers) === null || _b === void 0 ? void 0 : _b.map(function (viewer, index) {
             var isHave = !!~viewerForPaste.findIndex(function (_) { return (_ === null || _ === void 0 ? void 0 : _.Caption) === (viewer === null || viewer === void 0 ? void 0 : viewer.Caption); });
             return react__WEBPACK_IMPORTED_MODULE_3___default().createElement("li", { key: index, className: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].item },
                 react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", { className: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name }, viewer.Caption),
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_componets_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: '150px', bg: '#f44336', addClassName: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].delete_btn, onClick: function (event) { return deleteViewer(viewer, event); }, text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C' }),
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_componets_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: '150px', bg: isHave ? '#d3d3d3' : '#4CAF50', onClick: function () {
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_componets_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: '150px', addStyle: {
+                        height: '24px',
+                    }, bg: '#CC3333', addClassName: _OneScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].delete_btn, onClick: function (event) { return deleteViewer(viewer, event); }, text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C' }),
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_componets_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: '150px', addStyle: {
+                        height: '24px',
+                    }, bg: isHave ? '#d3d3d3' : '#4CAF50', onClick: function () {
                         if (isHave)
                             return;
                         addStateViewers(__assign(__assign({}, viewer), { order: index + 1 }));
@@ -35013,15 +35019,17 @@ var TwoScreenCopyModal = function (_a) {
                 return react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { key: el.Id, className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].viewerWrapper, (_a = {},
                         _a[_TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].viewerWrapper__even] = indexViewer % 2 === 0,
                         _a)) },
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name },
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { title: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438', className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].name },
                         react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_5__.InputWithUnderLineColor, { onChange: function (e) { return renameViewer(e, el.Id); }, value: el.Caption })),
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { type: "checkbox", checked: el.isSelected, onChange: function () { return changeSelectedToggleiewer(el.Id); } }),
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_simple_InputCustom__WEBPACK_IMPORTED_MODULE_4__.InputCustom, { addStyle: {
-                            width: '30px'
-                        }, onChange: function (e) { return changeOrderViewerInEntities(el.Id, +e); }, value: el.order.toString() }),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { title: '\u0427\u0435\u043A\u0431\u043E\u043A\u0441 \u0434\u043B\u044F \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438' },
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { type: "checkbox", checked: el.isSelected, onChange: function () { return changeSelectedToggleiewer(el.Id); } })),
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { title: '\u041F\u043E\u0440\u044F\u0434\u043A\u043E\u0432\u044B\u0439 \u043D\u043E\u043C\u0435\u0440 \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438' },
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_simple_InputCustom__WEBPACK_IMPORTED_MODULE_4__.InputCustom, { addStyle: {
+                                width: '30px'
+                            }, onChange: function (e) { return changeOrderViewerInEntities(el.Id, +e); }, value: el.order.toString() })),
                     react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_6__.SimpleButton, { wd: '150px', addStyle: {
                             height: '30px',
-                        }, bg: '#b43b3b', onClick: function () { return deleteView(el.Id); }, text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0437 \u043F\u0430\u043C\u044F\u0442\u0438' }));
+                        }, bg: '#CC3333', onClick: function () { return deleteView(el.Id); }, text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0437 \u043F\u0430\u043C\u044F\u0442\u0438' }));
             })),
             react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_componets_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_8__.WrapperNeumorphism, null,
                 react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _TwoScreenCopyModal_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperListConfig }, configPasteEntities.map(function (switchEl) {

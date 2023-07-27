@@ -13,7 +13,11 @@
 
 .input {
     position: relative;
+
     // overflow: hidden;
+    input {
+        color: #000 !important;
+    }
 
     &__label {
         position: absolute;

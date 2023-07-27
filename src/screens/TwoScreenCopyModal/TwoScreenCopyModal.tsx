@@ -127,6 +127,7 @@ const TwoScreenCopyModal = ({
                             })}
                         >
                             <div
+                                title='Название вида для вставки'
                                 className={styles.name}
                             >
                                 <InputWithUnderLineColor
@@ -134,25 +135,33 @@ const TwoScreenCopyModal = ({
                                     value={el.Caption}
                                 />
                             </div>
-                            <input
-                                type="checkbox"
-                                checked={el.isSelected}
-                                onChange={() => changeSelectedToggleiewer(el.Id)}
-                            />
+                            <span
+                                title='Чекбокс для включения вида для вставки'
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={el.isSelected}
+                                    onChange={() => changeSelectedToggleiewer(el.Id)}
+                                />
+                            </span>
 
-                            <InputCustom
-                                addStyle={{
-                                    width: '30px'
-                                }}
-                                onChange={(e) => changeOrderViewerInEntities(el.Id, +e)}
-                                value={el.order.toString()}
-                            />
+                            <span
+                                title='Порядковый номер вида для вставки'
+                            >
+                                <InputCustom
+                                    addStyle={{
+                                        width: '30px'
+                                    }}
+                                    onChange={(e) => changeOrderViewerInEntities(el.Id, +e)}
+                                    value={el.order.toString()}
+                                />
+                            </span>
                             <SimpleButton
                                 wd='150px'
                                 addStyle={{
                                     height: '30px',
                                 }}
-                                bg='#b43b3b'
+                                bg='#CC3333'
                                 onClick={() => deleteView(el.Id)}
                                 text='Удалить из памяти'
                             />
