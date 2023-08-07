@@ -1,4 +1,4 @@
-import { EntitiesType } from "../type/entities.dto";
+import { EntitiesType } from "@/type/entities.dto";
 
 export const getParamFromUrl = (url: string): Record<string, string> => {
     // Разбиваем строку запроса на отдельные параметры
@@ -32,4 +32,13 @@ export const entitiesForPasteInsert = (entities: EntitiesType[], idEntities: str
     }
     findNested(currentEntities)
     return arrNested
+}
+
+export function getUrlParameter(location: string, name: string) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    const regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    const results = regex.exec(location);
+    return results === null
+        ? ""
+        : decodeURIComponent(results[1].replace(/\+/g, " "));
 }

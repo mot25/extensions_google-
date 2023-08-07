@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './DropDownEditValues.module.scss'
-import { OptionsType } from '../../../type/components.dto'
+import { OptionsType } from '@/type/components.dto'
 import { InputWithUnderLineColor } from '../InputWithUnderLineColor'
-import IconDelete from '../../../assets/icon/Icon_delete.svg'
-import { SimpleButton } from '../SimpleButton'
+import IconDelete from '@/assets/icon/Icon_delete.svg'
+
 
 type Props = {
     values: OptionsType[]

@@ -16,10 +16,11 @@
         "scripting",
         "cookies",
         "tabs",
-        "tabGroups"
+        "tabGroups",
+        "webRequest"
     ],
     "host_permissions": [
-        "https://*/*"
+        "*://*/*"
     ],
     "action": {
         "default_popup": "./index.html"

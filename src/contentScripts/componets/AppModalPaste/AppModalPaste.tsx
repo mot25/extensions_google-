@@ -1,20 +1,18 @@
+import IconClose from '@/assets/icon/IconClose.svg';
+import IconPaste from '@/assets/icon/IconPaste.svg';
+import IconPlus from '@/assets/icon/IconPlus.svg';
+import { CopyViewer } from '@/screens/CopyViewer';
+import { CopyModal } from '@/screens/CopyModal';
+import { EntitiesService } from '@/services/Entities.service';
+import { IconService } from '@/services/Icon.service';
+import { MenuLeftNavbar, PageNavigatorType, TypePasteViewers } from '@/type/components.dto';
+import { EntitiesType, RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
+import { IconType } from '@/type/icon.dto';
 import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 
-import IconClose from '../../../assets/icon/IconClose.svg';
-import IconPaste from '../../../assets/icon/IconPaste.svg';
-import IconPlus from '../../../assets/icon/IconPlus.svg';
-import { OneScreenCopyModal } from '../../../screens/OneScreenCopyModal';
-import { TwoScreenCopyModal } from '../../../screens/TwoScreenCopyModal';
-import { EntitiesService } from '../../../services/Entities.service';
-import { IconService } from '../../../services/Icon.service';
-import { MenuLeftNavbar, PageNavigatorType, TypePasteViewers } from '../../../type/components.dto';
-import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../../../type/entities.dto';
-import { IconType } from '../../../type/icon.dto';
 import styles from './AppModalPaste.module.scss';
 
-// import renderPageOne from '../../screens/OneScreenCopyModal/OneScreenCopyModal';
-// import renderPageTwo from '../../screens/TwoScreenCopyModal/TwoScreenCopyModal';
 type Props = {}
 const leftMenuConfig: MenuLeftNavbar[] = [
     {
@@ -73,6 +71,7 @@ const AppModalPaste = (props: Props) => {
         }
     }
     const addStateViewers = (view: ViewerType) => {
+        console.log("🚀 addStateViewers ~ view:", view)
         chrome.storage.local.get(["viewersState"], function (result) {
             const allView = result.viewersState && JSON.parse(result.viewersState)
             const saveViewersStorage = Array.isArray(allView) ? allView : []
@@ -138,7 +137,7 @@ const AppModalPaste = (props: Props) => {
 
         entitiesFromPaste.forEach(async entity => {
             if (!entity.isCurrent) if (!isApplyNestedEntities) return
-            const newViewers: ViewerType[] = []
+            // const newViewers: ViewerType[] = []
             const promisesListResponse: Promise<ViewerType>[] = [];
 
             viewerForPaste.forEach(async viewer => {
@@ -162,17 +161,21 @@ const AppModalPaste = (props: Props) => {
                             Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
                             Id: isHaveViewer.Id
                         }
+                        console.log("🚀  ~ viewer:", viewer)
+                        console.log("🚀  ~ dataCreate:", dataCreate)
                         const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
-                        newViewers.push(dataCreate)
+                        // newViewers.push(dataCreate)
                         console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
                         // console.log("🚀 response add change viewer id ", response)
                         return dataCreate
                     } else {
+                        console.log("🚀  ~ viewer:", viewer)
+                        console.log("🚀  ~ dataPost:", dataPost)
                         const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
-                        newViewers.push({
-                            ...dataPost,
-                            Id: response.Id
-                        })
+                        // newViewers.push({
+                        //     ...dataPost,
+                        //     Id: response.Id
+                        // })
                         console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
                         // console.log("🚀 response add new viewer id ", response)
                         return {
@@ -202,12 +205,12 @@ const AppModalPaste = (props: Props) => {
     }
 
     const objRoutePage: PageNavigatorType = {
-        1: <OneScreenCopyModal
+        1: <CopyViewer
             addStateViewers={addStateViewers}
             entitiesFromPaste={entitiesFromPaste}
             viewerForPaste={viewerForPaste}
         />,
-        2: <TwoScreenCopyModal
+        2: <CopyModal
             deleteView={deleteView}
             pasteViewers={pasteViewers}
             changeOrderViewerInEntities={changeOrderViewerInEntities}
@@ -293,7 +296,6 @@ const AppModalPaste = (props: Props) => {
                                     </div>
                                 </li>
                             })}
-
                         </ul>
                     </div>
                     <div className={styles.wrapperRight}>

@@ -27,3 +27,14 @@ export type TypePasteViewers = {
 }
 
 export type PageNavigatorType = Record<number, React.JSX.Element>
+
+export type DeleteProgresType = {
+    idDeleteting: string
+    allEntites: number
+    delete: number
+}
+export interface HttpHeader {
+    name: string;
+    value?: string | undefined;
+    binaryValue?: ArrayBuffer | undefined;
+}

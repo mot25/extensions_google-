@@ -1,8 +1,8 @@
+import { ButtonInPopupAnim } from '@/componets/simple/ButtonInPopupAnim';
+import { api } from '@/shared/config/Api';
+import { RenderWarningTextInPopup } from '@/shared/utils/components';
 import React from 'react';
 
-import { ButtonInPopupAnim } from '../../componets/simple/ButtonInPopupAnim';
-import { api } from '../../config/Api';
-import { RenderWarningTextInPopup, createElementNode } from '../../utils/components';
 
 type Props = {}
 

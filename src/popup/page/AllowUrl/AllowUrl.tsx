@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import { DropDownEditValues } from '../../componets/simple/DropDownEditValues';
-import { SimpleButton } from '../../componets/simple/SimpleButton';
-import { OptionsType } from '../../type/components.dto';
 import styles from './AllowUrl.module.scss';
-import { RenderWarningTextInPopup } from '../../utils/components';
+import { DropDownEditValues } from '@/componets/simple/DropDownEditValues';
+import { SimpleButton } from '@/componets/simple/SimpleButton';
+import { OptionsType } from '@/type/components.dto';
+import { RenderWarningTextInPopup } from '@/shared/utils/components';
 
 type Props = {}
 

@@ -1,5 +1,5 @@
-import { api } from '../config/Api';
-import { EntitiesType, RequestForPasteViewerType } from '../type/entities.dto';
+import { api } from "@/shared/config/Api"
+import { EntitiesType, RequestForPasteViewerType } from "@/type/entities.dto"
 
 export class EntitiesService {
     static async getEntities(baseUrl: string

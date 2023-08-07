@@ -2,12 +2,12 @@ import './popup.scss';
 
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { PasteClass } from '../screens/PasteClass';
-import { Setting } from '../screens/Setting';
+import { PasteClass } from './page/PasteClass';
+import { Setting } from './page/Setting';
 import { PageNavigatorType } from '../type/components.dto';
 import { gsap } from 'gsap';
-import IconPaste from '../assets/icon/IconPaste.svg';
-import IconSetting from '../assets/icon/Icon_setting.svg';
+import IconPaste from '@/assets/icon/IconPaste.svg';
+import IconSetting from '@/assets/icon/Icon_setting.svg';
 
 const App = () => {
 

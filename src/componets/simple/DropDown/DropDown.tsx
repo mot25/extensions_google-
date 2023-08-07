@@ -1,8 +1,8 @@
+import { OptionsType } from '@/type/components.dto';
+import classNames from 'classnames';
 import React, { useState } from 'react';
 
 import styles from './DropDown.module.scss';
-import classNames from 'classnames';
-import { OptionsType } from '../../../type/components.dto';
 
 type Props = {
     list: OptionsType[]

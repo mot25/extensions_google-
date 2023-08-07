@@ -17,7 +17,7 @@ const pathFileDinymic = (path) => {
   return pathObj
 }
 const moduleStyles = [
-  path.resolve(__dirname, 'src/content'),
+  path.resolve(__dirname, 'src/contentScripts'),
   path.resolve(__dirname, 'src/componets'),
 ]
 module.exports = {
@@ -36,9 +36,10 @@ module.exports = {
     ],
   },
   entry: {
-    background: './src/background/background.ts',
+    background: './src/backgroundScripts/background.ts',
     popup: './src/popup/popup.tsx',
-    ...pathFileDinymic('./src/content/**/*.tsx')
+    ...pathFileDinymic('./src/contentScripts/**/*.tsx'),
+    ...pathFileDinymic('./src/contentScripts/**/*.ts'),
   },
   output: {
     path: path.resolve(__dirname, 'extensionsNeolant'),
@@ -96,7 +97,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [{
-        from: 'src/images',
+        from: 'src/assets/images',
         to: 'images'
       },],
     }),
@@ -111,6 +112,9 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.scss', '.svg']
+    extensions: ['.js', '.ts', '.tsx', '.scss', '.svg'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 }

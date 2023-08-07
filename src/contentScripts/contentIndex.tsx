@@ -1,9 +1,10 @@
 
+import { createElementNode } from '@/shared/utils/components';
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-
-import { createElementNode } from '../utils/components';
 import { AppModalPaste } from './componets/AppModalPaste';
+
+
 
 const documentBody = document.body
 

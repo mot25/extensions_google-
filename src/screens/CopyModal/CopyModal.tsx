@@ -1,17 +1,17 @@
+import { DropDown } from '@/componets/simple/DropDown';
+import { InputCustom } from '@/componets/simple/InputCustom';
+import { InputWithUnderLineColor } from '@/componets/simple/InputWithUnderLineColor';
+import { SimpleButton } from '@/componets/simple/SimpleButton';
+import { SwitchWithText } from '@/componets/simple/SwitchWithText';
+import { WrapperNeumorphism } from '@/componets/simple/WrapperNeumorphism';
+import { SwitchRenderListType, TypePasteViewers } from '@/type/components.dto';
+import { RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
+import { IconType } from '@/type/icon.dto';
+import classNames from 'classnames';
 import JSAlert from 'js-alert';
 import React, { useState } from 'react';
 
-import { SwitchRenderListType, TypePasteViewers } from '../../type/components.dto';
-import { RequestForPasteViewerType, ViewerType } from '../../type/entities.dto';
-import { IconType } from '../../type/icon.dto';
-import styles from './TwoScreenCopyModal.module.scss';
-import { DropDown } from '../../componets/simple/DropDown';
-import { InputCustom } from '../../componets/simple/InputCustom';
-import { InputWithUnderLineColor } from '../../componets/simple/InputWithUnderLineColor';
-import { SimpleButton } from '../../componets/simple/SimpleButton';
-import { SwitchWithText } from '../../componets/simple/SwitchWithText';
-import { WrapperNeumorphism } from '../../componets/simple/WrapperNeumorphism';
-import classNames from 'classnames';
+import styles from './CopyModal.module.scss';
 
 
 type Props = {
@@ -101,7 +101,6 @@ const TwoScreenCopyModal = ({
             settingForPaste,
             urlValue,
         })
-        // modalWrapepr.classList.remove(styles.modalWrapper__active)
         const alert = new JSAlert("Страница будет перезагружена", "Новые виды были вставлены");
         alert.show();
         // window.location.reload()

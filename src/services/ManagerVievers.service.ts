@@ -1,4 +1,4 @@
-import { api } from '../config/Api';
+import { api } from '@/shared/config/Api';
 
 export class ManagerVieversService {
     static async deleteViewer(entitiId: string, viewerId: string): Promise<any> {
