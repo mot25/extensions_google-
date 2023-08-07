@@ -258,7 +258,7 @@ body {
     opacity: 0;
   }
 }
-.wrapperWarnign {
+.wrapperWarning {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -275,9 +275,9 @@ body {
   animation: shopWarnPush 3s;
   animation-fill-mode: forwards;
 }
-/*!*************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
+  \****************************************************************************************************************************************************************/
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -290,13 +290,13 @@ html {
   box-sizing: inherit;
 }
 
-.extentions__buttonActions__mmZv_.extentions__dark__OsnOy {
+.LdU0YdXte3UUM2zApnaP.VinJJf3F5BB016Zhsavs {
   --background: #fafbfd;
   --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
   --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
 }
 
-.extentions__buttonActions__mmZv_ {
+.LdU0YdXte3UUM2zApnaP {
   --background: #275efe;
   --text: #000;
   --font-size: 16px;
@@ -321,76 +321,76 @@ html {
   transform: translateY(var(--y)) translateZ(0);
   transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
-.extentions__buttonActions__mmZv_ div {
+.LdU0YdXte3UUM2zApnaP div {
   display: flex;
   overflow: hidden;
   text-shadow: 0 var(--font-shadow) 0 var(--text);
 }
-.extentions__buttonActions__mmZv_ div span {
+.LdU0YdXte3UUM2zApnaP div span {
   display: block;
   backface-visibility: hidden;
   font-style: normal;
   transition: transform var(--duration) ease;
   transform: translateY(var(--m)) translateZ(0);
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(1) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(1) {
   transition-delay: 0.05s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(2) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(2) {
   transition-delay: 0.1s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(3) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(3) {
   transition-delay: 0.15s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(4) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(4) {
   transition-delay: 0.2s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(5) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(5) {
   transition-delay: 0.25s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(6) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(6) {
   transition-delay: 0.3s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(7) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(7) {
   transition-delay: 0.35s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(8) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(8) {
   transition-delay: 0.4s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(9) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(9) {
   transition-delay: 0.45s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(10) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(10) {
   transition-delay: 0.5s;
 }
-.extentions__buttonActions__mmZv_ div span:nth-child(11) {
+.LdU0YdXte3UUM2zApnaP div span:nth-child(11) {
   transition-delay: 0.55s;
 }
-.extentions__buttonActions__mmZv_:hover {
+.LdU0YdXte3UUM2zApnaP:hover {
   --y: var(--move-hover);
   --shadow: var(--shadow-hover);
 }
-.extentions__buttonActions__mmZv_:hover span {
+.LdU0YdXte3UUM2zApnaP:hover span {
   --m: calc(var(--font-size) * -1);
 }
-.extentions__buttonActions__mmZv_.extentions__reverse__F_zWX {
+.LdU0YdXte3UUM2zApnaP.t2KwffiDKI33JokQfsOj {
   --font-shadow: calc(var(--font-size) * -1);
 }
-.extentions__buttonActions__mmZv_.extentions__reverse__F_zWX:hover span {
+.LdU0YdXte3UUM2zApnaP.t2KwffiDKI33JokQfsOj:hover span {
   --m: calc(var(--font-size));
 }
 
-.extentions__buttonActions__mmZv_ {
+.LdU0YdXte3UUM2zApnaP {
   cursor: pointer;
 }
 
-.extentions__button__p9Nzl.extentions__dark__OsnOy {
+.ArhEIVGW_QZ48dXkYzHB.VinJJf3F5BB016Zhsavs {
   --background: #000;
   --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
   --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
 }
 
-.extentions__button__p9Nzl {
+.ArhEIVGW_QZ48dXkYzHB {
   --background: #275efe;
   --text: #000;
   --font-size: 16px;
@@ -415,63 +415,151 @@ html {
   transform: translateY(var(--y)) translateZ(0);
   transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
-.extentions__button__p9Nzl div {
+.ArhEIVGW_QZ48dXkYzHB div {
   display: flex;
   overflow: hidden;
   text-shadow: 0 var(--font-shadow) 0 var(--text);
 }
-.extentions__button__p9Nzl div span {
+.ArhEIVGW_QZ48dXkYzHB div span {
   display: block;
   backface-visibility: hidden;
   font-style: normal;
   transition: transform var(--duration) ease;
   transform: translateY(var(--m)) translateZ(0);
 }
-.extentions__button__p9Nzl div span:nth-child(1) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(1) {
   transition-delay: 0.05s;
 }
-.extentions__button__p9Nzl div span:nth-child(2) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(2) {
   transition-delay: 0.1s;
 }
-.extentions__button__p9Nzl div span:nth-child(3) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(3) {
   transition-delay: 0.15s;
 }
-.extentions__button__p9Nzl div span:nth-child(4) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(4) {
   transition-delay: 0.2s;
 }
-.extentions__button__p9Nzl div span:nth-child(5) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(5) {
   transition-delay: 0.25s;
 }
-.extentions__button__p9Nzl div span:nth-child(6) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(6) {
   transition-delay: 0.3s;
 }
-.extentions__button__p9Nzl div span:nth-child(7) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(7) {
   transition-delay: 0.35s;
 }
-.extentions__button__p9Nzl div span:nth-child(8) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(8) {
   transition-delay: 0.4s;
 }
-.extentions__button__p9Nzl div span:nth-child(9) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(9) {
   transition-delay: 0.45s;
 }
-.extentions__button__p9Nzl div span:nth-child(10) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(10) {
   transition-delay: 0.5s;
 }
-.extentions__button__p9Nzl div span:nth-child(11) {
+.ArhEIVGW_QZ48dXkYzHB div span:nth-child(11) {
   transition-delay: 0.55s;
 }
-.extentions__button__p9Nzl:hover {
+.ArhEIVGW_QZ48dXkYzHB:hover {
   --y: var(--move-hover);
   --shadow: var(--shadow-hover);
 }
-.extentions__button__p9Nzl:hover span {
+.ArhEIVGW_QZ48dXkYzHB:hover span {
   --m: calc(var(--font-size) * -1);
 }
-.extentions__button__p9Nzl.extentions__reverse__F_zWX {
+.ArhEIVGW_QZ48dXkYzHB.t2KwffiDKI33JokQfsOj {
   --font-shadow: calc(var(--font-size) * -1);
 }
-.extentions__button__p9Nzl.extentions__reverse__F_zWX:hover span {
+.ArhEIVGW_QZ48dXkYzHB.t2KwffiDKI33JokQfsOj:hover span {
   --m: calc(var(--font-size));
+}
+/*!******************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
+  \******************************************************************************************************************************************************/
+.fSW73w9wzlLVCzwIhWiS {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.fSW73w9wzlLVCzwIhWiS span {
+  color: #fff;
+}
+/*!***************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/popup/page/AllowUrl/AllowUrl.module.scss ***!
+  \***************************************************************************************************************************************/
+
+/*!******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss ***!
+  \******************************************************************************************************************************************************************/
+.XKESgmL5zlh5h_bExiJb {
+  display: flex;
+  align-items: center;
+}
+
+.QxtbGDRsdC2e2G_9ZK9B {
+  background: rgb(198, 70, 70);
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*!****************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
+  \****************************************************************************************************************************************************************************/
+.MfeeGEI_HxxpqW_4KlUk {
+  color: #000;
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+}
+
+.fA2DPAIwlVzQ8nlOTHPB {
+  position: absolute;
+  background: var(--border-after-color);
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.MfeeGEI_HxxpqW_4KlUk:focus {
+  outline: none;
+}
+
+.MfeeGEI_HxxpqW_4KlUk:focus + .fA2DPAIwlVzQ8nlOTHPB {
+  width: 100%;
+}
+
+.ovvW9h_1NqlvnWVjJVs3 {
+  position: relative;
+  --width-of-input: 300px;
+}
+
+.GZgEZ_0AmhX_i2pzzzhM {
+  font-size: 1.2rem;
+  padding-inline: 1em;
+  padding-block: 0.8em;
+}
+
+.FHcUZHtwh4lV_Bi6_yIv {
+  height: 3px;
+  background: #31556f;
+  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.GZgEZ_0AmhX_i2pzzzhM:focus + .FHcUZHtwh4lV_Bi6_yIv {
+  width: 100%;
 }
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/popup/page/Setting/Setting.module.scss ***!
@@ -493,94 +581,6 @@ html {
   position: absolute;
   left: 0;
   top: 0;
-}
-/*!***************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/popup/page/AllowUrl/AllowUrl.module.scss ***!
-  \***************************************************************************************************************************************/
-
-/*!***************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/DropDownEditValues/DropDownEditValues.module.scss ***!
-  \***************************************************************************************************************************************************************************************************************************************/
-.extentions__dropDown__inner__YfEOE {
-  display: flex;
-  align-items: center;
-}
-
-.extentions__delete__cLX60 {
-  background: rgb(198, 70, 70);
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-/*!*************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************/
-.extentions__input__rzgra {
-  color: #000;
-  font-size: 0.9rem;
-  background-color: transparent;
-  width: 100%;
-  box-sizing: border-box;
-  padding-inline: 0.5em;
-  padding-block: 0.7em;
-  border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color);
-}
-
-.extentions__inputBorder__AI9ZF {
-  position: absolute;
-  background: var(--border-after-color);
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-}
-
-.extentions__input__rzgra:focus {
-  outline: none;
-}
-
-.extentions__input__rzgra:focus + .extentions__inputBorder__AI9ZF {
-  width: 100%;
-}
-
-.extentions__formControl___MR8a {
-  position: relative;
-  --width-of-input: 300px;
-}
-
-.extentions__inputAlt___sfmA {
-  font-size: 1.2rem;
-  padding-inline: 1em;
-  padding-block: 0.8em;
-}
-
-.extentions__inputBorderAlt__ffUea {
-  height: 3px;
-  background: #31556f;
-  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-}
-
-.extentions__inputAlt___sfmA:focus + .extentions__inputBorderAlt__ffUea {
-  width: 100%;
-}
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/SimpleButton/SimpleButton.module.scss ***!
-  \***************************************************************************************************************************************************************************************************************************/
-.extentions__button__p8NIs {
-  width: 100%;
-  height: 40px;
-  border: none;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  cursor: pointer;
-}
-.extentions__button__p8NIs span {
-  color: #fff;
 }
 
 /*# sourceMappingURL=popup.css.map*/

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import styles from './AllowUrl.module.scss';
-import { DropDownEditValues } from '@/componets/simple/DropDownEditValues';
-import { SimpleButton } from '@/componets/simple/SimpleButton';
+import { DropDownEditValues } from '@/components/simple/DropDownEditValues';
+import { SimpleButton } from '@/components/simple/SimpleButton';
 import { OptionsType } from '@/type/components.dto';
 import { RenderWarningTextInPopup } from '@/shared/utils/components';
 
@@ -34,7 +34,7 @@ const AllowUrl = (props: Props) => {
             value: currentUrl.origin
         }, ...prev])
     }
-    const resfreshStorage = async (): Promise<string[]> => {
+    const refreshStorage = async (): Promise<string[]> => {
         if (Array.isArray(allowBaseUrl))
             chrome.storage.sync.set({ 'allowBaseUrl': allowBaseUrl.map(_ => _.label) }).then(() => {
                 console.log("Value is set");
@@ -47,10 +47,10 @@ const AllowUrl = (props: Props) => {
     useEffect(() => {
         console.log('ref11');
 
-        resfreshStorage()
+        refreshStorage()
     }, [allowBaseUrl])
     useEffect(() => {
-        resfreshStorage().then(
+        refreshStorage().then(
             url => {
                 setAllowBaseUrl(url.map(_ => ({ label: _, value: _ })))
             }

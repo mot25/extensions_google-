@@ -31,10 +31,10 @@ chrome.runtime.onMessage.addListener(
             chrome.cookies.getAll({ url: sender.tab.url }, async function (cookies) {
                 const response = await EntitiesService.getEntities(request.payload)
                 try {
-                    const idEntites = getParamFromUrl(sender.tab.url).id
+                    const idEntities = getParamFromUrl(sender.tab.url).id
                     chrome.tabs.sendMessage(sender.tab.id, {
                         action: 'postEntitiesForPasteInsert',
-                        payload: Array.from(new Set(entitiesForPasteInsert(response, idEntites)))
+                        payload: Array.from(new Set(entitiesForPasteInsert(response, idEntities)))
                     });
                 } catch (error) {
                     console.log("🚀 ~ file: background.ts:60 ~ error:", error)
@@ -62,14 +62,6 @@ chrome.runtime.onMessage.addListener(
                 }
 
             });
-            // chrome.tabs.sendMessage(sender.tab.id, {
-            //     action: 'postUrlDevServer',
-            //     payload:
-            // });
-            // chrome.tabs.sendMessage(sender.tab.id, {
-            //     action: 'postEntitiesForPasteInsert',
-            //     payload: Array.from(new Set(entitiesForPasteInsert(response, idEntites)))
-            // });
         }
     }
 );

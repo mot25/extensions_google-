@@ -13,13 +13,13 @@ export class RenderWarningTextInPopup {
   }
 
   render() {
-      const wrapperWarnign = createElementNode('div', ['wrapperWarnign'])
+    const wrapperWarning = createElementNode('div', ['wrapperWarning'])
       const warningText = createElementNode('span', ['warningText'])
       warningText.innerText = this.warningText
-      wrapperWarnign.append(warningText)
-      this.body.appendChild(wrapperWarnign);
+    wrapperWarning.append(warningText)
+    this.body.appendChild(wrapperWarning);
       setTimeout(() => {
-          wrapperWarnign.remove()
+        wrapperWarning.remove()
       }, 3000)
   }
 }

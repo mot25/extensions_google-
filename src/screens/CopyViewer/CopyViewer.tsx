@@ -2,9 +2,9 @@ import JSAlert from 'js-alert';
 
 import styles from './CopyViewer.module.scss';
 import React, { MouseEvent, useEffect, useState } from 'react'
-import { SimpleButton } from '@/componets/simple/SimpleButton';
-import { ManagerVieversService } from '@/services/ManagerVievers.service';
-import { DeleteProgresType } from '@/type/components.dto';
+import { SimpleButton } from '@/components/simple/SimpleButton';
+import { ManagerViewersService } from '@/services/ManagerViewers.service';
+import { DeleteProgressType } from '@/type/components.dto';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
 
@@ -21,43 +21,43 @@ const OneScreenCopyModal = ({
   addStateViewers
 }: Props) => {
 
-  const [viwersState, setViwersState] = useState<ViewerType[]>()
-  const [loadDelete, setLoadDelete] = useState<DeleteProgresType[]>([])
+  const [viewersState, setViewersState] = useState<ViewerType[]>()
+  const [loadDelete, setLoadDelete] = useState<DeleteProgressType[]>([])
 
   const entities: EntitiesType = entitiesFromPaste.find((_: EntitiesType) => _.isCurrent)
   const deleteViewer = (viewer: ViewerType, e: MouseEvent) => {
 
     const alert = new JSAlert(`Вы хотите удалить ${viewer.Caption}`, "Выберите опции для удаления");
     alert.addButton("Удалить в текущем классе").then(async function () {
-      await ManagerVieversService.deleteViewer(entities.Id, viewer.Id)
+      await ManagerViewersService.deleteViewer(entities.Id, viewer.Id)
     });
 
     alert.addButton("Удалить во вложенных классах").then(async () => {
       setLoadDelete(prev => {
         if (!prev.length) {
           return [{
-            allEntites: entitiesFromPaste.length,
+            allEntities: entitiesFromPaste.length,
             delete: 0,
-            idDeleteting: viewer.Caption
+            idDeleting: viewer.Caption
           }]
         }
-        if (~prev.findIndex((_: DeleteProgresType) => _.idDeleteting === viewer.Id)) {
+        if (~prev.findIndex((_: DeleteProgressType) => _.idDeleting === viewer.Id)) {
           return [...prev, {
-            allEntites: entitiesFromPaste.length,
+            allEntities: entitiesFromPaste.length,
             delete: 0,
-            idDeleteting: viewer.Caption
+            idDeleting: viewer.Caption
           }]
         }
         return prev
       })
-      entitiesFromPaste.forEach(async entit => {
-        const viewerDelete = entit?.Viewers?.find(V => V?.Caption === viewer?.Caption)
+      entitiesFromPaste.forEach(async entity => {
+        const viewerDelete = entity?.Viewers?.find(V => V?.Caption === viewer?.Caption)
         if (viewerDelete?.Id !== undefined) {
-          await ManagerVieversService.deleteViewer(entit.Id, viewerDelete?.Id)
+          await ManagerViewersService.deleteViewer(entity.Id, viewerDelete?.Id)
             .then(() => {
               setLoadDelete(prev => {
                 return prev.map(delViewer => {
-                  if (delViewer.idDeleteting === viewerDelete.Caption) {
+                  if (delViewer.idDeleting === viewerDelete.Caption) {
                     delViewer.delete = delViewer.delete + 1
                   }
                   return delViewer
@@ -71,7 +71,7 @@ const OneScreenCopyModal = ({
   }
 
   useEffect(() => {
-    setViwersState(entities?.Viewers || [])
+    setViewersState(entities?.Viewers || [])
   }, [entities])
 
 

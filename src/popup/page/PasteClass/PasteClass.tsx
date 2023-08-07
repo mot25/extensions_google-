@@ -1,4 +1,4 @@
-import { ButtonInPopupAnim } from '@/componets/simple/ButtonInPopupAnim';
+import { ButtonInPopupAnim } from '@/components/simple/ButtonInPopupAnim';
 import { api } from '@/shared/config/Api';
 import { RenderWarningTextInPopup } from '@/shared/utils/components';
 import React from 'react';

@@ -34,10 +34,10 @@
 .DaAHBl0EY3OHes2da5nw {
   margin-right: 10px;
 }
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/SimpleButton/SimpleButton.module.scss ***!
-  \***************************************************************************************************************************************************************************************************************************/
-.extentions__button__p8NIs {
+/*!******************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
+  \******************************************************************************************************************************************************/
+.fSW73w9wzlLVCzwIhWiS {
   width: 100%;
   height: 40px;
   border: none;
@@ -48,15 +48,15 @@
   border-radius: 3px;
   cursor: pointer;
 }
-.extentions__button__p8NIs span {
+.fSW73w9wzlLVCzwIhWiS span {
   color: #fff;
 }
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/DropDown/DropDown.module.scss ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/DropDown/DropDown.module.scss ***!
+  \**********************************************************************************************************************************************/
 @charset "UTF-8";
 /* Dropdown Button */
-.extentions__dropbtn__zN9fC {
+.IXiUWukLn43UofVrjp_n {
   background-color: #31556f;
   color: white;
   padding: 5px;
@@ -67,20 +67,20 @@
 }
 
 /* Dropdown button on hover & focus */
-.extentions__dropbtn__zN9fC:hover,
-.extentions__dropbtn__zN9fC:focus {
+.IXiUWukLn43UofVrjp_n:hover,
+.IXiUWukLn43UofVrjp_n:focus {
   background-color: #31556f;
 }
 
 /* The container <div> - needed to position the dropdown content */
-.extentions__dropdown__CRPOX {
+.wIt52eCsCkIpguq0vGRA {
   position: relative;
   display: inline-block;
   min-width: 200px;
 }
 
 /* Dropdown Content (Hidden by Default) */
-.extentions__dropdown_content__sBTck {
+.oTpQw2_NcWb1AhslriPn {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -92,7 +92,7 @@
 }
 
 /* Links inside the dropdown */
-.extentions__dropdown_content__sBTck a {
+.oTpQw2_NcWb1AhslriPn a {
   color: black;
   padding: 12px 20px;
   text-decoration: none;
@@ -100,20 +100,20 @@
 }
 
 /* Change color of dropdown links on hover */
-.extentions__dropdown_content__sBTck a:hover {
+.oTpQw2_NcWb1AhslriPn a:hover {
   background-color: #ddd;
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown_content container when the user clicks on the dropdown button) */
-.extentions__show__fJ88K {
+.OhGjiP1Sj6wn3EAfRSah {
   display: block;
 }
 
-.extentions__selectItem__xkDkk {
+.al1nwSgT08eO_okFqxjD {
   cursor: pointer;
 }
 
-.extentions__selectItemText__Rjry1 {
+.IcKvrDWEWnIKa1s4fJAp {
   white-space: nowrap;
   /* Запрещаем перенос строк */
   overflow: hidden;
@@ -124,9 +124,9 @@
   text-overflow: ellipsis;
   /* Добавляем многоточие */
 }
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/InputCustom/InputCustom.module.scss ***!
-  \*************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/InputCustom/InputCustom.module.scss ***!
+  \****************************************************************************************************************************************************/
 :root {
   --color-light: white;
   --color-dark: #212121;
@@ -137,13 +137,13 @@
   --size-radius: 4px;
 }
 
-.extentions__input___m9o9 {
+.IMeM74W_w8D1jdkTSwEb {
   position: relative;
 }
-.extentions__input___m9o9 input {
+.IMeM74W_w8D1jdkTSwEb input {
   color: #000 !important;
 }
-.extentions__input__label__HkiWg {
+.l674zPcoVrDay3e46unk {
   position: absolute;
   left: 0;
   top: 50%;
@@ -160,7 +160,7 @@
   font-weight: bold;
   line-height: 1.2;
 }
-.extentions__input__field___Ap3d {
+.e9o55C06_nhAUODclyar {
   width: 100%;
   height: 50px;
   box-sizing: border-box;
@@ -172,17 +172,17 @@
   background: #fff;
   outline: none;
 }
-.extentions__input__field___Ap3d:focus + .extentions__input__label__HkiWg, .extentions__input__field___Ap3d:not(:placeholder-shown) + .extentions__input__label__HkiWg {
+.e9o55C06_nhAUODclyar:focus + .l674zPcoVrDay3e46unk, .e9o55C06_nhAUODclyar:not(:placeholder-shown) + .l674zPcoVrDay3e46unk {
   transform: translate(6px, -7px) scale(0.8);
   color: var(--color-accent);
   top: 0;
   font-size: 20px;
   padding-bottom: 10px;
 }
-/*!*************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************/
-.extentions__input__rzgra {
+/*!****************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
+  \****************************************************************************************************************************************************************************/
+.MfeeGEI_HxxpqW_4KlUk {
   color: #000;
   font-size: 0.9rem;
   background-color: transparent;
@@ -194,7 +194,7 @@
   border-bottom: var(--border-height) solid var(--border-before-color);
 }
 
-.extentions__inputBorder__AI9ZF {
+.fA2DPAIwlVzQ8nlOTHPB {
   position: absolute;
   background: var(--border-after-color);
   width: 0%;
@@ -204,62 +204,62 @@
   transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
-.extentions__input__rzgra:focus {
+.MfeeGEI_HxxpqW_4KlUk:focus {
   outline: none;
 }
 
-.extentions__input__rzgra:focus + .extentions__inputBorder__AI9ZF {
+.MfeeGEI_HxxpqW_4KlUk:focus + .fA2DPAIwlVzQ8nlOTHPB {
   width: 100%;
 }
 
-.extentions__formControl___MR8a {
+.ovvW9h_1NqlvnWVjJVs3 {
   position: relative;
   --width-of-input: 300px;
 }
 
-.extentions__inputAlt___sfmA {
+.GZgEZ_0AmhX_i2pzzzhM {
   font-size: 1.2rem;
   padding-inline: 1em;
   padding-block: 0.8em;
 }
 
-.extentions__inputBorderAlt__ffUea {
+.FHcUZHtwh4lV_Bi6_yIv {
   height: 3px;
   background: #31556f;
   transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-.extentions__inputAlt___sfmA:focus + .extentions__inputBorderAlt__ffUea {
+.GZgEZ_0AmhX_i2pzzzhM:focus + .FHcUZHtwh4lV_Bi6_yIv {
   width: 100%;
 }
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/SwitchWithText/SwitchWithText.module.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************/
-.extentions__wrapperButton__dw4Lp {
+/*!**********************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SwitchWithText/SwitchWithText.module.scss ***!
+  \**********************************************************************************************************************************************************/
+.Cjp9qRerlRI03V_sdU2H {
   display: flex;
   gap: 10px;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 10px;
 }
-.extentions__wrapperButton__bold__eGt5H {
+.FHsBCxp6cFoN5IVwtSPG {
   justify-content: center;
   font-size: 17px;
   font-weight: bold;
 }
-.extentions__wrapperButton__dw4Lp p {
+.Cjp9qRerlRI03V_sdU2H p {
   margin: 0;
 }
 
 /* The switch - the box around the slider */
-.extentions__switch__jXkN_ {
+.e5HElNQx0IqxcHjJWuYo {
   position: relative;
   display: inline-block;
   width: 35px;
   height: 21px;
 }
 
-.extentions__switch__jXkN_ input {
+.e5HElNQx0IqxcHjJWuYo input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -267,7 +267,7 @@
 }
 
 /* The slider */
-.extentions__slider__x6pUc {
+.Rqv0VEE4w2HdLsBP2Ne_ {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -280,7 +280,7 @@
   width: 35px;
 }
 
-.extentions__slider__x6pUc:before {
+.Rqv0VEE4w2HdLsBP2Ne_:before {
   position: absolute;
   content: "";
   height: 15px;
@@ -292,54 +292,54 @@
   transition: 0.4s;
 }
 
-input:checked + .extentions__slider__x6pUc {
+input:checked + .Rqv0VEE4w2HdLsBP2Ne_ {
   background-color: #31556f;
 }
 
-input:focus + .extentions__slider__x6pUc {
+input:focus + .Rqv0VEE4w2HdLsBP2Ne_ {
   box-shadow: 0 0 1px #31556f;
 }
 
-input:checked + .extentions__slider__x6pUc:before {
+input:checked + .Rqv0VEE4w2HdLsBP2Ne_:before {
   transition: all 0.7s;
   transform: translateX(14px);
 }
 
 /* Rounded sliders */
-.extentions__slider__x6pUc.extentions__round__F3rf2 {
+.Rqv0VEE4w2HdLsBP2Ne_.EfXv2h1Qucc7AEA_0yYS {
   border-radius: 34px;
 }
 
-.extentions__slider__x6pUc.extentions__round__F3rf2:before {
+.Rqv0VEE4w2HdLsBP2Ne_.EfXv2h1Qucc7AEA_0yYS:before {
   border-radius: 50%;
 }
-/*!***************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/componets/simple/WrapperNeumorphism/WrapperNeumorphism.module.scss ***!
-  \***************************************************************************************************************************************************************************************************************************************/
-.extentions__wrapper__rmJmE {
+/*!******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/WrapperNeumorphism/WrapperNeumorphism.module.scss ***!
+  \******************************************************************************************************************************************************************/
+._YERJQgGzkyBjoU9HJiu {
   border-radius: 51px;
   background: #ffffff;
   box-shadow: inset 19px 19px 38px #d9d9d9, inset -19px -19px 38px #ffffff;
   padding: 20px;
 }
-/*!**************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/CopyModal/CopyModal.module.scss ***!
-  \**************************************************************************************************************************************/
-.S0AbuSPTshd9md6jFm6X {
+/*!******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/PasteViewer/PasteViewer.module.scss ***!
+  \******************************************************************************************************************************************/
+.hFs_N2MFzIaRseJGG7fK {
   margin-right: 10px;
   flex: 1;
 }
-.S0AbuSPTshd9md6jFm6X div input {
+.hFs_N2MFzIaRseJGG7fK div input {
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
-.NTfLR5KnuLXPaKyLERpm .S0AbuSPTshd9md6jFm6X {
+.Zmlx3UhZVvMWabovQc4q .hFs_N2MFzIaRseJGG7fK {
   margin: 0;
 }
 
-.K7fErSoMJ_YsFGfCFyMe,
-.gNw_stnvBVT38LjZFaf0 {
+.f_C_zIKlvDAJPbkLprQV,
+.NBeM7XHx7Cyac3ncgQer {
   padding: 5px 10px;
   margin-left: 10px;
   border: none;
@@ -348,45 +348,45 @@ input:checked + .extentions__slider__x6pUc:before {
   cursor: pointer;
 }
 
-.UqvRPO2ubZ9bEBC0P7Tk {
+.neCc1bNUWWxtbSe_ZjlF {
   width: 100%;
   overflow: auto;
   min-height: 550px;
 }
 
-.FkZ8q5LK74LqqhXvNyZ3 {
+.ZHYNHgq4Hj6kPVN7x_NC {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.NTfLR5KnuLXPaKyLERpm {
+.Zmlx3UhZVvMWabovQc4q {
   list-style-type: none;
   padding: 0;
   max-height: 200px;
   overflow-y: auto;
 }
 
-.NTfLR5KnuLXPaKyLERpm li {
+.Zmlx3UhZVvMWabovQc4q li {
   display: flex;
   align-items: center;
 }
 
-.n9K1GgZr5kT1FmD4gPdH {
+.RGAw6cxh23VBGyKYSWW3 {
   width: 40px;
 }
 
-.ZZyr6KjXedLmJNVCo7au {
+.idOaWHHbogUVL9A4fqSR {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 0 5px;
 }
-.YzRTFqVvnHe0pep82uhW {
+.fKoVWMKRKlco1MOrSsMN {
   background-color: #e5f6ff;
 }
 
-.tLq99mrIkfgOQ_QBiJdQ {
+.fjhF8Dy70JtCv7CIdCss {
   margin-top: 15px;
 }
 /*!*****************************************************************************************************************************************************************************************************************************************!*\

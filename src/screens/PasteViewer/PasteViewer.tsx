@@ -1,9 +1,9 @@
-import { DropDown } from '@/componets/simple/DropDown';
-import { InputCustom } from '@/componets/simple/InputCustom';
-import { InputWithUnderLineColor } from '@/componets/simple/InputWithUnderLineColor';
-import { SimpleButton } from '@/componets/simple/SimpleButton';
-import { SwitchWithText } from '@/componets/simple/SwitchWithText';
-import { WrapperNeumorphism } from '@/componets/simple/WrapperNeumorphism';
+import { DropDown } from '@/components/simple/DropDown';
+import { InputCustom } from '@/components/simple/InputCustom';
+import { InputWithUnderLineColor } from '@/components/simple/InputWithUnderLineColor';
+import { SimpleButton } from '@/components/simple/SimpleButton';
+import { SwitchWithText } from '@/components/simple/SwitchWithText';
+import { WrapperNeumorphism } from '@/components/simple/WrapperNeumorphism';
 import { SwitchRenderListType, TypePasteViewers } from '@/type/components.dto';
 import { RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import JSAlert from 'js-alert';
 import React, { useState } from 'react';
 
-import styles from './CopyModal.module.scss';
+import styles from './PasteViewer.module.scss';
 
 
 type Props = {
@@ -36,7 +36,7 @@ const TwoScreenCopyModal = ({
     const [configPasteEntities, setConfigPasteEntities] = useState<SwitchRenderListType[]>([
         {
             id: '2',
-            text: 'Коппировать во все вложенные',
+            text: 'Копировать во все вложенные',
         },
 
         {
@@ -93,7 +93,7 @@ const TwoScreenCopyModal = ({
             return _
         }))
     }
-    const pasteViewerInEntitie = () => {
+    const pasteViewerInEntities = () => {
         pasteViewers({
             viewerForPaste,
             configPasteEntities,
@@ -198,7 +198,7 @@ const TwoScreenCopyModal = ({
                     </div>
                 </WrapperNeumorphism>
                 <WrapperNeumorphism>
-                    <div className={styles.wrapperSettinWithView}>
+                    <div className={styles.wrapperSettingWithView}>
                         <div className={styles.rowSwitchSetting}>
                             {settingForPaste.map(switchEl => <SwitchWithText
                                 key={switchEl.id}
@@ -227,7 +227,7 @@ const TwoScreenCopyModal = ({
                     height: '30px',
                 }}
                 addClassName={styles.reload}
-                onClick={pasteViewerInEntitie}
+                onClick={pasteViewerInEntities}
                 text='Применить'
             />
 

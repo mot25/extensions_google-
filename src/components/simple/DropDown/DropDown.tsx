@@ -29,7 +29,7 @@ const DropDown = ({
             <div className={styles.dropdown}>
                 <button
                     onClick={() => setIsShow(!isShow)}
-                    className={styles.dropbtn}
+                    className={styles.dropBtn}
                 >{title}</button>
                 <div
                     className={classNames(styles.dropdown_content, {

@@ -2,7 +2,7 @@ import IconClose from '@/assets/icon/IconClose.svg';
 import IconPaste from '@/assets/icon/IconPaste.svg';
 import IconPlus from '@/assets/icon/IconPlus.svg';
 import { CopyViewer } from '@/screens/CopyViewer';
-import { CopyModal } from '@/screens/CopyModal';
+import { PasteViewer } from '@/screens/PasteViewer';
 import { EntitiesService } from '@/services/Entities.service';
 import { IconService } from '@/services/Icon.service';
 import { MenuLeftNavbar, PageNavigatorType, TypePasteViewers } from '@/type/components.dto';
@@ -22,7 +22,7 @@ const leftMenuConfig: MenuLeftNavbar[] = [
     },
     {
         id: 2,
-        label: 'Коппировать',
+        label: 'Копировать',
         title: <IconPaste />
     }
 ]
@@ -35,7 +35,7 @@ chrome.runtime.sendMessage({
 
 const AppModalPaste = (props: Props) => {
 
-    const refModalWrapepr = useRef<HTMLDivElement>(null)
+    const refModalWrapper = useRef<HTMLDivElement>(null)
 
     const [entitiesFromPaste, setEntitiesFromPaste] = useState<EntitiesType[]>([])
 
@@ -56,7 +56,7 @@ const AppModalPaste = (props: Props) => {
         setViewerForPaste(newViewers)
     }
     const clearBeforeNode = () => {
-        refModalWrapepr.current.classList.toggle(styles.modalWrapper__active)
+        refModalWrapper.current.classList.toggle(styles.modalWrapper__active)
         const nodes = document.querySelectorAll('#rootContentEntry')
         nodes.forEach(element => {
             element.remove();
@@ -154,7 +154,7 @@ const AppModalPaste = (props: Props) => {
                 }
                 const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
 
-                const newViwer = (async () => {
+                const newViewer = (async () => {
                     if (isHaveViewer) {
                         const dataCreate = {
                             ...dataPost,
@@ -184,7 +184,7 @@ const AppModalPaste = (props: Props) => {
                         }
                     }
                 })()
-                promisesListResponse.push(newViwer)
+                promisesListResponse.push(newViewer)
             })
 
             Promise.all(promisesListResponse).then(async (e) => {
@@ -198,7 +198,7 @@ const AppModalPaste = (props: Props) => {
                 })
                 const orderHash: Record<string, number> = {}
                 currentOrder.forEach((_, ind) => orderHash[_.Id] = ind)
-                const responseOrdert = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
+                const responseOrder = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
             })
 
         })
@@ -210,7 +210,7 @@ const AppModalPaste = (props: Props) => {
             entitiesFromPaste={entitiesFromPaste}
             viewerForPaste={viewerForPaste}
         />,
-        2: <CopyModal
+        2: <PasteViewer
             deleteView={deleteView}
             pasteViewers={pasteViewers}
             changeOrderViewerInEntities={changeOrderViewerInEntities}
@@ -250,9 +250,9 @@ const AppModalPaste = (props: Props) => {
             function (request, sender, sendResponse) {
                 if (request.actions === 'isShowModal') {
                     if (request.payload) {
-                        refModalWrapepr.current.classList.add(styles.modalWrapper__active)
+                        refModalWrapper.current.classList.add(styles.modalWrapper__active)
                     } else {
-                        refModalWrapepr.current.classList.remove(styles.modalWrapper__active)
+                        refModalWrapper.current.classList.remove(styles.modalWrapper__active)
                     }
                 }
             }
@@ -260,7 +260,7 @@ const AppModalPaste = (props: Props) => {
     }, [])
 
     return (
-        <div ref={refModalWrapepr} className={classNames(styles.modalWrapper, styles.modalWrapper__active)} >
+        <div ref={refModalWrapper} className={classNames(styles.modalWrapper, styles.modalWrapper__active)} >
             <div className={classNames(styles.modal)}>
                 <div
                     onClick={() => {

@@ -1,9 +1,10 @@
+import ArrowBack from '@/assets/icon/Icon_arrowLeft.svg';
+import { SimpleButton } from '@/components/simple/SimpleButton';
 import React, { useState } from 'react';
 
-import styles from './Setting.module.scss';
-import ArrowBack from '@/assets/icon/Icon_arrowLeft.svg'
 import { AllowUrl } from '../AllowUrl';
-import { SimpleButton } from '@/componets/simple/SimpleButton';
+import styles from './Setting.module.scss';
+
 type Props = {}
 
 const Setting = (props: Props) => {

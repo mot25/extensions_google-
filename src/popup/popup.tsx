@@ -54,64 +54,12 @@ const App = () => {
         })
     }
 
-
-
-
-
-
-
-    // const renderOnePage = () => {
-    //   const wrapper = createElementNode('div')
-    //   const button = ButtonInPopupAnim({
-    //     text: 'Копировать/Вставить',
-    //     onClick: showModalPasteInterface
-    //   })
-    //   wrapper.appendChild(button)
-    //   return wrapper
-    // }
-    // const renderTwoPage = () => {
-    //   const wrapper = createElementNode('div')
-    //   const button = ButtonInPopupAnim({
-    //     text: 'Разделить по группам',
-    //     onClick: divideByGroups
-    //   })
-    //   wrapper.appendChild(button)
-    //   return wrapper
-    // }
-    // const renderThreePage = () => {
-    //   const wrapper = createElementNode('div')
-    //   const content = SwagerInData()
-    //   wrapper.appendChild(content)
-
-    //   return wrapper
-    // }
-
-    // const renderBlock = () => {
-    //   const objPage: PageNavigatorType = {
-    //     '1': renderOnePage,
-    //     '2': renderTwoPage,
-    //     '3': renderThreePage,
-    //     '4': renderOnePage,
-    //   }
-    //   const placeContent = document.querySelector('.bodyContent')
-    //   placeContent.innerHTML = ''
-    //   placeContent.appendChild(objPage[selectPage.value]())
-    // }
-    // renderBlock()
     const objPage: PageNavigatorType = {
         1: <PasteClass />,
         2: <PasteClass />,
         3: <PasteClass />,
         4: <Setting />,
     }
-    // const objPage: PageNavigatorType = {
-    //     1: <PasteClass />,
-    //     2: ,
-    //     3: renderThreePage,
-    //     4: renderOnePage,
-    // }
-
-
 
     return (
         <div className="wrapper">
