@@ -15,7 +15,7 @@ const ButtonInPopupAnim = ({ onClick, text }: Props) => {
     return (
         <div onClick={onClick} className={classNames(styles.buttonActions, 'buttonActions', styles.reverse, styles.dark)}>
             <div>
-            {text}
+                {text}
             </div>
         </div>
     )

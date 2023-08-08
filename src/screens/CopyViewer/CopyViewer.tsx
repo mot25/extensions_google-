@@ -1,12 +1,11 @@
-import JSAlert from 'js-alert';
-
-import styles from './CopyViewer.module.scss';
-import React, { MouseEvent, useEffect, useState } from 'react'
 import { SimpleButton } from '@/components/simple/SimpleButton';
 import { ManagerViewersService } from '@/services/ManagerViewers.service';
 import { DeleteProgressType } from '@/type/components.dto';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
+import JSAlert from 'js-alert';
+import React, { MouseEvent, useEffect, useState } from 'react';
 
+import styles from './CopyViewer.module.scss';
 
 type Props = {
   entitiesFromPaste: EntitiesType[]
@@ -26,12 +25,10 @@ const OneScreenCopyModal = ({
 
   const entities: EntitiesType = entitiesFromPaste.find((_: EntitiesType) => _.isCurrent)
   const deleteViewer = (viewer: ViewerType, e: MouseEvent) => {
-
     const alert = new JSAlert(`Вы хотите удалить ${viewer.Caption}`, "Выберите опции для удаления");
     alert.addButton("Удалить в текущем классе").then(async function () {
       await ManagerViewersService.deleteViewer(entities.Id, viewer.Id)
     });
-
     alert.addButton("Удалить во вложенных классах").then(async () => {
       setLoadDelete(prev => {
         if (!prev.length) {

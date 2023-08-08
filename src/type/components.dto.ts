@@ -1,3 +1,4 @@
+import { URL_VIEWER_SETTING } from '@/contentScripts/AppModalPaste/ConstantAppModalPaste';
 import { RequestForPasteViewerType, ViewerType } from './entities.dto';
 
 export type MenuLeftNavbar = {
@@ -13,16 +14,19 @@ export type OptionsType = {
 
 export type SwitchRenderListType = {
     id: string
-    text: string
-    value?: boolean
+    text?: string
+    isActive?: boolean
     bold?: boolean
+    value?: string
 }
+
+export type SettingsViewerForPasteType = Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> | '3' | typeof URL_VIEWER_SETTING }>
 
 export type TypePasteViewers = {
     viewerForPaste: ViewerType[]
     configPasteEntities: SwitchRenderListType[],
     valueIdIcon: string
-    settingForPaste: Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> | '3' }>
+    settingForPaste: SettingsViewerForPasteType
     urlValue: string
 }
 
@@ -33,7 +37,7 @@ export type DeleteProgressType = {
     allEntities: number
     delete: number
 }
-export interface HttpHeader {
+export type HttpHeader = {
     name: string;
     value?: string | undefined;
     binaryValue?: ArrayBuffer | undefined;

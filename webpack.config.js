@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const os = require('os')
 const glob = require('glob');
-const pathFileDinymic = (path) => {
+const pathFileDynamic = (path) => {
   const isWindows = os.platform() === 'win32';
   const pathObj = {}
   glob.sync(path).forEach(path => {
@@ -18,7 +18,7 @@ const pathFileDinymic = (path) => {
 }
 const moduleStyles = [
   path.resolve(__dirname, 'src/contentScripts'),
-  path.resolve(__dirname, 'src/componets'),
+  path.resolve(__dirname, 'src/components'),
 ]
 module.exports = {
   mode: 'development',
@@ -38,8 +38,8 @@ module.exports = {
   entry: {
     background: './src/backgroundScripts/background.ts',
     popup: './src/popup/popup.tsx',
-    ...pathFileDinymic('./src/contentScripts/**/*.tsx'),
-    ...pathFileDinymic('./src/contentScripts/**/*.ts'),
+    ...pathFileDynamic('./src/contentScripts/**/*.tsx'),
+    ...pathFileDynamic('./src/contentScripts/**/*.ts'),
   },
   output: {
     path: path.resolve(__dirname, 'extensionsNeolant'),

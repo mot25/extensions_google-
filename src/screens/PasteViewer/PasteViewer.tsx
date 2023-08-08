@@ -1,17 +1,32 @@
 import { DropDown } from '@/components/simple/DropDown';
-import { InputCustom } from '@/components/simple/InputCustom';
 import { InputWithUnderLineColor } from '@/components/simple/InputWithUnderLineColor';
 import { SimpleButton } from '@/components/simple/SimpleButton';
+import { Switch } from '@/components/simple/Switch';
 import { SwitchWithText } from '@/components/simple/SwitchWithText';
 import { WrapperNeumorphism } from '@/components/simple/WrapperNeumorphism';
-import { SwitchRenderListType, TypePasteViewers } from '@/type/components.dto';
-import { RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
+import {
+    APPLY_SETTINGS,
+    COPY_ATTR_IN_ENTITIES,
+    COPY_ATTR_IN_VIEWER,
+    COPY_VIEWER_NESTED,
+    HIDE_EMPTY_FIELD,
+    HIDE_IN_MODEL,
+    HIDE_IN_TREE,
+    ONLY_READ,
+    REPLACE_ICON,
+    SET_ICON,
+    TRANSFER_DATA_EXTERNAL_SERVICES,
+    URL_VIEWER_SETTING,
+} from '@/contentScripts/AppModalPaste/ConstantAppModalPaste';
+import { SettingsViewerForPasteType, SwitchRenderListType, TypePasteViewers } from '@/type/components.dto';
+import { ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
 import classNames from 'classnames';
 import JSAlert from 'js-alert';
 import React, { useState } from 'react';
 
 import styles from './PasteViewer.module.scss';
+
 
 
 type Props = {
@@ -23,8 +38,63 @@ type Props = {
     pasteViewers: (data: TypePasteViewers) => void
     setViewerForPaste: (newViewer: ViewerType[]) => void
 }
+const initialStateConfigPaste = [
+    {
+        id: COPY_VIEWER_NESTED,
+        text: 'Копировать во все вложенные',
+    },
+    {
+        id: SET_ICON,
+        text: 'Установить иконку',
+    },
+    {
+        id: REPLACE_ICON,
+        text: 'Заменить иконку',
+    },
+    {
+        id: COPY_ATTR_IN_VIEWER,
+        text: 'Копировать атрибуты в вид',
+        isActive: true
+    },
+    {
+        id: COPY_ATTR_IN_ENTITIES,
+        text: 'Копировать атрибуты в класс',
+    }
+]
+const initialStateSettingViewer: SettingsViewerForPasteType = [
+    {
+        id: APPLY_SETTINGS,
+        text: 'Применить настройки',
+        bold: true
+    },
+    {
+        id: TRANSFER_DATA_EXTERNAL_SERVICES,
+        text: 'Передавать данные внешнему сервису',
+    },
+    {
+        id: HIDE_IN_TREE,
+        text: 'Скрывать в структуре объектов',
+    },
+    {
+        id: HIDE_IN_MODEL,
+        text: 'Скрывать в модели',
+    },
+    {
+        id: ONLY_READ,
+        text: 'Только для чтения',
+    },
+    {
+        id: HIDE_EMPTY_FIELD,
+        text: 'Скрывать пустые поля',
+    },
+    {
+        id: URL_VIEWER_SETTING,
+        value: 'https://',
 
-const TwoScreenCopyModal = ({
+    },
+]
+
+const PasteViewer = ({
     viewerForPaste,
     changeSelectedToggleiewer,
     deleteView,
@@ -33,73 +103,40 @@ const TwoScreenCopyModal = ({
     pasteViewers,
     setViewerForPaste
 }: Props) => {
-    const [configPasteEntities, setConfigPasteEntities] = useState<SwitchRenderListType[]>([
-        {
-            id: '2',
-            text: 'Копировать во все вложенные',
-        },
-
-        {
-            id: '4',
-            text: 'Установить иконку',
-        },
-        {
-            id: '5',
-            text: 'Заменить иконку',
-        }
-    ])
-    const [settingForPaste, setSettingForPaste] = useState<Array<SwitchRenderListType & { id: keyof Omit<RequestForPasteViewerType['Settings'], 'Url'> | '3' }>>([
-        {
-            id: '3',
-            text: 'Применить настройки',
-            bold: true
-        },
-        {
-            id: 'SendParams',
-            text: 'Передавать данные внешнему сервису',
-        },
-        {
-            id: 'hideInStructureOfObject',
-            text: 'Скрывать в структуре объектов',
-        },
-        {
-            id: 'hideInViewingModel',
-            text: 'Скрывать в модели',
-        },
-        {
-            id: 'viewMode',
-            text: 'Только для чтения',
-        },
-        {
-            id: 'hideEmptyFields',
-            text: 'Скрывать пустые поля',
-        },
-    ])
+    const [configPaste, setConfigPaste] = useState<SwitchRenderListType[]>(initialStateConfigPaste)
+    const [settingViewer, setSettingViewer] = useState<SettingsViewerForPasteType>(initialStateSettingViewer)
     const [valueIdIcon, setValueIdIcon] = useState<string>('')
-    const [urlValue, setUrlValue] = useState('https://')
 
-    const titleIconSelect = icons.find(ic => ic.Id === valueIdIcon)?.Name
+    const titleIconSelect = icons.find(icon => icon.Id === valueIdIcon)?.Name
 
 
-    const changeValueSettingForPaste = (id: string, value: boolean) => {
-        setSettingForPaste(prev => prev?.map(_ => {
+    const changeActiveSettingForPaste = (id: string, value: boolean) => {
+        setSettingViewer(prev => prev?.map(_ => {
+            if (_.id === id) _.isActive = value;
+            return _
+        }))
+    }
+    const changeValueSettingForPaste = (id: string, value: string) => {
+        setSettingViewer(prev => prev?.map(_ => {
             if (_.id === id) _.value = value;
             return _
         }))
     }
+
     const changeValueConfigPaste = (id: string, value: boolean) => {
-        setConfigPasteEntities(configPasteEntities?.map(_ => {
-            if (_.id === id) _.value = value;
+        setConfigPaste(configPaste?.map(_ => {
+            if (_.id === id) _.isActive = value;
             return _
         }))
     }
+
     const pasteViewerInEntities = () => {
         pasteViewers({
             viewerForPaste,
-            configPasteEntities,
+            configPasteEntities: configPaste,
             valueIdIcon: valueIdIcon,
-            settingForPaste,
-            urlValue,
+            settingForPaste: settingViewer,
+            urlValue: '',
         })
         const alert = new JSAlert("Страница будет перезагружена", "Новые виды были вставлены");
         alert.show();
@@ -147,8 +184,8 @@ const TwoScreenCopyModal = ({
                             <span
                                 title='Порядковый номер вида для вставки'
                             >
-                                <InputCustom
-                                    addStyle={{
+                                <input
+                                    style={{
                                         width: '30px'
                                     }}
                                     onChange={(e) => changeOrderViewerInEntities(el.Id, +e)}
@@ -169,7 +206,7 @@ const TwoScreenCopyModal = ({
                 </ul>
                 <WrapperNeumorphism>
                     <div className={styles.wrapperListConfig}>
-                        {configPasteEntities.map((switchEl) => {
+                        {configPaste.map((switchEl) => {
                             return <div
                                 key={switchEl.id}
                                 className={styles.rowSwitch}>
@@ -178,8 +215,7 @@ const TwoScreenCopyModal = ({
                                         changeValueConfigPaste(switchEl.id, check);
                                     }}
                                     text={switchEl.text}
-                                    value={switchEl.value}
-                                    isRounded
+                                    value={switchEl.isActive}
                                 />
                             </div>
                         })}
@@ -200,24 +236,40 @@ const TwoScreenCopyModal = ({
                 <WrapperNeumorphism>
                     <div className={styles.wrapperSettingWithView}>
                         <div className={styles.rowSwitchSetting}>
-                            {settingForPaste.map(switchEl => <SwitchWithText
-                                key={switchEl.id}
-                                onChange={(check) => changeValueSettingForPaste(switchEl.id, check)}
-                                text={switchEl.text}
-                                bold={switchEl.bold}
-                                value={switchEl.value}
-                                isRounded
-                            />)}
+                            {settingViewer.map(switchEl => {
+                                console.log("🚀 ~ file: PasteViewer.tsx:239 ~ switchEl:", switchEl)
+                                if (switchEl.id === URL_VIEWER_SETTING) {
+                                    console.log('44')
+                                    return <div
+                                        key={switchEl.id}
+                                        className={styles.inputSettingUrlWrapper}
+                                    >
+                                        <Switch
+                                            isRounded
+                                            onChange={check => changeActiveSettingForPaste(switchEl.id, check)}
+                                            value={switchEl.isActive}
+                                        />
+                                        <InputWithUnderLineColor
+                                            placeholder='URL контента'
+                                            value={switchEl.value}
+                                            size='s'
+                                            addStyle={{
+                                                width: '100%'
+                                            }}
+                                            onChange={value => changeValueSettingForPaste(switchEl.id, value)}
+                                        />
+                                    </div>
+                                }
+                                return <SwitchWithText
+                                    key={switchEl.id}
+                                    onChange={(check) => changeActiveSettingForPaste(switchEl.id, check)}
+                                    text={switchEl.text}
+                                    bold={switchEl.bold}
+                                    value={switchEl.isActive}
+                                />
+                            })}
                         </div>
-                        <div className={styles.inputSettingUrlWrapper}>
-                            <input
-                                type="text"
-                                className={styles.inputSettingUrl}
-                                placeholder='URL контента'
-                                value={urlValue}
-                                onChange={e => setUrlValue(e.target.value)}
-                            />
-                        </div>
+
                     </div>
                 </WrapperNeumorphism>
             </div>
@@ -235,4 +287,4 @@ const TwoScreenCopyModal = ({
     )
 }
 
-export default TwoScreenCopyModal
+export default PasteViewer

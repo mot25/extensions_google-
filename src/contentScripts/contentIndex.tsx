@@ -2,7 +2,7 @@
 import { createElementNode } from '@/shared/utils/components';
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { AppModalPaste } from './componets/AppModalPaste';
+import { AppModalPaste } from './AppModalPaste';
 
 
 

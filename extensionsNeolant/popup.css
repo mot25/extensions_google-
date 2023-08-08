@@ -275,9 +275,9 @@ body {
   animation: shopWarnPush 3s;
   animation-fill-mode: forwards;
 }
-/*!****************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
-  \****************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************/
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -290,13 +290,13 @@ html {
   box-sizing: inherit;
 }
 
-.LdU0YdXte3UUM2zApnaP.VinJJf3F5BB016Zhsavs {
+.extentions__buttonActions__LdU0Y.extentions__dark__VinJJ {
   --background: #fafbfd;
   --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
   --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
 }
 
-.LdU0YdXte3UUM2zApnaP {
+.extentions__buttonActions__LdU0Y {
   --background: #275efe;
   --text: #000;
   --font-size: 16px;
@@ -321,76 +321,76 @@ html {
   transform: translateY(var(--y)) translateZ(0);
   transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
-.LdU0YdXte3UUM2zApnaP div {
+.extentions__buttonActions__LdU0Y div {
   display: flex;
   overflow: hidden;
   text-shadow: 0 var(--font-shadow) 0 var(--text);
 }
-.LdU0YdXte3UUM2zApnaP div span {
+.extentions__buttonActions__LdU0Y div span {
   display: block;
   backface-visibility: hidden;
   font-style: normal;
   transition: transform var(--duration) ease;
   transform: translateY(var(--m)) translateZ(0);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(1) {
-  transition-delay: 0.05s;
+.extentions__buttonActions__LdU0Y div span:nth-child(1) {
+  transition-delay: calc(0.05 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(2) {
-  transition-delay: 0.1s;
+.extentions__buttonActions__LdU0Y div span:nth-child(2) {
+  transition-delay: calc(0.1 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(3) {
-  transition-delay: 0.15s;
+.extentions__buttonActions__LdU0Y div span:nth-child(3) {
+  transition-delay: calc(0.15 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(4) {
-  transition-delay: 0.2s;
+.extentions__buttonActions__LdU0Y div span:nth-child(4) {
+  transition-delay: calc(0.2 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(5) {
-  transition-delay: 0.25s;
+.extentions__buttonActions__LdU0Y div span:nth-child(5) {
+  transition-delay: calc(0.25 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(6) {
-  transition-delay: 0.3s;
+.extentions__buttonActions__LdU0Y div span:nth-child(6) {
+  transition-delay: calc(0.3 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(7) {
-  transition-delay: 0.35s;
+.extentions__buttonActions__LdU0Y div span:nth-child(7) {
+  transition-delay: calc(0.35 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(8) {
-  transition-delay: 0.4s;
+.extentions__buttonActions__LdU0Y div span:nth-child(8) {
+  transition-delay: calc(0.4 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(9) {
-  transition-delay: 0.45s;
+.extentions__buttonActions__LdU0Y div span:nth-child(9) {
+  transition-delay: calc(0.45 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(10) {
-  transition-delay: 0.5s;
+.extentions__buttonActions__LdU0Y div span:nth-child(10) {
+  transition-delay: calc(0.5 + s);
 }
-.LdU0YdXte3UUM2zApnaP div span:nth-child(11) {
-  transition-delay: 0.55s;
+.extentions__buttonActions__LdU0Y div span:nth-child(11) {
+  transition-delay: calc(0.55 + s);
 }
-.LdU0YdXte3UUM2zApnaP:hover {
+.extentions__buttonActions__LdU0Y:hover {
   --y: var(--move-hover);
   --shadow: var(--shadow-hover);
 }
-.LdU0YdXte3UUM2zApnaP:hover span {
+.extentions__buttonActions__LdU0Y:hover span {
   --m: calc(var(--font-size) * -1);
 }
-.LdU0YdXte3UUM2zApnaP.t2KwffiDKI33JokQfsOj {
+.extentions__buttonActions__LdU0Y.extentions__reverse__t2Kwf {
   --font-shadow: calc(var(--font-size) * -1);
 }
-.LdU0YdXte3UUM2zApnaP.t2KwffiDKI33JokQfsOj:hover span {
+.extentions__buttonActions__LdU0Y.extentions__reverse__t2Kwf:hover span {
   --m: calc(var(--font-size));
 }
 
-.LdU0YdXte3UUM2zApnaP {
+.extentions__buttonActions__LdU0Y {
   cursor: pointer;
 }
 
-.ArhEIVGW_QZ48dXkYzHB.VinJJf3F5BB016Zhsavs {
+.extentions__button__ArhEI.extentions__dark__VinJJ {
   --background: #000;
   --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
   --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
 }
 
-.ArhEIVGW_QZ48dXkYzHB {
+.extentions__button__ArhEI {
   --background: #275efe;
   --text: #000;
   --font-size: 16px;
@@ -415,68 +415,68 @@ html {
   transform: translateY(var(--y)) translateZ(0);
   transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
-.ArhEIVGW_QZ48dXkYzHB div {
+.extentions__button__ArhEI div {
   display: flex;
   overflow: hidden;
   text-shadow: 0 var(--font-shadow) 0 var(--text);
 }
-.ArhEIVGW_QZ48dXkYzHB div span {
+.extentions__button__ArhEI div span {
   display: block;
   backface-visibility: hidden;
   font-style: normal;
   transition: transform var(--duration) ease;
   transform: translateY(var(--m)) translateZ(0);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(1) {
-  transition-delay: 0.05s;
+.extentions__button__ArhEI div span:nth-child(1) {
+  transition-delay: calc(0.05 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(2) {
-  transition-delay: 0.1s;
+.extentions__button__ArhEI div span:nth-child(2) {
+  transition-delay: calc(0.1 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(3) {
-  transition-delay: 0.15s;
+.extentions__button__ArhEI div span:nth-child(3) {
+  transition-delay: calc(0.15 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(4) {
-  transition-delay: 0.2s;
+.extentions__button__ArhEI div span:nth-child(4) {
+  transition-delay: calc(0.2 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(5) {
-  transition-delay: 0.25s;
+.extentions__button__ArhEI div span:nth-child(5) {
+  transition-delay: calc(0.25 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(6) {
-  transition-delay: 0.3s;
+.extentions__button__ArhEI div span:nth-child(6) {
+  transition-delay: calc(0.3 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(7) {
-  transition-delay: 0.35s;
+.extentions__button__ArhEI div span:nth-child(7) {
+  transition-delay: calc(0.35 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(8) {
-  transition-delay: 0.4s;
+.extentions__button__ArhEI div span:nth-child(8) {
+  transition-delay: calc(0.4 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(9) {
-  transition-delay: 0.45s;
+.extentions__button__ArhEI div span:nth-child(9) {
+  transition-delay: calc(0.45 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(10) {
-  transition-delay: 0.5s;
+.extentions__button__ArhEI div span:nth-child(10) {
+  transition-delay: calc(0.5 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB div span:nth-child(11) {
-  transition-delay: 0.55s;
+.extentions__button__ArhEI div span:nth-child(11) {
+  transition-delay: calc(0.55 + s);
 }
-.ArhEIVGW_QZ48dXkYzHB:hover {
+.extentions__button__ArhEI:hover {
   --y: var(--move-hover);
   --shadow: var(--shadow-hover);
 }
-.ArhEIVGW_QZ48dXkYzHB:hover span {
+.extentions__button__ArhEI:hover span {
   --m: calc(var(--font-size) * -1);
 }
-.ArhEIVGW_QZ48dXkYzHB.t2KwffiDKI33JokQfsOj {
+.extentions__button__ArhEI.extentions__reverse__t2Kwf {
   --font-shadow: calc(var(--font-size) * -1);
 }
-.ArhEIVGW_QZ48dXkYzHB.t2KwffiDKI33JokQfsOj:hover span {
+.extentions__button__ArhEI.extentions__reverse__t2Kwf:hover span {
   --m: calc(var(--font-size));
 }
-/*!******************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
-  \******************************************************************************************************************************************************/
-.fSW73w9wzlLVCzwIhWiS {
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************/
+.extentions__button__fSW73 {
   width: 100%;
   height: 40px;
   border: none;
@@ -487,31 +487,31 @@ html {
   border-radius: 3px;
   cursor: pointer;
 }
-.fSW73w9wzlLVCzwIhWiS span {
+.extentions__button__fSW73 span {
   color: #fff;
 }
 /*!***************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/popup/page/AllowUrl/AllowUrl.module.scss ***!
   \***************************************************************************************************************************************/
 
-/*!******************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss ***!
-  \******************************************************************************************************************************************************************/
-.XKESgmL5zlh5h_bExiJb {
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+.extentions__dropDown__inner__XKESg {
   display: flex;
   align-items: center;
 }
 
-.QxtbGDRsdC2e2G_9ZK9B {
+.extentions__delete__QxtbG {
   background: rgb(198, 70, 70);
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
 }
-/*!****************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
-  \****************************************************************************************************************************************************************************/
-.MfeeGEI_HxxpqW_4KlUk {
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+.extentions__input__MfeeG {
   color: #000;
   font-size: 0.9rem;
   background-color: transparent;
@@ -521,9 +521,16 @@ html {
   padding-block: 0.7em;
   border: none;
   border-bottom: var(--border-height) solid var(--border-before-color);
+  font-size: 1.2rem;
+  padding-inline: 1em;
+  padding-block: 0.8em;
+}
+.extentions__input__small__Y64xk {
+  height: 20px;
+  font-size: 15px;
 }
 
-.fA2DPAIwlVzQ8nlOTHPB {
+.extentions__inputBorder__fA2DP {
   position: absolute;
   background: var(--border-after-color);
   width: 0%;
@@ -533,32 +540,26 @@ html {
   transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
-.MfeeGEI_HxxpqW_4KlUk:focus {
+.extentions__input__MfeeG:focus {
   outline: none;
 }
 
-.MfeeGEI_HxxpqW_4KlUk:focus + .fA2DPAIwlVzQ8nlOTHPB {
+.extentions__input__MfeeG:focus + .extentions__inputBorder__fA2DP {
   width: 100%;
 }
 
-.ovvW9h_1NqlvnWVjJVs3 {
+.extentions__formControl__ovvW9 {
   position: relative;
   --width-of-input: 300px;
 }
 
-.GZgEZ_0AmhX_i2pzzzhM {
-  font-size: 1.2rem;
-  padding-inline: 1em;
-  padding-block: 0.8em;
-}
-
-.FHcUZHtwh4lV_Bi6_yIv {
+.extentions__inputBorderAlt__FHcUZ {
   height: 3px;
   background: #31556f;
   transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-.GZgEZ_0AmhX_i2pzzzhM:focus + .FHcUZHtwh4lV_Bi6_yIv {
+.extentions__inputAlt__GZgEZ:focus + .extentions__inputBorderAlt__FHcUZ {
   width: 100%;
 }
 /*!*************************************************************************************************************************************!*\

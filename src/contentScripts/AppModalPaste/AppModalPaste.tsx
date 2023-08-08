@@ -3,7 +3,6 @@ import IconPaste from '@/assets/icon/IconPaste.svg';
 import IconPlus from '@/assets/icon/IconPlus.svg';
 import { CopyViewer } from '@/screens/CopyViewer';
 import { PasteViewer } from '@/screens/PasteViewer';
-import { EntitiesService } from '@/services/Entities.service';
 import { IconService } from '@/services/Icon.service';
 import { MenuLeftNavbar, PageNavigatorType, TypePasteViewers } from '@/type/components.dto';
 import { EntitiesType, RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
@@ -33,6 +32,7 @@ chrome.runtime.sendMessage({
 })
 
 
+
 const AppModalPaste = (props: Props) => {
 
     const refModalWrapper = useRef<HTMLDivElement>(null)
@@ -40,7 +40,6 @@ const AppModalPaste = (props: Props) => {
     const [entitiesFromPaste, setEntitiesFromPaste] = useState<EntitiesType[]>([])
 
     const [currentRightPage, setCurrentRightPage] = useState<number>(1)
-    console.log("🚀 ~ file: AppModalPaste.tsx:46 ~ AppModalPaste ~ currentRightPage:", currentRightPage)
     const [icons, setIcons] = useState<IconType[]>([])
     const [viewerForPaste, setViewerForPaste] = useState<ViewerType[]>([])
 
@@ -48,9 +47,7 @@ const AppModalPaste = (props: Props) => {
 
     const changeOrderViewerInEntities = (id: string, order: number) => {
         const newViewers = viewerForPaste.map(item => {
-            if (item.Id === id) {
-                item.order = order
-            }
+            if (item.Id === id) item.order = order
             return item
         })
         setViewerForPaste(newViewers)
@@ -68,6 +65,7 @@ const AppModalPaste = (props: Props) => {
             const response = await IconService.getIcons()
             setIcons(response)
         } catch (error) {
+            console.log("🚀 ~ file: AppModalPaste.tsx:68 ~ fetchIcons ~ error:", error)
         }
     }
     const addStateViewers = (view: ViewerType) => {
@@ -97,9 +95,7 @@ const AppModalPaste = (props: Props) => {
     }
     const changeSelectedToggleiewer = (id: string) => {
         setViewerForPaste(prev => prev.map(item => {
-            if (item.Id === id) {
-                item.isSelected = !item?.isSelected
-            }
+            if (item.Id === id) item.isSelected = !item?.isSelected
             return item
         }))
     }
@@ -110,11 +106,17 @@ const AppModalPaste = (props: Props) => {
         settingForPaste,
         urlValue,
     }: TypePasteViewers) => {
-
-        const isApplySettingsCustom = settingForPaste.find(_ => _.id === '3').value
-        const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').value
-        const isApplyNestedEntities = !configPasteEntities.find(_ => _.id === '2').value
-        const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').value || false
+        console.log('config for paste', {
+            viewerForPaste,
+            configPasteEntities,
+            valueIdIcon,
+            settingForPaste,
+            urlValue,
+        })
+        const isApplySettingsCustom = settingForPaste.find(_ => _.id === '3').isActive
+        const isApplyIconCustom = configPasteEntities.find(_ => _.id === '4').isActive
+        const isApplyNestedEntities = !configPasteEntities.find(_ => _.id === '2').isActive
+        const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === '5').isActive || false
         const customSettings: Record<keyof RequestForPasteViewerType['Settings'], boolean | number | string> = {
             hideInStructureOfObject: false,
             hideInViewingModel: false,
@@ -126,82 +128,75 @@ const AppModalPaste = (props: Props) => {
 
         settingForPaste.forEach(setting => {
             if (setting.id === '3') return
-            if (setting.id === 'viewMode') {
-                customSettings[setting.id] = Number(setting?.value)
-                return
-            }
-            customSettings[setting.id] = !!setting?.value
+            if (setting.id === 'viewMode') return customSettings[setting.id] = Number(setting?.isActive)
+            // if (setting.id === URL_VIEWER_SETTING) return customSettings[setting.id] = Number(setting?.isActive)
+            // TODO: handle exceptions URL_VIEWER_SETTING 
+            // @ts-ignore
+            customSettings[setting.id] = !!setting?.isActive
         })
 
         customSettings['Url'] = urlValue
 
-        entitiesFromPaste.forEach(async entity => {
-            if (!entity.isCurrent) if (!isApplyNestedEntities) return
-            // const newViewers: ViewerType[] = []
-            const promisesListResponse: Promise<ViewerType>[] = [];
+        // entitiesFromPaste.forEach(async entity => {
+        //     if (!entity.isCurrent) if (!isApplyNestedEntities) return
+        //     const promisesListResponse: Promise<ViewerType>[] = [];
 
-            viewerForPaste.forEach(async viewer => {
-                if (!viewer.isSelected) return
+        //     viewerForPaste.forEach(async viewer => {
+        //         if (!viewer.isSelected) return
 
-                const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...customSettings } : viewer.Settings) as RequestForPasteViewerType['Settings']
-                const IconForPost: string = ((isApplyIconCustom && valueIdIcon) ? valueIdIcon : viewer.Icon)
-                const dataPost: RequestForPasteViewerType = {
-                    Caption: viewer.Caption,
-                    Icon: IconForPost,
-                    Attributes: viewer.Attributes,
-                    Name: viewer.Name,
-                    Settings: settingForPost
-                }
-                const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
+        //         const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...customSettings } : viewer.Settings) as RequestForPasteViewerType['Settings']
+        //         const IconForPost: string = ((isApplyIconCustom && valueIdIcon) ? valueIdIcon : viewer.Icon)
+        //         const dataPost: RequestForPasteViewerType = {
+        //             Caption: viewer.Caption,
+        //             Icon: IconForPost,
+        //             Attributes: viewer.Attributes,
+        //             Name: viewer.Name,
+        //             Settings: settingForPost
+        //         }
+        //         const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
 
-                const newViewer = (async () => {
-                    if (isHaveViewer) {
-                        const dataCreate = {
-                            ...dataPost,
-                            Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
-                            Id: isHaveViewer.Id
-                        }
-                        console.log("🚀  ~ viewer:", viewer)
-                        console.log("🚀  ~ dataCreate:", dataCreate)
-                        const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
-                        // newViewers.push(dataCreate)
-                        console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
-                        // console.log("🚀 response add change viewer id ", response)
-                        return dataCreate
-                    } else {
-                        console.log("🚀  ~ viewer:", viewer)
-                        console.log("🚀  ~ dataPost:", dataPost)
-                        const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
-                        // newViewers.push({
-                        //     ...dataPost,
-                        //     Id: response.Id
-                        // })
-                        console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
-                        // console.log("🚀 response add new viewer id ", response)
-                        return {
-                            ...dataPost,
-                            Id: response.Id
-                        }
-                    }
-                })()
-                promisesListResponse.push(newViewer)
-            })
+        //         const newViewer = (async () => {
+        //             if (isHaveViewer) {
+        //                 const dataCreate = {
+        //                     ...dataPost,
+        //                     Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
+        //                     Id: isHaveViewer.Id
+        //                 }
+        //                 const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
+        //                 console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
+        //                 return dataCreate
+        //             } else {
+        //                 const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
+        //                 console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
+        //                 return {
+        //                     ...dataPost,
+        //                     Id: response.Id
+        //                 }
+        //             }
+        //         })()
+        //         promisesListResponse.push(newViewer)
+        //     })
 
-            Promise.all(promisesListResponse).then(async (e) => {
-                const currentOrder = [...entity.Viewers]
+        //     // для вставки атрибутов в вид put
+        //     // https://pdm-kueg.io.neolant.su/api/structure/entities/0ad58ed4-c7c7-ed11-8daf-85953743f5cc/viewers/c53e0660-4543-4187-8eb0-8c68c03acc86/attributes?ids=5eaf1db2-dc20-ec11-a958-00505600163f
 
-                viewerForPaste.forEach(async viewer => {
-                    if (!viewer.isSelected) return
-                    const newViewer = e.find(item => item.Caption === viewer.Caption)
-                    const order: number = viewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 1
-                    currentOrder.splice(order - 1, 0, newViewer)
-                })
-                const orderHash: Record<string, number> = {}
-                currentOrder.forEach((_, ind) => orderHash[_.Id] = ind)
-                const responseOrder = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
-            })
+        //     // вставка в класс атрибутов post
+        //     // https://pdm-kueg.io.neolant.su/api/structure/entities/0ad58ed4-c7c7-ed11-8daf-85953743f5cc/attributes?ids=5eaf1db2-dc20-ec11-a958-00505600163f&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6
 
-        })
+        //     Promise.all(promisesListResponse).then(async (e) => {
+        //         const currentOrder = [...entity.Viewers]
+        //         viewerForPaste.forEach(async viewer => {
+        //             if (!viewer.isSelected) return
+        //             const newViewer = e.find(item => item.Caption === viewer.Caption)
+        //             const order: number = viewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order || 1
+        //             currentOrder.splice(order - 1, 0, newViewer)
+        //         })
+        //         const orderHash: Record<string, number> = {}
+        //         currentOrder.forEach((_, ind) => orderHash[_.Id] = ind)
+        //         const responseOrder = await EntitiesService.changeOrderPosition(entity.Id, orderHash)
+        //     })
+
+        // })
     }
 
     const objRoutePage: PageNavigatorType = {

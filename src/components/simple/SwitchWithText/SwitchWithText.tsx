@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import styles from './SwitchWithText.module.scss'
 import React, { useState } from "react";
+import Switch from "../Switch/Switch";
 
 type Props = {
     text: string
@@ -14,30 +15,21 @@ const SwitchWithText = ({
     onChange,
     text,
     value,
-    isRounded,
+    isRounded = true,
     bold
 }: Props) => {
 
-    const [valueState, setValueState] = useState<boolean>(!!value)
 
 
     return (
         <div className={classNames(styles.wrapperButton, {
             [styles.wrapperButton__bold]: bold
         })}>
-            <label className={styles.switch}>
-                <input
-                    onChange={() => {
-                        setValueState(!valueState)
-                        onChange(valueState)
-                    }}
-                    type="checkbox"
-                    defaultChecked={valueState}
-                />
-                <span className={classNames(styles.slider, {
-                    [styles.round]: isRounded
-                })}></span>
-            </label>
+            <Switch
+                onChange={onChange}
+                isRounded={isRounded}
+                value={value}
+            />
             <p className={styles.labelText}>{text}</p>
         </div>
     )

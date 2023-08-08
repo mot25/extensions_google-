@@ -6363,70 +6363,6 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 
 /***/ }),
 
-/***/ "./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss":
-/*!*******************************************************************************!*\
-  !*** ./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
-  \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"buttonActions":"LdU0YdXte3UUM2zApnaP","dark":"VinJJf3F5BB016Zhsavs","reverse":"t2KwffiDKI33JokQfsOj","button":"ArhEIVGW_QZ48dXkYzHB"});
-
-/***/ }),
-
-/***/ "./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss":
-/*!*********************************************************************************!*\
-  !*** ./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"dropDown__inner":"XKESgmL5zlh5h_bExiJb","delete":"QxtbGDRsdC2e2G_9ZK9B"});
-
-/***/ }),
-
-/***/ "./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss":
-/*!*******************************************************************************************!*\
-  !*** ./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
-  \*******************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"input":"MfeeGEI_HxxpqW_4KlUk","inputBorder":"fA2DPAIwlVzQ8nlOTHPB","formControl":"ovvW9h_1NqlvnWVjJVs3","inputAlt":"GZgEZ_0AmhX_i2pzzzhM","inputBorderAlt":"FHcUZHtwh4lV_Bi6_yIv"});
-
-/***/ }),
-
-/***/ "./src/components/simple/SimpleButton/SimpleButton.module.scss":
-/*!*********************************************************************!*\
-  !*** ./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"button":"fSW73w9wzlLVCzwIhWiS"});
-
-/***/ }),
-
 /***/ "./src/popup/page/AllowUrl/AllowUrl.module.scss":
 /*!******************************************************!*\
   !*** ./src/popup/page/AllowUrl/AllowUrl.module.scss ***!
@@ -6469,6 +6405,70 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"buttonActions":"extentions__buttonActions__LdU0Y","dark":"extentions__dark__VinJJ","reverse":"extentions__reverse__t2Kwf","button":"extentions__button__ArhEI"});
+
+/***/ }),
+
+/***/ "./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss":
+/*!*********************************************************************************!*\
+  !*** ./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"dropDown__inner":"extentions__dropDown__inner__XKESg","delete":"extentions__delete__QxtbG"});
+
+/***/ }),
+
+/***/ "./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss":
+/*!*******************************************************************************************!*\
+  !*** ./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"input":"extentions__input__MfeeG","input__small":"extentions__input__small__Y64xk","inputBorder":"extentions__inputBorder__fA2DP","formControl":"extentions__formControl__ovvW9","inputBorderAlt":"extentions__inputBorderAlt__FHcUZ","inputAlt":"extentions__inputAlt__GZgEZ"});
+
+/***/ }),
+
+/***/ "./src/components/simple/SimpleButton/SimpleButton.module.scss":
+/*!*********************************************************************!*\
+  !*** ./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"button":"extentions__button__fSW73"});
 
 /***/ }),
 
@@ -39977,9 +39977,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var InputWithUnderLineColor = function (_a) {
-    var onChange = _a.onChange, placeholder = _a.placeholder, value = _a.value, addStyle = _a.addStyle;
+    var _b;
+    var onChange = _a.onChange, placeholder = _a.placeholder, value = _a.value, addStyle = _a.addStyle, _c = _a.size, size = _c === void 0 ? 'b' : _c;
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: addStyle, className: _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].formControl },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].input, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputAlt), placeholder: placeholder, required: true, onChange: function (e) { return onChange(e.target.value); }, value: value, type: "text" }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].input, (_b = {},
+                _b[_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].input__small] = size === 's',
+                _b)), placeholder: placeholder, required: true, onChange: function (e) { return onChange(e.target.value); }, value: value, type: "text" }),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputBorder, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputBorderAlt) })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputWithUnderLineColor);
