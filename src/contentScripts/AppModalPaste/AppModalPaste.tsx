@@ -181,17 +181,23 @@ const AppModalPaste = (props: Props) => {
                             Icon: (isApplyReWriteIconWithEdit && IconForPaste) ? IconForPaste : isHaveViewer.Icon,
                             Id: isHaveViewer.Id
                         }
-                        const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
+                        await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
                         if (isCopyAttrInViewer) {
-                            const responseSetAttrs = await AttributesService.setAttrViewer({
+                            await AttributesService.setAttrViewer({
                                 idAttrs: dataCreate.Attributes,
                                 idEntity: entity.Id,
                                 idViewer: dataCreate.Id
                             })
-                            const responseDeleteAttrs = await AttributesService.deleteAttrFromViewer({
+                            await AttributesService.deleteAttrForViewer({
                                 idAttrs: isHaveViewer.Attributes,
                                 idEntity: entity.Id,
                                 idViewer: dataCreate.Id
+                            })
+                        }
+                        if (isCopyAttrInEntity) {
+                            await AttributesService.setAttrForEntity({
+                                idAttrs: dataCreate.Attributes,
+                                idEntity: entity.Id,
                             })
                         }
                         console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
@@ -199,13 +205,17 @@ const AppModalPaste = (props: Props) => {
                     } else {
 
                         const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
-                        console.log("🚀 ~ file: AppModalPaste.tsx:202 ~ newViewer ~ entity:", entity)
-                        console.log("🚀 ~ file: AppModalPaste.tsx:206 ~ newViewer ~ dataPost:", dataPost)
                         if (isCopyAttrInViewer) {
-                            const responseAttrs = await AttributesService.setAttrViewer({
+                            await AttributesService.setAttrViewer({
                                 idAttrs: dataPost.Attributes,
                                 idEntity: entity.Id,
                                 idViewer: response.Id
+                            })
+                        }
+                        if (isCopyAttrInEntity) {
+                            await AttributesService.setAttrForEntity({
+                                idAttrs: dataPost.Attributes,
+                                idEntity: entity.Id,
                             })
                         }
                         console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
@@ -223,6 +233,8 @@ const AppModalPaste = (props: Props) => {
 
             //     // вставка в класс атрибутов post
             //     // https://pdm-kueg.io.neolant.su/api/structure/entities/0ad58ed4-c7c7-ed11-8daf-85953743f5cc/attributes?ids=5eaf1db2-dc20-ec11-a958-00505600163f&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6
+
+            // https://pdm-kueg.io.neolant.su/api/structure/entities//attributes?ids=43fd8a5a-77be-ed11-8daf-85953743f5cc&ids=d200ac55-7cb9-ec11-8dad-e116bd673e14&ids=6790be53-6b3e-ed11-8dad-e116bd673e14&ids=2b5e36d1-3fc2-ec11-8dad-e116bd673e14&ids=fff27bb9-a9b9-ed11-8daf-85953743f5cc&ids=0ddc05f8-a9b9-ed11-8daf-85953743f5cc&ids=08061722-2ba9-ed11-8daf-85953743f5cc&ids=21938d29-98c1-ed11-8daf-85953743f5cc&ids=735e4e30-af6a-eb11-8dae-e4cbcadfe2a0
 
             // удаления атрибутов у класса delete
             // https://pdm-kueg.io.neolant.su/api/structure/entities/05d58ed4-c7c7-ed11-8daf-85953743f5cc/viewers/227d3bee-da39-4fe2-96d4-813e62690d35/attributes?ids=735a0274-8ee2-ed11-8daf-85953743f5cc

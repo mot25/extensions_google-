@@ -4228,12 +4228,22 @@ var AttributesService = /** @class */ (function () {
             });
         });
     };
-    AttributesService.deleteAttrFromViewer = function (_a) {
+    AttributesService.deleteAttrForViewer = function (_a) {
         var idAttrs = _a.idAttrs, idEntity = _a.idEntity, idViewer = _a.idViewer;
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_b) {
                 response = _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.delete("/api/structure/entities/".concat(idEntity, "/viewers/").concat(idViewer, "/attributes?").concat((0,_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(idAttrs, 'ids')));
+                return [2 /*return*/, response];
+            });
+        });
+    };
+    AttributesService.setAttrForEntity = function (_a) {
+        var idAttrs = _a.idAttrs, idEntity = _a.idEntity;
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_b) {
+                response = _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.post("api/structure/entities/".concat(idEntity, "/attributes?").concat((0,_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(idAttrs, 'ids')));
                 return [2 /*return*/, response];
             });
         });
@@ -9895,15 +9905,15 @@ var AppModalPaste = function (props) {
                                 };
                                 isHaveViewer = entity.Viewers.find(function (_) { return _.Caption === viewer.Caption; });
                                 newViewer = (function () { return __awaiter(void 0, void 0, void 0, function () {
-                                    var dataCreate, response, responseSetAttrs, responseDeleteAttrs, response, responseAttrs;
+                                    var dataCreate, response;
                                     return __generator(this, function (_a) {
                                         switch (_a.label) {
                                             case 0:
-                                                if (!isHaveViewer) return [3 /*break*/, 5];
+                                                if (!isHaveViewer) return [3 /*break*/, 7];
                                                 dataCreate = __assign(__assign({}, dataPost), { Icon: (isApplyReWriteIconWithEdit && IconForPaste) ? IconForPaste : isHaveViewer.Icon, Id: isHaveViewer.Id });
                                                 return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_10__.EntitiesService.changeViewerInEntities(entity.Id, dataCreate)];
                                             case 1:
-                                                response = _a.sent();
+                                                _a.sent();
                                                 if (!isCopyAttrInViewer) return [3 /*break*/, 4];
                                                 return [4 /*yield*/, _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.setAttrViewer({
                                                         idAttrs: dataCreate.Attributes,
@@ -9911,33 +9921,49 @@ var AppModalPaste = function (props) {
                                                         idViewer: dataCreate.Id
                                                     })];
                                             case 2:
-                                                responseSetAttrs = _a.sent();
-                                                return [4 /*yield*/, _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.deleteAttrFromViewer({
+                                                _a.sent();
+                                                return [4 /*yield*/, _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.deleteAttrForViewer({
                                                         idAttrs: isHaveViewer.Attributes,
                                                         idEntity: entity.Id,
                                                         idViewer: dataCreate.Id
                                                     })];
                                             case 3:
-                                                responseDeleteAttrs = _a.sent();
+                                                _a.sent();
                                                 _a.label = 4;
                                             case 4:
+                                                if (!isCopyAttrInEntity) return [3 /*break*/, 6];
+                                                return [4 /*yield*/, _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.setAttrForEntity({
+                                                        idAttrs: dataCreate.Attributes,
+                                                        idEntity: entity.Id,
+                                                    })];
+                                            case 5:
+                                                _a.sent();
+                                                _a.label = 6;
+                                            case 6:
                                                 console.log("\u0418\u0437\u043C\u0435\u043D\u0438\u043B\u0438 \u0432\u0438\u0434: ".concat(dataCreate.Caption, " \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 ").concat(entity.Name));
                                                 return [2 /*return*/, dataCreate];
-                                            case 5: return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_10__.EntitiesService.pasteViewerInEntities(entity.Id, dataPost)];
-                                            case 6:
+                                            case 7: return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_10__.EntitiesService.pasteViewerInEntities(entity.Id, dataPost)];
+                                            case 8:
                                                 response = _a.sent();
-                                                console.log("🚀 ~ file: AppModalPaste.tsx:202 ~ newViewer ~ entity:", entity);
-                                                console.log("🚀 ~ file: AppModalPaste.tsx:206 ~ newViewer ~ dataPost:", dataPost);
-                                                if (!isCopyAttrInViewer) return [3 /*break*/, 8];
+                                                if (!isCopyAttrInViewer) return [3 /*break*/, 10];
                                                 return [4 /*yield*/, _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.setAttrViewer({
                                                         idAttrs: dataPost.Attributes,
                                                         idEntity: entity.Id,
                                                         idViewer: response.Id
                                                     })];
-                                            case 7:
-                                                responseAttrs = _a.sent();
-                                                _a.label = 8;
-                                            case 8:
+                                            case 9:
+                                                _a.sent();
+                                                _a.label = 10;
+                                            case 10:
+                                                if (!isCopyAttrInEntity) return [3 /*break*/, 12];
+                                                return [4 /*yield*/, _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.setAttrForEntity({
+                                                        idAttrs: dataPost.Attributes,
+                                                        idEntity: entity.Id,
+                                                    })];
+                                            case 11:
+                                                _a.sent();
+                                                _a.label = 12;
+                                            case 12:
                                                 console.log("\u0421\u043E\u0437\u0434\u0430\u043B\u0438 \u0432\u0438\u0434: ".concat(dataPost.Caption, " \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 ").concat(entity.Name));
                                                 return [2 /*return*/, __assign(__assign({}, dataPost), { Id: response.Id })];
                                         }
@@ -9951,6 +9977,7 @@ var AppModalPaste = function (props) {
                         //     // https://pdm-kueg.io.neolant.su/api/structure/entities/0ad58ed4-c7c7-ed11-8daf-85953743f5cc/viewers/c53e0660-4543-4187-8eb0-8c68c03acc86/attributes?ids=5eaf1db2-dc20-ec11-a958-00505600163f
                         //     // вставка в класс атрибутов post
                         //     // https://pdm-kueg.io.neolant.su/api/structure/entities/0ad58ed4-c7c7-ed11-8daf-85953743f5cc/attributes?ids=5eaf1db2-dc20-ec11-a958-00505600163f&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6
+                        // https://pdm-kueg.io.neolant.su/api/structure/entities//attributes?ids=43fd8a5a-77be-ed11-8daf-85953743f5cc&ids=d200ac55-7cb9-ec11-8dad-e116bd673e14&ids=6790be53-6b3e-ed11-8dad-e116bd673e14&ids=2b5e36d1-3fc2-ec11-8dad-e116bd673e14&ids=fff27bb9-a9b9-ed11-8daf-85953743f5cc&ids=0ddc05f8-a9b9-ed11-8daf-85953743f5cc&ids=08061722-2ba9-ed11-8daf-85953743f5cc&ids=21938d29-98c1-ed11-8daf-85953743f5cc&ids=735e4e30-af6a-eb11-8dae-e4cbcadfe2a0
                         // удаления атрибутов у класса delete
                         // https://pdm-kueg.io.neolant.su/api/structure/entities/05d58ed4-c7c7-ed11-8daf-85953743f5cc/viewers/227d3bee-da39-4fe2-96d4-813e62690d35/attributes?ids=735a0274-8ee2-ed11-8daf-85953743f5cc
                         Promise.all(promisesListResponse)
