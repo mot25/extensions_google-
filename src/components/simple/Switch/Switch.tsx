@@ -11,17 +11,13 @@ type Props = {
 
 const Switch = ({ onChange, isRounded, value }: Props) => {
 
-    const [valueState, setValueState] = useState<boolean>(!!value)
 
     return (
         <label className={styles.switch}>
             <input
-                onChange={() => {
-                    setValueState(!valueState)
-                    onChange(valueState)
-                }}
+                onChange={() => onChange(!value)}
                 type="checkbox"
-                defaultChecked={valueState}
+                defaultChecked={value}
             />
             <span className={classNames(styles.slider, {
                 [styles.round]: isRounded

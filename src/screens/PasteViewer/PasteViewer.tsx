@@ -12,12 +12,13 @@ import {
     HIDE_EMPTY_FIELD,
     HIDE_IN_MODEL,
     HIDE_IN_TREE,
+    ID_SELECT_ICON,
     ONLY_READ,
     REPLACE_ICON,
     SET_ICON,
     TRANSFER_DATA_EXTERNAL_SERVICES,
     URL_VIEWER_SETTING,
-} from '@/contentScripts/AppModalPaste/ConstantAppModalPaste';
+} from '@/contentScripts/AppModalPaste/constantAppModalPaste';
 import { SettingsViewerForPasteType, SwitchRenderListType, TypePasteViewers } from '@/type/components.dto';
 import { ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
@@ -38,7 +39,7 @@ type Props = {
     pasteViewers: (data: TypePasteViewers) => void
     setViewerForPaste: (newViewer: ViewerType[]) => void
 }
-const initialStateConfigPaste = [
+const initialStateConfigPaste: SwitchRenderListType[] = [
     {
         id: COPY_VIEWER_NESTED,
         text: 'Копировать во все вложенные',
@@ -59,6 +60,11 @@ const initialStateConfigPaste = [
     {
         id: COPY_ATTR_IN_ENTITIES,
         text: 'Копировать атрибуты в класс',
+    },
+    {
+        id: ID_SELECT_ICON,
+        value: '',
+
     }
 ]
 const initialStateSettingViewer: SettingsViewerForPasteType = [
@@ -105,27 +111,28 @@ const PasteViewer = ({
 }: Props) => {
     const [configPaste, setConfigPaste] = useState<SwitchRenderListType[]>(initialStateConfigPaste)
     const [settingViewer, setSettingViewer] = useState<SettingsViewerForPasteType>(initialStateSettingViewer)
-    const [valueIdIcon, setValueIdIcon] = useState<string>('')
 
-    const titleIconSelect = icons.find(icon => icon.Id === valueIdIcon)?.Name
+    const configPasteIcon = configPaste.find(_ => _.id === ID_SELECT_ICON)
+    const titleIconSelect = icons.find(icon => icon.Id === configPasteIcon.value)?.Name
 
 
-    const changeActiveSettingForPaste = (id: string, value: boolean) => {
+    const changeSettingForPaste = (id: string, value: boolean | string) => {
         setSettingViewer(prev => prev?.map(_ => {
-            if (_.id === id) _.isActive = value;
+            if (_.id === id) {
+                if (typeof value === 'string') _.value = value
+                if (typeof value === 'boolean') _.isActive = value
+            }
             return _
         }))
     }
-    const changeValueSettingForPaste = (id: string, value: string) => {
-        setSettingViewer(prev => prev?.map(_ => {
-            if (_.id === id) _.value = value;
-            return _
-        }))
-    }
 
-    const changeValueConfigPaste = (id: string, value: boolean) => {
+
+    const changeConfigPaste = (id: string, value: boolean | string) => {
         setConfigPaste(configPaste?.map(_ => {
-            if (_.id === id) _.isActive = value;
+            if (_.id === id) {
+                if (typeof value === 'string') _.value = value
+                if (typeof value === 'boolean') _.isActive = value
+            }
             return _
         }))
     }
@@ -134,9 +141,7 @@ const PasteViewer = ({
         pasteViewers({
             viewerForPaste,
             configPasteEntities: configPaste,
-            valueIdIcon: valueIdIcon,
             settingForPaste: settingViewer,
-            urlValue: '',
         })
         const alert = new JSAlert("Страница будет перезагружена", "Новые виды были вставлены");
         alert.show();
@@ -206,66 +211,67 @@ const PasteViewer = ({
                 </ul>
                 <WrapperNeumorphism>
                     <div className={styles.wrapperListConfig}>
-                        {configPaste.map((switchEl) => {
+                        {configPaste.map((paramPaste) => {
+                            if (paramPaste.id === ID_SELECT_ICON) {
+                                return <div className={styles.wrapperDropDownIcon}>
+                                    <DropDown
+                                        onChange={(idIcon) => changeConfigPaste(paramPaste.id, idIcon)}
+                                        title='Выберите иконку'
+                                        list={icons.map(icon => ({ label: icon.Name, value: icon.Id }))}
+                                    />
+                                    <div className={styles.wrapperSelectTitleIcon}>
+                                        {titleIconSelect ? <>
+                                            <span>Вы выбрали иконку:</span> {titleIconSelect}
+                                        </> : ''}
+                                    </div>
+                                </div>
+                            }
                             return <div
-                                key={switchEl.id}
+                                key={paramPaste.id}
                                 className={styles.rowSwitch}>
                                 <SwitchWithText
                                     onChange={(check) => {
-                                        changeValueConfigPaste(switchEl.id, check);
+                                        changeConfigPaste(paramPaste.id, check);
                                     }}
-                                    text={switchEl.text}
-                                    value={switchEl.isActive}
+                                    text={paramPaste.text}
+                                    value={paramPaste.isActive}
                                 />
                             </div>
                         })}
                     </div>
-                    <div className={styles.wrapperDropDownIcon}>
-                        <DropDown
-                            onChange={(idIcon) => setValueIdIcon(idIcon)}
-                            title='Выберите иконку'
-                            list={icons.map(icon => ({ label: icon.Name, value: icon.Id }))}
-                        />
-                        <div className={styles.wrapperSelectTitleIcon}>
-                            {titleIconSelect ? <>
-                                <span>Вы выбрали иконку:</span> {titleIconSelect}
-                            </> : ''}
-                        </div>
-                    </div>
+
                 </WrapperNeumorphism>
                 <WrapperNeumorphism>
                     <div className={styles.wrapperSettingWithView}>
                         <div className={styles.rowSwitchSetting}>
-                            {settingViewer.map(switchEl => {
-                                console.log("🚀 ~ file: PasteViewer.tsx:239 ~ switchEl:", switchEl)
-                                if (switchEl.id === URL_VIEWER_SETTING) {
-                                    console.log('44')
+                            {settingViewer.map(paramViewer => {
+                                if (paramViewer.id === URL_VIEWER_SETTING) {
                                     return <div
-                                        key={switchEl.id}
+                                        key={paramViewer.id}
                                         className={styles.inputSettingUrlWrapper}
                                     >
                                         <Switch
                                             isRounded
-                                            onChange={check => changeActiveSettingForPaste(switchEl.id, check)}
-                                            value={switchEl.isActive}
+                                            onChange={check => changeSettingForPaste(paramViewer.id, check)}
+                                            value={paramViewer.isActive}
                                         />
                                         <InputWithUnderLineColor
                                             placeholder='URL контента'
-                                            value={switchEl.value}
+                                            value={paramViewer.value}
                                             size='s'
                                             addStyle={{
                                                 width: '100%'
                                             }}
-                                            onChange={value => changeValueSettingForPaste(switchEl.id, value)}
+                                            onChange={value => changeSettingForPaste(paramViewer.id, value)}
                                         />
                                     </div>
                                 }
                                 return <SwitchWithText
-                                    key={switchEl.id}
-                                    onChange={(check) => changeActiveSettingForPaste(switchEl.id, check)}
-                                    text={switchEl.text}
-                                    bold={switchEl.bold}
-                                    value={switchEl.isActive}
+                                    key={paramViewer.id}
+                                    onChange={(check) => changeSettingForPaste(paramViewer.id, check)}
+                                    text={paramViewer.text}
+                                    bold={paramViewer.bold}
+                                    value={paramViewer.isActive}
                                 />
                             })}
                         </div>
@@ -278,6 +284,7 @@ const PasteViewer = ({
                 addStyle={{
                     height: '30px',
                 }}
+                disabled={!~viewerForPaste.findIndex(_ => _.isSelected)}
                 addClassName={styles.reload}
                 onClick={pasteViewerInEntities}
                 text='Применить'

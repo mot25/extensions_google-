@@ -6468,7 +6468,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"button":"extentions__button__fSW73"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"button":"extentions__button__fSW73","button__disabled":"extentions__button__disabled__upxfE"});
 
 /***/ }),
 
@@ -40038,8 +40038,11 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 var SimpleButton = function (_a) {
-    var onClick = _a.onClick, text = _a.text, _b = _a.wd, wd = _b === void 0 ? '100%' : _b, _c = _a.bg, bg = _c === void 0 ? '#31556f' : _c, addStyle = _a.addStyle, addClassName = _a.addClassName;
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: __assign({ width: wd, backgroundColor: bg }, addStyle), onClick: function (event) { return onClick(event); }, className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].button, addClassName) },
+    var _b;
+    var onClick = _a.onClick, text = _a.text, _c = _a.wd, wd = _c === void 0 ? '100%' : _c, bg = _a.bg, addStyle = _a.addStyle, addClassName = _a.addClassName, disabled = _a.disabled;
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { style: __assign({ width: wd, backgroundColor: bg }, addStyle), disabled: disabled, onClick: function (event) { return onClick(event); }, className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].button, (_b = {},
+            _b[_SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].button__disabled] = disabled,
+            _b), addClassName) },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, text)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SimpleButton);
@@ -40183,7 +40186,6 @@ var AllowUrl = function (props) {
         });
     }); };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-        console.log('ref11');
         refreshStorage();
     }, [allowBaseUrl]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {

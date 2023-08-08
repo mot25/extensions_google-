@@ -45,7 +45,6 @@ const AllowUrl = (props: Props) => {
         return Array.isArray(allowUrlsFromStorage) ? allowUrlsFromStorage : []
     }
     useEffect(() => {
-        console.log('ref11');
 
         refreshStorage()
     }, [allowBaseUrl])

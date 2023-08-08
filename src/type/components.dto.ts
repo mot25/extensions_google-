@@ -1,4 +1,4 @@
-import { URL_VIEWER_SETTING } from '@/contentScripts/AppModalPaste/ConstantAppModalPaste';
+import { URL_VIEWER_SETTING } from '@/contentScripts/AppModalPaste/constantAppModalPaste';
 import { RequestForPasteViewerType, ViewerType } from './entities.dto';
 
 export type MenuLeftNavbar = {
@@ -25,9 +25,7 @@ export type SettingsViewerForPasteType = Array<SwitchRenderListType & { id: keyo
 export type TypePasteViewers = {
     viewerForPaste: ViewerType[]
     configPasteEntities: SwitchRenderListType[],
-    valueIdIcon: string
     settingForPaste: SettingsViewerForPasteType
-    urlValue: string
 }
 
 export type PageNavigatorType = Record<number, React.JSX.Element>
