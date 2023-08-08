@@ -11,8 +11,9 @@ import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './AppModalPaste.module.scss';
-import { APPLY_SETTINGS, COPY_VIEWER_NESTED, REPLACE_ICON, SET_ICON, URL_VIEWER_SETTING } from './constantAppModalPaste';
+import { APPLY_SETTINGS, COPY_ATTR_IN_ENTITIES, COPY_ATTR_IN_VIEWER, COPY_VIEWER_NESTED, ID_SELECT_ICON, REPLACE_ICON, SET_ICON, URL_VIEWER_SETTING } from './constantAppModalPaste';
 import { EntitiesService } from '@/services/Entities.service';
+import { AttributesService } from '@/services/Attributes.service';
 
 type Props = {}
 const leftMenuConfig: MenuLeftNavbar[] = [
@@ -125,12 +126,13 @@ const AppModalPaste = (props: Props) => {
         const isApplySettingsCustom = settingForPaste.find(_ => _.id === APPLY_SETTINGS).isActive
         const isApplyIconCustom = configPasteEntities.find(_ => _.id === SET_ICON).isActive
         const isApplyNestedEntities = configPasteEntities.find(_ => _.id === COPY_VIEWER_NESTED).isActive
-        console.log("🚀 ~ file: AppModalPaste.tsx:128 ~ AppModalPaste ~ isApplyNestedEntities:", isApplyNestedEntities)
         const isApplyReWriteIconWithEdit = configPasteEntities.find(_ => _.id === REPLACE_ICON).isActive
         const configApplyNewUrl = settingForPaste.find(_ => _.id === URL_VIEWER_SETTING)
+        const isCopyAttrInViewer = configPasteEntities.find(_ => _.id === COPY_ATTR_IN_VIEWER).isActive
+        const isCopyAttrInEntity = configPasteEntities.find(_ => _.id === COPY_ATTR_IN_ENTITIES).isActive
 
 
-        const initialCustomSettings: Record<keyof RequestForPasteViewerType['Settings'], boolean | number | string> = {
+        const initialCustomSettings: RequestForPasteViewerType['Settings'] = {
             hideInStructureOfObject: false,
             hideInViewingModel: false,
             SendParams: false,
@@ -148,46 +150,69 @@ const AppModalPaste = (props: Props) => {
         })
 
 
-        const valueIdIcon = ''
-        // customSettings['Url'] = urlValue
-        console.log('entitiesFromPaste', entitiesFromPaste)
+        const selectIcon = configPasteEntities.find(_ => _.id === ID_SELECT_ICON)
+
         entitiesFromPaste.forEach(async entity => {
             if (!entity.isCurrent) if (!isApplyNestedEntities) return
             const promisesListResponse: Promise<ViewerType>[] = [];
 
             viewerForPaste.forEach(async viewer => {
                 if (!viewer.isSelected) return
+
                 initialCustomSettings.Url = configApplyNewUrl?.isActive ? configApplyNewUrl?.value : viewer?.Settings?.Url
 
-                const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...initialCustomSettings } : viewer.Settings) as RequestForPasteViewerType['Settings']
-                const IconForPost: string = ((isApplyIconCustom && valueIdIcon) ? valueIdIcon : viewer.Icon)
+                const settingForPost = (isApplySettingsCustom ? { ...viewer.Settings, ...initialCustomSettings } : viewer.Settings)
+
+                const IconForPaste: string = ((isApplyIconCustom && selectIcon.value) ? selectIcon.value : viewer.Icon)
                 const dataPost: RequestForPasteViewerType = {
                     Caption: viewer.Caption,
-                    Icon: IconForPost,
+                    Icon: IconForPaste,
                     Attributes: viewer.Attributes,
                     Name: viewer.Name,
                     Settings: settingForPost
                 }
-                console.log("🚀 ~ file: AppModalPaste.tsx:164 ~ AppModalPaste ~ dataPost:", dataPost)
+
                 const isHaveViewer = entity.Viewers.find(_ => _.Caption === viewer.Caption)
 
                 const newViewer = (async () => {
                     if (isHaveViewer) {
                         const dataCreate = {
                             ...dataPost,
-                            Icon: (isApplyReWriteIconWithEdit && IconForPost) ? IconForPost : isHaveViewer.Icon,
+                            Icon: (isApplyReWriteIconWithEdit && IconForPaste) ? IconForPaste : isHaveViewer.Icon,
                             Id: isHaveViewer.Id
                         }
-                        // const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
+                        const response = await EntitiesService.changeViewerInEntities(entity.Id, dataCreate)
+                        if (isCopyAttrInViewer) {
+                            const responseSetAttrs = await AttributesService.setAttrViewer({
+                                idAttrs: dataCreate.Attributes,
+                                idEntity: entity.Id,
+                                idViewer: dataCreate.Id
+                            })
+                            const responseDeleteAttrs = await AttributesService.deleteAttrFromViewer({
+                                idAttrs: isHaveViewer.Attributes,
+                                idEntity: entity.Id,
+                                idViewer: dataCreate.Id
+                            })
+                        }
                         console.log(`Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`)
                         return dataCreate
                     } else {
-                        // const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
-                        // console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
-                        // return {
-                        //     ...dataPost,
-                        //     Id: response.Id
-                        // }
+
+                        const response = await EntitiesService.pasteViewerInEntities(entity.Id, dataPost)
+                        console.log("🚀 ~ file: AppModalPaste.tsx:202 ~ newViewer ~ entity:", entity)
+                        console.log("🚀 ~ file: AppModalPaste.tsx:206 ~ newViewer ~ dataPost:", dataPost)
+                        if (isCopyAttrInViewer) {
+                            const responseAttrs = await AttributesService.setAttrViewer({
+                                idAttrs: dataPost.Attributes,
+                                idEntity: entity.Id,
+                                idViewer: response.Id
+                            })
+                        }
+                        console.log(`Создали вид: ${dataPost.Caption} в классе ${entity.Name}`)
+                        return {
+                            ...dataPost,
+                            Id: response.Id
+                        }
                     }
                 })()
                 promisesListResponse.push(newViewer)
@@ -198,6 +223,9 @@ const AppModalPaste = (props: Props) => {
 
             //     // вставка в класс атрибутов post
             //     // https://pdm-kueg.io.neolant.su/api/structure/entities/0ad58ed4-c7c7-ed11-8daf-85953743f5cc/attributes?ids=5eaf1db2-dc20-ec11-a958-00505600163f&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6
+
+            // удаления атрибутов у класса delete
+            // https://pdm-kueg.io.neolant.su/api/structure/entities/05d58ed4-c7c7-ed11-8daf-85953743f5cc/viewers/227d3bee-da39-4fe2-96d4-813e62690d35/attributes?ids=735a0274-8ee2-ed11-8daf-85953743f5cc
 
             Promise.all(promisesListResponse)
                 .then(async (e) => {

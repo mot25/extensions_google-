@@ -16,7 +16,7 @@ export type ViewerType = {
     Attributes: string[];
     Id: string;
     Name: string;
-    Settings: Partial<RequestForPasteViewerType['Settings']>
+    Settings: RequestForPasteViewerType['Settings']
 
 
     isSelected?: boolean;
@@ -57,3 +57,4 @@ export type RequestForPasteViewerType = {
         hideEmptyFields: boolean
     }
 }
+

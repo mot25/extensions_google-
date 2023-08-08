@@ -22,13 +22,13 @@ export const getParamFromUrl = (url: string): Record<string, string> => {
 export const entitiesForPasteInsert = (entities: EntitiesType[], idEntities: string) => {
     const currentEntities = entities.find(item => item?.Id === idEntities)
     const arrNested: EntitiesType[] = []
-    const findNested = (entiti: EntitiesType) => {
-        const chieldNesrtedEntiti = entities.filter(item => item?.Parent?.Id === entiti?.Id)
+    const findNested = (entity: EntitiesType) => {
+        const childNestedEntity = entities.filter(item => item?.Parent?.Id === entity?.Id)
         arrNested.push({
-            ...entiti,
-            isCurrent: entiti?.Id === idEntities
+            ...entity,
+            isCurrent: entity?.Id === idEntities
         })
-        chieldNesrtedEntiti.length && chieldNesrtedEntiti.forEach(item => findNested(item));
+        childNestedEntity.length && childNestedEntity.forEach(item => findNested(item));
     }
     findNested(currentEntities)
     return arrNested
@@ -42,3 +42,13 @@ export function getUrlParameter(location: string, name: string) {
         ? ""
         : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
+
+export const joinParamArrayApi = (params: string[], nameParam: string) => params.length === 1
+    ? `${nameParam}=${params[0]}`
+    :
+    params.reduce((acc, currentIdAttr, indexAttr) => {
+        if (indexAttr === 0) {
+            return `${nameParam}=${currentIdAttr}`
+        }
+        return acc = acc + `&${nameParam}=${currentIdAttr}`
+    }, '')

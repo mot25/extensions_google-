@@ -12,7 +12,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   entitiesForPasteInsert: () => (/* binding */ entitiesForPasteInsert),
 /* harmony export */   getParamFromUrl: () => (/* binding */ getParamFromUrl),
-/* harmony export */   getUrlParameter: () => (/* binding */ getUrlParameter)
+/* harmony export */   getUrlParameter: () => (/* binding */ getUrlParameter),
+/* harmony export */   joinParamArrayApi: () => (/* binding */ joinParamArrayApi)
 /* harmony export */ });
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -41,10 +42,10 @@ var getParamFromUrl = function (url) {
 var entitiesForPasteInsert = function (entities, idEntities) {
     var currentEntities = entities.find(function (item) { return (item === null || item === void 0 ? void 0 : item.Id) === idEntities; });
     var arrNested = [];
-    var findNested = function (entiti) {
-        var chieldNesrtedEntiti = entities.filter(function (item) { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.Parent) === null || _a === void 0 ? void 0 : _a.Id) === (entiti === null || entiti === void 0 ? void 0 : entiti.Id); });
-        arrNested.push(__assign(__assign({}, entiti), { isCurrent: (entiti === null || entiti === void 0 ? void 0 : entiti.Id) === idEntities }));
-        chieldNesrtedEntiti.length && chieldNesrtedEntiti.forEach(function (item) { return findNested(item); });
+    var findNested = function (entity) {
+        var childNestedEntity = entities.filter(function (item) { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.Parent) === null || _a === void 0 ? void 0 : _a.Id) === (entity === null || entity === void 0 ? void 0 : entity.Id); });
+        arrNested.push(__assign(__assign({}, entity), { isCurrent: (entity === null || entity === void 0 ? void 0 : entity.Id) === idEntities }));
+        childNestedEntity.length && childNestedEntity.forEach(function (item) { return findNested(item); });
     };
     findNested(currentEntities);
     return arrNested;
@@ -57,6 +58,15 @@ function getUrlParameter(location, name) {
         ? ""
         : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
+var joinParamArrayApi = function (params, nameParam) { return params.length === 1
+    ? "".concat(nameParam, "=").concat(params[0])
+    :
+        params.reduce(function (acc, currentIdAttr, indexAttr) {
+            if (indexAttr === 0) {
+                return "".concat(nameParam, "=").concat(currentIdAttr);
+            }
+            return acc = acc + "&".concat(nameParam, "=").concat(currentIdAttr);
+        }, ''); };
 
 
 /***/ })
