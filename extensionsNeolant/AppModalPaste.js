@@ -581,22 +581,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/simple/Switch/Switch.module.scss":
-/*!*********************************************************!*\
-  !*** ./src/components/simple/Switch/Switch.module.scss ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"switch":"extentions__switch__mIZaG","slider":"extentions__slider__zHS8J","round":"extentions__round__RVVYC"});
-
-/***/ }),
-
 /***/ "./src/components/simple/SwitchWithText/SwitchWithText.module.scss":
 /*!*************************************************************************!*\
   !*** ./src/components/simple/SwitchWithText/SwitchWithText.module.scss ***!
@@ -610,6 +594,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"wrapperButton":"extentions__wrapperButton__Cjp9q","wrapperButton__bold":"extentions__wrapperButton__bold__FHsBC"});
+
+/***/ }),
+
+/***/ "./src/components/simple/Switch/Switch.module.scss":
+/*!*********************************************************!*\
+  !*** ./src/components/simple/Switch/Switch.module.scss ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"switch":"extentions__switch__mIZaG","slider":"extentions__slider__zHS8J","round":"extentions__round__RVVYC"});
 
 /***/ }),
 
@@ -3576,56 +3576,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/simple/Switch/Switch.tsx":
-/*!*************************************************!*\
-  !*** ./src/components/simple/Switch/Switch.tsx ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Switch.module.scss */ "./src/components/simple/Switch/Switch.module.scss");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-var Switch = function (_a) {
-    var _b;
-    var onChange = _a.onChange, isRounded = _a.isRounded, value = _a.value;
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { className: _Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].switch },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { onChange: function () { return onChange(!value); }, type: "checkbox", defaultChecked: value }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].slider, (_b = {},
-                _b[_Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].round] = isRounded,
-                _b)) })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Switch);
-
-
-/***/ }),
-
-/***/ "./src/components/simple/Switch/index.ts":
-/*!***********************************************!*\
-  !*** ./src/components/simple/Switch/index.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Switch: () => (/* reexport safe */ _Switch__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _Switch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Switch */ "./src/components/simple/Switch/Switch.tsx");
-
-
-
-/***/ }),
-
 /***/ "./src/components/simple/SwitchWithText/SwitchWithText.tsx":
 /*!*****************************************************************!*\
   !*** ./src/components/simple/SwitchWithText/SwitchWithText.tsx ***!
@@ -3673,6 +3623,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   SwitchWithText: () => (/* reexport safe */ _SwitchWithText__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _SwitchWithText__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SwitchWithText */ "./src/components/simple/SwitchWithText/SwitchWithText.tsx");
+
+
+
+/***/ }),
+
+/***/ "./src/components/simple/Switch/Switch.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/simple/Switch/Switch.tsx ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Switch.module.scss */ "./src/components/simple/Switch/Switch.module.scss");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var Switch = function (_a) {
+    var _b;
+    var onChange = _a.onChange, isRounded = _a.isRounded, value = _a.value;
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { className: _Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].switch },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { onChange: function () { return onChange(!value); }, type: "checkbox", defaultChecked: value }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(_Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].slider, (_b = {},
+                _b[_Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].round] = isRounded,
+                _b)) })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Switch);
+
+
+/***/ }),
+
+/***/ "./src/components/simple/Switch/index.ts":
+/*!***********************************************!*\
+  !*** ./src/components/simple/Switch/index.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Switch: () => (/* reexport safe */ _Switch__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _Switch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Switch */ "./src/components/simple/Switch/Switch.tsx");
 
 
 

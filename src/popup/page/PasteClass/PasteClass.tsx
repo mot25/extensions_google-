@@ -16,7 +16,7 @@ const PasteClass = (props: Props) => {
 
             const url = new URL(tabs[0].url)
 
-            if (!allowBaseUrl.some(_ => tabs[0].url.includes(_))) return new RenderWarningTextInPopup('Расширение открыто вне портала').render()
+            if (!allowBaseUrl?.some(_ => tabs[0]?.url?.includes(_))) return new RenderWarningTextInPopup('Расширение открыто вне портала').render()
             if (url.pathname !== "/structure/entities") return new RenderWarningTextInPopup('Не открыт раздел с классами').render()
             if (!url.searchParams.get('id')) return new RenderWarningTextInPopup('Не выбран класс').render()
             api.defaults.baseURL = url.origin

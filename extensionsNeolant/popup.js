@@ -40290,7 +40290,7 @@ var PasteClass = function (props) {
                         case 1:
                             allowBaseUrl = _a.sent();
                             url = new URL(tabs[0].url);
-                            if (!allowBaseUrl.some(function (_) { return tabs[0].url.includes(_); }))
+                            if (!(allowBaseUrl === null || allowBaseUrl === void 0 ? void 0 : allowBaseUrl.some(function (_) { var _a, _b; return (_b = (_a = tabs[0]) === null || _a === void 0 ? void 0 : _a.url) === null || _b === void 0 ? void 0 : _b.includes(_); })))
                                 return [2 /*return*/, new _shared_utils_components__WEBPACK_IMPORTED_MODULE_2__.RenderWarningTextInPopup('Расширение открыто вне портала').render()];
                             if (url.pathname !== "/structure/entities")
                                 return [2 /*return*/, new _shared_utils_components__WEBPACK_IMPORTED_MODULE_2__.RenderWarningTextInPopup('Не открыт раздел с классами').render()];
