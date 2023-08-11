@@ -102,11 +102,14 @@ body {
 
 .menuElement {
   opacity: 0.4;
+  transition: all 0.4s;
   transform: translateY(100%);
   cursor: pointer;
+  width: 30px;
+  height: 19px;
 
   &:hover {
-    opacity: 0.5;
+    opacity: 1;
   }
 }
 
@@ -142,6 +145,7 @@ body {
   top: 0;
   left: 0;
 }
+
 // popup wrapper
 
 // menu actions
@@ -193,7 +197,7 @@ body {
 
       @while $i < 12 {
         &:nth-child(#{$i}) {
-          transition-delay: $i / 20 + s;
+          transition-delay: calc($i / 20 + s);
         }
 
         $i: $i+1;
@@ -253,7 +257,7 @@ body {
   }
 }
 
-.wrapperWarnign {
+.wrapperWarning {
   position: fixed;
   left: 0;
   bottom: 0;

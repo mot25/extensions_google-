@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const os = require('os')
 const glob = require('glob');
-const pathFileDinymic = (path) => {
+const pathFileDynamic = (path) => {
   const isWindows = os.platform() === 'win32';
   const pathObj = {}
   glob.sync(path).forEach(path => {
@@ -17,8 +17,8 @@ const pathFileDinymic = (path) => {
   return pathObj
 }
 const moduleStyles = [
-  path.resolve(__dirname, 'src/content'),
-  path.resolve(__dirname, 'src/componets'),
+  path.resolve(__dirname, 'src/contentScripts'),
+  path.resolve(__dirname, 'src/components'),
 ]
 module.exports = {
   mode: 'development',
@@ -36,9 +36,10 @@ module.exports = {
     ],
   },
   entry: {
-    background: './src/background/background.ts',
-    popup: './src/popup/popup.ts',
-    ...pathFileDinymic('./src/content/**/*.ts')
+    background: './src/backgroundScripts/background.ts',
+    popup: './src/popup/popup.tsx',
+    ...pathFileDynamic('./src/contentScripts/**/*.tsx'),
+    ...pathFileDynamic('./src/contentScripts/**/*.ts'),
   },
   output: {
     path: path.resolve(__dirname, 'extensionsNeolant'),
@@ -46,45 +47,45 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.svg$/,
-        use: [{
-          loader: 'svg-url-loader',
+      test: /\.tsx?$/,
+      use: 'ts-loader',
+      exclude: /node_modules/
+    },
+    {
+
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack'
+        }
+      ]
+    },
+    {
+      test: [/\.scss$/, /\.css$/,],
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'sass-loader'
+      ],
+      exclude: moduleStyles
+    },
+    {
+      test: /\.scss$/,
+      include: moduleStyles,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
           options: {
-            limit: 8192,
-          },
-        }, ],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ],
-        exclude: moduleStyles
-      },
-      {
-        test: /\.scss$/,
-        include: moduleStyles,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: 'extentions__[local]__[hash:base64:5]'
-              }
+            modules: {
+              localIdentName: 'extentions__[local]__[hash:base64:5]'
             }
-          },
-          'postcss-loader',
-          'sass-loader'
-        ]
-      }
+          }
+        },
+        'postcss-loader',
+        'sass-loader'
+      ]
+    }
     ]
   },
   plugins: [
@@ -92,18 +93,18 @@ module.exports = {
       patterns: [{
         from: 'src/manifest.json',
         to: 'manifest.json'
-      }, ],
+      },],
     }),
     new CopyWebpackPlugin({
       patterns: [{
-        from: 'src/images',
+        from: 'src/assets/images',
         to: 'images'
-      }, ],
+      },],
     }),
     new HtmlWebpackPlugin({
-      filename: 'popup.html',
-      template: './src/popup/popup.html',
-      chunks: ['popup', 'popupVisual'],
+      filename: 'index.html',
+      template: './src/popup/index.html',
+      chunks: ['popup'],
       path: path.resolve(__dirname, 'extensionsNeolant'),
     }),
     new MiniCssExtractPlugin({
@@ -111,6 +112,9 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.scss', '.svg']
+    extensions: ['.js', '.ts', '.tsx', '.scss', '.svg'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 }

@@ -1,11 +1,30 @@
 {
-    "compilerOptions": {
-      "outDir": "./dist/",
-      "noImplicitAny": true,
-      "module": "es6",
-      "target": "es5",
-      "allowJs": true,
-      "moduleResolution": "node",
-      "types": ["chrome"]
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "types": [
+      "chrome"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
     }
-  }
+  },
+"exclude": [
+  "node_modules"
+]
+}

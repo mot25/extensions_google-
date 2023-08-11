@@ -121,7 +121,7 @@ const renderThreePage = () => {
 const renderBlock = () => {
     const objPage: PageNavigatorType = {
         '1': renderOnePage,
-        '2': renderTwoPage,
+        '2':  ,
         '3': renderThreePage,
         '4': renderOnePage,
     }

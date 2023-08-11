@@ -2,59 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/config/Api/Api.ts":
-/*!*******************************!*\
-  !*** ./src/config/Api/Api.ts ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-
-var instance = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    withCredentials: true
-});
-instance.interceptors.request.use(function (config) {
-    // Добавить логику перед отправкой запроса
-    return config;
-}, function (error) {
-    // Обработка ошибок запроса
-    return Promise.reject(error);
-});
-instance.interceptors.response.use(function (response) {
-    // Обработка ответа
-    return response;
-}, function (error) {
-    // Обработка ошибок ответа
-    return Promise.reject(error);
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (instance);
-
-
-/***/ }),
-
-/***/ "./src/config/Api/index.ts":
-/*!*********************************!*\
-  !*** ./src/config/Api/index.ts ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "api": () => (/* reexport safe */ _Api__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _Api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Api */ "./src/config/Api/Api.ts");
-
-
-
-/***/ }),
-
 /***/ "./src/services/Entities.service.ts":
 /*!******************************************!*\
   !*** ./src/services/Entities.service.ts ***!
@@ -63,9 +10,9 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "EntitiesService": () => (/* binding */ EntitiesService)
+/* harmony export */   EntitiesService: () => (/* binding */ EntitiesService)
 /* harmony export */ });
-/* harmony import */ var _config_Api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/Api */ "./src/config/Api/index.ts");
+/* harmony import */ var _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/shared/config/Api */ "./src/shared/config/Api/index.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -125,7 +72,7 @@ var EntitiesService = /** @class */ (function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, _config_Api__WEBPACK_IMPORTED_MODULE_0__.api.post("/api/structure/entities/".concat(id, "/viewers"), config)];
+                    case 0: return [4 /*yield*/, _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.post("/api/structure/entities/".concat(id, "/viewers"), config)];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response.data];
@@ -138,7 +85,7 @@ var EntitiesService = /** @class */ (function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, _config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put("/api/structure/entities/".concat(id, "/viewers"), config, {
+                    case 0: return [4 /*yield*/, _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put("/api/structure/entities/".concat(id, "/viewers"), config, {
                             headers: {
                                 'Content-Type': 'application/json',
                                 Accept: 'application/json, text/plain, */*'
@@ -156,7 +103,7 @@ var EntitiesService = /** @class */ (function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, _config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put("/api/structure/entities/".concat(id, "/viewers/order"), positionOrders, {
+                    case 0: return [4 /*yield*/, _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put("/api/structure/entities/".concat(id, "/viewers/order"), positionOrders, {
                             headers: {
                                 "content-type": "application/json;charset=UTF-8",
                             }
@@ -175,16 +122,71 @@ var EntitiesService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/utils/utils.ts":
-/*!****************************!*\
-  !*** ./src/utils/utils.ts ***!
-  \****************************/
+/***/ "./src/shared/config/Api/Api.ts":
+/*!**************************************!*\
+  !*** ./src/shared/config/Api/Api.ts ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "entitiesForPasteInsert": () => (/* binding */ entitiesForPasteInsert),
-/* harmony export */   "getParamFromUrl": () => (/* binding */ getParamFromUrl)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+
+var instance = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    withCredentials: true
+});
+instance.interceptors.request.use(function (config) {
+    // Добавить логику перед отправкой запроса
+    return config;
+}, function (error) {
+    // Обработка ошибок запроса
+    return Promise.reject(error);
+});
+instance.interceptors.response.use(function (response) {
+    // Обработка ответа
+    return response;
+}, function (error) {
+    // Обработка ошибок ответа
+    return Promise.reject(error);
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (instance);
+
+
+/***/ }),
+
+/***/ "./src/shared/config/Api/index.ts":
+/*!****************************************!*\
+  !*** ./src/shared/config/Api/index.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   api: () => (/* reexport safe */ _Api__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _Api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Api */ "./src/shared/config/Api/Api.ts");
+
+
+
+/***/ }),
+
+/***/ "./src/shared/utils/utils.ts":
+/*!***********************************!*\
+  !*** ./src/shared/utils/utils.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   entitiesForPasteInsert: () => (/* binding */ entitiesForPasteInsert),
+/* harmony export */   getParamFromUrl: () => (/* binding */ getParamFromUrl),
+/* harmony export */   getUrlParameter: () => (/* binding */ getUrlParameter),
+/* harmony export */   joinParamArrayApi: () => (/* binding */ joinParamArrayApi)
 /* harmony export */ });
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -213,14 +215,31 @@ var getParamFromUrl = function (url) {
 var entitiesForPasteInsert = function (entities, idEntities) {
     var currentEntities = entities.find(function (item) { return (item === null || item === void 0 ? void 0 : item.Id) === idEntities; });
     var arrNested = [];
-    var findNested = function (entiti) {
-        var chieldNesrtedEntiti = entities.filter(function (item) { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.Parent) === null || _a === void 0 ? void 0 : _a.Id) === (entiti === null || entiti === void 0 ? void 0 : entiti.Id); });
-        arrNested.push(__assign(__assign({}, entiti), { isCurrent: (entiti === null || entiti === void 0 ? void 0 : entiti.Id) === idEntities }));
-        chieldNesrtedEntiti.length && chieldNesrtedEntiti.forEach(function (item) { return findNested(item); });
+    var findNested = function (entity) {
+        var childNestedEntity = entities.filter(function (item) { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.Parent) === null || _a === void 0 ? void 0 : _a.Id) === (entity === null || entity === void 0 ? void 0 : entity.Id); });
+        arrNested.push(__assign(__assign({}, entity), { isCurrent: (entity === null || entity === void 0 ? void 0 : entity.Id) === idEntities }));
+        childNestedEntity.length && childNestedEntity.forEach(function (item) { return findNested(item); });
     };
     findNested(currentEntities);
     return arrNested;
 };
+function getUrlParameter(location, name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    var results = regex.exec(location);
+    return results === null
+        ? ""
+        : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+var joinParamArrayApi = function (params, nameParam) { return params.length === 1
+    ? "".concat(nameParam, "=").concat(params[0])
+    :
+        params.reduce(function (acc, currentIdAttr, indexAttr) {
+            if (indexAttr === 0) {
+                return "".concat(nameParam, "=").concat(currentIdAttr);
+            }
+            return acc = acc + "&".concat(nameParam, "=").concat(currentIdAttr);
+        }, ''); };
 
 
 /***/ }),
@@ -388,8 +407,12 @@ const isXHRAdapterSupported = typeof XMLHttpRequest !== 'undefined';
       }
     }
 
-    if (_utils_js__WEBPACK_IMPORTED_MODULE_2__["default"].isFormData(requestData) && (_platform_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].isStandardBrowserEnv || _platform_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].isStandardBrowserWebWorkerEnv)) {
-      requestHeaders.setContentType(false); // Let the browser set it
+    if (_utils_js__WEBPACK_IMPORTED_MODULE_2__["default"].isFormData(requestData)) {
+      if (_platform_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].isStandardBrowserEnv || _platform_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].isStandardBrowserWebWorkerEnv) {
+        requestHeaders.setContentType(false); // Let the browser set it
+      } else {
+        requestHeaders.setContentType('multipart/form-data;', false); // mobile/desktop app frameworks
+      }
     }
 
     let request = new XMLHttpRequest();
@@ -1867,7 +1890,7 @@ function mergeConfig(config1, config2) {
     headers: (a, b) => mergeDeepProperties(headersToObject(a), headersToObject(b), true)
   };
 
-  _utils_js__WEBPACK_IMPORTED_MODULE_1__["default"].forEach(Object.keys(config1).concat(Object.keys(config2)), function computeConfigValue(prop) {
+  _utils_js__WEBPACK_IMPORTED_MODULE_1__["default"].forEach(Object.keys(Object.assign({}, config1, config2)), function computeConfigValue(prop) {
     const merge = mergeMap[prop] || mergeDeepProperties;
     const configValue = merge(config1[prop], config2[prop], prop);
     (_utils_js__WEBPACK_IMPORTED_MODULE_1__["default"].isUndefined(configValue) && merge !== mergeDirectKeys) || (config[prop] = configValue);
@@ -2182,9 +2205,9 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "VERSION": () => (/* binding */ VERSION)
+/* harmony export */   VERSION: () => (/* binding */ VERSION)
 /* harmony export */ });
-const VERSION = "1.3.6";
+const VERSION = "1.4.0";
 
 /***/ }),
 
@@ -4195,6 +4218,11 @@ const toJSONObject = (obj) => {
   return visit(obj, 0);
 }
 
+const isAsyncFn = kindOfTest('AsyncFunction');
+
+const isThenable = (thing) =>
+  thing && (isObject(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   isArray,
   isArrayBuffer,
@@ -4244,7 +4272,9 @@ const toJSONObject = (obj) => {
   ALPHABET,
   generateString,
   isSpecCompliantForm,
-  toJSONObject
+  toJSONObject,
+  isAsyncFn,
+  isThenable
 });
 
 
@@ -4309,12 +4339,12 @@ const toJSONObject = (obj) => {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**************************************!*\
-  !*** ./src/background/background.ts ***!
-  \**************************************/
+/*!*********************************************!*\
+  !*** ./src/backgroundScripts/background.ts ***!
+  \*********************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/Entities.service */ "./src/services/Entities.service.ts");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.ts");
+/* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/services/Entities.service */ "./src/services/Entities.service.ts");
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/shared/utils/utils */ "./src/shared/utils/utils.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -4353,37 +4383,66 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 };
 
 
+var arrUrlHeaders = [];
+chrome.webRequest.onHeadersReceived.addListener(function (details) {
+    if (details.url.includes('navigate')) {
+        arrUrlHeaders.push({
+            url: details.url,
+            objUrl: new URL(details.url),
+            responseHeaders: details.responseHeaders || []
+        });
+    }
+}, {
+    urls: ["<all_urls>"],
+}, ["responseHeaders"]);
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     return __awaiter(this, void 0, void 0, function () {
+        var responseHeaders;
         return __generator(this, function (_a) {
             if (request.action === 'getEntities') {
                 chrome.cookies.getAll({ url: sender.tab.url }, function (cookies) {
                     return __awaiter(this, void 0, void 0, function () {
-                        var response, idEntites, error_1;
+                        var response, idEntities;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__.EntitiesService.getEntities(request.payload)];
                                 case 1:
                                     response = _a.sent();
-                                    _a.label = 2;
-                                case 2:
-                                    _a.trys.push([2, 4, , 5]);
-                                    idEntites = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getParamFromUrl)(sender.tab.url).id;
-                                    return [4 /*yield*/, chrome.tabs.sendMessage(sender.tab.id, {
+                                    try {
+                                        idEntities = (0,_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getParamFromUrl)(sender.tab.url).id;
+                                        chrome.tabs.sendMessage(sender.tab.id, {
                                             action: 'postEntitiesForPasteInsert',
-                                            payload: Array.from(new Set((0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.entitiesForPasteInsert)(response, idEntites)))
-                                        })];
-                                case 3:
-                                    _a.sent();
-                                    return [3 /*break*/, 5];
-                                case 4:
-                                    error_1 = _a.sent();
-                                    console.log("🚀 ~ file: background.ts:60 ~ error:", error_1);
-                                    return [3 /*break*/, 5];
-                                case 5: return [2 /*return*/];
+                                            payload: Array.from(new Set((0,_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.entitiesForPasteInsert)(response, idEntities)))
+                                        });
+                                    }
+                                    catch (error) {
+                                        console.log("🚀 ~ file: background.ts:60 ~ error:", error);
+                                    }
+                                    return [2 /*return*/];
                             }
                         });
                     });
+                });
+            }
+            if (request.action === 'getUrlDevServer') {
+                console.log('arrUrlHeaders', arrUrlHeaders);
+                console.log('one', new Date().getMinutes());
+                responseHeaders = [];
+                arrUrlHeaders.forEach(function (element) {
+                    console.log('two', new Date().getMinutes());
+                    // console.log(getUrlParameter(element.objUrl.search, 'objectId'), 'id')
+                    console.log('request', request.payload);
+                    console.log("🚀 ~ file: background.ts:59 ~ request:", request);
+                    console.log('headers ', (0,_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlParameter)(element.objUrl.search, 'objectId'));
+                    if (request.payload === (0,_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlParameter)(element.objUrl.search, 'objectId')) {
+                        console.log(555, element.responseHeaders);
+                        var urlFromServer = element.responseHeaders.find(function (_) { return _.name === "Location"; }).value;
+                        var devUrl = urlFromServer.replace("https://localhost:5001", "http://localhost:3000");
+                        chrome.tabs.sendMessage(sender.tab.id, {
+                            action: 'postUrlDevServer',
+                            payload: devUrl
+                        });
+                    }
                 });
             }
             return [2 /*return*/];
