@@ -3,9 +3,7 @@ import { api } from '@/shared/config/Api';
 import { RenderWarningTextInPopup } from '@/shared/utils/components';
 import React from 'react';
 
-type Props = {};
-
-const PasteClass = (props: Props) => {
+const PasteClass = () => {
   const showModalPasteInterface = () => {
     chrome.tabs.query(
       { active: true, currentWindow: true },

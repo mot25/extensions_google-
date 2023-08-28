@@ -7,12 +7,10 @@ import styles from './DropDown.module.scss';
 type Props = {
   list: OptionsType[];
   onChange: (id: string) => void;
-  value?: string;
   title: string;
 };
 
-const DropDown = ({ onChange, list, value, title }: Props) => {
-  const [valueState, setValueState] = useState<string>(value);
+const DropDown = ({ onChange, list, title }: Props) => {
   const [isShow, setIsShow] = useState(false);
 
   return (

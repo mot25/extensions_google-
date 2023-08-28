@@ -6,18 +6,7 @@ import { SimpleButton } from '@/components/simple/SimpleButton';
 import { OptionsType } from '@/type/components.dto';
 import { RenderWarningTextInPopup } from '@/shared/utils/components';
 
-type Props = {};
-
-const AllowUrl = (props: Props) => {
-  const allowBaseUrlDemo = [
-    'pdm-kueg',
-    'lukoil-test',
-    'pdm-tst-kueg',
-    'pdm-base',
-    'pdm-kueg.lukoil',
-    'pdm-tst-kueg.lukoil',
-    'pdm-base.lukoil'
-  ];
+const AllowUrl = () => {
   const [allowBaseUrl, setAllowBaseUrl] = useState<OptionsType[] | undefined>();
 
   const changeAllowUrl = (id: string, newUrl: string) => {
@@ -50,11 +39,7 @@ const AllowUrl = (props: Props) => {
   };
   const refreshStorage = async (): Promise<string[]> => {
     if (Array.isArray(allowBaseUrl))
-      chrome.storage.sync
-        .set({ allowBaseUrl: allowBaseUrl.map(_ => _.label) })
-        .then(() => {
-          console.log('Value is set');
-        });
+      chrome.storage.sync.set({ allowBaseUrl: allowBaseUrl.map(_ => _.label) });
     const allowUrlsFromStorage = await chrome.storage.sync
       .get(['allowBaseUrl'])
       .then(result => {

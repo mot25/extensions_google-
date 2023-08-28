@@ -1,4 +1,5 @@
 import { DropDown } from '@/components/simple/DropDown';
+// eslint-disable-next-line max-len
 import { InputWithUnderLineColor } from '@/components/simple/InputWithUnderLineColor';
 import { SimpleButton } from '@/components/simple/SimpleButton';
 import { Switch } from '@/components/simple/Switch';
@@ -26,11 +27,11 @@ import {
 } from '@/type/components.dto';
 import { ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
-import classNames from 'classnames';
 import JSAlert from 'js-alert';
 import React, { useState } from 'react';
 
 import styles from './PasteViewer.module.scss';
+import { ViewerForPaste } from '@/components/complex/ViewerForPaste';
 
 type Props = {
   viewerForPaste: ViewerType[];
@@ -172,48 +173,15 @@ const PasteViewer = ({
         <ul className={styles.viewer_types}>
           {viewerForPaste.map((el, indexViewer) => {
             return (
-              <li
+              <ViewerForPaste
                 key={el.Id}
-                className={classNames(styles.viewerWrapper, {
-                  [styles.viewerWrapper__even]: indexViewer % 2 === 0
-                })}
-              >
-                <div
-                  title="Название вида для вставки"
-                  className={styles.name}
-                >
-                  <InputWithUnderLineColor
-                    onChange={e => renameViewer(e, el.Id)}
-                    value={el.Caption}
-                  />
-                </div>
-                <span title="Чекбокс для включения вида для вставки">
-                  <input
-                    type="checkbox"
-                    checked={el.isSelected}
-                    onChange={() => changeSelectedToggleiewer(el.Id)}
-                  />
-                </span>
-
-                <span title="Порядковый номер вида для вставки">
-                  <input
-                    style={{
-                      width: '30px'
-                    }}
-                    onChange={e => changeOrderViewerInEntities(el.Id, +e)}
-                    value={el.order.toString()}
-                  />
-                </span>
-                <SimpleButton
-                  wd="150px"
-                  addStyle={{
-                    height: '30px'
-                  }}
-                  bg="#CC3333"
-                  onClick={() => deleteView(el.Id)}
-                  text="Удалить из памяти"
-                />
-              </li>
+                viewer={el}
+                isEven={indexViewer % 2 === 0}
+                changeOrderViewerInEntities={changeOrderViewerInEntities}
+                changeSelectedToggleiewer={changeSelectedToggleiewer}
+                deleteView={deleteView}
+                renameViewer={renameViewer}
+              />
             );
           })}
         </ul>

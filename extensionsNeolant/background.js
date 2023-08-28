@@ -1,7 +1,7 @@
 /******/ (() => {
   // webpackBootstrap
   /******/ 'use strict';
-  /******/ const __webpack_modules__ = {
+  /******/ var __webpack_modules__ = {
     /***/ './src/services/Entities.service.ts':
       /*!******************************************!*\
   !*** ./src/services/Entities.service.ts ***!
@@ -17,11 +17,11 @@
             /* binding */ EntitiesService
           /* harmony export */
         });
-        /* harmony import */ const _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! @/shared/config/Api */ './src/shared/config/Api/index.ts'
           );
-        const __awaiter =
+        var __awaiter =
           (undefined && undefined.__awaiter) ||
           function (thisArg, _arguments, P, generator) {
             function adopt(value) {
@@ -31,7 +31,7 @@
                     resolve(value);
                   });
             }
-            return new (P ||= Promise)(function (resolve, reject) {
+            return new (P || (P = Promise))(function (resolve, reject) {
               function fulfilled(value) {
                 try {
                   step(generator.next(value));
@@ -41,7 +41,7 @@
               }
               function rejected(value) {
                 try {
-                  step(generator.throw(value));
+                  step(generator['throw'](value));
                 } catch (e) {
                   reject(e);
                 }
@@ -56,10 +56,10 @@
               );
             });
           };
-        const __generator =
+        var __generator =
           (undefined && undefined.__generator) ||
           function (thisArg, body) {
-            let _ = {
+            var _ = {
                 label: 0,
                 sent: function () {
                   if (t[0] & 1) throw t[1];
@@ -94,9 +94,9 @@
                     y &&
                       (t =
                         op[0] & 2
-                          ? y.return
+                          ? y['return']
                           : op[0]
-                          ? y.throw || ((t = y.return) && t.call(y), 0)
+                          ? y['throw'] || ((t = y['return']) && t.call(y), 0)
                           : y.next) &&
                       !(t = t.call(y, op[1])).done)
                   )
@@ -165,7 +165,7 @@
           function EntitiesService() {}
           EntitiesService.getEntities = function (baseUrl) {
             return __awaiter(this, void 0, void 0, function () {
-              let response;
+              var response;
               return __generator(this, function (_a) {
                 switch (_a.label) {
                   case 0:
@@ -186,7 +186,7 @@
           };
           EntitiesService.pasteViewerInEntities = function (id, config) {
             return __awaiter(this, void 0, void 0, function () {
-              let response;
+              var response;
               return __generator(this, function (_a) {
                 switch (_a.label) {
                   case 0:
@@ -206,7 +206,7 @@
           };
           EntitiesService.changeViewerInEntities = function (id, config) {
             return __awaiter(this, void 0, void 0, function () {
-              let response;
+              var response;
               return __generator(this, function (_a) {
                 switch (_a.label) {
                   case 0:
@@ -232,7 +232,7 @@
           };
           EntitiesService.changeOrderPosition = function (id, positionOrders) {
             return __awaiter(this, void 0, void 0, function () {
-              let response;
+              var response;
               return __generator(this, function (_a) {
                 switch (_a.label) {
                   case 0:
@@ -275,10 +275,10 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const axios__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(/*! axios */ './node_modules/axios/lib/axios.js');
 
-        const instance = axios__WEBPACK_IMPORTED_MODULE_0__.default.create({
+        var instance = axios__WEBPACK_IMPORTED_MODULE_0__['default'].create({
           headers: {
             'Content-Type': 'application/json'
           },
@@ -322,7 +322,7 @@
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
           /* harmony export */ api: () =>
-            /* reexport safe */ _Api__WEBPACK_IMPORTED_MODULE_0__.default
+            /* reexport safe */ _Api__WEBPACK_IMPORTED_MODULE_0__['default']
           /* harmony export */
         });
         /* harmony import */ var _Api__WEBPACK_IMPORTED_MODULE_0__ =
@@ -360,7 +360,7 @@
               function (t) {
                 for (var s, i = 1, n = arguments.length; i < n; i++) {
                   s = arguments[i];
-                  for (const p in s)
+                  for (var p in s)
                     if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
                 }
                 return t;
@@ -369,29 +369,29 @@
           };
         var getParamFromUrl = function (url) {
           // Разбиваем строку запроса на отдельные параметры
-          const params = new URLSearchParams(url);
+          var params = new URLSearchParams(url);
           // Создаем пустой объект для хранения параметров
-          const paramsObj = {};
+          var paramsObj = {};
           // Проходимся по всем параметрам и добавляем их в объект
           params.forEach(function (value, key) {
-            const keyArr =
+            var keyArr =
               key === null || key === void 0 ? void 0 : key.split('?');
-            const keyValue = keyArr.length > 1 ? keyArr[1] : keyArr[0];
+            var keyValue = keyArr.length > 1 ? keyArr[1] : keyArr[0];
             paramsObj[keyValue] = value;
           });
           return paramsObj;
         };
         var entitiesForPasteInsert = function (entities, idEntities) {
-          const currentEntities = entities.find(function (item) {
+          var currentEntities = entities.find(function (item) {
             return (
               (item === null || item === void 0 ? void 0 : item.Id) ===
               idEntities
             );
           });
-          const arrNested = [];
-          const findNested = function (entity) {
-            const childNestedEntity = entities.filter(function (item) {
-              let _a;
+          var arrNested = [];
+          var findNested = function (entity) {
+            var childNestedEntity = entities.filter(function (item) {
+              var _a;
               return (
                 ((_a =
                   item === null || item === void 0 ? void 0 : item.Parent) ===
@@ -418,9 +418,9 @@
           return arrNested;
         };
         function getUrlParameter(location, name) {
-          name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-          const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-          const results = regex.exec(location);
+          name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+          var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+          var results = regex.exec(location);
           return results === null
             ? ''
             : decodeURIComponent(results[1].replace(/\+/g, ' '));
@@ -454,29 +454,29 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _http_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _http_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./http.js */ './node_modules/axios/lib/helpers/null.js'
           );
-        /* harmony import */ const _xhr_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _xhr_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ./xhr.js */ './node_modules/axios/lib/adapters/xhr.js'
           );
-        /* harmony import */ const _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! ../core/AxiosError.js */ './node_modules/axios/lib/core/AxiosError.js'
           );
 
         const knownAdapters = {
-          http: _http_js__WEBPACK_IMPORTED_MODULE_0__.default,
-          xhr: _xhr_js__WEBPACK_IMPORTED_MODULE_1__.default
+          http: _http_js__WEBPACK_IMPORTED_MODULE_0__['default'],
+          xhr: _xhr_js__WEBPACK_IMPORTED_MODULE_1__['default']
         };
 
-        _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.forEach(
+        _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].forEach(
           knownAdapters,
           (fn, value) => {
             if (fn) {
@@ -492,9 +492,9 @@
 
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = {
           getAdapter: adapters => {
-            adapters = _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.isArray(
-              adapters
-            )
+            adapters = _utils_js__WEBPACK_IMPORTED_MODULE_2__[
+              'default'
+            ].isArray(adapters)
               ? adapters
               : [adapters];
 
@@ -505,12 +505,11 @@
             for (let i = 0; i < length; i++) {
               nameOrAdapter = adapters[i];
               if (
-                (adapter =
-                  _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.isString(
-                    nameOrAdapter
-                  )
-                    ? knownAdapters[nameOrAdapter.toLowerCase()]
-                    : nameOrAdapter)
+                (adapter = _utils_js__WEBPACK_IMPORTED_MODULE_2__[
+                  'default'
+                ].isString(nameOrAdapter)
+                  ? knownAdapters[nameOrAdapter.toLowerCase()]
+                  : nameOrAdapter)
               ) {
                 break;
               }
@@ -518,14 +517,16 @@
 
             if (!adapter) {
               if (adapter === false) {
-                throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_3__.default(
+                throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_3__[
+                  'default'
+                ](
                   `Adapter ${nameOrAdapter} is not supported by the environment`,
                   'ERR_NOT_SUPPORT'
                 );
               }
 
               throw new Error(
-                _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.hasOwnProp(
+                _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].hasOwnProp(
                   knownAdapters,
                   nameOrAdapter
                 )
@@ -535,7 +536,7 @@
             }
 
             if (
-              !_utils_js__WEBPACK_IMPORTED_MODULE_2__.default.isFunction(
+              !_utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].isFunction(
                 adapter
               )
             ) {
@@ -564,55 +565,55 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ./../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _core_settle_js__WEBPACK_IMPORTED_MODULE_6__ =
+        /* harmony import */ var _core_settle_js__WEBPACK_IMPORTED_MODULE_6__ =
           __webpack_require__(
             /*! ./../core/settle.js */ './node_modules/axios/lib/core/settle.js'
           );
-        /* harmony import */ const _helpers_cookies_js__WEBPACK_IMPORTED_MODULE_10__ =
+        /* harmony import */ var _helpers_cookies_js__WEBPACK_IMPORTED_MODULE_10__ =
           __webpack_require__(
             /*! ./../helpers/cookies.js */ './node_modules/axios/lib/helpers/cookies.js'
           );
-        /* harmony import */ const _helpers_buildURL_js__WEBPACK_IMPORTED_MODULE_5__ =
+        /* harmony import */ var _helpers_buildURL_js__WEBPACK_IMPORTED_MODULE_5__ =
           __webpack_require__(
             /*! ./../helpers/buildURL.js */ './node_modules/axios/lib/helpers/buildURL.js'
           );
-        /* harmony import */ const _core_buildFullPath_js__WEBPACK_IMPORTED_MODULE_4__ =
+        /* harmony import */ var _core_buildFullPath_js__WEBPACK_IMPORTED_MODULE_4__ =
           __webpack_require__(
             /*! ../core/buildFullPath.js */ './node_modules/axios/lib/core/buildFullPath.js'
           );
-        /* harmony import */ const _helpers_isURLSameOrigin_js__WEBPACK_IMPORTED_MODULE_9__ =
+        /* harmony import */ var _helpers_isURLSameOrigin_js__WEBPACK_IMPORTED_MODULE_9__ =
           __webpack_require__(
             /*! ./../helpers/isURLSameOrigin.js */ './node_modules/axios/lib/helpers/isURLSameOrigin.js'
           );
-        /* harmony import */ const _defaults_transitional_js__WEBPACK_IMPORTED_MODULE_8__ =
+        /* harmony import */ var _defaults_transitional_js__WEBPACK_IMPORTED_MODULE_8__ =
           __webpack_require__(
             /*! ../defaults/transitional.js */ './node_modules/axios/lib/defaults/transitional.js'
           );
-        /* harmony import */ const _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__ =
+        /* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__ =
           __webpack_require__(
             /*! ../core/AxiosError.js */ './node_modules/axios/lib/core/AxiosError.js'
           );
-        /* harmony import */ const _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_11__ =
+        /* harmony import */ var _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_11__ =
           __webpack_require__(
             /*! ../cancel/CanceledError.js */ './node_modules/axios/lib/cancel/CanceledError.js'
           );
-        /* harmony import */ const _helpers_parseProtocol_js__WEBPACK_IMPORTED_MODULE_12__ =
+        /* harmony import */ var _helpers_parseProtocol_js__WEBPACK_IMPORTED_MODULE_12__ =
           __webpack_require__(
             /*! ../helpers/parseProtocol.js */ './node_modules/axios/lib/helpers/parseProtocol.js'
           );
-        /* harmony import */ const _platform_index_js__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _platform_index_js__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! ../platform/index.js */ './node_modules/axios/lib/platform/browser/index.js'
           );
-        /* harmony import */ const _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../core/AxiosHeaders.js */ './node_modules/axios/lib/core/AxiosHeaders.js'
           );
-        /* harmony import */ const _helpers_speedometer_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _helpers_speedometer_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../helpers/speedometer.js */ './node_modules/axios/lib/helpers/speedometer.js'
           );
@@ -620,7 +621,7 @@
         function progressEventReducer(listener, isDownloadStream) {
           let bytesNotified = 0;
           const _speedometer = (0,
-          _helpers_speedometer_js__WEBPACK_IMPORTED_MODULE_0__.default)(
+          _helpers_speedometer_js__WEBPACK_IMPORTED_MODULE_0__['default'])(
             50,
             250
           );
@@ -657,9 +658,9 @@
           isXHRAdapterSupported &&
           function (config) {
             return new Promise(function dispatchXhrRequest(resolve, reject) {
-              const requestData = config.data;
+              let requestData = config.data;
               const requestHeaders =
-                _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__.default
+                _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__['default']
                   .from(config.headers)
                   .normalize();
               const responseType = config.responseType;
@@ -675,14 +676,14 @@
               }
 
               if (
-                _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.isFormData(
+                _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].isFormData(
                   requestData
                 )
               ) {
                 if (
-                  _platform_index_js__WEBPACK_IMPORTED_MODULE_3__.default
+                  _platform_index_js__WEBPACK_IMPORTED_MODULE_3__['default']
                     .isStandardBrowserEnv ||
-                  _platform_index_js__WEBPACK_IMPORTED_MODULE_3__.default
+                  _platform_index_js__WEBPACK_IMPORTED_MODULE_3__['default']
                     .isStandardBrowserWebWorkerEnv
                 ) {
                   requestHeaders.setContentType(false); // Let the browser set it
@@ -706,14 +707,15 @@
               }
 
               const fullPath = (0,
-              _core_buildFullPath_js__WEBPACK_IMPORTED_MODULE_4__.default)(
+              _core_buildFullPath_js__WEBPACK_IMPORTED_MODULE_4__['default'])(
                 config.baseURL,
                 config.url
               );
 
               request.open(
                 config.method.toUpperCase(),
-                (0, _helpers_buildURL_js__WEBPACK_IMPORTED_MODULE_5__.default)(
+                (0,
+                _helpers_buildURL_js__WEBPACK_IMPORTED_MODULE_5__['default'])(
                   fullPath,
                   config.params,
                   config.paramsSerializer
@@ -730,7 +732,9 @@
                 }
                 // Prepare the response
                 const responseHeaders =
-                  _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__.default.from(
+                  _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__[
+                    'default'
+                  ].from(
                     'getAllResponseHeaders' in request &&
                       request.getAllResponseHeaders()
                   );
@@ -749,7 +753,7 @@
                   request
                 };
 
-                (0, _core_settle_js__WEBPACK_IMPORTED_MODULE_6__.default)(
+                (0, _core_settle_js__WEBPACK_IMPORTED_MODULE_6__['default'])(
                   function _resolve(value) {
                     resolve(value);
                     done();
@@ -801,9 +805,13 @@
                 }
 
                 reject(
-                  new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default(
+                  new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                    'default'
+                  ](
                     'Request aborted',
-                    _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default.ECONNABORTED,
+                    _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                      'default'
+                    ].ECONNABORTED,
                     config,
                     request
                   )
@@ -818,9 +826,13 @@
                 // Real errors are hidden from us by the browser
                 // onerror should only fire if it's a network error
                 reject(
-                  new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default(
+                  new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                    'default'
+                  ](
                     'Network Error',
-                    _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default.ERR_NETWORK,
+                    _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                      'default'
+                    ].ERR_NETWORK,
                     config,
                     request
                   )
@@ -837,18 +849,24 @@
                   : 'timeout exceeded';
                 const transitional =
                   config.transitional ||
-                  _defaults_transitional_js__WEBPACK_IMPORTED_MODULE_8__.default;
+                  _defaults_transitional_js__WEBPACK_IMPORTED_MODULE_8__[
+                    'default'
+                  ];
                 if (config.timeoutErrorMessage) {
                   timeoutErrorMessage = config.timeoutErrorMessage;
                 }
                 reject(
-                  new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default(
+                  new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                    'default'
+                  ](
                     timeoutErrorMessage,
                     transitional.clarifyTimeoutError
-                      ? _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default
-                          .ETIMEDOUT
-                      : _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default
-                          .ECONNABORTED,
+                      ? _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                          'default'
+                        ].ETIMEDOUT
+                      : _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                          'default'
+                        ].ECONNABORTED,
                     config,
                     request
                   )
@@ -862,20 +880,20 @@
               // This is only done if running in a standard browser environment.
               // Specifically not if we're in a web worker, or react-native.
               if (
-                _platform_index_js__WEBPACK_IMPORTED_MODULE_3__.default
+                _platform_index_js__WEBPACK_IMPORTED_MODULE_3__['default']
                   .isStandardBrowserEnv
               ) {
                 // Add xsrf header
                 const xsrfValue =
                   (config.withCredentials ||
                     (0,
-                    _helpers_isURLSameOrigin_js__WEBPACK_IMPORTED_MODULE_9__.default)(
-                      fullPath
-                    )) &&
+                    _helpers_isURLSameOrigin_js__WEBPACK_IMPORTED_MODULE_9__[
+                      'default'
+                    ])(fullPath)) &&
                   config.xsrfCookieName &&
-                  _helpers_cookies_js__WEBPACK_IMPORTED_MODULE_10__.default.read(
-                    config.xsrfCookieName
-                  );
+                  _helpers_cookies_js__WEBPACK_IMPORTED_MODULE_10__[
+                    'default'
+                  ].read(config.xsrfCookieName);
 
                 if (xsrfValue) {
                   requestHeaders.set(config.xsrfHeaderName, xsrfValue);
@@ -887,7 +905,7 @@
 
               // Add headers to the request
               if ('setRequestHeader' in request) {
-                _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.forEach(
+                _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].forEach(
                   requestHeaders.toJSON(),
                   function setRequestHeader(val, key) {
                     request.setRequestHeader(key, val);
@@ -897,7 +915,7 @@
 
               // Add withCredentials to request if needed
               if (
-                !_utils_js__WEBPACK_IMPORTED_MODULE_2__.default.isUndefined(
+                !_utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].isUndefined(
                   config.withCredentials
                 )
               ) {
@@ -937,11 +955,9 @@
                   }
                   reject(
                     !cancel || cancel.type
-                      ? new _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_11__.default(
-                          null,
-                          config,
-                          request
-                        )
+                      ? new _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_11__[
+                          'default'
+                        ](null, config, request)
                       : cancel
                   );
                   request.abort();
@@ -957,20 +973,24 @@
               }
 
               const protocol = (0,
-              _helpers_parseProtocol_js__WEBPACK_IMPORTED_MODULE_12__.default)(
-                fullPath
-              );
+              _helpers_parseProtocol_js__WEBPACK_IMPORTED_MODULE_12__[
+                'default'
+              ])(fullPath);
 
               if (
                 protocol &&
-                _platform_index_js__WEBPACK_IMPORTED_MODULE_3__.default.protocols.indexOf(
-                  protocol
-                ) === -1
+                _platform_index_js__WEBPACK_IMPORTED_MODULE_3__[
+                  'default'
+                ].protocols.indexOf(protocol) === -1
               ) {
                 reject(
-                  new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default(
+                  new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                    'default'
+                  ](
                     'Unsupported protocol ' + protocol + ':',
-                    _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__.default.ERR_BAD_REQUEST,
+                    _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_7__[
+                      'default'
+                    ].ERR_BAD_REQUEST,
                     config
                   )
                 );
@@ -999,67 +1019,67 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ./utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _helpers_bind_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _helpers_bind_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ./helpers/bind.js */ './node_modules/axios/lib/helpers/bind.js'
           );
-        /* harmony import */ const _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./core/Axios.js */ './node_modules/axios/lib/core/Axios.js'
           );
-        /* harmony import */ const _core_mergeConfig_js__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _core_mergeConfig_js__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! ./core/mergeConfig.js */ './node_modules/axios/lib/core/mergeConfig.js'
           );
-        /* harmony import */ const _defaults_index_js__WEBPACK_IMPORTED_MODULE_4__ =
+        /* harmony import */ var _defaults_index_js__WEBPACK_IMPORTED_MODULE_4__ =
           __webpack_require__(
             /*! ./defaults/index.js */ './node_modules/axios/lib/defaults/index.js'
           );
-        /* harmony import */ const _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_14__ =
+        /* harmony import */ var _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_14__ =
           __webpack_require__(
             /*! ./helpers/formDataToJSON.js */ './node_modules/axios/lib/helpers/formDataToJSON.js'
           );
-        /* harmony import */ const _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_5__ =
+        /* harmony import */ var _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_5__ =
           __webpack_require__(
             /*! ./cancel/CanceledError.js */ './node_modules/axios/lib/cancel/CanceledError.js'
           );
-        /* harmony import */ const _cancel_CancelToken_js__WEBPACK_IMPORTED_MODULE_6__ =
+        /* harmony import */ var _cancel_CancelToken_js__WEBPACK_IMPORTED_MODULE_6__ =
           __webpack_require__(
             /*! ./cancel/CancelToken.js */ './node_modules/axios/lib/cancel/CancelToken.js'
           );
-        /* harmony import */ const _cancel_isCancel_js__WEBPACK_IMPORTED_MODULE_7__ =
+        /* harmony import */ var _cancel_isCancel_js__WEBPACK_IMPORTED_MODULE_7__ =
           __webpack_require__(
             /*! ./cancel/isCancel.js */ './node_modules/axios/lib/cancel/isCancel.js'
           );
-        /* harmony import */ const _env_data_js__WEBPACK_IMPORTED_MODULE_8__ =
+        /* harmony import */ var _env_data_js__WEBPACK_IMPORTED_MODULE_8__ =
           __webpack_require__(
             /*! ./env/data.js */ './node_modules/axios/lib/env/data.js'
           );
-        /* harmony import */ const _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_9__ =
+        /* harmony import */ var _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_9__ =
           __webpack_require__(
             /*! ./helpers/toFormData.js */ './node_modules/axios/lib/helpers/toFormData.js'
           );
-        /* harmony import */ const _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_10__ =
+        /* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_10__ =
           __webpack_require__(
             /*! ./core/AxiosError.js */ './node_modules/axios/lib/core/AxiosError.js'
           );
-        /* harmony import */ const _helpers_spread_js__WEBPACK_IMPORTED_MODULE_11__ =
+        /* harmony import */ var _helpers_spread_js__WEBPACK_IMPORTED_MODULE_11__ =
           __webpack_require__(
             /*! ./helpers/spread.js */ './node_modules/axios/lib/helpers/spread.js'
           );
-        /* harmony import */ const _helpers_isAxiosError_js__WEBPACK_IMPORTED_MODULE_12__ =
+        /* harmony import */ var _helpers_isAxiosError_js__WEBPACK_IMPORTED_MODULE_12__ =
           __webpack_require__(
             /*! ./helpers/isAxiosError.js */ './node_modules/axios/lib/helpers/isAxiosError.js'
           );
-        /* harmony import */ const _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_13__ =
+        /* harmony import */ var _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_13__ =
           __webpack_require__(
             /*! ./core/AxiosHeaders.js */ './node_modules/axios/lib/core/AxiosHeaders.js'
           );
-        /* harmony import */ const _helpers_HttpStatusCode_js__WEBPACK_IMPORTED_MODULE_15__ =
+        /* harmony import */ var _helpers_HttpStatusCode_js__WEBPACK_IMPORTED_MODULE_15__ =
           __webpack_require__(
             /*! ./helpers/HttpStatusCode.js */ './node_modules/axios/lib/helpers/HttpStatusCode.js'
           );
@@ -1072,27 +1092,26 @@
          * @returns {Axios} A new instance of Axios
          */
         function createInstance(defaultConfig) {
-          const context =
-            new _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__.default(
-              defaultConfig
-            );
+          const context = new _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__[
+            'default'
+          ](defaultConfig);
           const instance = (0,
-          _helpers_bind_js__WEBPACK_IMPORTED_MODULE_1__.default)(
-            _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__.default.prototype
+          _helpers_bind_js__WEBPACK_IMPORTED_MODULE_1__['default'])(
+            _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__['default'].prototype
               .request,
             context
           );
 
           // Copy axios.prototype to instance
-          _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.extend(
+          _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].extend(
             instance,
-            _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__.default.prototype,
+            _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__['default'].prototype,
             context,
             { allOwnKeys: true }
           );
 
           // Copy context to instance
-          _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.extend(
+          _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].extend(
             instance,
             context,
             null,
@@ -1102,7 +1121,7 @@
           // Factory for creating new instances
           instance.create = function create(instanceConfig) {
             return createInstance(
-              (0, _core_mergeConfig_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+              (0, _core_mergeConfig_js__WEBPACK_IMPORTED_MODULE_3__['default'])(
                 defaultConfig,
                 instanceConfig
               )
@@ -1114,26 +1133,26 @@
 
         // Create the default instance to be exported
         const axios = createInstance(
-          _defaults_index_js__WEBPACK_IMPORTED_MODULE_4__.default
+          _defaults_index_js__WEBPACK_IMPORTED_MODULE_4__['default']
         );
 
         // Expose Axios class to allow class inheritance
-        axios.Axios = _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__.default;
+        axios.Axios = _core_Axios_js__WEBPACK_IMPORTED_MODULE_0__['default'];
 
         // Expose Cancel & CancelToken
         axios.CanceledError =
-          _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_5__.default;
+          _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_5__['default'];
         axios.CancelToken =
-          _cancel_CancelToken_js__WEBPACK_IMPORTED_MODULE_6__.default;
+          _cancel_CancelToken_js__WEBPACK_IMPORTED_MODULE_6__['default'];
         axios.isCancel =
-          _cancel_isCancel_js__WEBPACK_IMPORTED_MODULE_7__.default;
+          _cancel_isCancel_js__WEBPACK_IMPORTED_MODULE_7__['default'];
         axios.VERSION = _env_data_js__WEBPACK_IMPORTED_MODULE_8__.VERSION;
         axios.toFormData =
-          _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_9__.default;
+          _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_9__['default'];
 
         // Expose AxiosError class
         axios.AxiosError =
-          _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_10__.default;
+          _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_10__['default'];
 
         // alias for CanceledError for backward compatibility
         axios.Cancel = axios.CanceledError;
@@ -1143,28 +1162,30 @@
           return Promise.all(promises);
         };
 
-        axios.spread = _helpers_spread_js__WEBPACK_IMPORTED_MODULE_11__.default;
+        axios.spread =
+          _helpers_spread_js__WEBPACK_IMPORTED_MODULE_11__['default'];
 
         // Expose isAxiosError
         axios.isAxiosError =
-          _helpers_isAxiosError_js__WEBPACK_IMPORTED_MODULE_12__.default;
+          _helpers_isAxiosError_js__WEBPACK_IMPORTED_MODULE_12__['default'];
 
         // Expose mergeConfig
         axios.mergeConfig =
-          _core_mergeConfig_js__WEBPACK_IMPORTED_MODULE_3__.default;
+          _core_mergeConfig_js__WEBPACK_IMPORTED_MODULE_3__['default'];
 
         axios.AxiosHeaders =
-          _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_13__.default;
+          _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_13__['default'];
 
         axios.formToJSON = thing =>
-          (0, _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_14__.default)(
-            _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.isHTMLForm(thing)
+          (0,
+          _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_14__['default'])(
+            _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].isHTMLForm(thing)
               ? new FormData(thing)
               : thing
           );
 
         axios.HttpStatusCode =
-          _helpers_HttpStatusCode_js__WEBPACK_IMPORTED_MODULE_15__.default;
+          _helpers_HttpStatusCode_js__WEBPACK_IMPORTED_MODULE_15__['default'];
 
         axios.default = axios;
 
@@ -1188,7 +1209,7 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _CanceledError_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _CanceledError_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./CanceledError.js */ './node_modules/axios/lib/cancel/CanceledError.js'
           );
@@ -1248,12 +1269,9 @@
                 return;
               }
 
-              token.reason =
-                new _CanceledError_js__WEBPACK_IMPORTED_MODULE_0__.default(
-                  message,
-                  config,
-                  request
-                );
+              token.reason = new _CanceledError_js__WEBPACK_IMPORTED_MODULE_0__[
+                'default'
+              ](message, config, request);
               resolvePromise(token.reason);
             });
           }
@@ -1334,11 +1352,11 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../core/AxiosError.js */ './node_modules/axios/lib/core/AxiosError.js'
           );
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
@@ -1354,10 +1372,10 @@
          */
         function CanceledError(message, config, request) {
           // eslint-disable-next-line no-eq-null,eqeqeq
-          _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_0__.default.call(
+          _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_0__['default'].call(
             this,
             message == null ? 'canceled' : message,
-            _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_0__.default
+            _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_0__['default']
               .ERR_CANCELED,
             config,
             request
@@ -1365,9 +1383,9 @@
           this.name = 'CanceledError';
         }
 
-        _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.inherits(
+        _utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].inherits(
           CanceledError,
-          _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_0__.default,
+          _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_0__['default'],
           {
             __CANCEL__: true
           }
@@ -1415,41 +1433,42 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! ./../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _helpers_buildURL_js__WEBPACK_IMPORTED_MODULE_7__ =
+        /* harmony import */ var _helpers_buildURL_js__WEBPACK_IMPORTED_MODULE_7__ =
           __webpack_require__(
             /*! ../helpers/buildURL.js */ './node_modules/axios/lib/helpers/buildURL.js'
           );
-        /* harmony import */ const _InterceptorManager_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _InterceptorManager_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ./InterceptorManager.js */ './node_modules/axios/lib/core/InterceptorManager.js'
           );
-        /* harmony import */ const _dispatchRequest_js__WEBPACK_IMPORTED_MODULE_5__ =
+        /* harmony import */ var _dispatchRequest_js__WEBPACK_IMPORTED_MODULE_5__ =
           __webpack_require__(
             /*! ./dispatchRequest.js */ './node_modules/axios/lib/core/dispatchRequest.js'
           );
-        /* harmony import */ const _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ./mergeConfig.js */ './node_modules/axios/lib/core/mergeConfig.js'
           );
-        /* harmony import */ const _buildFullPath_js__WEBPACK_IMPORTED_MODULE_6__ =
+        /* harmony import */ var _buildFullPath_js__WEBPACK_IMPORTED_MODULE_6__ =
           __webpack_require__(
             /*! ./buildFullPath.js */ './node_modules/axios/lib/core/buildFullPath.js'
           );
-        /* harmony import */ const _helpers_validator_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _helpers_validator_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../helpers/validator.js */ './node_modules/axios/lib/helpers/validator.js'
           );
-        /* harmony import */ const _AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_4__ =
+        /* harmony import */ var _AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_4__ =
           __webpack_require__(
             /*! ./AxiosHeaders.js */ './node_modules/axios/lib/core/AxiosHeaders.js'
           );
 
         const validators =
-          _helpers_validator_js__WEBPACK_IMPORTED_MODULE_0__.default.validators;
+          _helpers_validator_js__WEBPACK_IMPORTED_MODULE_0__['default']
+            .validators;
 
         /**
          * Create a new instance of Axios
@@ -1462,10 +1481,12 @@
           constructor(instanceConfig) {
             this.defaults = instanceConfig;
             this.interceptors = {
-              request:
-                new _InterceptorManager_js__WEBPACK_IMPORTED_MODULE_1__.default(),
-              response:
-                new _InterceptorManager_js__WEBPACK_IMPORTED_MODULE_1__.default()
+              request: new _InterceptorManager_js__WEBPACK_IMPORTED_MODULE_1__[
+                'default'
+              ](),
+              response: new _InterceptorManager_js__WEBPACK_IMPORTED_MODULE_1__[
+                'default'
+              ]()
             };
           }
 
@@ -1481,13 +1502,14 @@
             /*eslint no-param-reassign:0*/
             // Allow for axios('example/url'[, config]) a la fetch API
             if (typeof configOrUrl === 'string') {
-              config ||= {};
+              config = config || {};
               config.url = configOrUrl;
             } else {
               config = configOrUrl || {};
             }
 
-            config = (0, _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+            config = (0,
+            _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__['default'])(
               this.defaults,
               config
             );
@@ -1495,7 +1517,9 @@
             const { transitional, paramsSerializer, headers } = config;
 
             if (transitional !== undefined) {
-              _helpers_validator_js__WEBPACK_IMPORTED_MODULE_0__.default.assertOptions(
+              _helpers_validator_js__WEBPACK_IMPORTED_MODULE_0__[
+                'default'
+              ].assertOptions(
                 transitional,
                 {
                   silentJSONParsing: validators.transitional(
@@ -1514,7 +1538,7 @@
 
             if (paramsSerializer != null) {
               if (
-                _utils_js__WEBPACK_IMPORTED_MODULE_3__.default.isFunction(
+                _utils_js__WEBPACK_IMPORTED_MODULE_3__['default'].isFunction(
                   paramsSerializer
                 )
               ) {
@@ -1522,7 +1546,9 @@
                   serialize: paramsSerializer
                 };
               } else {
-                _helpers_validator_js__WEBPACK_IMPORTED_MODULE_0__.default.assertOptions(
+                _helpers_validator_js__WEBPACK_IMPORTED_MODULE_0__[
+                  'default'
+                ].assertOptions(
                   paramsSerializer,
                   {
                     encode: validators.function,
@@ -1545,24 +1571,22 @@
             // Flatten headers
             contextHeaders =
               headers &&
-              _utils_js__WEBPACK_IMPORTED_MODULE_3__.default.merge(
+              _utils_js__WEBPACK_IMPORTED_MODULE_3__['default'].merge(
                 headers.common,
                 headers[config.method]
               );
 
             contextHeaders &&
-              _utils_js__WEBPACK_IMPORTED_MODULE_3__.default.forEach(
+              _utils_js__WEBPACK_IMPORTED_MODULE_3__['default'].forEach(
                 ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
                 method => {
                   delete headers[method];
                 }
               );
 
-            config.headers =
-              _AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_4__.default.concat(
-                contextHeaders,
-                headers
-              );
+            config.headers = _AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_4__[
+              'default'
+            ].concat(contextHeaders, headers);
 
             // filter out skipped interceptors
             const requestInterceptorChain = [];
@@ -1576,7 +1600,8 @@
                   return;
                 }
 
-                synchronousRequestInterceptors &&= interceptor.synchronous;
+                synchronousRequestInterceptors =
+                  synchronousRequestInterceptors && interceptor.synchronous;
 
                 requestInterceptorChain.unshift(
                   interceptor.fulfilled,
@@ -1601,9 +1626,9 @@
 
             if (!synchronousRequestInterceptors) {
               const chain = [
-                _dispatchRequest_js__WEBPACK_IMPORTED_MODULE_5__.default.bind(
-                  this
-                ),
+                _dispatchRequest_js__WEBPACK_IMPORTED_MODULE_5__[
+                  'default'
+                ].bind(this),
                 undefined
               ];
               chain.unshift.apply(chain, requestInterceptorChain);
@@ -1637,11 +1662,9 @@
             }
 
             try {
-              promise =
-                _dispatchRequest_js__WEBPACK_IMPORTED_MODULE_5__.default.call(
-                  this,
-                  newConfig
-                );
+              promise = _dispatchRequest_js__WEBPACK_IMPORTED_MODULE_5__[
+                'default'
+              ].call(this, newConfig);
             } catch (error) {
               return Promise.reject(error);
             }
@@ -1660,17 +1683,18 @@
           }
 
           getUri(config) {
-            config = (0, _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+            config = (0,
+            _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__['default'])(
               this.defaults,
               config
             );
             const fullPath = (0,
-            _buildFullPath_js__WEBPACK_IMPORTED_MODULE_6__.default)(
+            _buildFullPath_js__WEBPACK_IMPORTED_MODULE_6__['default'])(
               config.baseURL,
               config.url
             );
             return (0,
-            _helpers_buildURL_js__WEBPACK_IMPORTED_MODULE_7__.default)(
+            _helpers_buildURL_js__WEBPACK_IMPORTED_MODULE_7__['default'])(
               fullPath,
               config.params,
               config.paramsSerializer
@@ -1679,13 +1703,13 @@
         }
 
         // Provide aliases for supported request methods
-        _utils_js__WEBPACK_IMPORTED_MODULE_3__.default.forEach(
+        _utils_js__WEBPACK_IMPORTED_MODULE_3__['default'].forEach(
           ['delete', 'get', 'head', 'options'],
           function forEachMethodNoData(method) {
             /*eslint func-names:0*/
             Axios.prototype[method] = function (url, config) {
               return this.request(
-                (0, _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+                (0, _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__['default'])(
                   config || {},
                   {
                     method,
@@ -1698,7 +1722,7 @@
           }
         );
 
-        _utils_js__WEBPACK_IMPORTED_MODULE_3__.default.forEach(
+        _utils_js__WEBPACK_IMPORTED_MODULE_3__['default'].forEach(
           ['post', 'put', 'patch'],
           function forEachMethodWithData(method) {
             /*eslint func-names:0*/
@@ -1706,7 +1730,7 @@
             function generateHTTPMethod(isForm) {
               return function httpMethod(url, data, config) {
                 return this.request(
-                  (0, _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+                  (0, _mergeConfig_js__WEBPACK_IMPORTED_MODULE_2__['default'])(
                     config || {},
                     {
                       method,
@@ -1748,7 +1772,7 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
@@ -1781,7 +1805,7 @@
           response && (this.response = response);
         }
 
-        _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.inherits(
+        _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].inherits(
           AxiosError,
           Error,
           {
@@ -1799,10 +1823,9 @@
                 columnNumber: this.columnNumber,
                 stack: this.stack,
                 // Axios
-                config:
-                  _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.toJSONObject(
-                    this.config
-                  ),
+                config: _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                  'default'
+                ].toJSONObject(this.config),
                 code: this.code,
                 status:
                   this.response && this.response.status
@@ -1848,7 +1871,7 @@
         ) => {
           const axiosError = Object.create(prototype);
 
-          _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.toFlatObject(
+          _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].toFlatObject(
             error,
             axiosError,
             function filter(obj) {
@@ -1897,11 +1920,11 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _helpers_parseHeaders_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _helpers_parseHeaders_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../helpers/parseHeaders.js */ './node_modules/axios/lib/helpers/parseHeaders.js'
           );
@@ -1917,7 +1940,9 @@
             return value;
           }
 
-          return _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(value)
+          return _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(
+            value
+          )
             ? value.map(normalizeValue)
             : String(value);
         }
@@ -1945,7 +1970,7 @@
           isHeaderNameFilter
         ) {
           if (
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFunction(filter)
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isFunction(filter)
           ) {
             return filter.call(this, value, header);
           }
@@ -1954,14 +1979,20 @@
             value = header;
           }
 
-          if (!_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isString(value))
+          if (
+            !_utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isString(value)
+          )
             return;
 
-          if (_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isString(filter)) {
+          if (
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isString(filter)
+          ) {
             return value.indexOf(filter) !== -1;
           }
 
-          if (_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isRegExp(filter)) {
+          if (
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isRegExp(filter)
+          ) {
             return filter.test(value);
           }
         }
@@ -1976,10 +2007,9 @@
         }
 
         function buildAccessors(obj, header) {
-          const accessorName =
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.toCamelCase(
-              ' ' + header
-            );
+          const accessorName = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+            'default'
+          ].toCamelCase(' ' + header);
 
           ['get', 'set', 'has'].forEach(methodName => {
             Object.defineProperty(obj, methodName + accessorName, {
@@ -2006,11 +2036,9 @@
                 throw new Error('header name must be a non-empty string');
               }
 
-              const key =
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.findKey(
-                  self,
-                  lHeader
-                );
+              const key = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                'default'
+              ].findKey(self, lHeader);
 
               if (
                 !key ||
@@ -2023,28 +2051,30 @@
             }
 
             const setHeaders = (headers, _rewrite) =>
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.forEach(
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].forEach(
                 headers,
                 (_value, _header) => setHeader(_value, _header, _rewrite)
               );
 
             if (
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isPlainObject(
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isPlainObject(
                 header
               ) ||
               header instanceof this.constructor
             ) {
               setHeaders(header, valueOrRewrite);
             } else if (
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isString(header) &&
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isString(
+                header
+              ) &&
               (header = header.trim()) &&
               !isValidHeaderName(header)
             ) {
               setHeaders(
                 (0,
-                _helpers_parseHeaders_js__WEBPACK_IMPORTED_MODULE_1__.default)(
-                  header
-                ),
+                _helpers_parseHeaders_js__WEBPACK_IMPORTED_MODULE_1__[
+                  'default'
+                ])(header),
                 valueOrRewrite
               );
             } else {
@@ -2058,11 +2088,9 @@
             header = normalizeHeader(header);
 
             if (header) {
-              const key =
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.findKey(
-                  this,
-                  header
-                );
+              const key = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                'default'
+              ].findKey(this, header);
 
               if (key) {
                 const value = this[key];
@@ -2076,7 +2104,7 @@
                 }
 
                 if (
-                  _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFunction(
+                  _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isFunction(
                     parser
                   )
                 ) {
@@ -2084,7 +2112,7 @@
                 }
 
                 if (
-                  _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isRegExp(
+                  _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isRegExp(
                     parser
                   )
                 ) {
@@ -2100,11 +2128,9 @@
             header = normalizeHeader(header);
 
             if (header) {
-              const key =
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.findKey(
-                  this,
-                  header
-                );
+              const key = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                'default'
+              ].findKey(this, header);
 
               return !!(
                 key &&
@@ -2124,11 +2150,9 @@
               _header = normalizeHeader(_header);
 
               if (_header) {
-                const key =
-                  _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.findKey(
-                    self,
-                    _header
-                  );
+                const key = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                  'default'
+                ].findKey(self, _header);
 
                 if (
                   key &&
@@ -2142,7 +2166,7 @@
             }
 
             if (
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(header)
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(header)
             ) {
               header.forEach(deleteHeader);
             } else {
@@ -2175,14 +2199,12 @@
             const self = this;
             const headers = {};
 
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.forEach(
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].forEach(
               this,
               (value, header) => {
-                const key =
-                  _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.findKey(
-                    headers,
-                    header
-                  );
+                const key = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                  'default'
+                ].findKey(headers, header);
 
                 if (key) {
                   self[key] = normalizeValue(value);
@@ -2214,14 +2236,14 @@
           toJSON(asStrings) {
             const obj = Object.create(null);
 
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.forEach(
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].forEach(
               this,
               (value, header) => {
                 value != null &&
                   value !== false &&
                   (obj[header] =
                     asStrings &&
-                    _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(
+                    _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(
                       value
                     )
                       ? value.join(', ')
@@ -2278,7 +2300,7 @@
               }
             }
 
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(header)
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(header)
               ? header.forEach(defineAccessor)
               : defineAccessor(header);
 
@@ -2295,10 +2317,10 @@
           'Authorization'
         ]);
 
-        _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.freezeMethods(
+        _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].freezeMethods(
           AxiosHeaders.prototype
         );
-        _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.freezeMethods(
+        _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].freezeMethods(
           AxiosHeaders
         );
 
@@ -2322,7 +2344,7 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./../utils.js */ './node_modules/axios/lib/utils.js'
           );
@@ -2385,7 +2407,7 @@
            * @returns {void}
            */
           forEach(fn) {
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.forEach(
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].forEach(
               this.handlers,
               function forEachHandler(h) {
                 if (h !== null) {
@@ -2416,11 +2438,11 @@
           /* harmony export */ default: () => /* binding */ buildFullPath
           /* harmony export */
         });
-        /* harmony import */ const _helpers_isAbsoluteURL_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _helpers_isAbsoluteURL_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../helpers/isAbsoluteURL.js */ './node_modules/axios/lib/helpers/isAbsoluteURL.js'
           );
-        /* harmony import */ const _helpers_combineURLs_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _helpers_combineURLs_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../helpers/combineURLs.js */ './node_modules/axios/lib/helpers/combineURLs.js'
           );
@@ -2439,12 +2461,12 @@
           if (
             baseURL &&
             !(0,
-            _helpers_isAbsoluteURL_js__WEBPACK_IMPORTED_MODULE_0__.default)(
+            _helpers_isAbsoluteURL_js__WEBPACK_IMPORTED_MODULE_0__['default'])(
               requestedURL
             )
           ) {
             return (0,
-            _helpers_combineURLs_js__WEBPACK_IMPORTED_MODULE_1__.default)(
+            _helpers_combineURLs_js__WEBPACK_IMPORTED_MODULE_1__['default'])(
               baseURL,
               requestedURL
             );
@@ -2469,27 +2491,27 @@
           /* harmony export */ default: () => /* binding */ dispatchRequest
           /* harmony export */
         });
-        /* harmony import */ const _transformData_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _transformData_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ./transformData.js */ './node_modules/axios/lib/core/transformData.js'
           );
-        /* harmony import */ const _cancel_isCancel_js__WEBPACK_IMPORTED_MODULE_5__ =
+        /* harmony import */ var _cancel_isCancel_js__WEBPACK_IMPORTED_MODULE_5__ =
           __webpack_require__(
             /*! ../cancel/isCancel.js */ './node_modules/axios/lib/cancel/isCancel.js'
           );
-        /* harmony import */ const _defaults_index_js__WEBPACK_IMPORTED_MODULE_4__ =
+        /* harmony import */ var _defaults_index_js__WEBPACK_IMPORTED_MODULE_4__ =
           __webpack_require__(
             /*! ../defaults/index.js */ './node_modules/axios/lib/defaults/index.js'
           );
-        /* harmony import */ const _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../cancel/CanceledError.js */ './node_modules/axios/lib/cancel/CanceledError.js'
           );
-        /* harmony import */ const _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../core/AxiosHeaders.js */ './node_modules/axios/lib/core/AxiosHeaders.js'
           );
-        /* harmony import */ const _adapters_adapters_js__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _adapters_adapters_js__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! ../adapters/adapters.js */ './node_modules/axios/lib/adapters/adapters.js'
           );
@@ -2507,10 +2529,9 @@
           }
 
           if (config.signal && config.signal.aborted) {
-            throw new _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_0__.default(
-              null,
-              config
-            );
+            throw new _cancel_CanceledError_js__WEBPACK_IMPORTED_MODULE_0__[
+              'default'
+            ](null, config);
           }
         }
 
@@ -2524,17 +2545,14 @@
         function dispatchRequest(config) {
           throwIfCancellationRequested(config);
 
-          config.headers =
-            _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__.default.from(
-              config.headers
-            );
+          config.headers = _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__[
+            'default'
+          ].from(config.headers);
 
           // Transform request data
-          config.data =
-            _transformData_js__WEBPACK_IMPORTED_MODULE_2__.default.call(
-              config,
-              config.transformRequest
-            );
+          config.data = _transformData_js__WEBPACK_IMPORTED_MODULE_2__[
+            'default'
+          ].call(config, config.transformRequest);
 
           if (['post', 'put', 'patch'].indexOf(config.method) !== -1) {
             config.headers.setContentType(
@@ -2543,34 +2561,33 @@
             );
           }
 
-          const adapter =
-            _adapters_adapters_js__WEBPACK_IMPORTED_MODULE_3__.default.getAdapter(
-              config.adapter ||
-                _defaults_index_js__WEBPACK_IMPORTED_MODULE_4__.default.adapter
-            );
+          const adapter = _adapters_adapters_js__WEBPACK_IMPORTED_MODULE_3__[
+            'default'
+          ].getAdapter(
+            config.adapter ||
+              _defaults_index_js__WEBPACK_IMPORTED_MODULE_4__['default'].adapter
+          );
 
           return adapter(config).then(
             function onAdapterResolution(response) {
               throwIfCancellationRequested(config);
 
               // Transform response data
-              response.data =
-                _transformData_js__WEBPACK_IMPORTED_MODULE_2__.default.call(
-                  config,
-                  config.transformResponse,
-                  response
-                );
+              response.data = _transformData_js__WEBPACK_IMPORTED_MODULE_2__[
+                'default'
+              ].call(config, config.transformResponse, response);
 
               response.headers =
-                _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__.default.from(
-                  response.headers
-                );
+                _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__[
+                  'default'
+                ].from(response.headers);
 
               return response;
             },
             function onAdapterRejection(reason) {
               if (
-                !(0, _cancel_isCancel_js__WEBPACK_IMPORTED_MODULE_5__.default)(
+                !(0,
+                _cancel_isCancel_js__WEBPACK_IMPORTED_MODULE_5__['default'])(
                   reason
                 )
               ) {
@@ -2579,15 +2596,13 @@
                 // Transform response data
                 if (reason && reason.response) {
                   reason.response.data =
-                    _transformData_js__WEBPACK_IMPORTED_MODULE_2__.default.call(
-                      config,
-                      config.transformResponse,
-                      reason.response
-                    );
+                    _transformData_js__WEBPACK_IMPORTED_MODULE_2__[
+                      'default'
+                    ].call(config, config.transformResponse, reason.response);
                   reason.response.headers =
-                    _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__.default.from(
-                      reason.response.headers
-                    );
+                    _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__[
+                      'default'
+                    ].from(reason.response.headers);
                 }
               }
 
@@ -2613,17 +2628,18 @@
           /* harmony export */ default: () => /* binding */ mergeConfig
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./AxiosHeaders.js */ './node_modules/axios/lib/core/AxiosHeaders.js'
           );
 
         const headersToObject = thing =>
-          thing instanceof _AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_0__.default
+          thing instanceof
+          _AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_0__['default']
             ? thing.toJSON()
             : thing;
 
@@ -2638,34 +2654,32 @@
          */
         function mergeConfig(config1, config2) {
           // eslint-disable-next-line no-param-reassign
-          config2 ||= {};
+          config2 = config2 || {};
           const config = {};
 
           function getMergedValue(target, source, caseless) {
             if (
-              _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isPlainObject(
+              _utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isPlainObject(
                 target
               ) &&
-              _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isPlainObject(
+              _utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isPlainObject(
                 source
               )
             ) {
-              return _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.merge.call(
-                { caseless },
-                target,
-                source
-              );
+              return _utils_js__WEBPACK_IMPORTED_MODULE_1__[
+                'default'
+              ].merge.call({ caseless }, target, source);
             } else if (
-              _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isPlainObject(
+              _utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isPlainObject(
                 source
               )
             ) {
-              return _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.merge(
+              return _utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].merge(
                 {},
                 source
               );
             } else if (
-              _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isArray(source)
+              _utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isArray(source)
             ) {
               return source.slice();
             }
@@ -2675,11 +2689,11 @@
           // eslint-disable-next-line consistent-return
           function mergeDeepProperties(a, b, caseless) {
             if (
-              !_utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isUndefined(b)
+              !_utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isUndefined(b)
             ) {
               return getMergedValue(a, b, caseless);
             } else if (
-              !_utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isUndefined(a)
+              !_utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isUndefined(a)
             ) {
               return getMergedValue(undefined, a, caseless);
             }
@@ -2688,7 +2702,7 @@
           // eslint-disable-next-line consistent-return
           function valueFromConfig2(a, b) {
             if (
-              !_utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isUndefined(b)
+              !_utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isUndefined(b)
             ) {
               return getMergedValue(undefined, b);
             }
@@ -2697,11 +2711,11 @@
           // eslint-disable-next-line consistent-return
           function defaultToConfig2(a, b) {
             if (
-              !_utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isUndefined(b)
+              !_utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isUndefined(b)
             ) {
               return getMergedValue(undefined, b);
             } else if (
-              !_utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isUndefined(a)
+              !_utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isUndefined(a)
             ) {
               return getMergedValue(undefined, a);
             }
@@ -2748,12 +2762,12 @@
               mergeDeepProperties(headersToObject(a), headersToObject(b), true)
           };
 
-          _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.forEach(
+          _utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].forEach(
             Object.keys(Object.assign({}, config1, config2)),
             function computeConfigValue(prop) {
               const merge = mergeMap[prop] || mergeDeepProperties;
               const configValue = merge(config1[prop], config2[prop], prop);
-              (_utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isUndefined(
+              (_utils_js__WEBPACK_IMPORTED_MODULE_1__['default'].isUndefined(
                 configValue
               ) &&
                 merge !== mergeDirectKeys) ||
@@ -2781,7 +2795,7 @@
           /* harmony export */ default: () => /* binding */ settle
           /* harmony export */
         });
-        /* harmony import */ const _AxiosError_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _AxiosError_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./AxiosError.js */ './node_modules/axios/lib/core/AxiosError.js'
           );
@@ -2805,12 +2819,12 @@
             resolve(response);
           } else {
             reject(
-              new _AxiosError_js__WEBPACK_IMPORTED_MODULE_0__.default(
+              new _AxiosError_js__WEBPACK_IMPORTED_MODULE_0__['default'](
                 'Request failed with status code ' + response.status,
                 [
-                  _AxiosError_js__WEBPACK_IMPORTED_MODULE_0__.default
+                  _AxiosError_js__WEBPACK_IMPORTED_MODULE_0__['default']
                     .ERR_BAD_REQUEST,
-                  _AxiosError_js__WEBPACK_IMPORTED_MODULE_0__.default
+                  _AxiosError_js__WEBPACK_IMPORTED_MODULE_0__['default']
                     .ERR_BAD_RESPONSE
                 ][Math.floor(response.status / 100) - 4],
                 response.config,
@@ -2838,15 +2852,15 @@
           /* harmony export */ default: () => /* binding */ transformData
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ./../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _defaults_index_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _defaults_index_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../defaults/index.js */ './node_modules/axios/lib/defaults/index.js'
           );
-        /* harmony import */ const _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../core/AxiosHeaders.js */ './node_modules/axios/lib/core/AxiosHeaders.js'
           );
@@ -2861,15 +2875,14 @@
          */
         function transformData(fns, response) {
           const config =
-            this || _defaults_index_js__WEBPACK_IMPORTED_MODULE_0__.default;
+            this || _defaults_index_js__WEBPACK_IMPORTED_MODULE_0__['default'];
           const context = response || config;
-          const headers =
-            _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__.default.from(
-              context.headers
-            );
+          const headers = _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_1__[
+            'default'
+          ].from(context.headers);
           let data = context.data;
 
-          _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.forEach(
+          _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].forEach(
             fns,
             function transform(fn) {
               data = fn.call(
@@ -2903,31 +2916,31 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__ =
+        /* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__ =
           __webpack_require__(
             /*! ../core/AxiosError.js */ './node_modules/axios/lib/core/AxiosError.js'
           );
-        /* harmony import */ const _transitional_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _transitional_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ./transitional.js */ './node_modules/axios/lib/defaults/transitional.js'
           );
-        /* harmony import */ const _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_4__ =
+        /* harmony import */ var _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_4__ =
           __webpack_require__(
             /*! ../helpers/toFormData.js */ './node_modules/axios/lib/helpers/toFormData.js'
           );
-        /* harmony import */ const _helpers_toURLEncodedForm_js__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _helpers_toURLEncodedForm_js__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! ../helpers/toURLEncodedForm.js */ './node_modules/axios/lib/helpers/toURLEncodedForm.js'
           );
-        /* harmony import */ const _platform_index_js__WEBPACK_IMPORTED_MODULE_6__ =
+        /* harmony import */ var _platform_index_js__WEBPACK_IMPORTED_MODULE_6__ =
           __webpack_require__(
             /*! ../platform/index.js */ './node_modules/axios/lib/platform/browser/index.js'
           );
-        /* harmony import */ const _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ../helpers/formDataToJSON.js */ './node_modules/axios/lib/helpers/formDataToJSON.js'
           );
@@ -2948,11 +2961,11 @@
          */
         function stringifySafely(rawValue, parser, encoder) {
           if (
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isString(rawValue)
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isString(rawValue)
           ) {
             try {
               (parser || JSON.parse)(rawValue);
-              return _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.trim(
+              return _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].trim(
                 rawValue
               );
             } catch (e) {
@@ -2966,7 +2979,8 @@
         }
 
         const defaults = {
-          transitional: _transitional_js__WEBPACK_IMPORTED_MODULE_1__.default,
+          transitional:
+            _transitional_js__WEBPACK_IMPORTED_MODULE_1__['default'],
 
           adapter: ['xhr', 'http'],
 
@@ -2976,17 +2990,23 @@
               const hasJSONContentType =
                 contentType.indexOf('application/json') > -1;
               const isObjectPayload =
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isObject(data);
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isObject(
+                  data
+                );
 
               if (
                 isObjectPayload &&
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isHTMLForm(data)
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isHTMLForm(
+                  data
+                )
               ) {
                 data = new FormData(data);
               }
 
               const isFormData =
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFormData(data);
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isFormData(
+                  data
+                );
 
               if (isFormData) {
                 if (!hasJSONContentType) {
@@ -2995,35 +3015,41 @@
                 return hasJSONContentType
                   ? JSON.stringify(
                       (0,
-                      _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-                        data
-                      )
+                      _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_2__[
+                        'default'
+                      ])(data)
                     )
                   : data;
               }
 
               if (
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArrayBuffer(
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArrayBuffer(
                   data
                 ) ||
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isBuffer(data) ||
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isStream(data) ||
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFile(data) ||
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isBlob(data)
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isBuffer(
+                  data
+                ) ||
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isStream(
+                  data
+                ) ||
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isFile(
+                  data
+                ) ||
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isBlob(data)
               ) {
                 return data;
               }
               if (
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArrayBufferView(
-                  data
-                )
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                  'default'
+                ].isArrayBufferView(data)
               ) {
                 return data.buffer;
               }
               if (
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isURLSearchParams(
-                  data
-                )
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                  'default'
+                ].isURLSearchParams(data)
               ) {
                 headers.setContentType(
                   'application/x-www-form-urlencoded;charset=utf-8',
@@ -3039,23 +3065,24 @@
                   contentType.indexOf('application/x-www-form-urlencoded') > -1
                 ) {
                   return (0,
-                  _helpers_toURLEncodedForm_js__WEBPACK_IMPORTED_MODULE_3__.default)(
-                    data,
-                    this.formSerializer
-                  ).toString();
+                  _helpers_toURLEncodedForm_js__WEBPACK_IMPORTED_MODULE_3__[
+                    'default'
+                  ])(data, this.formSerializer).toString();
                 }
 
                 if (
                   (isFileList =
-                    _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFileList(
-                      data
-                    )) ||
+                    _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                      'default'
+                    ].isFileList(data)) ||
                   contentType.indexOf('multipart/form-data') > -1
                 ) {
                   const _FormData = this.env && this.env.FormData;
 
                   return (0,
-                  _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_4__.default)(
+                  _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_4__[
+                    'default'
+                  ])(
                     isFileList ? { 'files[]': data } : data,
                     _FormData && new _FormData(),
                     this.formSerializer
@@ -3081,7 +3108,9 @@
 
               if (
                 data &&
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isString(data) &&
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isString(
+                  data
+                ) &&
                 ((forcedJSONParsing && !this.responseType) || JSONRequested)
               ) {
                 const silentJSONParsing =
@@ -3093,10 +3122,13 @@
                 } catch (e) {
                   if (strictJSONParsing) {
                     if (e.name === 'SyntaxError') {
-                      throw _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__.default.from(
+                      throw _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__[
+                        'default'
+                      ].from(
                         e,
-                        _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__.default
-                          .ERR_BAD_RESPONSE,
+                        _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__[
+                          'default'
+                        ].ERR_BAD_RESPONSE,
                         this,
                         null,
                         this.response
@@ -3125,9 +3157,9 @@
 
           env: {
             FormData:
-              _platform_index_js__WEBPACK_IMPORTED_MODULE_6__.default.classes
+              _platform_index_js__WEBPACK_IMPORTED_MODULE_6__['default'].classes
                 .FormData,
-            Blob: _platform_index_js__WEBPACK_IMPORTED_MODULE_6__.default
+            Blob: _platform_index_js__WEBPACK_IMPORTED_MODULE_6__['default']
               .classes.Blob
           },
 
@@ -3142,18 +3174,18 @@
           }
         };
 
-        _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.forEach(
+        _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].forEach(
           ['delete', 'get', 'head'],
           function forEachMethodNoData(method) {
             defaults.headers[method] = {};
           }
         );
 
-        _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.forEach(
+        _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].forEach(
           ['post', 'put', 'patch'],
           function forEachMethodWithData(method) {
             defaults.headers[method] =
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.merge(
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].merge(
                 DEFAULT_CONTENT_TYPE
               );
           }
@@ -3222,7 +3254,7 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _toFormData_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _toFormData_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./toFormData.js */ './node_modules/axios/lib/helpers/toFormData.js'
           );
@@ -3265,7 +3297,7 @@
           this._pairs = [];
 
           params &&
-            (0, _toFormData_js__WEBPACK_IMPORTED_MODULE_0__.default)(
+            (0, _toFormData_js__WEBPACK_IMPORTED_MODULE_0__['default'])(
               params,
               this,
               options
@@ -3426,11 +3458,11 @@
           /* harmony export */ default: () => /* binding */ buildURL
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _helpers_AxiosURLSearchParams_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _helpers_AxiosURLSearchParams_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../helpers/AxiosURLSearchParams.js */ './node_modules/axios/lib/helpers/AxiosURLSearchParams.js'
           );
@@ -3477,15 +3509,13 @@
           if (serializeFn) {
             serializedParams = serializeFn(params, options);
           } else {
-            serializedParams =
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isURLSearchParams(
-                params
-              )
-                ? params.toString()
-                : new _helpers_AxiosURLSearchParams_js__WEBPACK_IMPORTED_MODULE_1__.default(
-                    params,
-                    options
-                  ).toString(_encode);
+            serializedParams = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+              'default'
+            ].isURLSearchParams(params)
+              ? params.toString()
+              : new _helpers_AxiosURLSearchParams_js__WEBPACK_IMPORTED_MODULE_1__[
+                  'default'
+                ](params, options).toString(_encode);
           }
 
           if (serializedParams) {
@@ -3551,17 +3581,17 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ./../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _platform_index_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _platform_index_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../platform/index.js */ './node_modules/axios/lib/platform/browser/index.js'
           );
 
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
-          _platform_index_js__WEBPACK_IMPORTED_MODULE_0__.default
+          _platform_index_js__WEBPACK_IMPORTED_MODULE_0__['default']
             .isStandardBrowserEnv
             ? // Standard browser envs support document.cookie
               (function standardBrowserEnv() {
@@ -3578,25 +3608,25 @@
                     cookie.push(name + '=' + encodeURIComponent(value));
 
                     if (
-                      _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isNumber(
-                        expires
-                      )
+                      _utils_js__WEBPACK_IMPORTED_MODULE_1__[
+                        'default'
+                      ].isNumber(expires)
                     ) {
                       cookie.push('expires=' + new Date(expires).toGMTString());
                     }
 
                     if (
-                      _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isString(
-                        path
-                      )
+                      _utils_js__WEBPACK_IMPORTED_MODULE_1__[
+                        'default'
+                      ].isString(path)
                     ) {
                       cookie.push('path=' + path);
                     }
 
                     if (
-                      _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isString(
-                        domain
-                      )
+                      _utils_js__WEBPACK_IMPORTED_MODULE_1__[
+                        'default'
+                      ].isString(domain)
                     ) {
                       cookie.push('domain=' + domain);
                     }
@@ -3648,7 +3678,7 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
@@ -3665,7 +3695,7 @@
           // foo.x.y.z
           // foo-x-y-z
           // foo x y z
-          return _utils_js__WEBPACK_IMPORTED_MODULE_0__.default
+          return _utils_js__WEBPACK_IMPORTED_MODULE_0__['default']
             .matchAll(/\w+|\[(\w*)]/g, name)
             .map(match => {
               return match[0] === '[]' ? '' : match[1] || match[0];
@@ -3706,13 +3736,13 @@
             const isLast = index >= path.length;
             name =
               !name &&
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(target)
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(target)
                 ? target.length
                 : name;
 
             if (isLast) {
               if (
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.hasOwnProp(
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].hasOwnProp(
                   target,
                   name
                 )
@@ -3727,7 +3757,7 @@
 
             if (
               !target[name] ||
-              !_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isObject(
+              !_utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isObject(
                 target[name]
               )
             ) {
@@ -3738,7 +3768,7 @@
 
             if (
               result &&
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(
                 target[name]
               )
             ) {
@@ -3749,16 +3779,16 @@
           }
 
           if (
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFormData(
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isFormData(
               formData
             ) &&
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFunction(
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isFunction(
               formData.entries
             )
           ) {
             const obj = {};
 
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.forEachEntry(
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].forEachEntry(
               formData,
               (name, value) => {
                 buildPath(parsePropPath(name), value, obj, 0);
@@ -3823,7 +3853,7 @@
           /* harmony export */ default: () => /* binding */ isAxiosError
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./../utils.js */ './node_modules/axios/lib/utils.js'
           );
@@ -3837,8 +3867,9 @@
          */
         function isAxiosError(payload) {
           return (
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isObject(payload) &&
-            payload.isAxiosError === true
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isObject(
+              payload
+            ) && payload.isAxiosError === true
           );
         }
 
@@ -3859,17 +3890,17 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ./../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _platform_index_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _platform_index_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../platform/index.js */ './node_modules/axios/lib/platform/browser/index.js'
           );
 
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
-          _platform_index_js__WEBPACK_IMPORTED_MODULE_0__.default
+          _platform_index_js__WEBPACK_IMPORTED_MODULE_0__['default']
             .isStandardBrowserEnv
             ? // Standard browser envs have full support of the APIs needed to test
               // whether the request URL is of the same origin as current location.
@@ -3926,12 +3957,11 @@
                  * @returns {boolean} True if URL shares the same origin, otherwise false
                  */
                 return function isURLSameOrigin(requestURL) {
-                  const parsed =
-                    _utils_js__WEBPACK_IMPORTED_MODULE_1__.default.isString(
-                      requestURL
-                    )
-                      ? resolveURL(requestURL)
-                      : requestURL;
+                  const parsed = _utils_js__WEBPACK_IMPORTED_MODULE_1__[
+                    'default'
+                  ].isString(requestURL)
+                    ? resolveURL(requestURL)
+                    : requestURL;
                   return (
                     parsed.protocol === originURL.protocol &&
                     parsed.host === originURL.host
@@ -3982,33 +4012,34 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./../utils.js */ './node_modules/axios/lib/utils.js'
           );
 
         // RawAxiosHeaders whose duplicates are ignored by node
         // c.f. https://nodejs.org/api/http.html#http_message_headers
-        const ignoreDuplicateOf =
-          _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.toObjectSet([
-            'age',
-            'authorization',
-            'content-length',
-            'content-type',
-            'etag',
-            'expires',
-            'from',
-            'host',
-            'if-modified-since',
-            'if-unmodified-since',
-            'last-modified',
-            'location',
-            'max-forwards',
-            'proxy-authorization',
-            'referer',
-            'retry-after',
-            'user-agent'
-          ]);
+        const ignoreDuplicateOf = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+          'default'
+        ].toObjectSet([
+          'age',
+          'authorization',
+          'content-length',
+          'content-type',
+          'etag',
+          'expires',
+          'from',
+          'host',
+          'if-modified-since',
+          'if-unmodified-since',
+          'last-modified',
+          'location',
+          'max-forwards',
+          'proxy-authorization',
+          'referer',
+          'retry-after',
+          'user-agent'
+        ]);
 
         /**
          * Parse headers into an object
@@ -4103,7 +4134,7 @@
          * @returns {Function}
          */
         function speedometer(samplesCount, min) {
-          samplesCount ||= 10;
+          samplesCount = samplesCount || 10;
           const bytes = new Array(samplesCount);
           const timestamps = new Array(samplesCount);
           let head = 0;
@@ -4215,15 +4246,15 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ../core/AxiosError.js */ './node_modules/axios/lib/core/AxiosError.js'
           );
-        /* harmony import */ const _platform_node_classes_FormData_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _platform_node_classes_FormData_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../platform/node/classes/FormData.js */ './node_modules/axios/lib/helpers/null.js'
           );
@@ -4239,9 +4270,10 @@
          */
         function isVisitable(thing) {
           return (
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isPlainObject(
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isPlainObject(
               thing
-            ) || _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(thing)
+            ) ||
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(thing)
           );
         }
 
@@ -4253,7 +4285,7 @@
          * @returns {string} the key without the brackets.
          */
         function removeBrackets(key) {
-          return _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.endsWith(
+          return _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].endsWith(
             key,
             '[]'
           )
@@ -4291,20 +4323,21 @@
          */
         function isFlatArray(arr) {
           return (
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(arr) &&
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(arr) &&
             !arr.some(isVisitable)
           );
         }
 
-        const predicates =
-          _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.toFlatObject(
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default,
-            {},
-            null,
-            function filter(prop) {
-              return /^is[A-Z]/.test(prop);
-            }
-          );
+        const predicates = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+          'default'
+        ].toFlatObject(
+          _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'],
+          {},
+          null,
+          function filter(prop) {
+            return /^is[A-Z]/.test(prop);
+          }
+        );
 
         /**
          * Convert a data object to FormData
@@ -4330,17 +4363,23 @@
          * @returns
          */
         function toFormData(obj, formData, options) {
-          if (!_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isObject(obj)) {
+          if (
+            !_utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isObject(obj)
+          ) {
             throw new TypeError('target must be an object');
           }
 
           // eslint-disable-next-line no-param-reassign
-          formData ||=
-            new (_platform_node_classes_FormData_js__WEBPACK_IMPORTED_MODULE_1__.default ||
-              FormData)();
+          formData =
+            formData ||
+            new (_platform_node_classes_FormData_js__WEBPACK_IMPORTED_MODULE_1__[
+              'default'
+            ] || FormData)();
 
           // eslint-disable-next-line no-param-reassign
-          options = _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.toFlatObject(
+          options = _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+            'default'
+          ].toFlatObject(
             options,
             {
               metaTokens: true,
@@ -4350,9 +4389,9 @@
             false,
             function defined(option, source) {
               // eslint-disable-next-line no-eq-null,eqeqeq
-              return !_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isUndefined(
-                source[option]
-              );
+              return !_utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                'default'
+              ].isUndefined(source[option]);
             }
           );
 
@@ -4364,12 +4403,14 @@
           const _Blob = options.Blob || (typeof Blob !== 'undefined' && Blob);
           const useBlob =
             _Blob &&
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isSpecCompliantForm(
-              formData
-            );
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+              'default'
+            ].isSpecCompliantForm(formData);
 
           if (
-            !_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFunction(visitor)
+            !_utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isFunction(
+              visitor
+            )
           ) {
             throw new TypeError('visitor must be a function');
           }
@@ -4377,24 +4418,28 @@
           function convertValue(value) {
             if (value === null) return '';
 
-            if (_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isDate(value)) {
+            if (
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isDate(value)
+            ) {
               return value.toISOString();
             }
 
             if (
               !useBlob &&
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isBlob(value)
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isBlob(value)
             ) {
-              throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_2__.default(
-                'Blob is not supported. Use a Buffer instead.'
-              );
+              throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_2__[
+                'default'
+              ]('Blob is not supported. Use a Buffer instead.');
             }
 
             if (
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArrayBuffer(
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArrayBuffer(
                 value
               ) ||
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isTypedArray(value)
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isTypedArray(
+                value
+              )
             ) {
               return useBlob && typeof Blob === 'function'
                 ? new Blob([value])
@@ -4419,7 +4464,7 @@
 
             if (value && !path && typeof value === 'object') {
               if (
-                _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.endsWith(
+                _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].endsWith(
                   key,
                   '{}'
                 )
@@ -4429,19 +4474,19 @@
                 // eslint-disable-next-line no-param-reassign
                 value = JSON.stringify(value);
               } else if (
-                (_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isArray(
+                (_utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isArray(
                   value
                 ) &&
                   isFlatArray(value)) ||
-                ((_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isFileList(
+                ((_utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isFileList(
                   value
                 ) ||
-                  _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.endsWith(
+                  _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].endsWith(
                     key,
                     '[]'
                   )) &&
                   (arr =
-                    _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.toArray(
+                    _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].toArray(
                       value
                     )))
               ) {
@@ -4450,9 +4495,9 @@
 
                 arr.forEach(function each(el, index) {
                   !(
-                    _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isUndefined(
-                      el
-                    ) || el === null
+                    _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                      'default'
+                    ].isUndefined(el) || el === null
                   ) &&
                     formData.append(
                       // eslint-disable-next-line no-nested-ternary
@@ -4487,7 +4532,9 @@
 
           function build(value, path) {
             if (
-              _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isUndefined(value)
+              _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isUndefined(
+                value
+              )
             )
               return;
 
@@ -4497,19 +4544,21 @@
 
             stack.push(value);
 
-            _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.forEach(
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].forEach(
               value,
               function each(el, key) {
                 const result =
                   !(
-                    _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isUndefined(
-                      el
-                    ) || el === null
+                    _utils_js__WEBPACK_IMPORTED_MODULE_0__[
+                      'default'
+                    ].isUndefined(el) || el === null
                   ) &&
                   visitor.call(
                     formData,
                     el,
-                    _utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isString(key)
+                    _utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isString(
+                      key
+                    )
                       ? key.trim()
                       : key,
                     path,
@@ -4525,7 +4574,9 @@
             stack.pop();
           }
 
-          if (!_utils_js__WEBPACK_IMPORTED_MODULE_0__.default.isObject(obj)) {
+          if (
+            !_utils_js__WEBPACK_IMPORTED_MODULE_0__['default'].isObject(obj)
+          ) {
             throw new TypeError('data must be an object');
           }
 
@@ -4554,30 +4605,32 @@
           /* harmony export */ default: () => /* binding */ toURLEncodedForm
           /* harmony export */
         });
-        /* harmony import */ const _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ../utils.js */ './node_modules/axios/lib/utils.js'
           );
-        /* harmony import */ const _toFormData_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _toFormData_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./toFormData.js */ './node_modules/axios/lib/helpers/toFormData.js'
           );
-        /* harmony import */ const _platform_index_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _platform_index_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../platform/index.js */ './node_modules/axios/lib/platform/browser/index.js'
           );
 
         function toURLEncodedForm(data, options) {
-          return (0, _toFormData_js__WEBPACK_IMPORTED_MODULE_0__.default)(
+          return (0, _toFormData_js__WEBPACK_IMPORTED_MODULE_0__['default'])(
             data,
-            new _platform_index_js__WEBPACK_IMPORTED_MODULE_1__.default.classes.URLSearchParams(),
+            new _platform_index_js__WEBPACK_IMPORTED_MODULE_1__[
+              'default'
+            ].classes.URLSearchParams(),
             Object.assign(
               {
                 visitor: function (value, key, path, helpers) {
                   if (
-                    _platform_index_js__WEBPACK_IMPORTED_MODULE_1__.default
+                    _platform_index_js__WEBPACK_IMPORTED_MODULE_1__['default']
                       .isNode &&
-                    _utils_js__WEBPACK_IMPORTED_MODULE_2__.default.isBuffer(
+                    _utils_js__WEBPACK_IMPORTED_MODULE_2__['default'].isBuffer(
                       value
                     )
                   ) {
@@ -4610,11 +4663,11 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _env_data_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _env_data_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../env/data.js */ './node_modules/axios/lib/env/data.js'
           );
-        /* harmony import */ const _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ../core/AxiosError.js */ './node_modules/axios/lib/core/AxiosError.js'
           );
@@ -4661,12 +4714,16 @@
           // eslint-disable-next-line func-names
           return (value, opt, opts) => {
             if (validator === false) {
-              throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__.default(
+              throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__[
+                'default'
+              ](
                 formatMessage(
                   opt,
                   ' has been removed' + (version ? ' in ' + version : '')
                 ),
-                _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__.default.ERR_DEPRECATED
+                _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__[
+                  'default'
+                ].ERR_DEPRECATED
               );
             }
 
@@ -4699,9 +4756,13 @@
 
         function assertOptions(options, schema, allowUnknown) {
           if (typeof options !== 'object') {
-            throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__.default(
+            throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__[
+              'default'
+            ](
               'options must be an object',
-              _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__.default.ERR_BAD_OPTION_VALUE
+              _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__[
+                'default'
+              ].ERR_BAD_OPTION_VALUE
             );
           }
           const keys = Object.keys(options);
@@ -4714,17 +4775,25 @@
               const result =
                 value === undefined || validator(value, opt, options);
               if (result !== true) {
-                throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__.default(
+                throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__[
+                  'default'
+                ](
                   'option ' + opt + ' must be ' + result,
-                  _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__.default.ERR_BAD_OPTION_VALUE
+                  _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__[
+                    'default'
+                  ].ERR_BAD_OPTION_VALUE
                 );
               }
               continue;
             }
             if (allowUnknown !== true) {
-              throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__.default(
+              throw new _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__[
+                'default'
+              ](
                 'Unknown option ' + opt,
-                _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__.default.ERR_BAD_OPTION
+                _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_1__[
+                  'default'
+                ].ERR_BAD_OPTION
               );
             }
           }
@@ -4794,7 +4863,7 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _helpers_AxiosURLSearchParams_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _helpers_AxiosURLSearchParams_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ../../../helpers/AxiosURLSearchParams.js */ './node_modules/axios/lib/helpers/AxiosURLSearchParams.js'
           );
@@ -4802,7 +4871,9 @@
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
           typeof URLSearchParams !== 'undefined'
             ? URLSearchParams
-            : _helpers_AxiosURLSearchParams_js__WEBPACK_IMPORTED_MODULE_0__.default;
+            : _helpers_AxiosURLSearchParams_js__WEBPACK_IMPORTED_MODULE_0__[
+                'default'
+              ];
 
         /***/
       },
@@ -4821,15 +4892,15 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _classes_URLSearchParams_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _classes_URLSearchParams_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./classes/URLSearchParams.js */ './node_modules/axios/lib/platform/browser/classes/URLSearchParams.js'
           );
-        /* harmony import */ const _classes_FormData_js__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _classes_FormData_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ./classes/FormData.js */ './node_modules/axios/lib/platform/browser/classes/FormData.js'
           );
-        /* harmony import */ const _classes_Blob_js__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _classes_Blob_js__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ./classes/Blob.js */ './node_modules/axios/lib/platform/browser/classes/Blob.js'
           );
@@ -4889,9 +4960,12 @@
           isBrowser: true,
           classes: {
             URLSearchParams:
-              _classes_URLSearchParams_js__WEBPACK_IMPORTED_MODULE_0__.default,
-            FormData: _classes_FormData_js__WEBPACK_IMPORTED_MODULE_1__.default,
-            Blob: _classes_Blob_js__WEBPACK_IMPORTED_MODULE_2__.default
+              _classes_URLSearchParams_js__WEBPACK_IMPORTED_MODULE_0__[
+                'default'
+              ],
+            FormData:
+              _classes_FormData_js__WEBPACK_IMPORTED_MODULE_1__['default'],
+            Blob: _classes_Blob_js__WEBPACK_IMPORTED_MODULE_2__['default']
           },
           isStandardBrowserEnv,
           isStandardBrowserWebWorkerEnv,
@@ -4915,7 +4989,7 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const _helpers_bind_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _helpers_bind_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./helpers/bind.js */ './node_modules/axios/lib/helpers/bind.js'
           );
@@ -4927,7 +5001,7 @@
 
         const kindOf = (cache => thing => {
           const str = toString.call(thing);
-          return (cache[str] ||= str.slice(8, -1).toLowerCase());
+          return cache[str] || (cache[str] = str.slice(8, -1).toLowerCase());
         })(Object.create(null));
 
         const kindOfTest = type => {
@@ -5284,7 +5358,7 @@
             (val, key) => {
               if (thisArg && isFunction(val)) {
                 a[key] = (0,
-                _helpers_bind_js__WEBPACK_IMPORTED_MODULE_0__.default)(
+                _helpers_bind_js__WEBPACK_IMPORTED_MODULE_0__['default'])(
                   val,
                   thisArg
                 );
@@ -5352,7 +5426,7 @@
           let prop;
           const merged = {};
 
-          destObj ||= {};
+          destObj = destObj || {};
           // eslint-disable-next-line no-eq-null,eqeqeq
           if (sourceObj == null) return destObj;
 
@@ -5705,18 +5779,18 @@
   };
   /************************************************************************/
   /******/ // The module cache
-  /******/ const __webpack_module_cache__ = {};
+  /******/ var __webpack_module_cache__ = {};
   /******/
   /******/ // The require function
   /******/ function __webpack_require__(moduleId) {
     /******/ // Check if module is in cache
-    /******/ const cachedModule = __webpack_module_cache__[moduleId];
+    /******/ var cachedModule = __webpack_module_cache__[moduleId];
     /******/ if (cachedModule !== undefined) {
       /******/ return cachedModule.exports;
       /******/
     }
     /******/ // Create a new module (and put it into the cache)
-    /******/ const module = (__webpack_module_cache__[moduleId] = {
+    /******/ var module = (__webpack_module_cache__[moduleId] = {
       /******/ // no module.id needed
       /******/ // no module.loaded needed
       /******/ exports: {}
@@ -5740,7 +5814,7 @@
   /******/ (() => {
     /******/ // define getter functions for harmony exports
     /******/ __webpack_require__.d = (exports, definition) => {
-      /******/ for (const key in definition) {
+      /******/ for (var key in definition) {
         /******/ if (
           __webpack_require__.o(definition, key) &&
           !__webpack_require__.o(exports, key)
@@ -5782,22 +5856,22 @@
   })();
   /******/
   /************************************************************************/
-  const __webpack_exports__ = {};
+  var __webpack_exports__ = {};
   // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
   (() => {
     /*!*********************************************!*\
   !*** ./src/backgroundScripts/background.ts ***!
   \*********************************************/
     __webpack_require__.r(__webpack_exports__);
-    /* harmony import */ const _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__ =
+    /* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__ =
       __webpack_require__(
         /*! @/services/Entities.service */ './src/services/Entities.service.ts'
       );
-    /* harmony import */ const _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__ =
+    /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__ =
       __webpack_require__(
         /*! @/shared/utils/utils */ './src/shared/utils/utils.ts'
       );
-    const __awaiter =
+    var __awaiter =
       (undefined && undefined.__awaiter) ||
       function (thisArg, _arguments, P, generator) {
         function adopt(value) {
@@ -5807,7 +5881,7 @@
                 resolve(value);
               });
         }
-        return new (P ||= Promise)(function (resolve, reject) {
+        return new (P || (P = Promise))(function (resolve, reject) {
           function fulfilled(value) {
             try {
               step(generator.next(value));
@@ -5817,7 +5891,7 @@
           }
           function rejected(value) {
             try {
-              step(generator.throw(value));
+              step(generator['throw'](value));
             } catch (e) {
               reject(e);
             }
@@ -5830,10 +5904,10 @@
           step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
       };
-    const __generator =
+    var __generator =
       (undefined && undefined.__generator) ||
       function (thisArg, body) {
-        let _ = {
+        var _ = {
             label: 0,
             sent: function () {
               if (t[0] & 1) throw t[1];
@@ -5868,9 +5942,9 @@
                 y &&
                   (t =
                     op[0] & 2
-                      ? y.return
+                      ? y['return']
                       : op[0]
-                      ? y.throw || ((t = y.return) && t.call(y), 0)
+                      ? y['throw'] || ((t = y['return']) && t.call(y), 0)
                       : y.next) &&
                   !(t = t.call(y, op[1])).done)
               )
@@ -5931,7 +6005,7 @@
         }
       };
 
-    const arrUrlHeaders = [];
+    var arrUrlHeaders = [];
     chrome.webRequest.onHeadersReceived.addListener(
       function (details) {
         if (details.url.includes('navigate')) {
@@ -5947,105 +6021,74 @@
       },
       ['responseHeaders']
     );
-    chrome.runtime.onMessage.addListener(
-      function (request, sender, sendResponse) {
-        return __awaiter(this, void 0, void 0, function () {
-          let responseHeaders;
-          return __generator(this, function (_a) {
-            if (request.action === 'getEntities') {
-              chrome.cookies.getAll(
-                { url: sender.tab.url },
-                function (cookies) {
-                  return __awaiter(this, void 0, void 0, function () {
-                    let response, idEntities;
-                    return __generator(this, function (_a) {
-                      switch (_a.label) {
-                        case 0:
-                          return [
-                            4 /*yield*/,
-                            _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__.EntitiesService.getEntities(
-                              request.payload
-                            )
-                          ];
-                        case 1:
-                          response = _a.sent();
-                          try {
-                            idEntities = (0,
-                            _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getParamFromUrl)(
-                              sender.tab.url
-                            ).id;
-                            chrome.tabs.sendMessage(sender.tab.id, {
-                              action: 'postEntitiesForPasteInsert',
-                              payload: Array.from(
-                                new Set(
-                                  (0,
-                                  _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.entitiesForPasteInsert)(
-                                    response,
-                                    idEntities
-                                  )
-                                )
-                              )
-                            });
-                          } catch (error) {
-                            console.log(
-                              '🚀 ~ file: background.ts:60 ~ error:',
-                              error
-                            );
-                          }
-                          return [2 /*return*/];
-                      }
+    chrome.runtime.onMessage.addListener(function (request, sender) {
+      if (request.action === 'getEntities') {
+        chrome.cookies.getAll({ url: sender.tab.url }, function () {
+          return __awaiter(this, void 0, void 0, function () {
+            var response, idEntities;
+            return __generator(this, function (_a) {
+              switch (_a.label) {
+                case 0:
+                  return [
+                    4 /*yield*/,
+                    _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__.EntitiesService.getEntities(
+                      request.payload
+                    )
+                  ];
+                case 1:
+                  response = _a.sent();
+                  try {
+                    idEntities = (0,
+                    _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getParamFromUrl)(
+                      sender.tab.url
+                    ).id;
+                    chrome.tabs.sendMessage(sender.tab.id, {
+                      action: 'postEntitiesForPasteInsert',
+                      payload: Array.from(
+                        new Set(
+                          (0,
+                          _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.entitiesForPasteInsert)(
+                            response,
+                            idEntities
+                          )
+                        )
+                      )
                     });
-                  });
-                }
-              );
-            }
-            if (request.action === 'getUrlDevServer') {
-              console.log('arrUrlHeaders', arrUrlHeaders);
-              console.log('one', new Date().getMinutes());
-              responseHeaders = [];
-              arrUrlHeaders.forEach(function (element) {
-                console.log('two', new Date().getMinutes());
-                // console.log(getUrlParameter(element.objUrl.search, 'objectId'), 'id')
-                console.log('request', request.payload);
-                console.log('🚀 ~ file: background.ts:59 ~ request:', request);
-                console.log(
-                  'headers ',
-                  (0,
-                  _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlParameter)(
-                    element.objUrl.search,
-                    'objectId'
-                  )
-                );
-                if (
-                  request.payload ===
-                  (0,
-                  _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlParameter)(
-                    element.objUrl.search,
-                    'objectId'
-                  )
-                ) {
-                  console.log(555, element.responseHeaders);
-                  const urlFromServer = element.responseHeaders.find(
-                    function (_) {
-                      return _.name === 'Location';
-                    }
-                  ).value;
-                  const devUrl = urlFromServer.replace(
-                    'https://localhost:5001',
-                    'http://localhost:3000'
-                  );
-                  chrome.tabs.sendMessage(sender.tab.id, {
-                    action: 'postUrlDevServer',
-                    payload: devUrl
-                  });
-                }
-              });
-            }
-            return [2 /*return*/];
+                  } catch (error) {
+                    throw new Error(error);
+                  }
+                  return [2 /*return*/];
+              }
+            });
           });
         });
       }
-    );
+      if (request.action === 'getUrlDevServer') {
+        arrUrlHeaders.forEach(function (element) {
+          // console.log(getUrlParameter(element.objUrl.search, 'objectId'), 'id')
+          if (
+            request.payload ===
+            (0,
+            _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.getUrlParameter)(
+              element.objUrl.search,
+              'objectId'
+            )
+          ) {
+            var urlFromServer = element.responseHeaders.find(function (_) {
+              return _.name === 'Location';
+            }).value;
+            var devUrl = urlFromServer.replace(
+              'https://localhost:5001',
+              'http://localhost:3000'
+            );
+            chrome.tabs.sendMessage(sender.tab.id, {
+              action: 'postUrlDevServer',
+              payload: devUrl
+            });
+          }
+        });
+      }
+    });
   })();
 
   /******/

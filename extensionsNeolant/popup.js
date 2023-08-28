@@ -1,6 +1,6 @@
 /******/ (() => {
   // webpackBootstrap
-  /******/ const __webpack_modules__ = {
+  /******/ var __webpack_modules__ = {
     /***/ './src/assets/icon/IconPaste.svg':
       /*!***************************************!*\
   !*** ./src/assets/icon/IconPaste.svg ***!
@@ -16,20 +16,20 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const react__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ const react__WEBPACK_IMPORTED_MODULE_0___default =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
             react__WEBPACK_IMPORTED_MODULE_0__
           );
-        let _path;
+        var _path;
         function _extends() {
           _extends = Object.assign
             ? Object.assign.bind()
             : function (target) {
-                for (let i = 1; i < arguments.length; i++) {
-                  const source = arguments[i];
-                  for (const key in source) {
+                for (var i = 1; i < arguments.length; i++) {
+                  var source = arguments[i];
+                  for (var key in source) {
                     if (Object.prototype.hasOwnProperty.call(source, key)) {
                       target[key] = source[key];
                     }
@@ -40,7 +40,7 @@
           return _extends.apply(this, arguments);
         }
 
-        const SvgIconPaste = function SvgIconPaste(props) {
+        var SvgIconPaste = function SvgIconPaste(props) {
           return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0__.createElement(
             'svg',
             _extends(
@@ -82,20 +82,20 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const react__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ const react__WEBPACK_IMPORTED_MODULE_0___default =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
             react__WEBPACK_IMPORTED_MODULE_0__
           );
-        let _path;
+        var _path;
         function _extends() {
           _extends = Object.assign
             ? Object.assign.bind()
             : function (target) {
-                for (let i = 1; i < arguments.length; i++) {
-                  const source = arguments[i];
-                  for (const key in source) {
+                for (var i = 1; i < arguments.length; i++) {
+                  var source = arguments[i];
+                  for (var key in source) {
                     if (Object.prototype.hasOwnProperty.call(source, key)) {
                       target[key] = source[key];
                     }
@@ -106,7 +106,7 @@
           return _extends.apply(this, arguments);
         }
 
-        const SvgIconArrowLeft = function SvgIconArrowLeft(props) {
+        var SvgIconArrowLeft = function SvgIconArrowLeft(props) {
           return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0__.createElement(
             'svg',
             _extends(
@@ -151,20 +151,20 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const react__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ const react__WEBPACK_IMPORTED_MODULE_0___default =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
             react__WEBPACK_IMPORTED_MODULE_0__
           );
-        let _path;
+        var _path;
         function _extends() {
           _extends = Object.assign
             ? Object.assign.bind()
             : function (target) {
-                for (let i = 1; i < arguments.length; i++) {
-                  const source = arguments[i];
-                  for (const key in source) {
+                for (var i = 1; i < arguments.length; i++) {
+                  var source = arguments[i];
+                  for (var key in source) {
                     if (Object.prototype.hasOwnProperty.call(source, key)) {
                       target[key] = source[key];
                     }
@@ -175,7 +175,7 @@
           return _extends.apply(this, arguments);
         }
 
-        const SvgIconDelete = function SvgIconDelete(props) {
+        var SvgIconDelete = function SvgIconDelete(props) {
           return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0__.createElement(
             'svg',
             _extends(
@@ -218,20 +218,20 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ const react__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ const react__WEBPACK_IMPORTED_MODULE_0___default =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
             react__WEBPACK_IMPORTED_MODULE_0__
           );
-        let _path, _path2;
+        var _path, _path2;
         function _extends() {
           _extends = Object.assign
             ? Object.assign.bind()
             : function (target) {
-                for (let i = 1; i < arguments.length; i++) {
-                  const source = arguments[i];
-                  for (const key in source) {
+                for (var i = 1; i < arguments.length; i++) {
+                  var source = arguments[i];
+                  for (var key in source) {
                     if (Object.prototype.hasOwnProperty.call(source, key)) {
                       target[key] = source[key];
                     }
@@ -242,7 +242,7 @@
           return _extends.apply(this, arguments);
         }
 
-        const SvgIconSetting = function SvgIconSetting(props) {
+        var SvgIconSetting = function SvgIconSetting(props) {
           return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0__.createElement(
             'svg',
             _extends(
@@ -294,7 +294,7 @@
   !*** ./node_modules/classnames/index.js ***!
   \******************************************/
       /***/ (module, exports) => {
-        let __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__; /*!
+        var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__; /*!
 	Copyright (c) 2018 Jed Watson.
 	Licensed under the MIT License (MIT), see
 	http://jedwatson.github.io/classnames
@@ -304,23 +304,23 @@
         (function () {
           'use strict';
 
-          const hasOwn = {}.hasOwnProperty;
-          const nativeCodeString = '[native code]';
+          var hasOwn = {}.hasOwnProperty;
+          var nativeCodeString = '[native code]';
 
           function classNames() {
-            const classes = [];
+            var classes = [];
 
-            for (let i = 0; i < arguments.length; i++) {
-              const arg = arguments[i];
+            for (var i = 0; i < arguments.length; i++) {
+              var arg = arguments[i];
               if (!arg) continue;
 
-              const argType = typeof arg;
+              var argType = typeof arg;
 
               if (argType === 'string' || argType === 'number') {
                 classes.push(arg);
               } else if (Array.isArray(arg)) {
                 if (arg.length) {
-                  const inner = classNames.apply(null, arg);
+                  var inner = classNames.apply(null, arg);
                   if (inner) {
                     classes.push(inner);
                   }
@@ -334,7 +334,7 @@
                   continue;
                 }
 
-                for (const key in arg) {
+                for (var key in arg) {
                   if (hasOwn.call(arg, key) && arg[key]) {
                     classes.push(key);
                   }
@@ -384,7 +384,7 @@
           /* harmony export */ default: () => /* binding */ CSSPlugin
           /* harmony export */
         });
-        /* harmony import */ const _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ =
+        /* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./gsap-core.js */ './node_modules/gsap/gsap-core.js'
           );
@@ -51052,16 +51052,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return to.concat(ar || Array.prototype.slice.call(from));
           };
 
-        var AllowUrl = function (props) {
-          var allowBaseUrlDemo = [
-            'pdm-kueg',
-            'lukoil-test',
-            'pdm-tst-kueg',
-            'pdm-base',
-            'pdm-kueg.lukoil',
-            'pdm-tst-kueg.lukoil',
-            'pdm-base.lukoil'
-          ];
+        var AllowUrl = function () {
           var _a = (0, react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
             allowBaseUrl = _a[0],
             setAllowBaseUrl = _a[1];
@@ -51125,15 +51116,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 switch (_a.label) {
                   case 0:
                     if (Array.isArray(allowBaseUrl))
-                      chrome.storage.sync
-                        .set({
-                          allowBaseUrl: allowBaseUrl.map(function (_) {
-                            return _.label;
-                          })
+                      chrome.storage.sync.set({
+                        allowBaseUrl: allowBaseUrl.map(function (_) {
+                          return _.label;
                         })
-                        .then(function () {
-                          console.log('Value is set');
-                        });
+                      });
                     return [
                       4 /*yield*/,
                       chrome.storage.sync
@@ -51395,7 +51382,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             }
           };
 
-        var PasteClass = function (props) {
+        var PasteClass = function () {
           var showModalPasteInterface = function () {
             chrome.tabs.query(
               { active: true, currentWindow: true },
@@ -51707,7 +51694,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             }
           };
 
-        var Setting = function (props) {
+        var Setting = function () {
           var pageRoute = {
             addPortal:
               react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
@@ -57482,139 +57469,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
       __webpack_require__(
         /*! @/assets/icon/Icon_setting.svg */ './src/assets/icon/Icon_setting.svg'
       );
-    var __awaiter =
-      (undefined && undefined.__awaiter) ||
-      function (thisArg, _arguments, P, generator) {
-        function adopt(value) {
-          return value instanceof P
-            ? value
-            : new P(function (resolve) {
-                resolve(value);
-              });
-        }
-        return new (P || (P = Promise))(function (resolve, reject) {
-          function fulfilled(value) {
-            try {
-              step(generator.next(value));
-            } catch (e) {
-              reject(e);
-            }
-          }
-          function rejected(value) {
-            try {
-              step(generator['throw'](value));
-            } catch (e) {
-              reject(e);
-            }
-          }
-          function step(result) {
-            result.done
-              ? resolve(result.value)
-              : adopt(result.value).then(fulfilled, rejected);
-          }
-          step((generator = generator.apply(thisArg, _arguments || [])).next());
-        });
-      };
-    var __generator =
-      (undefined && undefined.__generator) ||
-      function (thisArg, body) {
-        var _ = {
-            label: 0,
-            sent: function () {
-              if (t[0] & 1) throw t[1];
-              return t[1];
-            },
-            trys: [],
-            ops: []
-          },
-          f,
-          y,
-          t,
-          g;
-        return (
-          (g = { next: verb(0), throw: verb(1), return: verb(2) }),
-          typeof Symbol === 'function' &&
-            (g[Symbol.iterator] = function () {
-              return this;
-            }),
-          g
-        );
-        function verb(n) {
-          return function (v) {
-            return step([n, v]);
-          };
-        }
-        function step(op) {
-          if (f) throw new TypeError('Generator is already executing.');
-          while ((g && ((g = 0), op[0] && (_ = 0)), _))
-            try {
-              if (
-                ((f = 1),
-                y &&
-                  (t =
-                    op[0] & 2
-                      ? y['return']
-                      : op[0]
-                      ? y['throw'] || ((t = y['return']) && t.call(y), 0)
-                      : y.next) &&
-                  !(t = t.call(y, op[1])).done)
-              )
-                return t;
-              if (((y = 0), t)) op = [op[0] & 2, t.value];
-              switch (op[0]) {
-                case 0:
-                case 1:
-                  t = op;
-                  break;
-                case 4:
-                  _.label++;
-                  return { value: op[1], done: false };
-                case 5:
-                  _.label++;
-                  y = op[1];
-                  op = [0];
-                  continue;
-                case 7:
-                  op = _.ops.pop();
-                  _.trys.pop();
-                  continue;
-                default:
-                  if (
-                    !((t = _.trys), (t = t.length > 0 && t[t.length - 1])) &&
-                    (op[0] === 6 || op[0] === 2)
-                  ) {
-                    _ = 0;
-                    continue;
-                  }
-                  if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) {
-                    _.label = op[1];
-                    break;
-                  }
-                  if (op[0] === 6 && _.label < t[1]) {
-                    _.label = t[1];
-                    t = op;
-                    break;
-                  }
-                  if (t && _.label < t[2]) {
-                    _.label = t[2];
-                    _.ops.push(op);
-                    break;
-                  }
-                  if (t[2]) _.ops.pop();
-                  _.trys.pop();
-                  continue;
-              }
-              op = body.call(thisArg, _);
-            } catch (e) {
-              op = [6, e];
-              y = 0;
-            } finally {
-              f = t = 0;
-            }
-          if (op[0] & 5) throw op[1];
-          return { value: op[0] ? op[1] : void 0, done: true };
-        }
-      };
+    /* eslint-disable max-len */
+    /* eslint-disable max-lines-per-function */
 
     var App = function () {
       var _a = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)(1),
@@ -57692,67 +57548,27 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             0
           );
       }
-      var divideByGroups = function () {
-        return __awaiter(void 0, void 0, void 0, function () {
-          var tabs, tabsGroupIds, entriesTabGroup;
-          return __generator(this, function (_a) {
-            switch (_a.label) {
-              case 0:
-                return [4 /*yield*/, chrome.tabs.query({})];
-              case 1:
-                tabs = _a.sent();
-                tabsGroupIds = {
-                  swagger: [],
-                  'pdm-kueg.io.neolant.su': [],
-                  'lukoil-test.io.neolant.su': [],
-                  confluence: [],
-                  tfs: [],
-                  'mail.neolant': []
-                };
-                entriesTabGroup = Object.entries(tabsGroupIds);
-                tabs.forEach(function (_a) {
-                  var url = _a.url,
-                    id = _a.id;
-                  var key = entriesTabGroup
-                    .map(function (_) {
-                      return _[0];
-                    })
-                    .find(function (k) {
-                      return url.includes(k);
-                    });
-                  if (!key) return;
-                  tabsGroupIds[key].push(id);
-                });
-                Object.entries(tabsGroupIds).forEach(function (tabContent) {
-                  return __awaiter(void 0, void 0, void 0, function () {
-                    var group;
-                    return __generator(this, function (_a) {
-                      switch (_a.label) {
-                        case 0:
-                          return [
-                            4 /*yield*/,
-                            chrome.tabs.group({ tabIds: tabContent[1] })
-                          ];
-                        case 1:
-                          group = _a.sent();
-                          return [
-                            4 /*yield*/,
-                            chrome.tabGroups.update(group, {
-                              title: tabContent[0]
-                            })
-                          ];
-                        case 2:
-                          _a.sent();
-                          return [2 /*return*/];
-                      }
-                    });
-                  });
-                });
-                return [2 /*return*/];
-            }
-          });
-        });
-      };
+      // const divideByGroups = async () => {
+      //   const tabs = await chrome.tabs.query({});
+      //   const tabsGroupIds: Record<string, number[]> = {
+      //     swagger: [],
+      //     'pdm-kueg.io.neolant.su': [],
+      //     'lukoil-test.io.neolant.su': [],
+      //     confluence: [],
+      //     tfs: [],
+      //     'mail.neolant': []
+      //   };
+      //   const entriesTabGroup = Object.entries(tabsGroupIds);
+      //   tabs.forEach(({url, id}) => {
+      //     const key = entriesTabGroup.map(_ => _[0]).find(k => url.includes(k));
+      //     if (!key) return;
+      //     tabsGroupIds[key].push(id);
+      //   });
+      //   Object.entries(tabsGroupIds).forEach(async tabContent => {
+      //     const group = await chrome.tabs.group({tabIds: tabContent[1]});
+      //     await chrome.tabGroups.update(group, {title: tabContent[0]});
+      //   });
+      // };
       var objPage = {
         1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
           _page_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass,

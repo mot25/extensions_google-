@@ -2,6 +2,36 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/contentScripts/AppModalPaste/AppModalPaste.module.scss ***!
   \***************************************************************************************************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap);
+/*!****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/CopyViewer/CopyViewer.module.scss ***!
+  \****************************************************************************************************************************************/
+.Jx407bIoUoJsSjeWDRiP {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.DaAHBl0EY3OHes2da5nw {
+  margin-right: 10px;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+.extentions__item__htkY4 {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.extentions__name__HgzNf {
+  margin-right: 10px;
+  flex: 1;
+  font-size: 15px;
+}
+
+.extentions__delete_btn__De5zM {
+  margin-right: 10px;
+}
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
   \****************************************************************************************************************************************************************************************************************************/
@@ -22,38 +52,6 @@
 }
 .extentions__button__fSW73 span {
   color: #fff;
-}
-/*!****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/CopyViewer/CopyViewer.module.scss ***!
-  \****************************************************************************************************************************************/
-.N1uvGsVL4qGXjOCVAFTX {
-  margin-right: 10px;
-  flex: 1;
-  font-size: 15px;
-}
-
-.nE204NzmXhe24AG0MOgx .N1uvGsVL4qGXjOCVAFTX {
-  margin: 0;
-}
-
-.flzqcfZQrdwcLa91HMQw {
-  margin-right: 10px;
-}
-
-.j9xCALOy39U0ivjApBvg {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin-bottom: 7px;
-}
-
-.Jx407bIoUoJsSjeWDRiP {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.DaAHBl0EY3OHes2da5nw {
-  margin-right: 10px;
 }
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/DropDown/DropDown.module.scss ***!
@@ -278,19 +276,6 @@ input:checked + .extentions__slider__zHS8J:before {
 /*!******************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/PasteViewer/PasteViewer.module.scss ***!
   \******************************************************************************************************************************************/
-.hFs_N2MFzIaRseJGG7fK {
-  margin-right: 10px;
-  flex: 1;
-}
-.hFs_N2MFzIaRseJGG7fK div input {
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
-.Zmlx3UhZVvMWabovQc4q .hFs_N2MFzIaRseJGG7fK {
-  margin: 0;
-}
-
 .f_C_zIKlvDAJPbkLprQV,
 .NBeM7XHx7Cyac3ncgQer {
   padding: 5px 10px;
@@ -329,16 +314,6 @@ input:checked + .extentions__slider__zHS8J:before {
   width: 40px;
 }
 
-.idOaWHHbogUVL9A4fqSR {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 5px;
-}
-.fKoVWMKRKlco1MOrSsMN {
-  background-color: #e5f6ff;
-}
-
 .fjhF8Dy70JtCv7CIdCss {
   margin-top: 15px;
 }
@@ -353,6 +328,27 @@ input:checked + .extentions__slider__zHS8J:before {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForPaste/ViewerForPaste.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+.extentions__viewerWrapper__Zbmpy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 5px;
+}
+.extentions__viewerWrapper__even__IAOVD {
+  background-color: #e5f6ff;
+}
+
+.extentions__name__ZU02b {
+  margin-right: 10px;
+  flex: 1;
+}
+.extentions__name__ZU02b div input {
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/contentScripts/AppModalPaste/AppModalPaste.module.scss (1) ***!

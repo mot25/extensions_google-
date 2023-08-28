@@ -12,6 +12,7 @@
   ],
   "globals": {
     "__dirname": "readonly",
+    "HTMLElementTagNameMap": "readonly",
     "module": "writable",
     "chrome": "writable"
   },
@@ -80,15 +81,7 @@
         "skipComments": true
       }
     ],
-    "max-lines-per-function": [
-      "error",
-      {
-        "max": 40,
-        "skipBlankLines": true,
-        "skipComments": true
-      }
-    ],
-    "max-nested-callbacks": ["error", 3],
+    "max-nested-callbacks": ["error", 4],
     "no-alert": "warn",
     "no-console": "warn",
     "no-empty": "error",

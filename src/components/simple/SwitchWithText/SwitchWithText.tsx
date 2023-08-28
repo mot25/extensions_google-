@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import styles from './SwitchWithText.module.scss';
-import React, { useState } from 'react';
+import React from 'react';
 import Switch from '../Switch/Switch';
 
 type Props = {

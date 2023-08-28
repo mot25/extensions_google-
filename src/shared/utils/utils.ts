@@ -41,7 +41,7 @@ export const entitiesForPasteInsert = (
 };
 
 export function getUrlParameter(location: string, name: string) {
-  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
   const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
   const results = regex.exec(location);
   return results === null

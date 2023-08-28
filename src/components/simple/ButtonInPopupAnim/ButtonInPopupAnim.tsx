@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 
 import styles from './ButtonInPopupAnim.module.scss';
 
-type Props = { text: string; onClick: VoidFunction };
+type Props = { text: string; onClick: () => void };
 
 const ButtonInPopupAnim = ({ onClick, text }: Props) => {
   const refPlaceText = useRef<HTMLSpanElement>(null);

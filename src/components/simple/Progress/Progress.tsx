@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Progress.module.scss';
-type Props = {};
+type Props = { done: number };
 
-const Progress = ({ done }: { done: number }) => {
+const Progress = ({ done }: Props) => {
   const [style, setStyle] = useState({});
 
   useEffect(() => {

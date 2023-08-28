@@ -1,7 +1,7 @@
 /******/ (() => {
   // webpackBootstrap
   /******/ 'use strict';
-  /******/ const __webpack_modules__ = {
+  /******/ var __webpack_modules__ = {
     /***/ './src/shared/utils/utils.ts':
       /*!***********************************!*\
   !*** ./src/shared/utils/utils.ts ***!
@@ -31,7 +31,7 @@
               function (t) {
                 for (var s, i = 1, n = arguments.length; i < n; i++) {
                   s = arguments[i];
-                  for (const p in s)
+                  for (var p in s)
                     if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
                 }
                 return t;
@@ -40,29 +40,29 @@
           };
         var getParamFromUrl = function (url) {
           // Разбиваем строку запроса на отдельные параметры
-          const params = new URLSearchParams(url);
+          var params = new URLSearchParams(url);
           // Создаем пустой объект для хранения параметров
-          const paramsObj = {};
+          var paramsObj = {};
           // Проходимся по всем параметрам и добавляем их в объект
           params.forEach(function (value, key) {
-            const keyArr =
+            var keyArr =
               key === null || key === void 0 ? void 0 : key.split('?');
-            const keyValue = keyArr.length > 1 ? keyArr[1] : keyArr[0];
+            var keyValue = keyArr.length > 1 ? keyArr[1] : keyArr[0];
             paramsObj[keyValue] = value;
           });
           return paramsObj;
         };
         var entitiesForPasteInsert = function (entities, idEntities) {
-          const currentEntities = entities.find(function (item) {
+          var currentEntities = entities.find(function (item) {
             return (
               (item === null || item === void 0 ? void 0 : item.Id) ===
               idEntities
             );
           });
-          const arrNested = [];
-          const findNested = function (entity) {
-            const childNestedEntity = entities.filter(function (item) {
-              let _a;
+          var arrNested = [];
+          var findNested = function (entity) {
+            var childNestedEntity = entities.filter(function (item) {
+              var _a;
               return (
                 ((_a =
                   item === null || item === void 0 ? void 0 : item.Parent) ===
@@ -89,9 +89,9 @@
           return arrNested;
         };
         function getUrlParameter(location, name) {
-          name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-          const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-          const results = regex.exec(location);
+          name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+          var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+          var results = regex.exec(location);
           return results === null
             ? ''
             : decodeURIComponent(results[1].replace(/\+/g, ' '));
@@ -115,18 +115,18 @@
   };
   /************************************************************************/
   /******/ // The module cache
-  /******/ const __webpack_module_cache__ = {};
+  /******/ var __webpack_module_cache__ = {};
   /******/
   /******/ // The require function
   /******/ function __webpack_require__(moduleId) {
     /******/ // Check if module is in cache
-    /******/ const cachedModule = __webpack_module_cache__[moduleId];
+    /******/ var cachedModule = __webpack_module_cache__[moduleId];
     /******/ if (cachedModule !== undefined) {
       /******/ return cachedModule.exports;
       /******/
     }
     /******/ // Create a new module (and put it into the cache)
-    /******/ const module = (__webpack_module_cache__[moduleId] = {
+    /******/ var module = (__webpack_module_cache__[moduleId] = {
       /******/ // no module.id needed
       /******/ // no module.loaded needed
       /******/ exports: {}
@@ -150,7 +150,7 @@
   /******/ (() => {
     /******/ // define getter functions for harmony exports
     /******/ __webpack_require__.d = (exports, definition) => {
-      /******/ for (const key in definition) {
+      /******/ for (var key in definition) {
         /******/ if (
           __webpack_require__.o(definition, key) &&
           !__webpack_require__.o(exports, key)
@@ -192,21 +192,20 @@
   })();
   /******/
   /************************************************************************/
-  const __webpack_exports__ = {};
+  var __webpack_exports__ = {};
   // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
   (() => {
     /*!*******************************************!*\
   !*** ./src/contentScripts/hotReloadNS.ts ***!
   \*******************************************/
     __webpack_require__.r(__webpack_exports__);
-    /* harmony import */ const _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ =
+    /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ =
       __webpack_require__(
         /*! ../shared/utils/utils */ './src/shared/utils/utils.ts'
       );
 
-    const iFrames = document.querySelector('iframe.objects-fill-content');
-    const oldSrc = iFrames.getAttribute('src');
-    const getDevServerUrl = function () {
+    var iFrames = document.querySelector('iframe.objects-fill-content');
+    var getDevServerUrl = function () {
       chrome.runtime.sendMessage({
         action: 'getUrlDevServer',
         payload: (0,
@@ -215,21 +214,13 @@
           'id'
         )
       });
-      console.log('sent from page');
     };
     getDevServerUrl();
-    chrome.runtime.onMessage.addListener(
-      function (request, sender, sendResponse) {
-        if (request.action === 'postUrlDevServer') {
-          iFrames.setAttribute('src', request.payload);
-        }
+    chrome.runtime.onMessage.addListener(function (request) {
+      if (request.action === 'postUrlDevServer') {
+        iFrames.setAttribute('src', request.payload);
       }
-    );
-    console.log(
-      '🚀 ~ file: hotReloadNS.ts:3 ~ oldSrc:',
-      window.location.search
-    );
-    console.log(222);
+    });
   })();
 
   /******/

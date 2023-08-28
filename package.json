@@ -5,11 +5,10 @@
   "scripts": {
     "start": "webpack --watch",
     "build:prod": "webpack",
-    "build:dev": "webpack serve",
     "clear:win": "rd /s /q extensionsNeolant",
     "clear:mac": "rm -rf extensionsNeolant",
     "prefix": "npx prettier . --write",
-    "fix": "eslint --fix ./src/**/*.{tsx,ts}",
+    "fix": "eslint --fix ./**/*.{tsx,ts}",
     "prepare": "husky install"
   },
   "keywords": [],

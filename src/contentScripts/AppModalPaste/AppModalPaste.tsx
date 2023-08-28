@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import IconClose from '@/assets/icon/IconClose.svg';
 import IconPaste from '@/assets/icon/IconPaste.svg';
 import IconPlus from '@/assets/icon/IconPlus.svg';
@@ -32,7 +33,6 @@ import {
 import { EntitiesService } from '@/services/Entities.service';
 import { AttributesService } from '@/services/Attributes.service';
 
-type Props = {};
 const leftMenuConfig: MenuLeftNavbar[] = [
   {
     id: 1,
@@ -51,7 +51,7 @@ chrome.runtime.sendMessage({
   payload: window.location.origin
 });
 
-const AppModalPaste = (props: Props) => {
+const AppModalPaste = () => {
   const refModalWrapper = useRef<HTMLDivElement>(null);
 
   const [entitiesFromPaste, setEntitiesFromPaste] = useState<EntitiesType[]>(
@@ -75,32 +75,20 @@ const AppModalPaste = (props: Props) => {
     nodes.forEach(element => {
       element.remove();
     });
+    // eslint-disable-next-line no-console
     console.log('extensions remove');
   };
   const fetchIcons = async () => {
-    try {
-      const response = await IconService.getIcons();
-      setIcons(response);
-    } catch (error) {
-      console.log(
-        '🚀 ~ file: AppModalPaste.tsx:68 ~ fetchIcons ~ error:',
-        error
-      );
-    }
+    setIcons(await IconService.getIcons());
   };
   const addStateViewers = (view: ViewerType) => {
     chrome.storage.local.get(['viewersState'], function (result) {
       const allView = result.viewersState && JSON.parse(result.viewersState);
       const saveViewersStorage = Array.isArray(allView) ? allView : [];
       saveViewersStorage.push(view);
-      chrome.storage.local.set(
-        {
-          viewersState: JSON.stringify(saveViewersStorage)
-        },
-        function () {
-          console.log('Данные сохранены');
-        }
-      );
+      chrome.storage.local.set({
+        viewersState: JSON.stringify(saveViewersStorage)
+      });
     });
   };
   const deleteView = (id: string) => {
@@ -108,14 +96,9 @@ const AppModalPaste = (props: Props) => {
       const allView = result.viewersState && JSON.parse(result.viewersState);
       const saveViewersStorage = allView.filter((item: any) => item.Id !== id);
 
-      chrome.storage.local.set(
-        {
-          viewersState: JSON.stringify(saveViewersStorage)
-        },
-        function () {
-          console.log('Данные сохранены');
-        }
-      );
+      chrome.storage.local.set({
+        viewersState: JSON.stringify(saveViewersStorage)
+      });
     });
   };
   const changeSelectedToggleiewer = (id: string) => {
@@ -127,25 +110,11 @@ const AppModalPaste = (props: Props) => {
     );
   };
 
-  const pasteViewers = async ({
+  const pasteViewers = ({
     viewerForPaste,
     configPasteEntities,
     settingForPaste
   }: TypePasteViewers) => {
-    console.log('config for paste', {
-      viewerForPaste,
-      configPasteEntities,
-      settingForPaste
-    });
-    // export const TRANSFER_DATA_EXTERNAL_SERVICES = 'SendParams'
-    // export const HIDE_IN_TREE = 'hideInStructureOfObject'
-    // export const HIDE_IN_MODEL = 'hideInViewingModel'
-    // export const HIDE_EMPTY_FIELD = 'hideEmptyFields'
-    // export const ONLY_READ = 'viewMode'
-    // export const COPY_ATTR_IN_VIEWER = 'copy_attr_in_viewer'
-    // export const COPY_ATTR_IN_ENTITIES = 'copy_attr_in_entities'
-    // export const URL_VIEWER_SETTING = 'url_viewer_setting'
-    // export const ID_SELECT_ICON = 'id_select_icon'
     const isApplySettingsCustom = settingForPaste.find(
       _ => _.id === APPLY_SETTINGS
     ).isActive;
@@ -191,11 +160,11 @@ const AppModalPaste = (props: Props) => {
 
     const selectIcon = configPasteEntities.find(_ => _.id === ID_SELECT_ICON);
 
-    entitiesFromPaste.forEach(async entity => {
+    entitiesFromPaste.forEach(entity => {
       if (!entity.isCurrent) if (!isApplyNestedEntities) return;
       const promisesListResponse: Promise<ViewerType>[] = [];
 
-      viewerForPaste.forEach(async viewer => {
+      viewerForPaste.forEach(viewer => {
         if (!viewer.isSelected) return;
 
         initialCustomSettings.Url = configApplyNewUrl?.isActive
@@ -251,6 +220,7 @@ const AppModalPaste = (props: Props) => {
                 idEntity: entity.Id
               });
             }
+            // eslint-disable-next-line no-console
             console.log(
               `Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`
             );
@@ -273,6 +243,7 @@ const AppModalPaste = (props: Props) => {
                 idEntity: entity.Id
               });
             }
+            // eslint-disable-next-line no-console
             console.log(
               `Создали вид: ${dataPost.Caption} в классе ${entity.Name}`
             );
@@ -284,21 +255,9 @@ const AppModalPaste = (props: Props) => {
         })();
         promisesListResponse.push(newViewer);
       });
-
-      //     // для вставки атрибутов в вид put
-      //     // https://pdm-kueg.io.neolant.su/api/structure/entities/0ad58ed4-c7c7-ed11-8daf-85953743f5cc/viewers/c53e0660-4543-4187-8eb0-8c68c03acc86/attributes?ids=5eaf1db2-dc20-ec11-a958-00505600163f
-
-      //     // вставка в класс атрибутов post
-      //     // https://pdm-kueg.io.neolant.su/api/structure/entities/0ad58ed4-c7c7-ed11-8daf-85953743f5cc/attributes?ids=5eaf1db2-dc20-ec11-a958-00505600163f&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6&ids=3fa85f64-5717-4562-b3fc-2c963f66afa6
-
-      // https://pdm-kueg.io.neolant.su/api/structure/entities//attributes?ids=43fd8a5a-77be-ed11-8daf-85953743f5cc&ids=d200ac55-7cb9-ec11-8dad-e116bd673e14&ids=6790be53-6b3e-ed11-8dad-e116bd673e14&ids=2b5e36d1-3fc2-ec11-8dad-e116bd673e14&ids=fff27bb9-a9b9-ed11-8daf-85953743f5cc&ids=0ddc05f8-a9b9-ed11-8daf-85953743f5cc&ids=08061722-2ba9-ed11-8daf-85953743f5cc&ids=21938d29-98c1-ed11-8daf-85953743f5cc&ids=735e4e30-af6a-eb11-8dae-e4cbcadfe2a0
-
-      // удаления атрибутов у класса delete
-      // https://pdm-kueg.io.neolant.su/api/structure/entities/05d58ed4-c7c7-ed11-8daf-85953743f5cc/viewers/227d3bee-da39-4fe2-96d4-813e62690d35/attributes?ids=735a0274-8ee2-ed11-8daf-85953743f5cc
-
       Promise.all(promisesListResponse).then(async e => {
         const currentOrder = [...entity.Viewers];
-        viewerForPaste.forEach(async viewer => {
+        viewerForPaste.forEach(viewer => {
           if (!viewer.isSelected) return;
           const newViewer = e.find(item => item.Caption === viewer.Caption);
           const order: number =
@@ -308,10 +267,7 @@ const AppModalPaste = (props: Props) => {
         });
         const orderHash: Record<string, number> = {};
         currentOrder.forEach((_, ind) => (orderHash[_.Id] = ind));
-        const responseOrder = await EntitiesService.changeOrderPosition(
-          entity.Id,
-          orderHash
-        );
+        await EntitiesService.changeOrderPosition(entity.Id, orderHash);
       });
     });
   };
@@ -343,13 +299,11 @@ const AppModalPaste = (props: Props) => {
 
   // chrome
   useEffect(() => {
-    chrome.runtime.onMessage.addListener(
-      function (request, sender, sendResponse) {
-        if (request.action === 'postEntitiesForPasteInsert') {
-          setEntitiesFromPaste(request.payload);
-        }
+    chrome.runtime.onMessage.addListener(function (request) {
+      if (request.action === 'postEntitiesForPasteInsert') {
+        setEntitiesFromPaste(request.payload);
       }
-    );
+    });
     chrome.storage.local.get(['viewersState'], function (result) {
       const allView = result.viewersState && JSON.parse(result.viewersState);
       const saveViewersStorage: ViewerType[] = Array.isArray(allView)
@@ -357,26 +311,22 @@ const AppModalPaste = (props: Props) => {
         : [];
       setViewerForPaste(saveViewersStorage);
     });
-    chrome.storage.onChanged.addListener((changes, namespace) => {
-      for (const [key, { oldValue, newValue }] of Object.entries(changes)) {
+    chrome.storage.onChanged.addListener(changes => {
+      for (const [, { newValue }] of Object.entries(changes)) {
         if (!newValue) return;
         const viewers = JSON.parse(newValue);
         setViewerForPaste(viewers);
       }
     });
-    chrome.runtime.onMessage.addListener(
-      function (request, sender, sendResponse) {
-        if (request.actions === 'isShowModal') {
-          if (request.payload) {
-            refModalWrapper.current.classList.add(styles.modalWrapper__active);
-          } else {
-            refModalWrapper.current.classList.remove(
-              styles.modalWrapper__active
-            );
-          }
+    chrome.runtime.onMessage.addListener(function (request) {
+      if (request.actions === 'isShowModal') {
+        if (request.payload) {
+          refModalWrapper.current.classList.add(styles.modalWrapper__active);
+        } else {
+          refModalWrapper.current.classList.remove(styles.modalWrapper__active);
         }
       }
-    );
+    });
   }, []);
 
   return (

@@ -5,9 +5,7 @@ import React, { useState } from 'react';
 import { AllowUrl } from '../AllowUrl';
 import styles from './Setting.module.scss';
 
-type Props = {};
-
-const Setting = (props: Props) => {
+const Setting = () => {
   const pageRoute = {
     addPortal: <AllowUrl />
   };
