@@ -148,13 +148,13 @@
       }
     ],
     "no-multi-spaces": [
-      "error",
+      "warn",
       {
         "ignoreEOLComments": true
       }
     ],
     "no-multiple-empty-lines": [
-      "error",
+      "warn",
       {
         "max": 2,
         "maxEOF": 0

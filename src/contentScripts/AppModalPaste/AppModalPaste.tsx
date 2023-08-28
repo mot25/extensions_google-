@@ -277,7 +277,7 @@ const AppModalPaste = () => {
       <CopyViewer
         addStateViewers={addStateViewers}
         entitiesFromPaste={entitiesFromPaste}
-        viewerForPaste={viewerForPaste}
+        viewersForPaste={viewerForPaste}
       />
     ),
     2: (

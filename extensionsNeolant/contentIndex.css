@@ -1,3 +1,7 @@
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/Progress/Progress.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);
 /*!***************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/contentScripts/AppModalPaste/AppModalPaste.module.scss ***!
   \***************************************************************************************************************************************************************************************************************************/
@@ -8,10 +12,6 @@
 .Jx407bIoUoJsSjeWDRiP {
   max-height: 400px;
   overflow-y: auto;
-}
-
-.DaAHBl0EY3OHes2da5nw {
-  margin-right: 10px;
 }
 /*!***********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.module.scss ***!
@@ -30,6 +30,10 @@
 }
 
 .extentions__delete_btn__De5zM {
+  margin-right: 10px;
+}
+
+.extentions__progressBar__MVNgq {
   margin-right: 10px;
 }
 /*!****************************************************************************************************************************************************************************************************************************!*\
@@ -52,6 +56,32 @@
 }
 .extentions__button__fSW73 span {
   color: #fff;
+}
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/Progress/Progress.module.scss (1) ***!
+  \************************************************************************************************************************************************************************************************************************/
+.extentions__progress__jjgU7 {
+  background-color: #d8d8d8;
+  border-radius: 20px;
+  position: relative;
+  margin: 15px 0;
+  height: 30px;
+  width: 200px;
+}
+
+.extentions__progressDone__ZFSUV {
+  background: linear-gradient(to left, #31556f, #cc3333);
+  box-shadow:
+    0 3px 3px -5px #31556f,
+    0 2px 5px #31556f;
+  border-radius: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 0;
+  opacity: 0;
 }
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/DropDown/DropDown.module.scss ***!

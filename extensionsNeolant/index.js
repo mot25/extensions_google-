@@ -693,8 +693,7 @@
         });
         // extracted by mini-css-extract-plugin
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = {
-          wrapperItem: 'Jx407bIoUoJsSjeWDRiP',
-          progressBar: 'DaAHBl0EY3OHes2da5nw'
+          wrapperItem: 'Jx407bIoUoJsSjeWDRiP'
         };
 
         /***/
@@ -750,7 +749,8 @@
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = {
           item: 'extentions__item__htkY4',
           name: 'extentions__name__HgzNf',
-          delete_btn: 'extentions__delete_btn__De5zM'
+          delete_btn: 'extentions__delete_btn__De5zM',
+          progressBar: 'extentions__progressBar__MVNgq'
         };
 
         /***/
@@ -832,6 +832,30 @@
           formControl: 'extentions__formControl__ovvW9',
           inputBorderAlt: 'extentions__inputBorderAlt__FHcUZ',
           inputAlt: 'extentions__inputAlt__GZgEZ'
+        };
+
+        /***/
+      },
+
+    /***/ './src/components/simple/Progress/Progress.module.scss':
+      /*!*************************************************************!*\
+  !*** ./src/components/simple/Progress/Progress.module.scss ***!
+  \*************************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
+          /* harmony export */
+        });
+        // extracted by mini-css-extract-plugin
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = {
+          progress: 'extentions__progress__jjgU7',
+          progressDone: 'extentions__progressDone__ZFSUV'
         };
 
         /***/
@@ -4291,12 +4315,273 @@
           __webpack_require__(
             /*! @/components/simple/SimpleButton */ './src/components/simple/SimpleButton/index.ts'
           );
+        /* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_3__ =
+          __webpack_require__(
+            /*! js-alert */ './node_modules/js-alert/src/index.js'
+          );
+        /* harmony import */ var _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_4__ =
+          __webpack_require__(
+            /*! @/services/ManagerViewers.service */ './src/services/ManagerViewers.service.ts'
+          );
+        /* harmony import */ var _components_simple_Progress__WEBPACK_IMPORTED_MODULE_5__ =
+          __webpack_require__(
+            /*! @/components/simple/Progress */ './src/components/simple/Progress/index.ts'
+          );
+        var __awaiter =
+          (undefined && undefined.__awaiter) ||
+          function (thisArg, _arguments, P, generator) {
+            function adopt(value) {
+              return value instanceof P
+                ? value
+                : new P(function (resolve) {
+                    resolve(value);
+                  });
+            }
+            return new (P || (P = Promise))(function (resolve, reject) {
+              function fulfilled(value) {
+                try {
+                  step(generator.next(value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function rejected(value) {
+                try {
+                  step(generator['throw'](value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function step(result) {
+                result.done
+                  ? resolve(result.value)
+                  : adopt(result.value).then(fulfilled, rejected);
+              }
+              step(
+                (generator = generator.apply(thisArg, _arguments || [])).next()
+              );
+            });
+          };
+        var __generator =
+          (undefined && undefined.__generator) ||
+          function (thisArg, body) {
+            var _ = {
+                label: 0,
+                sent: function () {
+                  if (t[0] & 1) throw t[1];
+                  return t[1];
+                },
+                trys: [],
+                ops: []
+              },
+              f,
+              y,
+              t,
+              g;
+            return (
+              (g = { next: verb(0), throw: verb(1), return: verb(2) }),
+              typeof Symbol === 'function' &&
+                (g[Symbol.iterator] = function () {
+                  return this;
+                }),
+              g
+            );
+            function verb(n) {
+              return function (v) {
+                return step([n, v]);
+              };
+            }
+            function step(op) {
+              if (f) throw new TypeError('Generator is already executing.');
+              while ((g && ((g = 0), op[0] && (_ = 0)), _))
+                try {
+                  if (
+                    ((f = 1),
+                    y &&
+                      (t =
+                        op[0] & 2
+                          ? y['return']
+                          : op[0]
+                          ? y['throw'] || ((t = y['return']) && t.call(y), 0)
+                          : y.next) &&
+                      !(t = t.call(y, op[1])).done)
+                  )
+                    return t;
+                  if (((y = 0), t)) op = [op[0] & 2, t.value];
+                  switch (op[0]) {
+                    case 0:
+                    case 1:
+                      t = op;
+                      break;
+                    case 4:
+                      _.label++;
+                      return { value: op[1], done: false };
+                    case 5:
+                      _.label++;
+                      y = op[1];
+                      op = [0];
+                      continue;
+                    case 7:
+                      op = _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                    default:
+                      if (
+                        !((t = _.trys),
+                        (t = t.length > 0 && t[t.length - 1])) &&
+                        (op[0] === 6 || op[0] === 2)
+                      ) {
+                        _ = 0;
+                        continue;
+                      }
+                      if (
+                        op[0] === 3 &&
+                        (!t || (op[1] > t[0] && op[1] < t[3]))
+                      ) {
+                        _.label = op[1];
+                        break;
+                      }
+                      if (op[0] === 6 && _.label < t[1]) {
+                        _.label = t[1];
+                        t = op;
+                        break;
+                      }
+                      if (t && _.label < t[2]) {
+                        _.label = t[2];
+                        _.ops.push(op);
+                        break;
+                      }
+                      if (t[2]) _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                  }
+                  op = body.call(thisArg, _);
+                } catch (e) {
+                  op = [6, e];
+                  y = 0;
+                } finally {
+                  f = t = 0;
+                }
+              if (op[0] & 5) throw op[1];
+              return { value: op[0] ? op[1] : void 0, done: true };
+            }
+          };
 
         var ViewerForCopyOrDelete = function (_a) {
           var isHave = _a.isHave,
             viewer = _a.viewer,
             addStateViewers = _a.addStateViewers,
-            deleteViewer = _a.deleteViewer;
+            entitiesFromPaste = _a.entitiesFromPaste,
+            entity = _a.entity,
+            removeListViewer = _a.removeListViewer;
+          var allEntity = (0, react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+          var _b = (0, react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+            countDelete = _b[0],
+            setCountDelete = _b[1];
+          var _c = (0, react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+            idDeleting = _c[0],
+            setIsDeleting = _c[1];
+          var deleteViewer = function (viewer) {
+            var alert = new js_alert__WEBPACK_IMPORTED_MODULE_3__['default'](
+              '\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C '.concat(
+                viewer.Caption
+              ),
+              'Выберите опции для удаления'
+            );
+            alert.addButton('Удалить в текущем классе').then(function () {
+              return __awaiter(void 0, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                  switch (_a.label) {
+                    case 0:
+                      setIsDeleting(true);
+                      setCountDelete(1);
+                      allEntity.current = 1;
+                      return [
+                        4 /*yield*/,
+                        _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_4__.ManagerViewersService.deleteViewer(
+                          entity.Id,
+                          viewer.Id
+                        )
+                      ];
+                    case 1:
+                      _a.sent();
+                      removeListViewer(viewer.Id);
+                      return [2 /*return*/];
+                  }
+                });
+              });
+            });
+            alert.addButton('Удалить во вложенных классах').then(function () {
+              setIsDeleting(true);
+              entitiesFromPaste.forEach(function (entity) {
+                return __awaiter(void 0, void 0, void 0, function () {
+                  var viewerDelete;
+                  var _a;
+                  return __generator(this, function (_b) {
+                    switch (_b.label) {
+                      case 0:
+                        viewerDelete =
+                          (_a =
+                            entity === null || entity === void 0
+                              ? void 0
+                              : entity.Viewers) === null || _a === void 0
+                            ? void 0
+                            : _a.find(function (V) {
+                                return (
+                                  (V === null || V === void 0
+                                    ? void 0
+                                    : V.Caption) ===
+                                  (viewer === null || viewer === void 0
+                                    ? void 0
+                                    : viewer.Caption)
+                                );
+                              });
+                        if (
+                          !(
+                            (viewerDelete === null || viewerDelete === void 0
+                              ? void 0
+                              : viewerDelete.Id) !== undefined
+                          )
+                        )
+                          return [3 /*break*/, 2];
+                        return [
+                          4 /*yield*/,
+                          _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_4__.ManagerViewersService.deleteViewer(
+                            entity.Id,
+                            viewerDelete === null || viewerDelete === void 0
+                              ? void 0
+                              : viewerDelete.Id
+                          ).then(function () {
+                            setCountDelete(function (prev) {
+                              return prev + 1;
+                            });
+                          })
+                        ];
+                      case 1:
+                        _b.sent();
+                        _b.label = 2;
+                      case 2:
+                        return [2 /*return*/];
+                    }
+                  });
+                });
+              });
+              removeListViewer(viewer.Id);
+            });
+            alert.show();
+          };
+          (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(
+            function () {
+              allEntity.current = entitiesFromPaste.filter(function (_entity) {
+                var viewers = _entity.Viewers;
+                var haveViewer = ~viewers.findIndex(function (_viewer) {
+                  return _viewer.Caption === viewer.Caption;
+                });
+                return !!haveViewer;
+              }).length;
+            },
+            [entitiesFromPaste.length]
+          );
           return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
             'li',
             {
@@ -4315,24 +4600,42 @@
               },
               viewer.Caption
             ),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
-              {
-                wd: '150px',
-                addStyle: {
-                  height: '24px'
-                },
-                bg: '#CC3333',
-                addClassName:
-                  _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_1__[
-                    'default'
-                  ].delete_btn,
-                onClick: function () {
-                  return deleteViewer(viewer);
-                },
-                text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C'
-              }
-            ),
+            idDeleting
+              ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                  'div',
+                  {
+                    className:
+                      _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                        'default'
+                      ].progressBar
+                  },
+                  react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                    _components_simple_Progress__WEBPACK_IMPORTED_MODULE_5__.Progress,
+                    {
+                      done: +((countDelete * 100) / allEntity.current).toFixed(
+                        0
+                      )
+                    }
+                  )
+                )
+              : react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                  _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
+                  {
+                    wd: '150px',
+                    addStyle: {
+                      height: '24px'
+                    },
+                    bg: '#CC3333',
+                    addClassName:
+                      _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                        'default'
+                      ].delete_btn,
+                    onClick: function () {
+                      return deleteViewer(viewer);
+                    },
+                    text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C'
+                  }
+                ),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
               _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
               {
@@ -4818,6 +5121,99 @@
         /* harmony import */ var _InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! ./InputWithUnderLineColor */ './src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.tsx'
+          );
+
+        /***/
+      },
+
+    /***/ './src/components/simple/Progress/Progress.tsx':
+      /*!*****************************************************!*\
+  !*** ./src/components/simple/Progress/Progress.tsx ***!
+  \*****************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _Progress_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! ./Progress.module.scss */ './src/components/simple/Progress/Progress.module.scss'
+          );
+
+        var Progress = function (_a) {
+          var done = _a.done;
+          var _b = (0, react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+            style = _b[0],
+            setStyle = _b[1];
+          (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(
+            function () {
+              var newStyle = {
+                opacity: 1,
+                width: ''.concat(done, '%')
+              };
+              setStyle(newStyle);
+            },
+            [done]
+          );
+          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'div',
+            {
+              className:
+                _Progress_module_scss__WEBPACK_IMPORTED_MODULE_1__['default']
+                  .progress
+            },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              {
+                className:
+                  _Progress_module_scss__WEBPACK_IMPORTED_MODULE_1__['default']
+                    .progressDone,
+                style: style
+              },
+              done,
+              '%'
+            )
+          );
+        };
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          Progress;
+
+        /***/
+      },
+
+    /***/ './src/components/simple/Progress/index.ts':
+      /*!*************************************************!*\
+  !*** ./src/components/simple/Progress/index.ts ***!
+  \*************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ Progress: () =>
+            /* reexport safe */ _Progress__WEBPACK_IMPORTED_MODULE_0__[
+              'default'
+            ]
+          /* harmony export */
+        });
+        /* harmony import */ var _Progress__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! ./Progress */ './src/components/simple/Progress/Progress.tsx'
           );
 
         /***/
@@ -5875,7 +6271,7 @@
               {
                 addStateViewers: addStateViewers,
                 entitiesFromPaste: entitiesFromPaste,
-                viewerForPaste: viewerForPaste
+                viewersForPaste: viewerForPaste
               }
             ),
             2: react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
@@ -6166,25 +6562,17 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(
-            /*! @/services/ManagerViewers.service */ './src/services/ManagerViewers.service.ts'
-          );
-        /* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! js-alert */ './node_modules/js-alert/src/index.js'
-          );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_2__
+            react__WEBPACK_IMPORTED_MODULE_0__
           );
-        /* harmony import */ var _CopyViewer_module_scss__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _CopyViewer_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! ./CopyViewer.module.scss */ './src/screens/CopyViewer/CopyViewer.module.scss'
           );
-        /* harmony import */ var _components_complex_ViewerForCopyOrDelete__WEBPACK_IMPORTED_MODULE_4__ =
+        /* harmony import */ var _components_complex_ViewerForCopyOrDelete__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! @/components/complex/ViewerForCopyOrDelete */ './src/components/complex/ViewerForCopyOrDelete/index.ts'
           );
@@ -6203,250 +6591,53 @@
               };
             return __assign.apply(this, arguments);
           };
-        var __awaiter =
-          (undefined && undefined.__awaiter) ||
-          function (thisArg, _arguments, P, generator) {
-            function adopt(value) {
-              return value instanceof P
-                ? value
-                : new P(function (resolve) {
-                    resolve(value);
-                  });
-            }
-            return new (P || (P = Promise))(function (resolve, reject) {
-              function fulfilled(value) {
-                try {
-                  step(generator.next(value));
-                } catch (e) {
-                  reject(e);
-                }
-              }
-              function rejected(value) {
-                try {
-                  step(generator['throw'](value));
-                } catch (e) {
-                  reject(e);
-                }
-              }
-              function step(result) {
-                result.done
-                  ? resolve(result.value)
-                  : adopt(result.value).then(fulfilled, rejected);
-              }
-              step(
-                (generator = generator.apply(thisArg, _arguments || [])).next()
-              );
-            });
-          };
-        var __generator =
-          (undefined && undefined.__generator) ||
-          function (thisArg, body) {
-            var _ = {
-                label: 0,
-                sent: function () {
-                  if (t[0] & 1) throw t[1];
-                  return t[1];
-                },
-                trys: [],
-                ops: []
-              },
-              f,
-              y,
-              t,
-              g;
-            return (
-              (g = { next: verb(0), throw: verb(1), return: verb(2) }),
-              typeof Symbol === 'function' &&
-                (g[Symbol.iterator] = function () {
-                  return this;
-                }),
-              g
-            );
-            function verb(n) {
-              return function (v) {
-                return step([n, v]);
-              };
-            }
-            function step(op) {
-              if (f) throw new TypeError('Generator is already executing.');
-              while ((g && ((g = 0), op[0] && (_ = 0)), _))
-                try {
-                  if (
-                    ((f = 1),
-                    y &&
-                      (t =
-                        op[0] & 2
-                          ? y['return']
-                          : op[0]
-                          ? y['throw'] || ((t = y['return']) && t.call(y), 0)
-                          : y.next) &&
-                      !(t = t.call(y, op[1])).done)
-                  )
-                    return t;
-                  if (((y = 0), t)) op = [op[0] & 2, t.value];
-                  switch (op[0]) {
-                    case 0:
-                    case 1:
-                      t = op;
-                      break;
-                    case 4:
-                      _.label++;
-                      return { value: op[1], done: false };
-                    case 5:
-                      _.label++;
-                      y = op[1];
-                      op = [0];
-                      continue;
-                    case 7:
-                      op = _.ops.pop();
-                      _.trys.pop();
-                      continue;
-                    default:
-                      if (
-                        !((t = _.trys),
-                        (t = t.length > 0 && t[t.length - 1])) &&
-                        (op[0] === 6 || op[0] === 2)
-                      ) {
-                        _ = 0;
-                        continue;
-                      }
-                      if (
-                        op[0] === 3 &&
-                        (!t || (op[1] > t[0] && op[1] < t[3]))
-                      ) {
-                        _.label = op[1];
-                        break;
-                      }
-                      if (op[0] === 6 && _.label < t[1]) {
-                        _.label = t[1];
-                        t = op;
-                        break;
-                      }
-                      if (t && _.label < t[2]) {
-                        _.label = t[2];
-                        _.ops.push(op);
-                        break;
-                      }
-                      if (t[2]) _.ops.pop();
-                      _.trys.pop();
-                      continue;
-                  }
-                  op = body.call(thisArg, _);
-                } catch (e) {
-                  op = [6, e];
-                  y = 0;
-                } finally {
-                  f = t = 0;
-                }
-              if (op[0] & 5) throw op[1];
-              return { value: op[0] ? op[1] : void 0, done: true };
-            }
-          };
 
         // eslint-disable-next-line max-len
 
         var OneScreenCopyModal = function (_a) {
-          // const [viewersState, setViewersState] = useState<ViewerType[]>();
-          // const [loadDelete, setLoadDelete] = useState<DeleteProgressType[]>([]);
           var _b;
           var entitiesFromPaste = _a.entitiesFromPaste,
-            viewerForPaste = _a.viewerForPaste,
+            viewerForPaste = _a.viewersForPaste,
             addStateViewers = _a.addStateViewers;
-          var entities = entitiesFromPaste.find(function (_) {
+          var entity = entitiesFromPaste.find(function (_) {
             return _.isCurrent;
           });
-          var deleteViewer = function (viewer) {
-            var alert = new js_alert__WEBPACK_IMPORTED_MODULE_1__['default'](
-              '\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C '.concat(
-                viewer.Caption
-              ),
-              'Выберите опции для удаления'
-            );
-            alert.addButton('Удалить в текущем классе').then(function () {
-              return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                  switch (_a.label) {
-                    case 0:
-                      return [
-                        4 /*yield*/,
-                        _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_0__.ManagerViewersService.deleteViewer(
-                          entities.Id,
-                          viewer.Id
-                        )
-                      ];
-                    case 1:
-                      _a.sent();
-                      return [2 /*return*/];
-                  }
-                });
+          var _c = (0, react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+            _entitiesFromPaste = _c[0],
+            _setEntitiesFromPaste = _c[1];
+          var removeListViewer = function (id) {
+            _setEntitiesFromPaste(function (prev) {
+              return prev.filter(function (_) {
+                return _.Id !== id;
               });
             });
-            alert.addButton('Удалить во вложенных классах').then(function () {
-              entitiesFromPaste.forEach(function (entity) {
-                var _a;
-                var viewerDelete =
-                  (_a =
-                    entity === null || entity === void 0
-                      ? void 0
-                      : entity.Viewers) === null || _a === void 0
-                    ? void 0
-                    : _a.find(function (V) {
-                        return (
-                          (V === null || V === void 0 ? void 0 : V.Caption) ===
-                          (viewer === null || viewer === void 0
-                            ? void 0
-                            : viewer.Caption)
-                        );
-                      });
-                if (
-                  (viewerDelete === null || viewerDelete === void 0
-                    ? void 0
-                    : viewerDelete.Id) !== undefined
-                ) {
-                  // await ManagerViewersService.deleteViewer(
-                  //   entity.Id,
-                  //   viewerDelete?.Id
-                  // ).then(() => {
-                  //   // setLoadDelete(prev => {
-                  //   //   return prev.map(delViewer => {
-                  //   //     if (delViewer.idDeleting === viewerDelete.Caption) {
-                  //   //       delViewer.delete = delViewer.delete + 1;
-                  //   //     }
-                  //   //     return delViewer;
-                  //   //   });
-                  //   // });
-                  // });
-                }
-              });
-            });
-            alert.show();
           };
-          (0, react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(
+          (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(
             function () {
-              // setViewersState(entities?.Viewers || []);
+              return _setEntitiesFromPaste(entitiesFromPaste);
             },
-            [entities]
+            [entitiesFromPaste]
           );
-          return react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
             'div',
             null,
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
               'h4',
               { style: { fontWeight: 'bold' } },
               '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0438\u0434 \u0434\u043B\u044F \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435/\u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044F'
             ),
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
               'ul',
               {
                 className:
-                  _CopyViewer_module_scss__WEBPACK_IMPORTED_MODULE_3__[
+                  _CopyViewer_module_scss__WEBPACK_IMPORTED_MODULE_1__[
                     'default'
                   ].wrapperItem
               },
               (_b =
-                entities === null || entities === void 0
+                entity === null || entity === void 0
                   ? void 0
-                  : entities.Viewers) === null || _b === void 0
+                  : entity.Viewers) === null || _b === void 0
                 ? void 0
                 : _b.map(function (viewer, index) {
                     var isHave = !!~viewerForPaste.findIndex(function (_) {
@@ -6457,12 +6648,14 @@
                           : viewer.Caption)
                       );
                     });
-                    return react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
-                      _components_complex_ViewerForCopyOrDelete__WEBPACK_IMPORTED_MODULE_4__.ViewerForCopyOrDelete,
+                    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                      _components_complex_ViewerForCopyOrDelete__WEBPACK_IMPORTED_MODULE_2__.ViewerForCopyOrDelete,
                       {
                         isHave: isHave,
                         viewer: viewer,
-                        deleteViewer: deleteViewer,
+                        entity: entity,
+                        removeListViewer: removeListViewer,
+                        entitiesFromPaste: _entitiesFromPaste,
                         addStateViewers: function (viewer) {
                           return addStateViewers(
                             __assign(__assign({}, viewer), { order: index + 1 })
