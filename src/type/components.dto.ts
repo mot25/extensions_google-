@@ -1,5 +1,7 @@
+// eslint-disable-next-line max-len
 import { URL_VIEWER_SETTING } from '@/contentScripts/AppModalPaste/constantAppModalPaste';
 import { RequestForPasteViewerType, ViewerType } from './entities.dto';
+import React from 'react';
 
 export type MenuLeftNavbar = {
   title: React.JSX.Element;

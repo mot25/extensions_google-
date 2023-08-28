@@ -8,7 +8,7 @@ export class AttributesService {
     idEntity,
     idViewer
   }: ViewerAttrServiceType) {
-    const response = api.put(
+    const response = await api.put(
       `/api/structure/entities/${idEntity}/viewers/${idViewer}/attributes?${joinParamArrayApi(
         idAttrs,
         'ids'
@@ -21,7 +21,7 @@ export class AttributesService {
     idEntity,
     idViewer
   }: ViewerAttrServiceType) {
-    const response = api.delete(
+    const response = await api.delete(
       `/api/structure/entities/${idEntity}/viewers/${idViewer}/attributes?${joinParamArrayApi(
         idAttrs,
         'ids'
@@ -33,7 +33,7 @@ export class AttributesService {
     idAttrs,
     idEntity
   }: Omit<ViewerAttrServiceType, 'idViewer'>) {
-    const response = api.post(
+    const response = await api.post(
       `api/structure/entities/${idEntity}/attributes?${joinParamArrayApi(
         idAttrs,
         'ids'

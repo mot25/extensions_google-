@@ -9,7 +9,7 @@
     "clear:win": "rd /s /q extensionsNeolant",
     "clear:mac": "rm -rf extensionsNeolant",
     "prefix": "npx prettier . --write",
-    "fix": "eslint --fix ./src/**/*.tsx",
+    "fix": "eslint --fix ./src/**/*.{tsx,ts}",
     "prepare": "husky install"
   },
   "keywords": [],

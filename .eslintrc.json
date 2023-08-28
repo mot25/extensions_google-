@@ -21,7 +21,7 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "semi": "error",
+    "semi": "warn",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "array-callback-return": [
@@ -124,9 +124,8 @@
     ],
     "comma-style": "warn",
     "computed-property-spacing": ["error", "never"],
-    "dot-location": ["error", "object"],
+    "dot-location": ["error", "property"],
     "func-call-spacing": ["error", "never"],
-    "function-call-argument-newline": ["error", "never"],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": [
       "error",
@@ -145,7 +144,8 @@
       {
         "code": 80,
         "ignoreComments": true,
-        "ignoreUrls": true
+        "ignoreUrls": true,
+        "ignoreTemplateLiterals": true
       }
     ],
     "newline-per-chained-call": [
