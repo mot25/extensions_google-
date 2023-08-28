@@ -1,1 +1,1 @@
-export { default as SwitchWithText } from './SwitchWithText'
+export { default as SwitchWithText } from './SwitchWithText';

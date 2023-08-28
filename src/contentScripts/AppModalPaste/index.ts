@@ -1,1 +1,1 @@
-export {default as AppModalPaste} from './AppModalPaste'
+export { default as AppModalPaste } from './AppModalPaste';

@@ -1,1 +1,1 @@
-export { default as InputWithUnderLineColor } from './InputWithUnderLineColor'
+export { default as InputWithUnderLineColor } from './InputWithUnderLineColor';

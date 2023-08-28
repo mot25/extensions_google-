@@ -1,4 +1,4 @@
 export type IconType = {
-    "Id": string
-    "Name": string
-}
+  Id: string;
+  Name: string;
+};

@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "noImplicitAny": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -14,17 +10,11 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "types": [
-      "chrome"
-    ],
+    "types": ["chrome"],
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
+      "@/*": ["./src/*"]
     }
   },
-"exclude": [
-  "node_modules"
-]
+  "exclude": ["node_modules"]
 }

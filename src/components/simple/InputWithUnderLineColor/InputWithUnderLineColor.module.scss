@@ -16,23 +16,23 @@
     height: 20px;
     font-size: 15px;
   }
-  }
+}
 
-  .inputBorder {
-    position: absolute;
-    background: var(--border-after-color);
-    width: 0%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  }
+.inputBorder {
+  position: absolute;
+  background: var(--border-after-color);
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
 
-  .input:focus {
-    outline: none;
-  }
+.input:focus {
+  outline: none;
+}
 
-.input:focus+.inputBorder {
+.input:focus + .inputBorder {
   width: 100%;
 }
 
@@ -44,9 +44,9 @@
 .inputBorderAlt {
   height: 3px;
   background: #31556f;
-  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1.00);
+  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-.inputAlt:focus+.inputBorderAlt {
+.inputAlt:focus + .inputBorderAlt {
   width: 100%;
 }

@@ -1,5 +1,5 @@
 export type ViewerAttrServiceType = {
-    idViewer: string
-    idEntity: string
-    idAttrs: string[]
-}
+  idViewer: string;
+  idEntity: string;
+  idAttrs: string[];
+};

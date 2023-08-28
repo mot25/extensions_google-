@@ -1,1 +1,1 @@
-export {default as DropDownEditValues} from './DropDownEditValues'
+export { default as DropDownEditValues } from './DropDownEditValues';

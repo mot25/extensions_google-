@@ -1,1 +1,1 @@
-export {default as ButtonInPopupAnim} from './ButtonInPopupAnim'
+export { default as ButtonInPopupAnim } from './ButtonInPopupAnim';

@@ -3,39 +3,43 @@ import styles from './SimpleButton.module.scss';
 import classNames from 'classnames';
 
 type Props = {
-    onClick: (e: MouseEvent) => void
-    text: string
-    wd?: string
-    bg?: string
-    addStyle?: CSSProperties,
-    addClassName?: string,
-    disabled?: boolean
-}
+  onClick: (e: MouseEvent) => void;
+  text: string;
+  wd?: string;
+  bg?: string;
+  addStyle?: CSSProperties;
+  addClassName?: string;
+  disabled?: boolean;
+};
 const SimpleButton = ({
-    onClick,
-    text,
-    wd = '100%',
-    bg,
-    addStyle,
-    addClassName,
-    disabled
+  onClick,
+  text,
+  wd = '100%',
+  bg,
+  addStyle,
+  addClassName,
+  disabled
 }: Props) => {
-    return (
-        <button
-            style={{
-                width: wd,
-                backgroundColor: bg,
-                ...addStyle
-            }}
-            disabled={disabled}
-            onClick={(event) => onClick(event)}
-            className={classNames(styles.button, {
-                [styles.button__disabled]: disabled
-            }, addClassName)}
-        >
-            <span>{text}</span>
-        </button>
-    )
-}
+  return (
+    <button
+      style={{
+        width: wd,
+        backgroundColor: bg,
+        ...addStyle
+      }}
+      disabled={disabled}
+      onClick={event => onClick(event)}
+      className={classNames(
+        styles.button,
+        {
+          [styles.button__disabled]: disabled
+        },
+        addClassName
+      )}
+    >
+      <span>{text}</span>
+    </button>
+  );
+};
 
-export default SimpleButton
+export default SimpleButton;

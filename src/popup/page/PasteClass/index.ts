@@ -1,1 +1,1 @@
-export {default as PasteClass} from './PasteClass'
+export { default as PasteClass } from './PasteClass';

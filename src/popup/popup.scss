@@ -4,7 +4,6 @@ body {
 
 // popup wrapper
 .wrapper {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,9 +58,11 @@ body {
 
 #bubble1 {
   transform: translateY(0%);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
 
-  >span {
+  > span {
     opacity: 0.7;
   }
 }
@@ -72,7 +73,6 @@ body {
   height: 100px;
   position: absolute;
   bottom: 60px;
-
 }
 
 #bg {
@@ -152,8 +152,8 @@ body {
 .button {
   &.dark {
     --background: #000;
-    --shadow: 0 2px 8px -1px #{rgba(#151924, .32)};
-    --shadow-hover: 0 4px 20px -2px #{rgba(#151924, .5)};
+    --shadow: 0 2px 8px -1px #{rgba(#151924, 0.32)};
+    --shadow-hover: 0 4px 20px -2px #{rgba(#151924, 0.5)};
   }
 }
 
@@ -161,10 +161,10 @@ body {
   --background: #275efe;
   --text: #000;
   --font-size: 16px;
-  --duration: .44s;
+  --duration: 0.44s;
   --move-hover: -4px;
-  --shadow: 0 2px 8px -1px #{rgba(#275efe, .32)};
-  --shadow-hover: 0 4px 20px -2px #{rgba(#275efe, .5)};
+  --shadow: 0 2px 8px -1px #{rgba(#275efe, 0.32)};
+  --shadow-hover: 0 4px 20px -2px #{rgba(#275efe, 0.5)};
   --font-shadow: var(--font-size);
   padding: 16px 32px;
   font-family: 'Roboto';
@@ -174,13 +174,15 @@ body {
   outline: none;
   text-decoration: none;
   font-size: var(--font-size);
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   background: var(--background);
   color: var(--text);
   width: 100%;
   box-shadow: var(--shadow);
   transform: translateY(var(--y)) translateZ(0);
-  transition: transform var(--duration) ease, box-shadow var(--duration) ease;
+  transition:
+    transform var(--duration) ease,
+    box-shadow var(--duration) ease;
 
   div {
     display: flex;
@@ -200,7 +202,7 @@ body {
           transition-delay: calc($i / 20 + s);
         }
 
-        $i: $i+1;
+        $i: $i + 1;
       }
     }
   }
@@ -224,8 +226,6 @@ body {
     }
   }
 }
-
-
 
 .dribbble {
   position: fixed;

@@ -1,29 +1,29 @@
 .name {
-    margin-right: 10px;
-    flex: 1;
-    font-size: 15px;
+  margin-right: 10px;
+  flex: 1;
+  font-size: 15px;
 }
 
 .viewer_types .name {
-    margin: 0;
+  margin: 0;
 }
 
 .delete_btn {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .item {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin-bottom: 7px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
 }
 
 .wrapperItem {
-    max-height: 400px;
-    overflow-y: auto;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .progressBar {
-    margin-right: 10px;
+  margin-right: 10px;
 }

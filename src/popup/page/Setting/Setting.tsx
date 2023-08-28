@@ -5,52 +5,56 @@ import React, { useState } from 'react';
 import { AllowUrl } from '../AllowUrl';
 import styles from './Setting.module.scss';
 
-type Props = {}
+type Props = {};
 
 const Setting = (props: Props) => {
-    const pageRoute = {
-        'addPortal': <AllowUrl />
-    }
-    type keyPageType = keyof typeof pageRoute | ''
-    const [selectPage, setSelectPage] = useState<keyPageType>('')
-    const addHotRelaod = () => {
-        chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
-            const currentTabId = tabs[0].id;
+  const pageRoute = {
+    addPortal: <AllowUrl />
+  };
+  type keyPageType = keyof typeof pageRoute | '';
+  const [selectPage, setSelectPage] = useState<keyPageType>('');
+  const addHotRelaod = () => {
+    chrome.tabs.query(
+      { active: true, currentWindow: true },
+      async function (tabs) {
+        const currentTabId = tabs[0].id;
 
-            await chrome.scripting.executeScript({
-                target: { tabId: currentTabId },
-                files: ['hotReloadNS.js']
-            })
-
+        await chrome.scripting.executeScript({
+          target: { tabId: currentTabId },
+          files: ['hotReloadNS.js']
         });
-    }
-    return (
-        <div className={styles.wrapper}>
-            <div className={styles.head}>
-                {selectPage && <div
-                    className={styles.left}
-                    onClick={() => setSelectPage('')}
-                >
-                    <ArrowBack />
-                </div>}
-                <h1>Настройки</h1>
-            </div>
-            {selectPage ?
-                pageRoute[selectPage] || <AllowUrl />
-                :
-                <div>
-                    <SimpleButton
-                        onClick={() => setSelectPage('addPortal')}
-                        text='Посмотреть настройки расширения'
-                    />
-                    <SimpleButton
-                        onClick={addHotRelaod}
-                        text='Добавить хот релоад '
-                    />
-                </div>}
-
+      }
+    );
+  };
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.head}>
+        {selectPage && (
+          <div
+            className={styles.left}
+            onClick={() => setSelectPage('')}
+          >
+            <ArrowBack />
+          </div>
+        )}
+        <h1>Настройки</h1>
+      </div>
+      {selectPage ? (
+        pageRoute[selectPage] || <AllowUrl />
+      ) : (
+        <div>
+          <SimpleButton
+            onClick={() => setSelectPage('addPortal')}
+            text="Посмотреть настройки расширения"
+          />
+          <SimpleButton
+            onClick={addHotRelaod}
+            text="Добавить хот релоад "
+          />
         </div>
-    )
-}
+      )}
+    </div>
+  );
+};
 
-export default Setting
+export default Setting;

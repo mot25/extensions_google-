@@ -1,1 +1,1 @@
-export { default as PasteViewer } from './PasteViewer'
+export { default as PasteViewer } from './PasteViewer';
