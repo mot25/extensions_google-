@@ -359,6 +359,17 @@ input:checked + .extentions__slider__zHS8J:before {
   align-items: center;
   gap: 10px;
 }
+
+.S6sEtAb770UKOEDRK3P9 {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.rZrGVcPpoY4DlWdyEz2e {
+  max-height: 300px;
+  overflow: auto;
+}
 /*!*********************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForPaste/ViewerForPaste.module.scss ***!
   \*********************************************************************************************************************************************************************************************************************************/

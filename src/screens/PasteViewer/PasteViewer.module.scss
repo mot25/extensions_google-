@@ -40,6 +40,7 @@
 .reload {
   margin-top: 15px;
 }
+
 .wrapperDropDownIcon {
   display: flex;
   gap: 15px;
@@ -50,4 +51,15 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.wrapperTextError {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.wrapperError {
+  max-height: 300px;
+  overflow: auto;
 }

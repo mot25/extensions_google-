@@ -724,7 +724,9 @@
           orderInput: 'RGAw6cxh23VBGyKYSWW3',
           reload: 'fjhF8Dy70JtCv7CIdCss',
           wrapperDropDownIcon: 'qbxkoiz_zECKFb88l9Ah',
-          inputSettingUrlWrapper: 'qYvrH0WLLLNyl3LcyNfH'
+          inputSettingUrlWrapper: 'qYvrH0WLLLNyl3LcyNfH',
+          wrapperTextError: 'S6sEtAb770UKOEDRK3P9',
+          wrapperError: 'rZrGVcPpoY4DlWdyEz2e'
         };
 
         /***/
@@ -4327,6 +4329,10 @@
           __webpack_require__(
             /*! @/components/simple/Progress */ './src/components/simple/Progress/index.ts'
           );
+        /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__ =
+          __webpack_require__(
+            /*! @/shared/utils/utils */ './src/shared/utils/utils.ts'
+          );
         var __awaiter =
           (undefined && undefined.__awaiter) ||
           function (thisArg, _arguments, P, generator) {
@@ -4612,8 +4618,10 @@
                   react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
                     _components_simple_Progress__WEBPACK_IMPORTED_MODULE_5__.Progress,
                     {
-                      done: +((countDelete * 100) / allEntity.current).toFixed(
-                        0
+                      done: (0,
+                      _shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getPercent)(
+                        countDelete,
+                        allEntity.current
                       )
                     }
                   )
@@ -5677,33 +5685,6 @@
           __webpack_require__(
             /*! ./AppModalPaste.module.scss */ './src/contentScripts/AppModalPaste/AppModalPaste.module.scss'
           );
-        /* harmony import */ var _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__ =
-          __webpack_require__(
-            /*! ./constantAppModalPaste */ './src/contentScripts/AppModalPaste/constantAppModalPaste.ts'
-          );
-        /* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_10__ =
-          __webpack_require__(
-            /*! @/services/Entities.service */ './src/services/Entities.service.ts'
-          );
-        /* harmony import */ var _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__ =
-          __webpack_require__(
-            /*! @/services/Attributes.service */ './src/services/Attributes.service.ts'
-          );
-        var __assign =
-          (undefined && undefined.__assign) ||
-          function () {
-            __assign =
-              Object.assign ||
-              function (t) {
-                for (var s, i = 1, n = arguments.length; i < n; i++) {
-                  s = arguments[i];
-                  for (var p in s)
-                    if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-                }
-                return t;
-              };
-            return __assign.apply(this, arguments);
-          };
         var __awaiter =
           (undefined && undefined.__awaiter) ||
           function (thisArg, _arguments, P, generator) {
@@ -5843,18 +5824,6 @@
               return { value: op[0] ? op[1] : void 0, done: true };
             }
           };
-        var __spreadArray =
-          (undefined && undefined.__spreadArray) ||
-          function (to, from, pack) {
-            if (pack || arguments.length === 2)
-              for (var i = 0, l = from.length, ar; i < l; i++) {
-                if (ar || !(i in from)) {
-                  if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-                  ar[i] = from[i];
-                }
-              }
-            return to.concat(ar || Array.prototype.slice.call(from));
-          };
         /* eslint-disable max-lines */
 
         var leftMenuConfig = [
@@ -5969,302 +5938,6 @@
               });
             });
           };
-          var pasteViewers = function (_a) {
-            var viewerForPaste = _a.viewerForPaste,
-              configPasteEntities = _a.configPasteEntities,
-              settingForPaste = _a.settingForPaste;
-            var isApplySettingsCustom = settingForPaste.find(function (_) {
-              return (
-                _.id ===
-                _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.APPLY_SETTINGS
-              );
-            }).isActive;
-            var isApplyIconCustom = configPasteEntities.find(function (_) {
-              return (
-                _.id ===
-                _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.SET_ICON
-              );
-            }).isActive;
-            var isApplyNestedEntities = configPasteEntities.find(function (_) {
-              return (
-                _.id ===
-                _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.COPY_VIEWER_NESTED
-              );
-            }).isActive;
-            var isApplyReWriteIconWithEdit = configPasteEntities.find(
-              function (_) {
-                return (
-                  _.id ===
-                  _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.REPLACE_ICON
-                );
-              }
-            ).isActive;
-            var configApplyNewUrl = settingForPaste.find(function (_) {
-              return (
-                _.id ===
-                _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.URL_VIEWER_SETTING
-              );
-            });
-            var isCopyAttrInViewer = configPasteEntities.find(function (_) {
-              return (
-                _.id ===
-                _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.COPY_ATTR_IN_VIEWER
-              );
-            }).isActive;
-            var isCopyAttrInEntity = configPasteEntities.find(function (_) {
-              return (
-                _.id ===
-                _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.COPY_ATTR_IN_ENTITIES
-              );
-            }).isActive;
-            var initialCustomSettings = {
-              hideInStructureOfObject: false,
-              hideInViewingModel: false,
-              SendParams: false,
-              hideEmptyFields: false,
-              viewMode: 0,
-              Url: ''
-            };
-            // изменяем настройки исходя из выбранных на экране копирования
-            settingForPaste.forEach(function (setting) {
-              if (setting.id === '3') return;
-              if (setting.id === 'viewMode')
-                return (initialCustomSettings[setting.id] = Number(
-                  !!(setting === null || setting === void 0
-                    ? void 0
-                    : setting.isActive)
-                ));
-              if (
-                setting.id ===
-                _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.URL_VIEWER_SETTING
-              )
-                return (initialCustomSettings[setting.id] = setting.value);
-              initialCustomSettings[setting.id] = !!(setting === null ||
-              setting === void 0
-                ? void 0
-                : setting.isActive);
-            });
-            var selectIcon = configPasteEntities.find(function (_) {
-              return (
-                _.id ===
-                _constantAppModalPaste__WEBPACK_IMPORTED_MODULE_9__.ID_SELECT_ICON
-              );
-            });
-            entitiesFromPaste.forEach(function (entity) {
-              if (!entity.isCurrent) if (!isApplyNestedEntities) return;
-              var promisesListResponse = [];
-              viewerForPaste.forEach(function (viewer) {
-                var _a;
-                if (!viewer.isSelected) return;
-                initialCustomSettings.Url = (
-                  configApplyNewUrl === null || configApplyNewUrl === void 0
-                    ? void 0
-                    : configApplyNewUrl.isActive
-                )
-                  ? configApplyNewUrl === null || configApplyNewUrl === void 0
-                    ? void 0
-                    : configApplyNewUrl.value
-                  : (_a =
-                      viewer === null || viewer === void 0
-                        ? void 0
-                        : viewer.Settings) === null || _a === void 0
-                  ? void 0
-                  : _a.Url;
-                var settingForPost = isApplySettingsCustom
-                  ? __assign(
-                      __assign({}, viewer.Settings),
-                      initialCustomSettings
-                    )
-                  : viewer.Settings;
-                var IconForPaste =
-                  isApplyIconCustom && selectIcon.value
-                    ? selectIcon.value
-                    : viewer.Icon;
-                var dataPost = {
-                  Caption: viewer.Caption,
-                  Icon: IconForPaste,
-                  Attributes: viewer.Attributes,
-                  Name: viewer.Name,
-                  Settings: settingForPost
-                };
-                var isHaveViewer = entity.Viewers.find(function (_) {
-                  return _.Caption === viewer.Caption;
-                });
-                var newViewer = (function () {
-                  return __awaiter(void 0, void 0, void 0, function () {
-                    var dataCreate, response;
-                    return __generator(this, function (_a) {
-                      switch (_a.label) {
-                        case 0:
-                          if (!isHaveViewer) return [3 /*break*/, 7];
-                          dataCreate = __assign(__assign({}, dataPost), {
-                            Icon:
-                              isApplyReWriteIconWithEdit && IconForPaste
-                                ? IconForPaste
-                                : isHaveViewer.Icon,
-                            Id: isHaveViewer.Id
-                          });
-                          return [
-                            4 /*yield*/,
-                            _services_Entities_service__WEBPACK_IMPORTED_MODULE_10__.EntitiesService.changeViewerInEntities(
-                              entity.Id,
-                              dataCreate
-                            )
-                          ];
-                        case 1:
-                          _a.sent();
-                          if (!isCopyAttrInViewer) return [3 /*break*/, 4];
-                          return [
-                            4 /*yield*/,
-                            _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.setAttrViewer(
-                              {
-                                idAttrs: dataCreate.Attributes,
-                                idEntity: entity.Id,
-                                idViewer: dataCreate.Id
-                              }
-                            )
-                          ];
-                        case 2:
-                          _a.sent();
-                          return [
-                            4 /*yield*/,
-                            _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.deleteAttrForViewer(
-                              {
-                                idAttrs: isHaveViewer.Attributes,
-                                idEntity: entity.Id,
-                                idViewer: dataCreate.Id
-                              }
-                            )
-                          ];
-                        case 3:
-                          _a.sent();
-                          _a.label = 4;
-                        case 4:
-                          if (!isCopyAttrInEntity) return [3 /*break*/, 6];
-                          return [
-                            4 /*yield*/,
-                            _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.setAttrForEntity(
-                              {
-                                idAttrs: dataCreate.Attributes,
-                                idEntity: entity.Id
-                              }
-                            )
-                          ];
-                        case 5:
-                          _a.sent();
-                          _a.label = 6;
-                        case 6:
-                          // eslint-disable-next-line no-console
-                          console.log(
-                            '\u0418\u0437\u043C\u0435\u043D\u0438\u043B\u0438 \u0432\u0438\u0434: '
-                              .concat(
-                                dataCreate.Caption,
-                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                              )
-                              .concat(entity.Name)
-                          );
-                          return [2 /*return*/, dataCreate];
-                        case 7:
-                          return [
-                            4 /*yield*/,
-                            _services_Entities_service__WEBPACK_IMPORTED_MODULE_10__.EntitiesService.pasteViewerInEntities(
-                              entity.Id,
-                              dataPost
-                            )
-                          ];
-                        case 8:
-                          response = _a.sent();
-                          if (!isCopyAttrInViewer) return [3 /*break*/, 10];
-                          return [
-                            4 /*yield*/,
-                            _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.setAttrViewer(
-                              {
-                                idAttrs: dataPost.Attributes,
-                                idEntity: entity.Id,
-                                idViewer: response.Id
-                              }
-                            )
-                          ];
-                        case 9:
-                          _a.sent();
-                          _a.label = 10;
-                        case 10:
-                          if (!isCopyAttrInEntity) return [3 /*break*/, 12];
-                          return [
-                            4 /*yield*/,
-                            _services_Attributes_service__WEBPACK_IMPORTED_MODULE_11__.AttributesService.setAttrForEntity(
-                              {
-                                idAttrs: dataPost.Attributes,
-                                idEntity: entity.Id
-                              }
-                            )
-                          ];
-                        case 11:
-                          _a.sent();
-                          _a.label = 12;
-                        case 12:
-                          // eslint-disable-next-line no-console
-                          console.log(
-                            '\u0421\u043E\u0437\u0434\u0430\u043B\u0438 \u0432\u0438\u0434: '
-                              .concat(
-                                dataPost.Caption,
-                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                              )
-                              .concat(entity.Name)
-                          );
-                          return [
-                            2 /*return*/,
-                            __assign(__assign({}, dataPost), {
-                              Id: response.Id
-                            })
-                          ];
-                      }
-                    });
-                  });
-                })();
-                promisesListResponse.push(newViewer);
-              });
-              Promise.all(promisesListResponse).then(function (e) {
-                return __awaiter(void 0, void 0, void 0, function () {
-                  var currentOrder, orderHash;
-                  return __generator(this, function (_a) {
-                    switch (_a.label) {
-                      case 0:
-                        currentOrder = __spreadArray([], entity.Viewers, true);
-                        viewerForPaste.forEach(function (viewer) {
-                          var _a;
-                          if (!viewer.isSelected) return;
-                          var newViewer = e.find(function (item) {
-                            return item.Caption === viewer.Caption;
-                          });
-                          var order =
-                            ((_a = viewerForPaste.find(function (_) {
-                              return _.Caption === newViewer.Caption;
-                            })) === null || _a === void 0
-                              ? void 0
-                              : _a.order) || 1;
-                          currentOrder.splice(order - 1, 0, newViewer);
-                        });
-                        orderHash = {};
-                        currentOrder.forEach(function (_, ind) {
-                          return (orderHash[_.Id] = ind);
-                        });
-                        return [
-                          4 /*yield*/,
-                          _services_Entities_service__WEBPACK_IMPORTED_MODULE_10__.EntitiesService.changeOrderPosition(
-                            entity.Id,
-                            orderHash
-                          )
-                        ];
-                      case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                    }
-                  });
-                });
-              });
-            });
-          };
           var objRoutePage = {
             1: react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
               _screens_CopyViewer__WEBPACK_IMPORTED_MODULE_3__.CopyViewer,
@@ -6278,11 +5951,11 @@
               _screens_PasteViewer__WEBPACK_IMPORTED_MODULE_4__.PasteViewer,
               {
                 deleteView: deleteView,
-                pasteViewers: pasteViewers,
                 changeOrderViewerInEntities: changeOrderViewerInEntities,
                 changeSelectedToggleiewer: changeSelectedToggleiewer,
                 icons: icons,
                 viewerForPaste: viewerForPaste,
+                entitiesFromPaste: entitiesFromPaste,
                 setViewerForPaste: setViewerForPaste
               }
             )
@@ -6761,6 +6434,190 @@
           __webpack_require__(
             /*! @/components/complex/ViewerForPaste */ './src/components/complex/ViewerForPaste/index.ts'
           );
+        /* harmony import */ var _components_simple_Progress__WEBPACK_IMPORTED_MODULE_11__ =
+          __webpack_require__(
+            /*! @/components/simple/Progress */ './src/components/simple/Progress/index.ts'
+          );
+        /* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_12__ =
+          __webpack_require__(
+            /*! @/services/Entities.service */ './src/services/Entities.service.ts'
+          );
+        /* harmony import */ var _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__ =
+          __webpack_require__(
+            /*! @/services/Attributes.service */ './src/services/Attributes.service.ts'
+          );
+        /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_14__ =
+          __webpack_require__(
+            /*! @/shared/utils/utils */ './src/shared/utils/utils.ts'
+          );
+        var __assign =
+          (undefined && undefined.__assign) ||
+          function () {
+            __assign =
+              Object.assign ||
+              function (t) {
+                for (var s, i = 1, n = arguments.length; i < n; i++) {
+                  s = arguments[i];
+                  for (var p in s)
+                    if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+                }
+                return t;
+              };
+            return __assign.apply(this, arguments);
+          };
+        var __awaiter =
+          (undefined && undefined.__awaiter) ||
+          function (thisArg, _arguments, P, generator) {
+            function adopt(value) {
+              return value instanceof P
+                ? value
+                : new P(function (resolve) {
+                    resolve(value);
+                  });
+            }
+            return new (P || (P = Promise))(function (resolve, reject) {
+              function fulfilled(value) {
+                try {
+                  step(generator.next(value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function rejected(value) {
+                try {
+                  step(generator['throw'](value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function step(result) {
+                result.done
+                  ? resolve(result.value)
+                  : adopt(result.value).then(fulfilled, rejected);
+              }
+              step(
+                (generator = generator.apply(thisArg, _arguments || [])).next()
+              );
+            });
+          };
+        var __generator =
+          (undefined && undefined.__generator) ||
+          function (thisArg, body) {
+            var _ = {
+                label: 0,
+                sent: function () {
+                  if (t[0] & 1) throw t[1];
+                  return t[1];
+                },
+                trys: [],
+                ops: []
+              },
+              f,
+              y,
+              t,
+              g;
+            return (
+              (g = { next: verb(0), throw: verb(1), return: verb(2) }),
+              typeof Symbol === 'function' &&
+                (g[Symbol.iterator] = function () {
+                  return this;
+                }),
+              g
+            );
+            function verb(n) {
+              return function (v) {
+                return step([n, v]);
+              };
+            }
+            function step(op) {
+              if (f) throw new TypeError('Generator is already executing.');
+              while ((g && ((g = 0), op[0] && (_ = 0)), _))
+                try {
+                  if (
+                    ((f = 1),
+                    y &&
+                      (t =
+                        op[0] & 2
+                          ? y['return']
+                          : op[0]
+                          ? y['throw'] || ((t = y['return']) && t.call(y), 0)
+                          : y.next) &&
+                      !(t = t.call(y, op[1])).done)
+                  )
+                    return t;
+                  if (((y = 0), t)) op = [op[0] & 2, t.value];
+                  switch (op[0]) {
+                    case 0:
+                    case 1:
+                      t = op;
+                      break;
+                    case 4:
+                      _.label++;
+                      return { value: op[1], done: false };
+                    case 5:
+                      _.label++;
+                      y = op[1];
+                      op = [0];
+                      continue;
+                    case 7:
+                      op = _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                    default:
+                      if (
+                        !((t = _.trys),
+                        (t = t.length > 0 && t[t.length - 1])) &&
+                        (op[0] === 6 || op[0] === 2)
+                      ) {
+                        _ = 0;
+                        continue;
+                      }
+                      if (
+                        op[0] === 3 &&
+                        (!t || (op[1] > t[0] && op[1] < t[3]))
+                      ) {
+                        _.label = op[1];
+                        break;
+                      }
+                      if (op[0] === 6 && _.label < t[1]) {
+                        _.label = t[1];
+                        t = op;
+                        break;
+                      }
+                      if (t && _.label < t[2]) {
+                        _.label = t[2];
+                        _.ops.push(op);
+                        break;
+                      }
+                      if (t[2]) _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                  }
+                  op = body.call(thisArg, _);
+                } catch (e) {
+                  op = [6, e];
+                  y = 0;
+                } finally {
+                  f = t = 0;
+                }
+              if (op[0] & 5) throw op[1];
+              return { value: op[0] ? op[1] : void 0, done: true };
+            }
+          };
+        var __spreadArray =
+          (undefined && undefined.__spreadArray) ||
+          function (to, from, pack) {
+            if (pack || arguments.length === 2)
+              for (var i = 0, l = from.length, ar; i < l; i++) {
+                if (ar || !(i in from)) {
+                  if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                  ar[i] = from[i];
+                }
+              }
+            return to.concat(ar || Array.prototype.slice.call(from));
+          };
+        /* eslint-disable max-nested-callbacks */
+        /* eslint-disable max-lines */
 
         // eslint-disable-next-line max-len
 
@@ -6829,18 +6686,33 @@
             deleteView = _a.deleteView,
             changeOrderViewerInEntities = _a.changeOrderViewerInEntities,
             icons = _a.icons,
-            pasteViewers = _a.pasteViewers,
-            setViewerForPaste = _a.setViewerForPaste;
-          var _c = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)(
+            setViewerForPaste = _a.setViewerForPaste,
+            entitiesFromPaste = _a.entitiesFromPaste;
+          var allCreatedViewer = (0, react__WEBPACK_IMPORTED_MODULE_8__.useRef)(
+            0
+          );
+          var _c = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)([]),
+            errorCopy = _c[0],
+            setErrorCopy = _c[1];
+          var _d = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)(0),
+            countCreate = _d[0],
+            setCreateCount = _d[1];
+          var _e = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)(
               initialStateConfigPaste
             ),
-            configPaste = _c[0],
-            setConfigPaste = _c[1];
-          var _d = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)(
+            configPaste = _e[0],
+            setConfigPaste = _e[1];
+          var isApplyNestedEntities = configPaste.find(function (_) {
+            return (
+              _.id ===
+              _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_VIEWER_NESTED
+            );
+          }).isActive;
+          var _f = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)(
               initialStateSettingViewer
             ),
-            settingViewer = _d[0],
-            setSettingViewer = _d[1];
+            settingViewer = _f[0],
+            setSettingViewer = _f[1];
           var configPasteIcon = configPaste.find(function (_) {
             return (
               _.id ===
@@ -6879,18 +6751,450 @@
                   })
             );
           };
-          var pasteViewerInEntities = function () {
-            pasteViewers({
-              viewerForPaste: viewerForPaste,
-              configPasteEntities: configPaste,
-              settingForPaste: settingViewer
+          var pasteViewerInEntities = function (_a) {
+            var viewerForPaste = _a.viewerForPaste,
+              configPasteEntities = _a.configPasteEntities,
+              settingForPaste = _a.settingForPaste;
+            var isApplySettingsCustom = settingForPaste.find(function (_) {
+              return (
+                _.id ===
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.APPLY_SETTINGS
+              );
+            }).isActive;
+            var isApplyIconCustom = configPasteEntities.find(function (_) {
+              return (
+                _.id ===
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.SET_ICON
+              );
+            }).isActive;
+            var isApplyReWriteIconWithEdit = configPasteEntities.find(
+              function (_) {
+                return (
+                  _.id ===
+                  _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.REPLACE_ICON
+                );
+              }
+            ).isActive;
+            var configApplyNewUrl = settingForPaste.find(function (_) {
+              return (
+                _.id ===
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.URL_VIEWER_SETTING
+              );
             });
-            var alert = new js_alert__WEBPACK_IMPORTED_MODULE_7__['default'](
-              'Страница будет перезагружена',
-              'Новые виды были вставлены'
-            );
-            alert.show();
-            // window.location.reload()
+            var isCopyAttrInViewer = configPasteEntities.find(function (_) {
+              return (
+                _.id ===
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_ATTR_IN_VIEWER
+              );
+            }).isActive;
+            var isCopyAttrInEntity = configPasteEntities.find(function (_) {
+              return (
+                _.id ===
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_ATTR_IN_ENTITIES
+              );
+            }).isActive;
+            var initialCustomSettings = {
+              hideInStructureOfObject: false,
+              hideInViewingModel: false,
+              SendParams: false,
+              hideEmptyFields: false,
+              viewMode: 0,
+              Url: ''
+            };
+            // изменяем настройки исходя из выбранных на экране копирования
+            settingForPaste.forEach(function (setting) {
+              if (setting.id === '3') return;
+              if (setting.id === 'viewMode')
+                return (initialCustomSettings[setting.id] = Number(
+                  !!(setting === null || setting === void 0
+                    ? void 0
+                    : setting.isActive)
+                ));
+              if (
+                setting.id ===
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.URL_VIEWER_SETTING
+              )
+                return (initialCustomSettings[setting.id] = setting.value);
+              initialCustomSettings[setting.id] = !!(setting === null ||
+              setting === void 0
+                ? void 0
+                : setting.isActive);
+            });
+            var selectIcon = configPasteEntities.find(function (_) {
+              return (
+                _.id ===
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.ID_SELECT_ICON
+              );
+            });
+            allCreatedViewer.current = entitiesFromPaste.length;
+            entitiesFromPaste.forEach(function (entity) {
+              return __awaiter(void 0, void 0, void 0, function () {
+                var promisesListResponseCreateViewers;
+                return __generator(this, function (_a) {
+                  switch (_a.label) {
+                    case 0:
+                      if (!entity.isCurrent)
+                        if (!isApplyNestedEntities) return [2 /*return*/];
+                      promisesListResponseCreateViewers = [];
+                      viewerForPaste.forEach(function (viewer) {
+                        var _a;
+                        if (!viewer.isSelected) return;
+                        initialCustomSettings.Url = (
+                          configApplyNewUrl === null ||
+                          configApplyNewUrl === void 0
+                            ? void 0
+                            : configApplyNewUrl.isActive
+                        )
+                          ? configApplyNewUrl === null ||
+                            configApplyNewUrl === void 0
+                            ? void 0
+                            : configApplyNewUrl.value
+                          : (_a =
+                              viewer === null || viewer === void 0
+                                ? void 0
+                                : viewer.Settings) === null || _a === void 0
+                          ? void 0
+                          : _a.Url;
+                        var settingForPost = isApplySettingsCustom
+                          ? __assign(
+                              __assign({}, viewer.Settings),
+                              initialCustomSettings
+                            )
+                          : viewer.Settings;
+                        var IconForPaste =
+                          isApplyIconCustom && selectIcon.value
+                            ? selectIcon.value
+                            : viewer.Icon;
+                        var dataPost = {
+                          Caption: viewer.Caption,
+                          Icon: IconForPaste,
+                          Attributes: viewer.Attributes,
+                          Name: viewer.Name,
+                          Settings: settingForPost
+                        };
+                        var isHaveViewer = entity.Viewers.find(function (_) {
+                          return _.Caption === viewer.Caption;
+                        });
+                        var newViewer = (function () {
+                          return __awaiter(void 0, void 0, void 0, function () {
+                            var dataCreate_1, response;
+                            return __generator(this, function (_a) {
+                              switch (_a.label) {
+                                case 0:
+                                  if (!isHaveViewer) return [3 /*break*/, 7];
+                                  dataCreate_1 = __assign(
+                                    __assign({}, dataPost),
+                                    {
+                                      Icon:
+                                        isApplyReWriteIconWithEdit &&
+                                        IconForPaste
+                                          ? IconForPaste
+                                          : isHaveViewer.Icon,
+                                      Id: isHaveViewer.Id
+                                    }
+                                  );
+                                  return [
+                                    4 /*yield*/,
+                                    _services_Entities_service__WEBPACK_IMPORTED_MODULE_12__.EntitiesService.changeViewerInEntities(
+                                      entity.Id,
+                                      dataCreate_1
+                                    ).catch(function () {
+                                      setErrorCopy(function (prev) {
+                                        return __spreadArray(
+                                          __spreadArray([], prev, true),
+                                          [
+                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0438 \u0432\u0438\u0434\u0430 '
+                                              .concat(
+                                                dataCreate_1.Caption,
+                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                              )
+                                              .concat(entity.Name)
+                                          ],
+                                          false
+                                        );
+                                      });
+                                    })
+                                  ];
+                                case 1:
+                                  _a.sent();
+                                  if (!isCopyAttrInViewer)
+                                    return [3 /*break*/, 4];
+                                  return [
+                                    4 /*yield*/,
+                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.setAttrViewer(
+                                      {
+                                        idAttrs: dataCreate_1.Attributes,
+                                        idEntity: entity.Id,
+                                        idViewer: dataCreate_1.Id
+                                      }
+                                    ).catch(function () {
+                                      setErrorCopy(function (prev) {
+                                        return __spreadArray(
+                                          __spreadArray([], prev, true),
+                                          [
+                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 '
+                                              .concat(
+                                                dataCreate_1.Caption,
+                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                              )
+                                              .concat(entity.Name)
+                                          ],
+                                          false
+                                        );
+                                      });
+                                    })
+                                  ];
+                                case 2:
+                                  _a.sent();
+                                  return [
+                                    4 /*yield*/,
+                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.deleteAttrForViewer(
+                                      {
+                                        idAttrs: isHaveViewer.Attributes,
+                                        idEntity: entity.Id,
+                                        idViewer: dataCreate_1.Id
+                                      }
+                                    ).catch(function () {
+                                      setErrorCopy(function (prev) {
+                                        return __spreadArray(
+                                          __spreadArray([], prev, true),
+                                          [
+                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 '
+                                              .concat(
+                                                dataPost.Caption,
+                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                              )
+                                              .concat(entity.Name)
+                                          ],
+                                          false
+                                        );
+                                      });
+                                    })
+                                  ];
+                                case 3:
+                                  _a.sent();
+                                  _a.label = 4;
+                                case 4:
+                                  if (!isCopyAttrInEntity)
+                                    return [3 /*break*/, 6];
+                                  return [
+                                    4 /*yield*/,
+                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.setAttrForEntity(
+                                      {
+                                        idAttrs: dataCreate_1.Attributes,
+                                        idEntity: entity.Id
+                                      }
+                                    ).catch(function () {
+                                      setErrorCopy(function (prev) {
+                                        return __spreadArray(
+                                          __spreadArray([], prev, true),
+                                          [
+                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 '
+                                              .concat(
+                                                dataCreate_1.Caption,
+                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                              )
+                                              .concat(entity.Name)
+                                          ],
+                                          false
+                                        );
+                                      });
+                                    })
+                                  ];
+                                case 5:
+                                  _a.sent();
+                                  _a.label = 6;
+                                case 6:
+                                  // eslint-disable-next-line no-console
+                                  console.log(
+                                    '\u0418\u0437\u043C\u0435\u043D\u0438\u043B\u0438 \u0432\u0438\u0434: '
+                                      .concat(
+                                        dataCreate_1.Caption,
+                                        ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                      )
+                                      .concat(entity.Name)
+                                  );
+                                  return [2 /*return*/, dataCreate_1];
+                                case 7:
+                                  return [
+                                    4 /*yield*/,
+                                    _services_Entities_service__WEBPACK_IMPORTED_MODULE_12__.EntitiesService.pasteViewerInEntities(
+                                      entity.Id,
+                                      dataPost
+                                    ).catch(function () {
+                                      setErrorCopy(function (prev) {
+                                        return __spreadArray(
+                                          __spreadArray([], prev, true),
+                                          [
+                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0438 \u0432\u0438\u0434\u0430 '
+                                              .concat(
+                                                dataPost.Caption,
+                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                              )
+                                              .concat(entity.Name)
+                                          ],
+                                          false
+                                        );
+                                      });
+                                    })
+                                  ];
+                                case 8:
+                                  response = _a.sent();
+                                  if (!isCopyAttrInViewer)
+                                    return [3 /*break*/, 10];
+                                  return [
+                                    4 /*yield*/,
+                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.setAttrViewer(
+                                      {
+                                        idAttrs: dataPost.Attributes,
+                                        idEntity: entity.Id,
+                                        idViewer: response.Id
+                                      }
+                                    ).catch(function () {
+                                      setErrorCopy(function (prev) {
+                                        return __spreadArray(
+                                          __spreadArray([], prev, true),
+                                          [
+                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 '
+                                              .concat(
+                                                dataPost.Caption,
+                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                              )
+                                              .concat(entity.Name)
+                                          ],
+                                          false
+                                        );
+                                      });
+                                    })
+                                  ];
+                                case 9:
+                                  _a.sent();
+                                  _a.label = 10;
+                                case 10:
+                                  if (!isCopyAttrInEntity)
+                                    return [3 /*break*/, 12];
+                                  return [
+                                    4 /*yield*/,
+                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.setAttrForEntity(
+                                      {
+                                        idAttrs: dataPost.Attributes,
+                                        idEntity: entity.Id
+                                      }
+                                    ).catch(function () {
+                                      setErrorCopy(function (prev) {
+                                        return __spreadArray(
+                                          __spreadArray([], prev, true),
+                                          [
+                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 '
+                                              .concat(
+                                                dataPost.Caption,
+                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                              )
+                                              .concat(entity.Name)
+                                          ],
+                                          false
+                                        );
+                                      });
+                                    })
+                                  ];
+                                case 11:
+                                  _a.sent();
+                                  _a.label = 12;
+                                case 12:
+                                  // eslint-disable-next-line no-console
+                                  console.log(
+                                    '\u0421\u043E\u0437\u0434\u0430\u043B\u0438 \u0432\u0438\u0434: '
+                                      .concat(
+                                        dataPost.Caption,
+                                        ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                      )
+                                      .concat(entity.Name)
+                                  );
+                                  return [
+                                    2 /*return*/,
+                                    __assign(__assign({}, dataPost), {
+                                      Id: response.Id
+                                    })
+                                  ];
+                              }
+                            });
+                          });
+                        })();
+                        promisesListResponseCreateViewers.push(newViewer);
+                      });
+                      return [
+                        4 /*yield*/,
+                        Promise.all(promisesListResponseCreateViewers).then(
+                          function (e) {
+                            return __awaiter(
+                              void 0,
+                              void 0,
+                              void 0,
+                              function () {
+                                var currentOrder, orderHash;
+                                return __generator(this, function (_a) {
+                                  switch (_a.label) {
+                                    case 0:
+                                      currentOrder = __spreadArray(
+                                        [],
+                                        entity.Viewers,
+                                        true
+                                      );
+                                      viewerForPaste.forEach(function (viewer) {
+                                        var _a;
+                                        if (!viewer.isSelected) return;
+                                        var newViewer = e.find(function (item) {
+                                          return (
+                                            item.Caption === viewer.Caption
+                                          );
+                                        });
+                                        var order =
+                                          ((_a = viewerForPaste.find(
+                                            function (_) {
+                                              return (
+                                                _.Caption === newViewer.Caption
+                                              );
+                                            }
+                                          )) === null || _a === void 0
+                                            ? void 0
+                                            : _a.order) || 1;
+                                        currentOrder.splice(
+                                          order - 1,
+                                          0,
+                                          newViewer
+                                        );
+                                      });
+                                      orderHash = {};
+                                      currentOrder.forEach(function (_, ind) {
+                                        return (orderHash[_.Id] = ind);
+                                      });
+                                      setCreateCount(function (prev) {
+                                        return prev + 1;
+                                      });
+                                      return [
+                                        4 /*yield*/,
+                                        _services_Entities_service__WEBPACK_IMPORTED_MODULE_12__.EntitiesService.changeOrderPosition(
+                                          entity.Id,
+                                          orderHash
+                                        )
+                                      ];
+                                    case 1:
+                                      _a.sent();
+                                      return [2 /*return*/];
+                                  }
+                                });
+                              }
+                            );
+                          }
+                        )
+                      ];
+                    case 1:
+                      _a.sent();
+                      return [2 /*return*/];
+                  }
+                });
+              });
+            });
           };
           var renameViewer = function (name, idViewer) {
             var newViewers = viewerForPaste.map(function (viewer) {
@@ -6899,6 +7203,37 @@
             });
             setViewerForPaste(newViewers);
           };
+          var completedPaste = function () {
+            var alert = new js_alert__WEBPACK_IMPORTED_MODULE_7__['default'](
+              'Страница будет перезагружена',
+              'Новые виды были вставлены'
+            );
+            alert.addButton('Перезагрузить страницу').then(function () {
+              window.location.reload();
+            });
+            alert.show();
+            return window.setTimeout(function () {
+              setCreateCount(0);
+            }, 3000);
+          };
+          (0, react__WEBPACK_IMPORTED_MODULE_8__.useEffect)(
+            function () {
+              var timer = undefined;
+              if (
+                (0,
+                _shared_utils_utils__WEBPACK_IMPORTED_MODULE_14__.getPercent)(
+                  countCreate,
+                  allCreatedViewer.current
+                ) === 100
+              ) {
+                timer = completedPaste();
+              }
+              return function () {
+                return clearTimeout(timer);
+              };
+            },
+            [countCreate]
+          );
           return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
             'div',
             {
@@ -6942,195 +7277,268 @@
                   );
                 })
               ),
-              react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__.WrapperNeumorphism,
-                null,
-                react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                  'div',
-                  {
-                    className:
-                      _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
-                        'default'
-                      ].wrapperListConfig
-                  },
-                  configPaste.map(function (paramPaste) {
-                    if (
-                      paramPaste.id ===
-                      _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.ID_SELECT_ICON
-                    ) {
-                      return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+              errorCopy.length
+                ? react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                    _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__.WrapperNeumorphism,
+                    null,
+                    react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                      'div',
+                      {
+                        className:
+                          _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                            'default'
+                          ].wrapperError
+                      },
+                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                        'h2',
+                        null,
+                        '\u041E\u0448\u0438\u0431\u043A\u0438'
+                      ),
+                      errorCopy.map(function (textError) {
+                        return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                          'div',
+                          {
+                            className:
+                              _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                'default'
+                              ].wrapperTextError
+                          },
+                          react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                            'span',
+                            null,
+                            textError
+                          )
+                        );
+                      })
+                    )
+                  )
+                : react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                    react__WEBPACK_IMPORTED_MODULE_8___default().Fragment,
+                    null,
+                    react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                      _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__.WrapperNeumorphism,
+                      null,
+                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
                         'div',
                         {
                           className:
                             _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
                               'default'
-                            ].wrapperDropDownIcon
+                            ].wrapperListConfig
                         },
-                        react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                          _components_simple_DropDown__WEBPACK_IMPORTED_MODULE_0__.DropDown,
-                          {
-                            onChange: function (idIcon) {
-                              return changeConfigPaste(paramPaste.id, idIcon);
-                            },
-                            title:
-                              '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u043A\u043E\u043D\u043A\u0443',
-                            list: icons.map(function (icon) {
-                              return {
-                                label: icon.Name,
-                                value: icon.Id
-                              };
-                            })
+                        configPaste.map(function (paramPaste) {
+                          if (
+                            paramPaste.id ===
+                            _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.ID_SELECT_ICON
+                          ) {
+                            return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                              'div',
+                              {
+                                className:
+                                  _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                    'default'
+                                  ].wrapperDropDownIcon
+                              },
+                              react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                                _components_simple_DropDown__WEBPACK_IMPORTED_MODULE_0__.DropDown,
+                                {
+                                  onChange: function (idIcon) {
+                                    return changeConfigPaste(
+                                      paramPaste.id,
+                                      idIcon
+                                    );
+                                  },
+                                  title:
+                                    '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u043A\u043E\u043D\u043A\u0443',
+                                  list: icons.map(function (icon) {
+                                    return {
+                                      label: icon.Name,
+                                      value: icon.Id
+                                    };
+                                  })
+                                }
+                              ),
+                              react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                                'div',
+                                {
+                                  className:
+                                    _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                      'default'
+                                    ].wrapperSelectTitleIcon
+                                },
+                                titleIconSelect
+                                  ? react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                                      react__WEBPACK_IMPORTED_MODULE_8___default()
+                                        .Fragment,
+                                      null,
+                                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                                        'span',
+                                        null,
+                                        '\u0412\u044B \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u0438\u043A\u043E\u043D\u043A\u0443:'
+                                      ),
+                                      ' ',
+                                      titleIconSelect
+                                    )
+                                  : ''
+                              )
+                            );
                           }
-                        ),
+                          return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                            'div',
+                            {
+                              key: paramPaste.id,
+                              className:
+                                _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                  'default'
+                                ].rowSwitch
+                            },
+                            react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                              _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_4__.SwitchWithText,
+                              {
+                                onChange: function (check) {
+                                  changeConfigPaste(paramPaste.id, check);
+                                },
+                                text: paramPaste.text,
+                                value: paramPaste.isActive
+                              }
+                            )
+                          );
+                        })
+                      )
+                    ),
+                    react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                      _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__.WrapperNeumorphism,
+                      null,
+                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                        'div',
+                        {
+                          className:
+                            _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                              'default'
+                            ].wrapperSettingWithView
+                        },
                         react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
                           'div',
                           {
                             className:
                               _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
                                 'default'
-                              ].wrapperSelectTitleIcon
+                              ].rowSwitchSetting
                           },
-                          titleIconSelect
-                            ? react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                                react__WEBPACK_IMPORTED_MODULE_8___default()
-                                  .Fragment,
-                                null,
+                          settingViewer.map(function (paramViewer) {
+                            if (
+                              paramViewer.id ===
+                              _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.URL_VIEWER_SETTING
+                            ) {
+                              return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                                'div',
+                                {
+                                  key: paramViewer.id,
+                                  className:
+                                    _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                      'default'
+                                    ].inputSettingUrlWrapper
+                                },
                                 react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                                  'span',
-                                  null,
-                                  '\u0412\u044B \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u0438\u043A\u043E\u043D\u043A\u0443:'
+                                  _components_simple_Switch__WEBPACK_IMPORTED_MODULE_3__.Switch,
+                                  {
+                                    isRounded: true,
+                                    onChange: function (check) {
+                                      return changeSettingForPaste(
+                                        paramViewer.id,
+                                        check
+                                      );
+                                    },
+                                    value: paramViewer.isActive
+                                  }
                                 ),
-                                ' ',
-                                titleIconSelect
-                              )
-                            : ''
+                                react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                                  _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_1__.InputWithUnderLineColor,
+                                  {
+                                    placeholder:
+                                      'URL \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430',
+                                    value: paramViewer.value,
+                                    size: 's',
+                                    addStyle: {
+                                      width: '100%'
+                                    },
+                                    onChange: function (value) {
+                                      return changeSettingForPaste(
+                                        paramViewer.id,
+                                        value
+                                      );
+                                    }
+                                  }
+                                )
+                              );
+                            }
+                            return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                              _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_4__.SwitchWithText,
+                              {
+                                key: paramViewer.id,
+                                onChange: function (check) {
+                                  return changeSettingForPaste(
+                                    paramViewer.id,
+                                    check
+                                  );
+                                },
+                                text: paramViewer.text,
+                                bold: paramViewer.bold,
+                                value: paramViewer.isActive
+                              }
+                            );
+                          })
                         )
-                      );
-                    }
-                    return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                      'div',
-                      {
-                        key: paramPaste.id,
-                        className:
-                          _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
-                            'default'
-                          ].rowSwitch
-                      },
-                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                        _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_4__.SwitchWithText,
-                        {
-                          onChange: function (check) {
-                            changeConfigPaste(paramPaste.id, check);
-                          },
-                          text: paramPaste.text,
-                          value: paramPaste.isActive
-                        }
                       )
-                    );
-                  })
+                    )
+                  )
+            ),
+            !countCreate
+              ? react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                  _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
+                  {
+                    wd: '150px',
+                    addStyle: {
+                      height: '30px'
+                    },
+                    disabled: !~viewerForPaste.findIndex(function (_) {
+                      return _.isSelected;
+                    }),
+                    addClassName:
+                      _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                        'default'
+                      ].reload,
+                    onClick: function () {
+                      return pasteViewerInEntities({
+                        viewerForPaste: viewerForPaste,
+                        configPasteEntities: configPaste,
+                        settingForPaste: settingViewer
+                      });
+                    },
+                    text: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C'
+                  }
                 )
-              ),
-              react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__.WrapperNeumorphism,
-                null,
-                react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+              : react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
                   'div',
                   {
                     className:
                       _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
                         'default'
-                      ].wrapperSettingWithView
+                      ].wrapperProgress
                   },
                   react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                    'div',
+                    _components_simple_Progress__WEBPACK_IMPORTED_MODULE_11__.Progress,
                     {
-                      className:
-                        _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
-                          'default'
-                        ].rowSwitchSetting
-                    },
-                    settingViewer.map(function (paramViewer) {
-                      if (
-                        paramViewer.id ===
-                        _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.URL_VIEWER_SETTING
-                      ) {
-                        return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                          'div',
-                          {
-                            key: paramViewer.id,
-                            className:
-                              _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
-                                'default'
-                              ].inputSettingUrlWrapper
-                          },
-                          react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                            _components_simple_Switch__WEBPACK_IMPORTED_MODULE_3__.Switch,
-                            {
-                              isRounded: true,
-                              onChange: function (check) {
-                                return changeSettingForPaste(
-                                  paramViewer.id,
-                                  check
-                                );
-                              },
-                              value: paramViewer.isActive
-                            }
-                          ),
-                          react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                            _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_1__.InputWithUnderLineColor,
-                            {
-                              placeholder:
-                                'URL \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430',
-                              value: paramViewer.value,
-                              size: 's',
-                              addStyle: {
-                                width: '100%'
-                              },
-                              onChange: function (value) {
-                                return changeSettingForPaste(
-                                  paramViewer.id,
-                                  value
-                                );
-                              }
-                            }
+                      done: !isApplyNestedEntities
+                        ? 100
+                        : (0,
+                          _shared_utils_utils__WEBPACK_IMPORTED_MODULE_14__.getPercent)(
+                            countCreate,
+                            allCreatedViewer.current
                           )
-                        );
-                      }
-                      return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                        _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_4__.SwitchWithText,
-                        {
-                          key: paramViewer.id,
-                          onChange: function (check) {
-                            return changeSettingForPaste(paramViewer.id, check);
-                          },
-                          text: paramViewer.text,
-                          bold: paramViewer.bold,
-                          value: paramViewer.isActive
-                        }
-                      );
-                    })
+                    }
                   )
                 )
-              )
-            ),
-            react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-              _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
-              {
-                wd: '150px',
-                addStyle: {
-                  height: '30px'
-                },
-                disabled: !~viewerForPaste.findIndex(function (_) {
-                  return _.isSelected;
-                }),
-                addClassName:
-                  _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
-                    'default'
-                  ].reload,
-                onClick: pasteViewerInEntities,
-                text: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C'
-              }
-            )
           );
         };
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
@@ -8151,6 +8559,7 @@
             /* binding */ entitiesForPasteInsert,
           /* harmony export */ getParamFromUrl: () =>
             /* binding */ getParamFromUrl,
+          /* harmony export */ getPercent: () => /* binding */ getPercent,
           /* harmony export */ getUrlParameter: () =>
             /* binding */ getUrlParameter,
           /* harmony export */ joinParamArrayApi: () =>
@@ -8240,6 +8649,9 @@
                 return (acc =
                   acc + '&'.concat(nameParam, '=').concat(currentIdAttr));
               }, '');
+        };
+        var getPercent = function (currentCount, allCount) {
+          return +((currentCount * 100) / allCount).toFixed(0);
         };
 
         /***/

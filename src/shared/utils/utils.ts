@@ -58,3 +58,6 @@ export const joinParamArrayApi = (params: string[], nameParam: string) =>
         }
         return (acc = acc + `&${nameParam}=${currentIdAttr}`);
       }, '');
+
+export const getPercent = (currentCount: number, allCount: number) =>
+  +((currentCount * 100) / allCount).toFixed(0);

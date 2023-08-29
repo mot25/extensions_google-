@@ -5,33 +5,13 @@ import IconPlus from '@/assets/icon/IconPlus.svg';
 import { CopyViewer } from '@/screens/CopyViewer';
 import { PasteViewer } from '@/screens/PasteViewer';
 import { IconService } from '@/services/Icon.service';
-import {
-  MenuLeftNavbar,
-  PageNavigatorType,
-  TypePasteViewers
-} from '@/type/components.dto';
-import {
-  EntitiesType,
-  RequestForPasteViewerType,
-  ViewerType
-} from '@/type/entities.dto';
+import { MenuLeftNavbar, PageNavigatorType } from '@/type/components.dto';
+import { EntitiesType, ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
 import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './AppModalPaste.module.scss';
-import {
-  APPLY_SETTINGS,
-  COPY_ATTR_IN_ENTITIES,
-  COPY_ATTR_IN_VIEWER,
-  COPY_VIEWER_NESTED,
-  ID_SELECT_ICON,
-  REPLACE_ICON,
-  SET_ICON,
-  URL_VIEWER_SETTING
-} from './constantAppModalPaste';
-import { EntitiesService } from '@/services/Entities.service';
-import { AttributesService } from '@/services/Attributes.service';
 
 const leftMenuConfig: MenuLeftNavbar[] = [
   {
@@ -110,168 +90,6 @@ const AppModalPaste = () => {
     );
   };
 
-  const pasteViewers = ({
-    viewerForPaste,
-    configPasteEntities,
-    settingForPaste
-  }: TypePasteViewers) => {
-    const isApplySettingsCustom = settingForPaste.find(
-      _ => _.id === APPLY_SETTINGS
-    ).isActive;
-    const isApplyIconCustom = configPasteEntities.find(
-      _ => _.id === SET_ICON
-    ).isActive;
-    const isApplyNestedEntities = configPasteEntities.find(
-      _ => _.id === COPY_VIEWER_NESTED
-    ).isActive;
-    const isApplyReWriteIconWithEdit = configPasteEntities.find(
-      _ => _.id === REPLACE_ICON
-    ).isActive;
-    const configApplyNewUrl = settingForPaste.find(
-      _ => _.id === URL_VIEWER_SETTING
-    );
-    const isCopyAttrInViewer = configPasteEntities.find(
-      _ => _.id === COPY_ATTR_IN_VIEWER
-    ).isActive;
-    const isCopyAttrInEntity = configPasteEntities.find(
-      _ => _.id === COPY_ATTR_IN_ENTITIES
-    ).isActive;
-
-    const initialCustomSettings: RequestForPasteViewerType['Settings'] = {
-      hideInStructureOfObject: false,
-      hideInViewingModel: false,
-      SendParams: false,
-      hideEmptyFields: false,
-      viewMode: 0,
-      Url: ''
-    };
-
-    // изменяем настройки исходя из выбранных на экране копирования
-    settingForPaste.forEach(setting => {
-      if (setting.id === '3') return;
-      if (setting.id === 'viewMode')
-        return (initialCustomSettings[setting.id] = Number(
-          !!setting?.isActive
-        ));
-      if (setting.id === URL_VIEWER_SETTING)
-        return (initialCustomSettings[setting.id] = setting.value);
-      initialCustomSettings[setting.id] = !!setting?.isActive;
-    });
-
-    const selectIcon = configPasteEntities.find(_ => _.id === ID_SELECT_ICON);
-
-    entitiesFromPaste.forEach(entity => {
-      if (!entity.isCurrent) if (!isApplyNestedEntities) return;
-      const promisesListResponse: Promise<ViewerType>[] = [];
-
-      viewerForPaste.forEach(viewer => {
-        if (!viewer.isSelected) return;
-
-        initialCustomSettings.Url = configApplyNewUrl?.isActive
-          ? configApplyNewUrl?.value
-          : viewer?.Settings?.Url;
-
-        const settingForPost = isApplySettingsCustom
-          ? { ...viewer.Settings, ...initialCustomSettings }
-          : viewer.Settings;
-
-        const IconForPaste: string =
-          isApplyIconCustom && selectIcon.value
-            ? selectIcon.value
-            : viewer.Icon;
-        const dataPost: RequestForPasteViewerType = {
-          Caption: viewer.Caption,
-          Icon: IconForPaste,
-          Attributes: viewer.Attributes,
-          Name: viewer.Name,
-          Settings: settingForPost
-        };
-
-        const isHaveViewer = entity.Viewers.find(
-          _ => _.Caption === viewer.Caption
-        );
-
-        const newViewer = (async () => {
-          if (isHaveViewer) {
-            const dataCreate = {
-              ...dataPost,
-              Icon:
-                isApplyReWriteIconWithEdit && IconForPaste
-                  ? IconForPaste
-                  : isHaveViewer.Icon,
-              Id: isHaveViewer.Id
-            };
-            await EntitiesService.changeViewerInEntities(entity.Id, dataCreate);
-            if (isCopyAttrInViewer) {
-              await AttributesService.setAttrViewer({
-                idAttrs: dataCreate.Attributes,
-                idEntity: entity.Id,
-                idViewer: dataCreate.Id
-              });
-              await AttributesService.deleteAttrForViewer({
-                idAttrs: isHaveViewer.Attributes,
-                idEntity: entity.Id,
-                idViewer: dataCreate.Id
-              });
-            }
-            if (isCopyAttrInEntity) {
-              await AttributesService.setAttrForEntity({
-                idAttrs: dataCreate.Attributes,
-                idEntity: entity.Id
-              });
-            }
-            // eslint-disable-next-line no-console
-            console.log(
-              `Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`
-            );
-            return dataCreate;
-          } else {
-            const response = await EntitiesService.pasteViewerInEntities(
-              entity.Id,
-              dataPost
-            );
-            if (isCopyAttrInViewer) {
-              await AttributesService.setAttrViewer({
-                idAttrs: dataPost.Attributes,
-                idEntity: entity.Id,
-                idViewer: response.Id
-              });
-            }
-            if (isCopyAttrInEntity) {
-              await AttributesService.setAttrForEntity({
-                idAttrs: dataPost.Attributes,
-                idEntity: entity.Id
-              });
-            }
-            // eslint-disable-next-line no-console
-            console.log(
-              `Создали вид: ${dataPost.Caption} в классе ${entity.Name}`
-            );
-            return {
-              ...dataPost,
-              Id: response.Id
-            };
-          }
-        })();
-        promisesListResponse.push(newViewer);
-      });
-      Promise.all(promisesListResponse).then(async e => {
-        const currentOrder = [...entity.Viewers];
-        viewerForPaste.forEach(viewer => {
-          if (!viewer.isSelected) return;
-          const newViewer = e.find(item => item.Caption === viewer.Caption);
-          const order: number =
-            viewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order ||
-            1;
-          currentOrder.splice(order - 1, 0, newViewer);
-        });
-        const orderHash: Record<string, number> = {};
-        currentOrder.forEach((_, ind) => (orderHash[_.Id] = ind));
-        await EntitiesService.changeOrderPosition(entity.Id, orderHash);
-      });
-    });
-  };
-
   const objRoutePage: PageNavigatorType = {
     1: (
       <CopyViewer
@@ -283,11 +101,11 @@ const AppModalPaste = () => {
     2: (
       <PasteViewer
         deleteView={deleteView}
-        pasteViewers={pasteViewers}
         changeOrderViewerInEntities={changeOrderViewerInEntities}
         changeSelectedToggleiewer={changeSelectedToggleiewer}
         icons={icons}
         viewerForPaste={viewerForPaste}
+        entitiesFromPaste={entitiesFromPaste}
         setViewerForPaste={setViewerForPaste}
       />
     )

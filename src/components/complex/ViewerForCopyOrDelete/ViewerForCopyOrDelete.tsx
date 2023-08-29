@@ -5,6 +5,7 @@ import JSAlert from 'js-alert';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
 import { ManagerViewersService } from '@/services/ManagerViewers.service';
 import { Progress } from '@/components/simple/Progress';
+import { getPercent } from '@/shared/utils/utils';
 
 type Props = {
   isHave: boolean;
@@ -76,9 +77,7 @@ const ViewerForCopyOrDelete = ({
       <span className={styles.name}>{viewer.Caption}</span>
       {idDeleting ? (
         <div className={styles.progressBar}>
-          <Progress
-            done={+((countDelete * 100) / allEntity.current).toFixed(0)}
-          />
+          <Progress done={getPercent(countDelete, allEntity.current)} />
         </div>
       ) : (
         <SimpleButton

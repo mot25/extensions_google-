@@ -346,6 +346,7 @@
             /* binding */ entitiesForPasteInsert,
           /* harmony export */ getParamFromUrl: () =>
             /* binding */ getParamFromUrl,
+          /* harmony export */ getPercent: () => /* binding */ getPercent,
           /* harmony export */ getUrlParameter: () =>
             /* binding */ getUrlParameter,
           /* harmony export */ joinParamArrayApi: () =>
@@ -435,6 +436,9 @@
                 return (acc =
                   acc + '&'.concat(nameParam, '=').concat(currentIdAttr));
               }, '');
+        };
+        var getPercent = function (currentCount, allCount) {
+          return +((currentCount * 100) / allCount).toFixed(0);
         };
 
         /***/
