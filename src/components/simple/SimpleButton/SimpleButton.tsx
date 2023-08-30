@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import React, { CSSProperties, MouseEvent } from 'react';
 import styles from './SimpleButton.module.scss';
-import classNames from 'classnames';
 
 type Props = {
   onClick: (e: MouseEvent) => void;

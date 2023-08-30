@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import styles from './AllowUrl.module.scss';
 import { DropDownEditValues } from '@/components/simple/DropDownEditValues';
 import { SimpleButton } from '@/components/simple/SimpleButton';
-import { OptionsType } from '@/type/components.dto';
 import { RenderWarningTextInPopup } from '@/shared/utils/components';
+import { OptionsType } from '@/type/components.dto';
+import styles from './AllowUrl.module.scss';
 
 const AllowUrl = () => {
   const [allowBaseUrl, setAllowBaseUrl] = useState<OptionsType[] | undefined>();

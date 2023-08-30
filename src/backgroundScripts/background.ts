@@ -1,10 +1,10 @@
 import { EntitiesService } from '@/services/Entities.service';
-import { HttpHeader } from '@/type/components.dto';
 import {
   entitiesForPasteInsert,
   getParamFromUrl,
   getUrlParameter
 } from '@/shared/utils/utils';
+import { HttpHeader } from '@/type/components.dto';
 
 type urlHeadersType = {
   url: string;

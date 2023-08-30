@@ -1,30 +1,18 @@
 /* eslint-disable max-lines */
-import IconClose from '@/assets/icon/IconClose.svg';
-import IconPaste from '@/assets/icon/IconPaste.svg';
-import IconPlus from '@/assets/icon/IconPlus.svg';
-import { CopyViewer } from '@/screens/CopyViewer';
-import { PasteViewer } from '@/screens/PasteViewer';
-import { IconService } from '@/services/Icon.service';
-import { MenuLeftNavbar, PageNavigatorType } from '@/type/components.dto';
-import { EntitiesType, ViewerType } from '@/type/entities.dto';
-import { IconType } from '@/type/icon.dto';
 import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 
-import styles from './AppModalPaste.module.scss';
+import IconClose from '@/assets/icon/IconClose.svg';
+import { CopyViewer } from '@/screens/CopyViewer';
+import { PasteViewer } from '@/screens/PasteViewer';
+import { IconService } from '@/services/Icon.service';
+import { removeExtensionsFromPage } from '@/shared/utils/utils';
+import { PageNavigatorType } from '@/type/components.dto';
+import { EntitiesType, ViewerType } from '@/type/entities.dto';
+import { IconType } from '@/type/icon.dto';
 
-const leftMenuConfig: MenuLeftNavbar[] = [
-  {
-    id: 1,
-    label: 'Виды в текущем классе',
-    title: <IconPlus />
-  },
-  {
-    id: 2,
-    label: 'Копировать',
-    title: <IconPaste />
-  }
-];
+import { leftMenuConfig } from './AppModalConstant';
+import styles from './AppModalPaste.module.scss';
 
 chrome.runtime.sendMessage({
   action: 'getEntities',
@@ -49,15 +37,7 @@ const AppModalPaste = () => {
     });
     setViewerForPaste(newViewers);
   };
-  const removeExtensionsFromPage = () => {
-    refModalWrapper.current.classList.toggle(styles.modalWrapper__active);
-    const nodes = document.querySelectorAll('#rootContentEntry');
-    nodes.forEach(element => {
-      element.remove();
-    });
-    // eslint-disable-next-line no-console
-    console.log('extensions remove');
-  };
+
   const fetchIcons = async () => {
     setIcons(await IconService.getIcons());
   };
@@ -149,14 +129,14 @@ const AppModalPaste = () => {
 
   return (
     <div
-      ref={refModalWrapper}
-      className={classNames(styles.modalWrapper, styles.modalWrapper__active)}
+      className={
+        (classNames(styles.modalWrapper, styles.modalWrapper__active),
+        'modal_ext')
+      }
     >
       <div className={classNames(styles.modal)}>
         <div
-          onClick={() => {
-            setTimeout(removeExtensionsFromPage, 1000);
-          }}
+          onClick={removeExtensionsFromPage}
           className={styles.top}
         >
           <IconClose />

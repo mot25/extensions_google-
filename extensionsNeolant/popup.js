@@ -50508,56 +50508,56 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _assets_icon_Icon_delete_svg__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
-            /*! ./DropDownEditValues.module.scss */ './src/components/simple/DropDownEditValues/DropDownEditValues.module.scss'
+            /*! @/assets/icon/Icon_delete.svg */ './src/assets/icon/Icon_delete.svg'
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_1__
           );
         /* harmony import */ var _InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ../InputWithUnderLineColor */ './src/components/simple/InputWithUnderLineColor/index.ts'
           );
-        /* harmony import */ var _assets_icon_Icon_delete_svg__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
-            /*! @/assets/icon/Icon_delete.svg */ './src/assets/icon/Icon_delete.svg'
+            /*! ./DropDownEditValues.module.scss */ './src/components/simple/DropDownEditValues/DropDownEditValues.module.scss'
           );
 
         var DropDownEditValues = function (_a) {
           var deleteValue = _a.deleteValue,
             onChange = _a.onChange,
             values = _a.values;
-          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'div',
             {
               className:
-                _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                   'default'
                 ].wrapper
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'div',
               {
                 className:
-                  _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                     'default'
                   ].dropDownWrapper
               },
               values.map(function (opt) {
-                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                   'div',
                   {
                     key: opt.value,
                     className:
-                      _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                      _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                         'default'
                       ].dropDown__inner
                   },
-                  react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                     _InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_2__.InputWithUnderLineColor,
                     {
                       addStyle: {
@@ -50569,19 +50569,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       value: opt.label
                     }
                   ),
-                  react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                     'div',
                     {
                       onClick: function () {
                         return deleteValue(opt.value);
                       },
                       className:
-                        _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                        _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                           'default'
                         ].delete
                     },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-                      _assets_icon_Icon_delete_svg__WEBPACK_IMPORTED_MODULE_3__[
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                      _assets_icon_Icon_delete_svg__WEBPACK_IMPORTED_MODULE_0__[
                         'default'
                       ],
                       null
@@ -50639,23 +50639,23 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./InputWithUnderLineColor.module.scss */ './src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss'
-          );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! classnames */ './node_modules/classnames/index.js'
           );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
-            classnames__WEBPACK_IMPORTED_MODULE_2__
+            classnames__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./InputWithUnderLineColor.module.scss */ './src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss'
           );
 
         var InputWithUnderLineColor = function (_a) {
@@ -50666,25 +50666,25 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             addStyle = _a.addStyle,
             _c = _a.size,
             size = _c === void 0 ? 'b' : _c;
-          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'div',
             {
               style: addStyle,
               className:
-                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ].formControl
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'input',
               {
-                className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(
-                  _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+                  _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                     'default'
                   ].input,
                   ((_b = {}),
                   (_b[
-                    _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                    _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                       'default'
                     ].input__small
                   ] = size === 's'),
@@ -50699,12 +50699,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 type: 'text'
               }
             ),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement('span', {
-              className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(
-                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement('span', {
+              className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ].inputBorder,
-                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ].inputBorderAlt
               )
@@ -50758,23 +50758,23 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./SimpleButton.module.scss */ './src/components/simple/SimpleButton/SimpleButton.module.scss'
-          );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! classnames */ './node_modules/classnames/index.js'
           );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
-            classnames__WEBPACK_IMPORTED_MODULE_2__
+            classnames__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./SimpleButton.module.scss */ './src/components/simple/SimpleButton/SimpleButton.module.scss'
           );
         var __assign =
           (undefined && undefined.__assign) ||
@@ -50802,7 +50802,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             addStyle = _a.addStyle,
             addClassName = _a.addClassName,
             disabled = _a.disabled;
-          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'button',
             {
               style: __assign({ width: wd, backgroundColor: bg }, addStyle),
@@ -50810,13 +50810,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               onClick: function (event) {
                 return onClick(event);
               },
-              className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(
-                _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+              className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+                _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ].button,
                 ((_b = {}),
                 (_b[
-                  _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                     'default'
                   ].button__disabled
                 ] = disabled),
@@ -50824,7 +50824,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 addClassName
               )
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'span',
               null,
               text
@@ -50884,21 +50884,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           /*#__PURE__*/ __webpack_require__.n(
             react__WEBPACK_IMPORTED_MODULE_0__
           );
-        /* harmony import */ var _AllowUrl_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./AllowUrl.module.scss */ './src/popup/page/AllowUrl/AllowUrl.module.scss'
-          );
-        /* harmony import */ var _components_simple_DropDownEditValues__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _components_simple_DropDownEditValues__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! @/components/simple/DropDownEditValues */ './src/components/simple/DropDownEditValues/index.ts'
           );
-        /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! @/components/simple/SimpleButton */ './src/components/simple/SimpleButton/index.ts'
           );
-        /* harmony import */ var _shared_utils_components__WEBPACK_IMPORTED_MODULE_4__ =
+        /* harmony import */ var _shared_utils_components__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! @/shared/utils/components */ './src/shared/utils/components.ts'
+          );
+        /* harmony import */ var _AllowUrl_module_scss__WEBPACK_IMPORTED_MODULE_4__ =
+          __webpack_require__(
+            /*! ./AllowUrl.module.scss */ './src/popup/page/AllowUrl/AllowUrl.module.scss'
           );
         var __awaiter =
           (undefined && undefined.__awaiter) ||
@@ -51087,7 +51087,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     if (isHave) {
                       return [
                         2 /*return*/,
-                        new _shared_utils_components__WEBPACK_IMPORTED_MODULE_4__.RenderWarningTextInPopup(
+                        new _shared_utils_components__WEBPACK_IMPORTED_MODULE_3__.RenderWarningTextInPopup(
                           'Такой портал уже есть в списке'
                         ).render()
                       ];
@@ -51160,15 +51160,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             'div',
             {
               className:
-                _AllowUrl_module_scss__WEBPACK_IMPORTED_MODULE_1__['default']
+                _AllowUrl_module_scss__WEBPACK_IMPORTED_MODULE_4__['default']
                   .wrapper
             },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_3__.SimpleButton,
+              _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
               { onClick: createAllowUrl, text: 'Добавить текущий портал' }
             ),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              _components_simple_DropDownEditValues__WEBPACK_IMPORTED_MODULE_2__.DropDownEditValues,
+              _components_simple_DropDownEditValues__WEBPACK_IMPORTED_MODULE_1__.DropDownEditValues,
               {
                 deleteValue: deleteAllowUrl,
                 onChange: changeAllowUrl,
@@ -51827,6 +51827,269 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         /***/
       },
 
+    /***/ './src/services/Attributes.service.ts':
+      /*!********************************************!*\
+  !*** ./src/services/Attributes.service.ts ***!
+  \********************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ AttributesService: () =>
+            /* binding */ AttributesService
+          /* harmony export */
+        });
+        /* harmony import */ var _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @/shared/config/Api */ './src/shared/config/Api/index.ts'
+          );
+        /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! @/shared/utils/utils */ './src/shared/utils/utils.ts'
+          );
+        var __awaiter =
+          (undefined && undefined.__awaiter) ||
+          function (thisArg, _arguments, P, generator) {
+            function adopt(value) {
+              return value instanceof P
+                ? value
+                : new P(function (resolve) {
+                    resolve(value);
+                  });
+            }
+            return new (P || (P = Promise))(function (resolve, reject) {
+              function fulfilled(value) {
+                try {
+                  step(generator.next(value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function rejected(value) {
+                try {
+                  step(generator['throw'](value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function step(result) {
+                result.done
+                  ? resolve(result.value)
+                  : adopt(result.value).then(fulfilled, rejected);
+              }
+              step(
+                (generator = generator.apply(thisArg, _arguments || [])).next()
+              );
+            });
+          };
+        var __generator =
+          (undefined && undefined.__generator) ||
+          function (thisArg, body) {
+            var _ = {
+                label: 0,
+                sent: function () {
+                  if (t[0] & 1) throw t[1];
+                  return t[1];
+                },
+                trys: [],
+                ops: []
+              },
+              f,
+              y,
+              t,
+              g;
+            return (
+              (g = { next: verb(0), throw: verb(1), return: verb(2) }),
+              typeof Symbol === 'function' &&
+                (g[Symbol.iterator] = function () {
+                  return this;
+                }),
+              g
+            );
+            function verb(n) {
+              return function (v) {
+                return step([n, v]);
+              };
+            }
+            function step(op) {
+              if (f) throw new TypeError('Generator is already executing.');
+              while ((g && ((g = 0), op[0] && (_ = 0)), _))
+                try {
+                  if (
+                    ((f = 1),
+                    y &&
+                      (t =
+                        op[0] & 2
+                          ? y['return']
+                          : op[0]
+                          ? y['throw'] || ((t = y['return']) && t.call(y), 0)
+                          : y.next) &&
+                      !(t = t.call(y, op[1])).done)
+                  )
+                    return t;
+                  if (((y = 0), t)) op = [op[0] & 2, t.value];
+                  switch (op[0]) {
+                    case 0:
+                    case 1:
+                      t = op;
+                      break;
+                    case 4:
+                      _.label++;
+                      return { value: op[1], done: false };
+                    case 5:
+                      _.label++;
+                      y = op[1];
+                      op = [0];
+                      continue;
+                    case 7:
+                      op = _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                    default:
+                      if (
+                        !((t = _.trys),
+                        (t = t.length > 0 && t[t.length - 1])) &&
+                        (op[0] === 6 || op[0] === 2)
+                      ) {
+                        _ = 0;
+                        continue;
+                      }
+                      if (
+                        op[0] === 3 &&
+                        (!t || (op[1] > t[0] && op[1] < t[3]))
+                      ) {
+                        _.label = op[1];
+                        break;
+                      }
+                      if (op[0] === 6 && _.label < t[1]) {
+                        _.label = t[1];
+                        t = op;
+                        break;
+                      }
+                      if (t && _.label < t[2]) {
+                        _.label = t[2];
+                        _.ops.push(op);
+                        break;
+                      }
+                      if (t[2]) _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                  }
+                  op = body.call(thisArg, _);
+                } catch (e) {
+                  op = [6, e];
+                  y = 0;
+                } finally {
+                  f = t = 0;
+                }
+              if (op[0] & 5) throw op[1];
+              return { value: op[0] ? op[1] : void 0, done: true };
+            }
+          };
+
+        var AttributesService = /** @class */ (function () {
+          function AttributesService() {}
+          AttributesService.setAttrViewer = function (_a) {
+            var idAttrs = _a.idAttrs,
+              idEntity = _a.idEntity,
+              idViewer = _a.idViewer;
+            return __awaiter(this, void 0, void 0, function () {
+              var response;
+              return __generator(this, function (_b) {
+                switch (_b.label) {
+                  case 0:
+                    return [
+                      4 /*yield*/,
+                      _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put(
+                        '/api/structure/entities/'
+                          .concat(idEntity, '/viewers/')
+                          .concat(idViewer, '/attributes\n      ?')
+                          .concat(
+                            (0,
+                            _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(
+                              idAttrs,
+                              'ids'
+                            )
+                          )
+                      )
+                    ];
+                  case 1:
+                    response = _b.sent();
+                    return [2 /*return*/, response];
+                }
+              });
+            });
+          };
+          AttributesService.deleteAttrForViewer = function (_a) {
+            var idAttrs = _a.idAttrs,
+              idEntity = _a.idEntity,
+              idViewer = _a.idViewer;
+            return __awaiter(this, void 0, void 0, function () {
+              var response;
+              return __generator(this, function (_b) {
+                switch (_b.label) {
+                  case 0:
+                    return [
+                      4 /*yield*/,
+                      _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.delete(
+                        '/api/structure/entities/'
+                          .concat(idEntity, '/viewers/')
+                          .concat(idViewer, '/attributes\n      ?')
+                          .concat(
+                            (0,
+                            _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(
+                              idAttrs,
+                              'ids'
+                            )
+                          )
+                      )
+                    ];
+                  case 1:
+                    response = _b.sent();
+                    return [2 /*return*/, response];
+                }
+              });
+            });
+          };
+          AttributesService.setAttrForEntity = function (_a) {
+            var idAttrs = _a.idAttrs,
+              idEntity = _a.idEntity;
+            return __awaiter(this, void 0, void 0, function () {
+              var response;
+              return __generator(this, function (_b) {
+                switch (_b.label) {
+                  case 0:
+                    return [
+                      4 /*yield*/,
+                      _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.post(
+                        'api/structure/entities/'
+                          .concat(idEntity, '/attributes?')
+                          .concat(
+                            (0,
+                            _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(
+                              idAttrs,
+                              'ids'
+                            )
+                          )
+                      )
+                    ];
+                  case 1:
+                    response = _b.sent();
+                    return [2 /*return*/, response];
+                }
+              });
+            });
+          };
+          return AttributesService;
+        })();
+
+        /***/
+      },
+
     /***/ './src/shared/config/Api/Api.ts':
       /*!**************************************!*\
   !*** ./src/shared/config/Api/Api.ts ***!
@@ -51913,10 +52176,156 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
           /* harmony export */ RenderWarningTextInPopup: () =>
             /* binding */ RenderWarningTextInPopup,
+          /* harmony export */ copyAttrInViewer: () =>
+            /* binding */ copyAttrInViewer,
           /* harmony export */ createElementNode: () =>
             /* binding */ createElementNode
           /* harmony export */
         });
+        /* harmony import */ var _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @/services/Attributes.service */ './src/services/Attributes.service.ts'
+          );
+        var __awaiter =
+          (undefined && undefined.__awaiter) ||
+          function (thisArg, _arguments, P, generator) {
+            function adopt(value) {
+              return value instanceof P
+                ? value
+                : new P(function (resolve) {
+                    resolve(value);
+                  });
+            }
+            return new (P || (P = Promise))(function (resolve, reject) {
+              function fulfilled(value) {
+                try {
+                  step(generator.next(value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function rejected(value) {
+                try {
+                  step(generator['throw'](value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function step(result) {
+                result.done
+                  ? resolve(result.value)
+                  : adopt(result.value).then(fulfilled, rejected);
+              }
+              step(
+                (generator = generator.apply(thisArg, _arguments || [])).next()
+              );
+            });
+          };
+        var __generator =
+          (undefined && undefined.__generator) ||
+          function (thisArg, body) {
+            var _ = {
+                label: 0,
+                sent: function () {
+                  if (t[0] & 1) throw t[1];
+                  return t[1];
+                },
+                trys: [],
+                ops: []
+              },
+              f,
+              y,
+              t,
+              g;
+            return (
+              (g = { next: verb(0), throw: verb(1), return: verb(2) }),
+              typeof Symbol === 'function' &&
+                (g[Symbol.iterator] = function () {
+                  return this;
+                }),
+              g
+            );
+            function verb(n) {
+              return function (v) {
+                return step([n, v]);
+              };
+            }
+            function step(op) {
+              if (f) throw new TypeError('Generator is already executing.');
+              while ((g && ((g = 0), op[0] && (_ = 0)), _))
+                try {
+                  if (
+                    ((f = 1),
+                    y &&
+                      (t =
+                        op[0] & 2
+                          ? y['return']
+                          : op[0]
+                          ? y['throw'] || ((t = y['return']) && t.call(y), 0)
+                          : y.next) &&
+                      !(t = t.call(y, op[1])).done)
+                  )
+                    return t;
+                  if (((y = 0), t)) op = [op[0] & 2, t.value];
+                  switch (op[0]) {
+                    case 0:
+                    case 1:
+                      t = op;
+                      break;
+                    case 4:
+                      _.label++;
+                      return { value: op[1], done: false };
+                    case 5:
+                      _.label++;
+                      y = op[1];
+                      op = [0];
+                      continue;
+                    case 7:
+                      op = _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                    default:
+                      if (
+                        !((t = _.trys),
+                        (t = t.length > 0 && t[t.length - 1])) &&
+                        (op[0] === 6 || op[0] === 2)
+                      ) {
+                        _ = 0;
+                        continue;
+                      }
+                      if (
+                        op[0] === 3 &&
+                        (!t || (op[1] > t[0] && op[1] < t[3]))
+                      ) {
+                        _.label = op[1];
+                        break;
+                      }
+                      if (op[0] === 6 && _.label < t[1]) {
+                        _.label = t[1];
+                        t = op;
+                        break;
+                      }
+                      if (t && _.label < t[2]) {
+                        _.label = t[2];
+                        _.ops.push(op);
+                        break;
+                      }
+                      if (t[2]) _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                  }
+                  op = body.call(thisArg, _);
+                } catch (e) {
+                  op = [6, e];
+                  y = 0;
+                } finally {
+                  f = t = 0;
+                }
+              if (op[0] & 5) throw op[1];
+              return { value: op[0] ? op[1] : void 0, done: true };
+            }
+          };
+
         var createElementNode = function (tag, classes) {
           var node = document.createElement(tag);
           classes === null || classes === void 0
@@ -51943,6 +52352,191 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           };
           return RenderWarningTextInPopup;
         })();
+
+        var copyAttrInViewer = function (
+          dataPaste,
+          entity,
+          addErrorInList,
+          prevViewer
+        ) {
+          return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+              switch (_a.label) {
+                case 0:
+                  return [
+                    4 /*yield*/,
+                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__.AttributesService.setAttrViewer(
+                      {
+                        idAttrs: dataPaste.Attributes,
+                        idEntity: entity.Id,
+                        idViewer: dataPaste.Id
+                      }
+                    ).catch(function () {
+                      addErrorInList(
+                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 \n                  '
+                          .concat(
+                            dataPaste.Caption,
+                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                          )
+                          .concat(entity.Name)
+                      );
+                    })
+                  ];
+                case 1:
+                  _a.sent();
+                  if (!prevViewer) return [3 /*break*/, 3];
+                  return [
+                    4 /*yield*/,
+                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__.AttributesService.deleteAttrForViewer(
+                      {
+                        idAttrs: prevViewer.Attributes,
+                        idEntity: entity.Id,
+                        idViewer: dataPaste.Id
+                      }
+                    ).catch(function () {
+                      addErrorInList(
+                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 \n                  '
+                          .concat(
+                            dataPaste.Caption,
+                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                          )
+                          .concat(entity.Name)
+                      );
+                    })
+                  ];
+                case 2:
+                  _a.sent();
+                  _a.label = 3;
+                case 3:
+                  return [2 /*return*/];
+              }
+            });
+          });
+        };
+
+        /***/
+      },
+
+    /***/ './src/shared/utils/utils.ts':
+      /*!***********************************!*\
+  !*** ./src/shared/utils/utils.ts ***!
+  \***********************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ entitiesForPasteInsert: () =>
+            /* binding */ entitiesForPasteInsert,
+          /* harmony export */ getParamFromUrl: () =>
+            /* binding */ getParamFromUrl,
+          /* harmony export */ getPercent: () => /* binding */ getPercent,
+          /* harmony export */ getUrlParameter: () =>
+            /* binding */ getUrlParameter,
+          /* harmony export */ joinParamArrayApi: () =>
+            /* binding */ joinParamArrayApi,
+          /* harmony export */ removeExtensionsFromPage: () =>
+            /* binding */ removeExtensionsFromPage
+          /* harmony export */
+        });
+        var __assign =
+          (undefined && undefined.__assign) ||
+          function () {
+            __assign =
+              Object.assign ||
+              function (t) {
+                for (var s, i = 1, n = arguments.length; i < n; i++) {
+                  s = arguments[i];
+                  for (var p in s)
+                    if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+                }
+                return t;
+              };
+            return __assign.apply(this, arguments);
+          };
+        var getParamFromUrl = function (url) {
+          // Разбиваем строку запроса на отдельные параметры
+          var params = new URLSearchParams(url);
+          // Создаем пустой объект для хранения параметров
+          var paramsObj = {};
+          // Проходимся по всем параметрам и добавляем их в объект
+          params.forEach(function (value, key) {
+            var keyArr =
+              key === null || key === void 0 ? void 0 : key.split('?');
+            var keyValue = keyArr.length > 1 ? keyArr[1] : keyArr[0];
+            paramsObj[keyValue] = value;
+          });
+          return paramsObj;
+        };
+        var entitiesForPasteInsert = function (entities, idEntities) {
+          var currentEntities = entities.find(function (item) {
+            return (
+              (item === null || item === void 0 ? void 0 : item.Id) ===
+              idEntities
+            );
+          });
+          var arrNested = [];
+          var findNested = function (entity) {
+            var childNestedEntity = entities.filter(function (item) {
+              var _a;
+              return (
+                ((_a =
+                  item === null || item === void 0 ? void 0 : item.Parent) ===
+                  null || _a === void 0
+                  ? void 0
+                  : _a.Id) ===
+                (entity === null || entity === void 0 ? void 0 : entity.Id)
+              );
+            });
+            arrNested.push(
+              __assign(__assign({}, entity), {
+                isCurrent:
+                  (entity === null || entity === void 0
+                    ? void 0
+                    : entity.Id) === idEntities
+              })
+            );
+            childNestedEntity.length &&
+              childNestedEntity.forEach(function (item) {
+                return findNested(item);
+              });
+          };
+          findNested(currentEntities);
+          return arrNested;
+        };
+        function getUrlParameter(location, name) {
+          name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+          var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+          var results = regex.exec(location);
+          return results === null
+            ? ''
+            : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+        var joinParamArrayApi = function (params, nameParam) {
+          return params.length === 1
+            ? ''.concat(nameParam, '=').concat(params[0])
+            : params.reduce(function (acc, currentIdAttr, indexAttr) {
+                if (indexAttr === 0) {
+                  return ''.concat(nameParam, '=').concat(currentIdAttr);
+                }
+                return (acc =
+                  acc + '&'.concat(nameParam, '=').concat(currentIdAttr));
+              }, '');
+        };
+        var getPercent = function (currentCount, allCount) {
+          return +((currentCount * 100) / allCount).toFixed(0);
+        };
+        var removeExtensionsFromPage = function () {
+          var nodes = document.querySelectorAll('#rootContentEntry');
+          nodes.forEach(function (element) {
+            element.remove();
+          });
+          // eslint-disable-next-line no-console
+          console.log('extensions remove');
+        };
 
         /***/
       },
@@ -57443,37 +58037,37 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
     __webpack_require__.r(__webpack_exports__);
     /* harmony import */ var _popup_scss__WEBPACK_IMPORTED_MODULE_0__ =
       __webpack_require__(/*! ./popup.scss */ './src/popup/popup.scss');
-    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
-      __webpack_require__(/*! react */ './node_modules/react/index.js');
-    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
-      /*#__PURE__*/ __webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-    /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_2__ =
-      __webpack_require__(
-        /*! react-dom/client */ './node_modules/react-dom/client.js'
-      );
-    /* harmony import */ var _page_PasteClass__WEBPACK_IMPORTED_MODULE_3__ =
-      __webpack_require__(
-        /*! ./page/PasteClass */ './src/popup/page/PasteClass/index.ts'
-      );
-    /* harmony import */ var _page_Setting__WEBPACK_IMPORTED_MODULE_4__ =
-      __webpack_require__(
-        /*! ./page/Setting */ './src/popup/page/Setting/index.ts'
-      );
-    /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_7__ =
-      __webpack_require__(/*! gsap */ './node_modules/gsap/index.js');
-    /* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_5__ =
+    /* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__ =
       __webpack_require__(
         /*! @/assets/icon/IconPaste.svg */ './src/assets/icon/IconPaste.svg'
       );
-    /* harmony import */ var _assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_6__ =
+    /* harmony import */ var _assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_2__ =
       __webpack_require__(
         /*! @/assets/icon/Icon_setting.svg */ './src/assets/icon/Icon_setting.svg'
+      );
+    /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_7__ =
+      __webpack_require__(/*! gsap */ './node_modules/gsap/index.js');
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ =
+      __webpack_require__(/*! react */ './node_modules/react/index.js');
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default =
+      /*#__PURE__*/ __webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+    /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_4__ =
+      __webpack_require__(
+        /*! react-dom/client */ './node_modules/react-dom/client.js'
+      );
+    /* harmony import */ var _page_PasteClass__WEBPACK_IMPORTED_MODULE_5__ =
+      __webpack_require__(
+        /*! ./page/PasteClass */ './src/popup/page/PasteClass/index.ts'
+      );
+    /* harmony import */ var _page_Setting__WEBPACK_IMPORTED_MODULE_6__ =
+      __webpack_require__(
+        /*! ./page/Setting */ './src/popup/page/Setting/index.ts'
       );
     /* eslint-disable max-len */
     /* eslint-disable max-lines-per-function */
 
     var App = function () {
-      var _a = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)(1),
+      var _a = (0, react__WEBPACK_IMPORTED_MODULE_3__.useState)(1),
         selectPage = _a[0],
         setSelectPage = _a[1];
       function move(id, position, color) {
@@ -57570,84 +58164,84 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
       //   });
       // };
       var objPage = {
-        1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-          _page_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass,
+        1: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+          _page_PasteClass__WEBPACK_IMPORTED_MODULE_5__.PasteClass,
           null
         ),
-        2: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-          _page_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass,
+        2: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+          _page_PasteClass__WEBPACK_IMPORTED_MODULE_5__.PasteClass,
           null
         ),
-        3: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-          _page_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass,
+        3: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+          _page_PasteClass__WEBPACK_IMPORTED_MODULE_5__.PasteClass,
           null
         ),
-        4: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-          _page_Setting__WEBPACK_IMPORTED_MODULE_4__.Setting,
+        4: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+          _page_Setting__WEBPACK_IMPORTED_MODULE_6__.Setting,
           null
         )
       };
-      return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+      return react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
         'div',
         { className: 'wrapper' },
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+        react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
           'div',
           { id: 'navbarContainer' },
-          react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+          react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
             'div',
             { id: 'navbar' },
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
               'div',
               { className: 'bodyContent' },
               objPage[selectPage] ||
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                  _page_PasteClass__WEBPACK_IMPORTED_MODULE_3__.PasteClass,
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+                  _page_PasteClass__WEBPACK_IMPORTED_MODULE_5__.PasteClass,
                   null
                 )
             ),
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
               'div',
               { id: 'bubbleWrapper' },
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'div',
                 { id: 'bubble1', className: 'bubble' },
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                   'span',
                   { className: 'icon' },
-                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                    _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_5__[
+                  react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+                    _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__[
                       'default'
                     ],
                     null
                   )
                 )
               ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'div',
                 { id: 'bubble2', className: 'bubble' },
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                   'span',
                   { className: 'icon' },
                   '2'
                 )
               ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'div',
                 { id: 'bubble3', className: 'bubble' },
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                   'span',
                   { className: 'icon' },
                   '3'
                 )
               ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'div',
                 { id: 'bubble4', className: 'bubble' },
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                   'span',
                   { className: 'icon' },
-                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                    _assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_6__[
+                  react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+                    _assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_2__[
                       'default'
                     ],
                     null
@@ -57655,10 +58249,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 )
               )
             ),
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
               'div',
               { id: 'menuWrapper' },
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'div',
                 {
                   onClick: function () {
@@ -57667,14 +58261,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   className: 'menuElement'
                 },
                 selectPage !== 1 &&
-                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                    _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_5__[
+                  react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+                    _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__[
                       'default'
                     ],
                     null
                   )
               ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'div',
                 {
                   onClick: function () {
@@ -57684,7 +58278,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 },
                 '22'
               ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'div',
                 {
                   onClick: function () {
@@ -57694,7 +58288,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 },
                 '33'
               ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'div',
                 {
                   onClick: function () {
@@ -57703,8 +58297,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   className: 'menuElement'
                 },
                 selectPage !== 4 &&
-                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
-                    _assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_6__[
+                  react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
+                    _assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_2__[
                       'default'
                     ],
                     null
@@ -57712,27 +58306,27 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               )
             )
           ),
-          react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+          react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
             'div',
             { id: 'bgWrapper' },
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement('div', {
+            react__WEBPACK_IMPORTED_MODULE_3___default().createElement('div', {
               id: 'bg'
             }),
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement('div', {
+            react__WEBPACK_IMPORTED_MODULE_3___default().createElement('div', {
               id: 'bgBubble'
             })
           )
         ),
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+        react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
           'svg',
           { width: '0', height: '0' },
-          react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+          react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
             'defs',
             null,
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
               'filter',
               { id: 'goo' },
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'feGaussianBlur',
                 {
                   in: 'SourceGraphic',
@@ -57741,7 +58335,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   id: 'blurFilter'
                 }
               ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'feColorMatrix',
                 {
                   in: 'blur',
@@ -57750,7 +58344,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   result: 'goo'
                 }
               ),
-              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_3___default().createElement(
                 'feComposite',
                 { in: 'SourceGraphic', in2: 'goo', operator: 'atop' }
               )
@@ -57760,11 +58354,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
       );
     };
     var container = document.getElementById('root');
-    var root = (0, react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot)(
+    var root = (0, react_dom_client__WEBPACK_IMPORTED_MODULE_4__.createRoot)(
       container
     ); // createRoot(container!) if you use TypeScript
     root.render(
-      react__WEBPACK_IMPORTED_MODULE_1___default().createElement(App, null)
+      react__WEBPACK_IMPORTED_MODULE_3___default().createElement(App, null)
     );
   })();
 

@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import React from 'react';
 import styles from './Switch.module.scss';
-import classNames from 'classnames';
 
 type Props = {
   onChange: (isCheck: boolean) => void;

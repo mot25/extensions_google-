@@ -2,14 +2,14 @@
 /* eslint-disable max-lines-per-function */
 import './popup.scss';
 
-import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import { PasteClass } from './page/PasteClass';
-import { Setting } from './page/Setting';
-import { PageNavigatorType } from '../type/components.dto';
-import { gsap } from 'gsap';
 import IconPaste from '@/assets/icon/IconPaste.svg';
 import IconSetting from '@/assets/icon/Icon_setting.svg';
+import { gsap } from 'gsap';
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { PageNavigatorType } from '../type/components.dto';
+import { PasteClass } from './page/PasteClass';
+import { Setting } from './page/Setting';
 
 const App = () => {
   const [selectPage, setSelectPage] = useState<number>(1);

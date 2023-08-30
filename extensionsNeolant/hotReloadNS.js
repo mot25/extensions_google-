@@ -21,7 +21,9 @@
           /* harmony export */ getUrlParameter: () =>
             /* binding */ getUrlParameter,
           /* harmony export */ joinParamArrayApi: () =>
-            /* binding */ joinParamArrayApi
+            /* binding */ joinParamArrayApi,
+          /* harmony export */ removeExtensionsFromPage: () =>
+            /* binding */ removeExtensionsFromPage
           /* harmony export */
         });
         var __assign =
@@ -110,6 +112,14 @@
         };
         var getPercent = function (currentCount, allCount) {
           return +((currentCount * 100) / allCount).toFixed(0);
+        };
+        var removeExtensionsFromPage = function () {
+          var nodes = document.querySelectorAll('#rootContentEntry');
+          nodes.forEach(function (element) {
+            element.remove();
+          });
+          // eslint-disable-next-line no-console
+          console.log('extensions remove');
         };
 
         /***/

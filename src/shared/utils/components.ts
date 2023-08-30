@@ -1,3 +1,10 @@
+import { AttributesService } from '@/services/Attributes.service';
+import {
+  EntitiesType,
+  RequestForPasteViewerType,
+  ViewerType
+} from '@/type/entities.dto';
+
 export const createElementNode = (
   tag: keyof HTMLElementTagNameMap,
   classes?: string[]
@@ -26,3 +33,31 @@ export class RenderWarningTextInPopup {
     }, 3000);
   }
 }
+
+export const copyAttrInViewer = async (
+  dataPaste: RequestForPasteViewerType,
+  entity: EntitiesType,
+  addErrorInList: (text: string) => void,
+  prevViewer?: ViewerType
+) => {
+  await AttributesService.setAttrViewer({
+    idAttrs: dataPaste.Attributes,
+    idEntity: entity.Id,
+    idViewer: dataPaste.Id
+  }).catch(() => {
+    addErrorInList(`Ошибка в копирование аттрибутов вида 
+                  ${dataPaste.Caption} в классе ${entity.Name}`);
+  });
+  if (prevViewer) {
+    await AttributesService.deleteAttrForViewer({
+      idAttrs: prevViewer.Attributes,
+      idEntity: entity.Id,
+      idViewer: dataPaste.Id
+    }).catch(() => {
+      addErrorInList(
+        `Ошибка в удалении аттрибутов вида 
+                  ${dataPaste.Caption} в классе ${entity.Name}`
+      );
+    });
+  }
+};

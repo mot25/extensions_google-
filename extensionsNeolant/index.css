@@ -13,50 +13,6 @@
   max-height: 400px;
   overflow-y: auto;
 }
-/*!***********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.module.scss ***!
-  \***********************************************************************************************************************************************************************************************************************************************/
-.extentions__item__htkY4 {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin-bottom: 7px;
-}
-
-.extentions__name__HgzNf {
-  margin-right: 10px;
-  flex: 1;
-  font-size: 15px;
-}
-
-.extentions__delete_btn__De5zM {
-  margin-right: 10px;
-}
-
-.extentions__progressBar__MVNgq {
-  margin-right: 10px;
-}
-/*!****************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
-  \****************************************************************************************************************************************************************************************************************************/
-.extentions__button__fSW73 {
-  width: 100%;
-  height: 40px;
-  border: none;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  cursor: pointer;
-  background-color: #31556f;
-}
-.extentions__button__disabled__upxfE {
-  background-color: #b0b0b0;
-}
-.extentions__button__fSW73 span {
-  color: #fff;
-}
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/Progress/Progress.module.scss (1) ***!
   \************************************************************************************************************************************************************************************************************************/
@@ -82,6 +38,149 @@
   height: 100%;
   width: 0;
   opacity: 0;
+}
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************/
+.extentions__button__fSW73 {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #31556f;
+}
+.extentions__button__disabled__upxfE {
+  background-color: #b0b0b0;
+}
+.extentions__button__fSW73 span {
+  color: #fff;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.module.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+.extentions__item__htkY4 {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.extentions__name__HgzNf {
+  margin-right: 10px;
+  flex: 1;
+  font-size: 15px;
+}
+
+.extentions__delete_btn__De5zM {
+  margin-right: 10px;
+}
+
+.extentions__progressBar__MVNgq {
+  margin-right: 10px;
+}
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/WrapperNeumorphism/WrapperNeumorphism.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+.extentions__wrapper___YERJ {
+  border-radius: 51px;
+  background: #ffffff;
+  box-shadow:
+    inset 19px 19px 38px #d9d9d9,
+    inset -19px -19px 38px #ffffff;
+  padding: 20px;
+}
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ErrorNeumorphism/ErrorNeumorphism.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+.extentions__wrapperTextError__aHxeM {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.extentions__wrapperError__bRJH1 {
+  max-height: 300px;
+  overflow: auto;
+}
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForPaste/ViewerForPaste.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+.extentions__viewerWrapper__Zbmpy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 5px;
+}
+.extentions__viewerWrapper__even__IAOVD {
+  background-color: #e5f6ff;
+}
+
+.extentions__name__ZU02b {
+  margin-right: 10px;
+  flex: 1;
+}
+.extentions__name__ZU02b div input {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+.extentions__input__MfeeG {
+  color: #000;
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+  font-size: 1.2rem;
+  padding-inline: 1em;
+  padding-block: 0.8em;
+}
+.extentions__input__small__Y64xk {
+  height: 20px;
+  font-size: 15px;
+}
+
+.extentions__inputBorder__fA2DP {
+  position: absolute;
+  background: var(--border-after-color);
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.extentions__input__MfeeG:focus {
+  outline: none;
+}
+
+.extentions__input__MfeeG:focus + .extentions__inputBorder__fA2DP {
+  width: 100%;
+}
+
+.extentions__formControl__ovvW9 {
+  position: relative;
+  --width-of-input: 300px;
+}
+
+.extentions__inputBorderAlt__FHcUZ {
+  height: 3px;
+  background: #31556f;
+  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.extentions__inputAlt__GZgEZ:focus + .extentions__inputBorderAlt__FHcUZ {
+  width: 100%;
 }
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/DropDown/DropDown.module.scss ***!
@@ -155,60 +254,6 @@
   /* Поля вокруг текста */
   text-overflow: ellipsis;
   /* Добавляем многоточие */
-}
-/*!**************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
-  \**************************************************************************************************************************************************************************************************************************************************/
-.extentions__input__MfeeG {
-  color: #000;
-  font-size: 0.9rem;
-  background-color: transparent;
-  width: 100%;
-  box-sizing: border-box;
-  padding-inline: 0.5em;
-  padding-block: 0.7em;
-  border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color);
-  font-size: 1.2rem;
-  padding-inline: 1em;
-  padding-block: 0.8em;
-}
-.extentions__input__small__Y64xk {
-  height: 20px;
-  font-size: 15px;
-}
-
-.extentions__inputBorder__fA2DP {
-  position: absolute;
-  background: var(--border-after-color);
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-}
-
-.extentions__input__MfeeG:focus {
-  outline: none;
-}
-
-.extentions__input__MfeeG:focus + .extentions__inputBorder__fA2DP {
-  width: 100%;
-}
-
-.extentions__formControl__ovvW9 {
-  position: relative;
-  --width-of-input: 300px;
-}
-
-.extentions__inputBorderAlt__FHcUZ {
-  height: 3px;
-  background: #31556f;
-  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-}
-
-.extentions__inputAlt__GZgEZ:focus + .extentions__inputBorderAlt__FHcUZ {
-  width: 100%;
 }
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/Switch/Switch.module.scss ***!
@@ -292,17 +337,6 @@ input:checked + .extentions__slider__zHS8J:before {
 .extentions__wrapperButton__Cjp9q p {
   margin: 0;
 }
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/WrapperNeumorphism/WrapperNeumorphism.module.scss ***!
-  \****************************************************************************************************************************************************************************************************************************************/
-.extentions__wrapper___YERJ {
-  border-radius: 51px;
-  background: #ffffff;
-  box-shadow:
-    inset 19px 19px 38px #d9d9d9,
-    inset -19px -19px 38px #ffffff;
-  padding: 20px;
-}
 /*!******************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/PasteViewer/PasteViewer.module.scss ***!
   \******************************************************************************************************************************************/
@@ -358,38 +392,6 @@ input:checked + .extentions__slider__zHS8J:before {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.S6sEtAb770UKOEDRK3P9 {
-  height: 30px;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.rZrGVcPpoY4DlWdyEz2e {
-  max-height: 300px;
-  overflow: auto;
-}
-/*!*********************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForPaste/ViewerForPaste.module.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************/
-.extentions__viewerWrapper__Zbmpy {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 5px;
-}
-.extentions__viewerWrapper__even__IAOVD {
-  background-color: #e5f6ff;
-}
-
-.extentions__name__ZU02b {
-  margin-right: 10px;
-  flex: 1;
-}
-.extentions__name__ZU02b div input {
-  padding-top: 7px;
-  padding-bottom: 7px;
 }
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/contentScripts/AppModalPaste/AppModalPaste.module.scss (1) ***!

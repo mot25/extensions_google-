@@ -61,3 +61,12 @@ export const joinParamArrayApi = (params: string[], nameParam: string) =>
 
 export const getPercent = (currentCount: number, allCount: number) =>
   +((currentCount * 100) / allCount).toFixed(0);
+
+export const removeExtensionsFromPage = () => {
+  const nodes = document.querySelectorAll('#rootContentEntry');
+  nodes.forEach(element => {
+    element.remove();
+  });
+  // eslint-disable-next-line no-console
+  console.log('extensions remove');
+};

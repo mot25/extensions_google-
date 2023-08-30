@@ -724,9 +724,31 @@
           orderInput: 'RGAw6cxh23VBGyKYSWW3',
           reload: 'fjhF8Dy70JtCv7CIdCss',
           wrapperDropDownIcon: 'qbxkoiz_zECKFb88l9Ah',
-          inputSettingUrlWrapper: 'qYvrH0WLLLNyl3LcyNfH',
-          wrapperTextError: 'S6sEtAb770UKOEDRK3P9',
-          wrapperError: 'rZrGVcPpoY4DlWdyEz2e'
+          inputSettingUrlWrapper: 'qYvrH0WLLLNyl3LcyNfH'
+        };
+
+        /***/
+      },
+
+    /***/ './src/components/complex/ErrorNeumorphism/ErrorNeumorphism.module.scss':
+      /*!******************************************************************************!*\
+  !*** ./src/components/complex/ErrorNeumorphism/ErrorNeumorphism.module.scss ***!
+  \******************************************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
+          /* harmony export */
+        });
+        // extracted by mini-css-extract-plugin
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = {
+          wrapperTextError: 'extentions__wrapperTextError__aHxeM',
+          wrapperError: 'extentions__wrapperError__bRJH1'
         };
 
         /***/
@@ -4288,6 +4310,79 @@
         /***/
       },
 
+    /***/ './src/components/complex/ErrorNeumorphism/ErrorNeumorphism.tsx':
+      /*!**********************************************************************!*\
+  !*** ./src/components/complex/ErrorNeumorphism/ErrorNeumorphism.tsx ***!
+  \**********************************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
+          /* harmony export */
+        });
+        /* harmony import */ var _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @/components/simple/WrapperNeumorphism */ './src/components/simple/WrapperNeumorphism/index.ts'
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _ErrorNeumorphism_module_scss__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./ErrorNeumorphism.module.scss */ './src/components/complex/ErrorNeumorphism/ErrorNeumorphism.module.scss'
+          );
+
+        var ErrorNeumorphism = function (_a) {
+          var errorsCopy = _a.errorsCopy;
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+            _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_0__.WrapperNeumorphism,
+            null,
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              'div',
+              {
+                className:
+                  _ErrorNeumorphism_module_scss__WEBPACK_IMPORTED_MODULE_2__[
+                    'default'
+                  ].wrapperError
+              },
+              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                'h2',
+                null,
+                '\u041E\u0448\u0438\u0431\u043A\u0438'
+              ),
+              errorsCopy.map(function (textError) {
+                return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                  'div',
+                  {
+                    className:
+                      _ErrorNeumorphism_module_scss__WEBPACK_IMPORTED_MODULE_2__[
+                        'default'
+                      ].wrapperTextError
+                  },
+                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                    'span',
+                    null,
+                    textError
+                  )
+                );
+              })
+            )
+          );
+        };
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          ErrorNeumorphism;
+
+        /***/
+      },
+
     /***/ './src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.tsx':
       /*!********************************************************************************!*\
   !*** ./src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.tsx ***!
@@ -4303,35 +4398,35 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./ViewerForCopyOrDelete.module.scss */ './src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.module.scss'
-          );
-        /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__ =
-          __webpack_require__(
-            /*! @/components/simple/SimpleButton */ './src/components/simple/SimpleButton/index.ts'
-          );
-        /* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_3__ =
-          __webpack_require__(
-            /*! js-alert */ './node_modules/js-alert/src/index.js'
-          );
-        /* harmony import */ var _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_4__ =
-          __webpack_require__(
-            /*! @/services/ManagerViewers.service */ './src/services/ManagerViewers.service.ts'
-          );
-        /* harmony import */ var _components_simple_Progress__WEBPACK_IMPORTED_MODULE_5__ =
+        /* harmony import */ var _components_simple_Progress__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! @/components/simple/Progress */ './src/components/simple/Progress/index.ts'
           );
-        /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__ =
+        /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! @/components/simple/SimpleButton */ './src/components/simple/SimpleButton/index.ts'
+          );
+        /* harmony import */ var _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! @/services/ManagerViewers.service */ './src/services/ManagerViewers.service.ts'
+          );
+        /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! @/shared/utils/utils */ './src/shared/utils/utils.ts'
+          );
+        /* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_4__ =
+          __webpack_require__(
+            /*! js-alert */ './node_modules/js-alert/src/index.js'
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_5__
+          );
+        /* harmony import */ var _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_6__ =
+          __webpack_require__(
+            /*! ./ViewerForCopyOrDelete.module.scss */ './src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.module.scss'
           );
         var __awaiter =
           (undefined && undefined.__awaiter) ||
@@ -4480,15 +4575,15 @@
             entitiesFromPaste = _a.entitiesFromPaste,
             entity = _a.entity,
             removeListViewer = _a.removeListViewer;
-          var allEntity = (0, react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
-          var _b = (0, react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+          var allEntity = (0, react__WEBPACK_IMPORTED_MODULE_5__.useRef)(0);
+          var _b = (0, react__WEBPACK_IMPORTED_MODULE_5__.useState)(0),
             countDelete = _b[0],
             setCountDelete = _b[1];
-          var _c = (0, react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+          var _c = (0, react__WEBPACK_IMPORTED_MODULE_5__.useState)(false),
             idDeleting = _c[0],
             setIsDeleting = _c[1];
           var deleteViewer = function (viewer) {
-            var alert = new js_alert__WEBPACK_IMPORTED_MODULE_3__['default'](
+            var alert = new js_alert__WEBPACK_IMPORTED_MODULE_4__['default'](
               '\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C '.concat(
                 viewer.Caption
               ),
@@ -4504,7 +4599,7 @@
                       allEntity.current = 1;
                       return [
                         4 /*yield*/,
-                        _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_4__.ManagerViewersService.deleteViewer(
+                        _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_2__.ManagerViewersService.deleteViewer(
                           entity.Id,
                           viewer.Id
                         )
@@ -4552,7 +4647,7 @@
                           return [3 /*break*/, 2];
                         return [
                           4 /*yield*/,
-                          _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_4__.ManagerViewersService.deleteViewer(
+                          _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_2__.ManagerViewersService.deleteViewer(
                             entity.Id,
                             viewerDelete === null || viewerDelete === void 0
                               ? void 0
@@ -4576,7 +4671,7 @@
             });
             alert.show();
           };
-          (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(
+          (0, react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(
             function () {
               allEntity.current = entitiesFromPaste.filter(function (_entity) {
                 var viewers = _entity.Viewers;
@@ -4588,46 +4683,46 @@
             },
             [entitiesFromPaste.length]
           );
-          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_5___default().createElement(
             'li',
             {
               className:
-                _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_6__[
                   'default'
                 ].item
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_5___default().createElement(
               'span',
               {
                 className:
-                  _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_6__[
                     'default'
                   ].name
               },
               viewer.Caption
             ),
             idDeleting
-              ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              ? react__WEBPACK_IMPORTED_MODULE_5___default().createElement(
                   'div',
                   {
                     className:
-                      _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                      _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_6__[
                         'default'
                       ].progressBar
                   },
-                  react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-                    _components_simple_Progress__WEBPACK_IMPORTED_MODULE_5__.Progress,
+                  react__WEBPACK_IMPORTED_MODULE_5___default().createElement(
+                    _components_simple_Progress__WEBPACK_IMPORTED_MODULE_0__.Progress,
                     {
                       done: (0,
-                      _shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getPercent)(
+                      _shared_utils_utils__WEBPACK_IMPORTED_MODULE_3__.getPercent)(
                         countDelete,
                         allEntity.current
                       )
                     }
                   )
                 )
-              : react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-                  _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
+              : react__WEBPACK_IMPORTED_MODULE_5___default().createElement(
+                  _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton,
                   {
                     wd: '150px',
                     addStyle: {
@@ -4635,7 +4730,7 @@
                     },
                     bg: '#CC3333',
                     addClassName:
-                      _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                      _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_6__[
                         'default'
                       ].delete_btn,
                     onClick: function () {
@@ -4644,8 +4739,8 @@
                     text: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C'
                   }
                 ),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
+            react__WEBPACK_IMPORTED_MODULE_5___default().createElement(
+              _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton,
               {
                 wd: '150px',
                 addStyle: {
@@ -4708,27 +4803,27 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./ViewerForPaste.module.scss */ './src/components/complex/ViewerForPaste/ViewerForPaste.module.scss'
-          );
-        /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! @/components/simple/SimpleButton */ './src/components/simple/SimpleButton/index.ts'
           );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
             /*! classnames */ './node_modules/classnames/index.js'
           );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default =
           /*#__PURE__*/ __webpack_require__.n(
-            classnames__WEBPACK_IMPORTED_MODULE_3__
+            classnames__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_2__
+          );
+        /* harmony import */ var _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_3__ =
+          __webpack_require__(
+            /*! ./ViewerForPaste.module.scss */ './src/components/complex/ViewerForPaste/ViewerForPaste.module.scss'
           );
         /* harmony import */ var _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_4__ =
           __webpack_require__(
@@ -4745,33 +4840,33 @@
             changeOrderViewerInEntities = _a.changeOrderViewerInEntities,
             changeSelectedToggleiewer = _a.changeSelectedToggleiewer,
             deleteView = _a.deleteView;
-          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
             'li',
             {
-              className: classnames__WEBPACK_IMPORTED_MODULE_3___default()(
-                _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+              className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(
+                _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                   'default'
                 ].viewerWrapper,
                 ((_b = {}),
                 (_b[
-                  _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                     'default'
                   ].viewerWrapper__even
                 ] = isEven),
                 _b)
               )
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
               'div',
               {
                 title:
                   '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438',
                 className:
-                  _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                     'default'
                   ].name
               },
-              react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
                 _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_4__.InputWithUnderLineColor,
                 {
                   onChange: function (text) {
@@ -4781,13 +4876,13 @@
                 }
               )
             ),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
               'span',
               {
                 title:
                   '\u0427\u0435\u043A\u0431\u043E\u043A\u0441 \u0434\u043B\u044F \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438'
               },
-              react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
                 'input',
                 {
                   type: 'checkbox',
@@ -4798,13 +4893,13 @@
                 }
               )
             ),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
               'span',
               {
                 title:
                   '\u041F\u043E\u0440\u044F\u0434\u043A\u043E\u0432\u044B\u0439 \u043D\u043E\u043C\u0435\u0440 \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438'
               },
-              react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
                 'input',
                 {
                   style: {
@@ -4820,8 +4915,8 @@
                 }
               )
             ),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
+            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+              _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_0__.SimpleButton,
               {
                 wd: '150px',
                 addStyle: {
@@ -5030,23 +5125,23 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./InputWithUnderLineColor.module.scss */ './src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss'
-          );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! classnames */ './node_modules/classnames/index.js'
           );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
-            classnames__WEBPACK_IMPORTED_MODULE_2__
+            classnames__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./InputWithUnderLineColor.module.scss */ './src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss'
           );
 
         var InputWithUnderLineColor = function (_a) {
@@ -5057,25 +5152,25 @@
             addStyle = _a.addStyle,
             _c = _a.size,
             size = _c === void 0 ? 'b' : _c;
-          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'div',
             {
               style: addStyle,
               className:
-                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ].formControl
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'input',
               {
-                className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(
-                  _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+                  _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                     'default'
                   ].input,
                   ((_b = {}),
                   (_b[
-                    _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                    _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                       'default'
                     ].input__small
                   ] = size === 's'),
@@ -5090,12 +5185,12 @@
                 type: 'text'
               }
             ),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement('span', {
-              className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(
-                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement('span', {
+              className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ].inputBorder,
-                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ].inputBorderAlt
               )
@@ -5242,23 +5337,23 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./SimpleButton.module.scss */ './src/components/simple/SimpleButton/SimpleButton.module.scss'
-          );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! classnames */ './node_modules/classnames/index.js'
           );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
-            classnames__WEBPACK_IMPORTED_MODULE_2__
+            classnames__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./SimpleButton.module.scss */ './src/components/simple/SimpleButton/SimpleButton.module.scss'
           );
         var __assign =
           (undefined && undefined.__assign) ||
@@ -5286,7 +5381,7 @@
             addStyle = _a.addStyle,
             addClassName = _a.addClassName,
             disabled = _a.disabled;
-          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'button',
             {
               style: __assign({ width: wd, backgroundColor: bg }, addStyle),
@@ -5294,13 +5389,13 @@
               onClick: function (event) {
                 return onClick(event);
               },
-              className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(
-                _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+              className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+                _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ].button,
                 ((_b = {}),
                 (_b[
-                  _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                     'default'
                   ].button__disabled
                 ] = disabled),
@@ -5308,7 +5403,7 @@
                 addClassName
               )
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'span',
               null,
               text
@@ -5362,23 +5457,23 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./Switch.module.scss */ './src/components/simple/Switch/Switch.module.scss'
-          );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! classnames */ './node_modules/classnames/index.js'
           );
-        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default =
+        /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
-            classnames__WEBPACK_IMPORTED_MODULE_2__
+            classnames__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _Switch_module_scss__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./Switch.module.scss */ './src/components/simple/Switch/Switch.module.scss'
           );
 
         var Switch = function (_a) {
@@ -5386,14 +5481,14 @@
           var onChange = _a.onChange,
             isRounded = _a.isRounded,
             value = _a.value;
-          return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'label',
             {
               className:
-                _Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__['default']
+                _Switch_module_scss__WEBPACK_IMPORTED_MODULE_2__['default']
                   .switch
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'input',
               {
                 onChange: function () {
@@ -5403,13 +5498,13 @@
                 defaultChecked: value
               }
             ),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement('span', {
-              className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(
-                _Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__['default']
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement('span', {
+              className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+                _Switch_module_scss__WEBPACK_IMPORTED_MODULE_2__['default']
                   .slider,
                 ((_b = {}),
                 (_b[
-                  _Switch_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _Switch_module_scss__WEBPACK_IMPORTED_MODULE_2__[
                     'default'
                   ].round
                 ] = isRounded),
@@ -5470,19 +5565,19 @@
           /*#__PURE__*/ __webpack_require__.n(
             classnames__WEBPACK_IMPORTED_MODULE_0__
           );
-        /* harmony import */ var _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./SwitchWithText.module.scss */ './src/components/simple/SwitchWithText/SwitchWithText.module.scss'
-          );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
           /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_2__
+            react__WEBPACK_IMPORTED_MODULE_1__
           );
-        /* harmony import */ var _Switch_Switch__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _Switch_Switch__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ../Switch/Switch */ './src/components/simple/Switch/Switch.tsx'
+          );
+        /* harmony import */ var _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_3__ =
+          __webpack_require__(
+            /*! ./SwitchWithText.module.scss */ './src/components/simple/SwitchWithText/SwitchWithText.module.scss'
           );
 
         var SwitchWithText = function (_a) {
@@ -5493,31 +5588,31 @@
             _c = _a.isRounded,
             isRounded = _c === void 0 ? true : _c,
             bold = _a.bold;
-          return react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'div',
             {
               className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
-                _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                   'default'
                 ].wrapperButton,
                 ((_b = {}),
                 (_b[
-                  _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                     'default'
                   ].wrapperButton__bold
                 ] = bold),
                 _b)
               )
             },
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
-              _Switch_Switch__WEBPACK_IMPORTED_MODULE_3__['default'],
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              _Switch_Switch__WEBPACK_IMPORTED_MODULE_2__['default'],
               { onChange: onChange, isRounded: isRounded, value: value }
             ),
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'p',
               {
                 className:
-                  _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_1__[
+                  _SwitchWithText_module_scss__WEBPACK_IMPORTED_MODULE_3__[
                     'default'
                   ].labelText
               },
@@ -5624,6 +5719,49 @@
           __webpack_require__(
             /*! ./WrapperNeumorphism */ './src/components/simple/WrapperNeumorphism/WrapperNeumorphism.tsx'
           );
+
+        /***/
+      },
+
+    /***/ './src/contentScripts/AppModalPaste/AppModalConstant.ts':
+      /*!**************************************************************!*\
+  !*** ./src/contentScripts/AppModalPaste/AppModalConstant.ts ***!
+  \**************************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ leftMenuConfig: () =>
+            /* binding */ leftMenuConfig
+          /* harmony export */
+        });
+        /* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @/assets/icon/IconPaste.svg */ './src/assets/icon/IconPaste.svg'
+          );
+        /* harmony import */ var _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! @/assets/icon/IconPlus.svg */ './src/assets/icon/IconPlus.svg'
+          );
+
+        var leftMenuConfig = [
+          {
+            id: 1,
+            label: 'Виды в текущем классе',
+            title:
+              _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_1__['default']
+          },
+          {
+            id: 2,
+            label: 'Копировать',
+            title:
+              _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_0__['default']
+          }
+        ];
 
         /***/
       },
@@ -5848,67 +5986,79 @@
           /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
           /* harmony export */
         });
-        /* harmony import */ var _components_simple_DropDown__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(
-            /*! @/components/simple/DropDown */ './src/components/simple/DropDown/index.ts'
-          );
-        /* harmony import */ var _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! @/components/simple/InputWithUnderLineColor */ './src/components/simple/InputWithUnderLineColor/index.ts'
-          );
-        /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__ =
-          __webpack_require__(
-            /*! @/components/simple/SimpleButton */ './src/components/simple/SimpleButton/index.ts'
-          );
-        /* harmony import */ var _components_simple_Switch__WEBPACK_IMPORTED_MODULE_3__ =
-          __webpack_require__(
-            /*! @/components/simple/Switch */ './src/components/simple/Switch/index.ts'
-          );
-        /* harmony import */ var _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_4__ =
-          __webpack_require__(
-            /*! @/components/simple/SwitchWithText */ './src/components/simple/SwitchWithText/index.ts'
-          );
-        /* harmony import */ var _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__ =
-          __webpack_require__(
-            /*! @/components/simple/WrapperNeumorphism */ './src/components/simple/WrapperNeumorphism/index.ts'
-          );
-        /* harmony import */ var _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__ =
-          __webpack_require__(
-            /*! @/contentScripts/AppModalPaste/constantAppModalPaste */ './src/contentScripts/AppModalPaste/constantAppModalPaste.ts'
-          );
-        /* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_7__ =
+        /* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
             /*! js-alert */ './node_modules/js-alert/src/index.js'
           );
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default =
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
           /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_8__
+            react__WEBPACK_IMPORTED_MODULE_1__
           );
-        /* harmony import */ var _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__ =
+        /* harmony import */ var _components_complex_ErrorNeumorphism_ErrorNeumorphism__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
-            /*! ./PasteViewer.module.scss */ './src/screens/PasteViewer/PasteViewer.module.scss'
+            /*! @/components/complex/ErrorNeumorphism/ErrorNeumorphism */ './src/components/complex/ErrorNeumorphism/ErrorNeumorphism.tsx'
           );
-        /* harmony import */ var _components_complex_ViewerForPaste__WEBPACK_IMPORTED_MODULE_10__ =
+        /* harmony import */ var _components_complex_ViewerForPaste__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(
             /*! @/components/complex/ViewerForPaste */ './src/components/complex/ViewerForPaste/index.ts'
           );
-        /* harmony import */ var _components_simple_Progress__WEBPACK_IMPORTED_MODULE_11__ =
+        /* harmony import */ var _components_simple_DropDown__WEBPACK_IMPORTED_MODULE_4__ =
+          __webpack_require__(
+            /*! @/components/simple/DropDown */ './src/components/simple/DropDown/index.ts'
+          );
+        /* harmony import */ var _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_5__ =
+          __webpack_require__(
+            /*! @/components/simple/InputWithUnderLineColor */ './src/components/simple/InputWithUnderLineColor/index.ts'
+          );
+        /* harmony import */ var _components_simple_Progress__WEBPACK_IMPORTED_MODULE_6__ =
           __webpack_require__(
             /*! @/components/simple/Progress */ './src/components/simple/Progress/index.ts'
           );
-        /* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_12__ =
+        /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_7__ =
           __webpack_require__(
-            /*! @/services/Entities.service */ './src/services/Entities.service.ts'
+            /*! @/components/simple/SimpleButton */ './src/components/simple/SimpleButton/index.ts'
           );
-        /* harmony import */ var _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__ =
+        /* harmony import */ var _components_simple_Switch__WEBPACK_IMPORTED_MODULE_8__ =
+          __webpack_require__(
+            /*! @/components/simple/Switch */ './src/components/simple/Switch/index.ts'
+          );
+        /* harmony import */ var _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_9__ =
+          __webpack_require__(
+            /*! @/components/simple/SwitchWithText */ './src/components/simple/SwitchWithText/index.ts'
+          );
+        /* harmony import */ var _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_10__ =
+          __webpack_require__(
+            /*! @/components/simple/WrapperNeumorphism */ './src/components/simple/WrapperNeumorphism/index.ts'
+          );
+        /* harmony import */ var _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__ =
+          __webpack_require__(
+            /*! @/contentScripts/AppModalPaste/constantAppModalPaste */ './src/contentScripts/AppModalPaste/constantAppModalPaste.ts'
+          );
+        /* harmony import */ var _services_Attributes_service__WEBPACK_IMPORTED_MODULE_12__ =
           __webpack_require__(
             /*! @/services/Attributes.service */ './src/services/Attributes.service.ts'
           );
-        /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_14__ =
+        /* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__ =
+          __webpack_require__(
+            /*! @/services/Entities.service */ './src/services/Entities.service.ts'
+          );
+        /* harmony import */ var _shared_utils_components__WEBPACK_IMPORTED_MODULE_14__ =
+          __webpack_require__(
+            /*! @/shared/utils/components */ './src/shared/utils/components.ts'
+          );
+        /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_15__ =
           __webpack_require__(
             /*! @/shared/utils/utils */ './src/shared/utils/utils.ts'
+          );
+        /* harmony import */ var _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__ =
+          __webpack_require__(
+            /*! ./PasteViewer.module.scss */ './src/screens/PasteViewer/PasteViewer.module.scss'
+          );
+        /* harmony import */ var _PasteViewerContanstant__WEBPACK_IMPORTED_MODULE_17__ =
+          __webpack_require__(
+            /*! ./PasteViewerContanstant */ './src/screens/PasteViewer/PasteViewerContanstant.ts'
           );
         var __assign =
           (undefined && undefined.__assign) ||
@@ -6079,66 +6229,6 @@
         /* eslint-disable max-nested-callbacks */
         /* eslint-disable max-lines */
 
-        // eslint-disable-next-line max-len
-
-        var initialStateConfigPaste = [
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_VIEWER_NESTED,
-            text: 'Копировать во все вложенные'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.SET_ICON,
-            text: 'Установить иконку'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.REPLACE_ICON,
-            text: 'Заменить иконку'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_ATTR_IN_VIEWER,
-            text: 'Копировать атрибуты в вид',
-            isActive: true
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_ATTR_IN_ENTITIES,
-            text: 'Копировать атрибуты в класс'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.ID_SELECT_ICON,
-            value: ''
-          }
-        ];
-        var initialStateSettingViewer = [
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.APPLY_SETTINGS,
-            text: 'Применить настройки',
-            bold: true
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.TRANSFER_DATA_EXTERNAL_SERVICES,
-            text: 'Передавать данные внешнему сервису'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.HIDE_IN_TREE,
-            text: 'Скрывать в структуре объектов'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.HIDE_IN_MODEL,
-            text: 'Скрывать в модели'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.ONLY_READ,
-            text: 'Только для чтения'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.HIDE_EMPTY_FIELD,
-            text: 'Скрывать пустые поля'
-          },
-          {
-            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.URL_VIEWER_SETTING,
-            value: 'https://'
-          }
-        ];
         var PasteViewer = function (_a) {
           var _b;
           var viewerForPaste = _a.viewerForPaste,
@@ -6148,35 +6238,35 @@
             icons = _a.icons,
             setViewerForPaste = _a.setViewerForPaste,
             entitiesFromPaste = _a.entitiesFromPaste;
-          var allCreatedViewer = (0, react__WEBPACK_IMPORTED_MODULE_8__.useRef)(
+          var allCreatedViewer = (0, react__WEBPACK_IMPORTED_MODULE_1__.useRef)(
             0
           );
-          var _c = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)([]),
-            errorCopy = _c[0],
+          var _c = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+            errorsCopy = _c[0],
             setErrorCopy = _c[1];
-          var _d = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)(0),
+          var _d = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)(0),
             countCreate = _d[0],
             setCreateCount = _d[1];
-          var _e = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)(
-              initialStateConfigPaste
+          var _e = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)(
+              _PasteViewerContanstant__WEBPACK_IMPORTED_MODULE_17__.initialStateConfigPaste
             ),
             configPaste = _e[0],
             setConfigPaste = _e[1];
-          var isApplyNestedEntities = configPaste.find(function (_) {
-            return (
-              _.id ===
-              _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_VIEWER_NESTED
-            );
-          }).isActive;
-          var _f = (0, react__WEBPACK_IMPORTED_MODULE_8__.useState)(
-              initialStateSettingViewer
+          var _f = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)(
+              _PasteViewerContanstant__WEBPACK_IMPORTED_MODULE_17__.initialStateSettingViewer
             ),
             settingViewer = _f[0],
             setSettingViewer = _f[1];
+          var isApplyNestedEntities = configPaste.find(function (_) {
+            return (
+              _.id ===
+              _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.COPY_VIEWER_NESTED
+            );
+          }).isActive;
           var configPasteIcon = configPaste.find(function (_) {
             return (
               _.id ===
-              _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.ID_SELECT_ICON
+              _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.ID_SELECT_ICON
             );
           });
           var titleIconSelect =
@@ -6185,31 +6275,38 @@
             })) === null || _b === void 0
               ? void 0
               : _b.Name;
-          var changeSettingForPaste = function (id, value) {
-            setSettingViewer(function (prev) {
-              return prev === null || prev === void 0
-                ? void 0
-                : prev.map(function (_) {
-                    if (_.id === id) {
-                      if (typeof value === 'string') _.value = value;
-                      if (typeof value === 'boolean') _.isActive = value;
-                    }
-                    return _;
-                  });
-            });
+          var changeDataForPaste = function (id, value, mode) {
+            if (mode === 'setting') {
+              setSettingViewer(function (prev) {
+                return prev === null || prev === void 0
+                  ? void 0
+                  : prev.map(function (_) {
+                      if (_.id === id) {
+                        if (typeof value === 'string') _.value = value;
+                        if (typeof value === 'boolean') _.isActive = value;
+                      }
+                      return _;
+                    });
+              });
+            } else {
+              setConfigPaste(
+                configPaste === null || configPaste === void 0
+                  ? void 0
+                  : configPaste.map(function (_) {
+                      if (_.id === id) {
+                        if (typeof value === 'string') _.value = value;
+                        if (typeof value === 'boolean') _.isActive = value;
+                      }
+                      return _;
+                    })
+              );
+            }
           };
-          var changeConfigPaste = function (id, value) {
-            setConfigPaste(
-              configPaste === null || configPaste === void 0
-                ? void 0
-                : configPaste.map(function (_) {
-                    if (_.id === id) {
-                      if (typeof value === 'string') _.value = value;
-                      if (typeof value === 'boolean') _.isActive = value;
-                    }
-                    return _;
-                  })
-            );
+          var addErrorInList = function (text) {
+            setErrorCopy(function (prev) {
+              prev.push(text);
+              return prev;
+            });
           };
           var pasteViewerInEntities = function (_a) {
             var viewerForPaste = _a.viewerForPaste,
@@ -6218,49 +6315,43 @@
             var isApplySettingsCustom = settingForPaste.find(function (_) {
               return (
                 _.id ===
-                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.APPLY_SETTINGS
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.APPLY_SETTINGS
               );
             }).isActive;
             var isApplyIconCustom = configPasteEntities.find(function (_) {
               return (
                 _.id ===
-                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.SET_ICON
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.SET_ICON
               );
             }).isActive;
             var isApplyReWriteIconWithEdit = configPasteEntities.find(
               function (_) {
                 return (
                   _.id ===
-                  _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.REPLACE_ICON
+                  _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.REPLACE_ICON
                 );
               }
             ).isActive;
             var configApplyNewUrl = settingForPaste.find(function (_) {
               return (
                 _.id ===
-                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.URL_VIEWER_SETTING
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.URL_VIEWER_SETTING
               );
             });
             var isCopyAttrInViewer = configPasteEntities.find(function (_) {
               return (
                 _.id ===
-                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_ATTR_IN_VIEWER
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.COPY_ATTR_IN_VIEWER
               );
             }).isActive;
             var isCopyAttrInEntity = configPasteEntities.find(function (_) {
               return (
                 _.id ===
-                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.COPY_ATTR_IN_ENTITIES
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.COPY_ATTR_IN_ENTITIES
               );
             }).isActive;
-            var initialCustomSettings = {
-              hideInStructureOfObject: false,
-              hideInViewingModel: false,
-              SendParams: false,
-              hideEmptyFields: false,
-              viewMode: 0,
-              Url: ''
-            };
+            var initialCustomSettings =
+              _PasteViewerContanstant__WEBPACK_IMPORTED_MODULE_17__.CustomSettingsInitialState;
             // изменяем настройки исходя из выбранных на экране копирования
             settingForPaste.forEach(function (setting) {
               if (setting.id === '3') return;
@@ -6272,7 +6363,7 @@
                 ));
               if (
                 setting.id ===
-                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.URL_VIEWER_SETTING
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.URL_VIEWER_SETTING
               )
                 return (initialCustomSettings[setting.id] = setting.value);
               initialCustomSettings[setting.id] = !!(setting === null ||
@@ -6283,7 +6374,7 @@
             var selectIcon = configPasteEntities.find(function (_) {
               return (
                 _.id ===
-                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.ID_SELECT_ICON
+                _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.ID_SELECT_ICON
               );
             });
             allCreatedViewer.current = entitiesFromPaste.length;
@@ -6337,12 +6428,12 @@
                         });
                         var newViewer = (function () {
                           return __awaiter(void 0, void 0, void 0, function () {
-                            var dataCreate_1, response;
+                            var dataEdit_1, response;
                             return __generator(this, function (_a) {
                               switch (_a.label) {
                                 case 0:
-                                  if (!isHaveViewer) return [3 /*break*/, 7];
-                                  dataCreate_1 = __assign(
+                                  if (!isHaveViewer) return [3 /*break*/, 4];
+                                  dataEdit_1 = __assign(
                                     __assign({}, dataPost),
                                     {
                                       Icon:
@@ -6355,212 +6446,114 @@
                                   );
                                   return [
                                     4 /*yield*/,
-                                    _services_Entities_service__WEBPACK_IMPORTED_MODULE_12__.EntitiesService.changeViewerInEntities(
+                                    _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__.EntitiesService.changeViewerInEntities(
                                       entity.Id,
-                                      dataCreate_1
+                                      dataEdit_1
                                     ).catch(function () {
-                                      setErrorCopy(function (prev) {
-                                        return __spreadArray(
-                                          __spreadArray([], prev, true),
-                                          [
-                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0438 \u0432\u0438\u0434\u0430 '
-                                              .concat(
-                                                dataCreate_1.Caption,
-                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                                              )
-                                              .concat(entity.Name)
-                                          ],
-                                          false
-                                        );
-                                      });
+                                      return addErrorInList(
+                                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0438 \u0432\u0438\u0434\u0430 \n                '
+                                          .concat(
+                                            dataEdit_1.Caption,
+                                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                          )
+                                          .concat(entity.Name)
+                                      );
                                     })
                                   ];
                                 case 1:
                                   _a.sent();
-                                  if (!isCopyAttrInViewer)
-                                    return [3 /*break*/, 4];
+                                  if (isCopyAttrInViewer)
+                                    (0,
+                                    _shared_utils_components__WEBPACK_IMPORTED_MODULE_14__.copyAttrInViewer)(
+                                      dataEdit_1,
+                                      entity,
+                                      addErrorInList,
+                                      isHaveViewer
+                                    );
+                                  if (!isCopyAttrInEntity)
+                                    return [3 /*break*/, 3];
                                   return [
                                     4 /*yield*/,
-                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.setAttrViewer(
+                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_12__.AttributesService.setAttrForEntity(
                                       {
-                                        idAttrs: dataCreate_1.Attributes,
-                                        idEntity: entity.Id,
-                                        idViewer: dataCreate_1.Id
+                                        idAttrs: dataEdit_1.Attributes,
+                                        idEntity: entity.Id
                                       }
                                     ).catch(function () {
-                                      setErrorCopy(function (prev) {
-                                        return __spreadArray(
-                                          __spreadArray([], prev, true),
-                                          [
-                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 '
-                                              .concat(
-                                                dataCreate_1.Caption,
-                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                                              )
-                                              .concat(entity.Name)
-                                          ],
-                                          false
-                                        );
-                                      });
+                                      return addErrorInList(
+                                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 \n                  '
+                                          .concat(
+                                            dataEdit_1.Caption,
+                                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                          )
+                                          .concat(entity.Name)
+                                      );
                                     })
                                   ];
                                 case 2:
                                   _a.sent();
-                                  return [
-                                    4 /*yield*/,
-                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.deleteAttrForViewer(
-                                      {
-                                        idAttrs: isHaveViewer.Attributes,
-                                        idEntity: entity.Id,
-                                        idViewer: dataCreate_1.Id
-                                      }
-                                    ).catch(function () {
-                                      setErrorCopy(function (prev) {
-                                        return __spreadArray(
-                                          __spreadArray([], prev, true),
-                                          [
-                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 '
-                                              .concat(
-                                                dataPost.Caption,
-                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                                              )
-                                              .concat(entity.Name)
-                                          ],
-                                          false
-                                        );
-                                      });
-                                    })
-                                  ];
+                                  _a.label = 3;
                                 case 3:
-                                  _a.sent();
-                                  _a.label = 4;
-                                case 4:
-                                  if (!isCopyAttrInEntity)
-                                    return [3 /*break*/, 6];
-                                  return [
-                                    4 /*yield*/,
-                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.setAttrForEntity(
-                                      {
-                                        idAttrs: dataCreate_1.Attributes,
-                                        idEntity: entity.Id
-                                      }
-                                    ).catch(function () {
-                                      setErrorCopy(function (prev) {
-                                        return __spreadArray(
-                                          __spreadArray([], prev, true),
-                                          [
-                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 '
-                                              .concat(
-                                                dataCreate_1.Caption,
-                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                                              )
-                                              .concat(entity.Name)
-                                          ],
-                                          false
-                                        );
-                                      });
-                                    })
-                                  ];
-                                case 5:
-                                  _a.sent();
-                                  _a.label = 6;
-                                case 6:
                                   // eslint-disable-next-line no-console
                                   console.log(
                                     '\u0418\u0437\u043C\u0435\u043D\u0438\u043B\u0438 \u0432\u0438\u0434: '
                                       .concat(
-                                        dataCreate_1.Caption,
+                                        dataEdit_1.Caption,
                                         ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
                                       )
                                       .concat(entity.Name)
                                   );
-                                  return [2 /*return*/, dataCreate_1];
-                                case 7:
+                                  return [2 /*return*/, dataEdit_1];
+                                case 4:
                                   return [
                                     4 /*yield*/,
-                                    _services_Entities_service__WEBPACK_IMPORTED_MODULE_12__.EntitiesService.pasteViewerInEntities(
+                                    _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__.EntitiesService.pasteViewerInEntities(
                                       entity.Id,
                                       dataPost
                                     ).catch(function () {
-                                      setErrorCopy(function (prev) {
-                                        return __spreadArray(
-                                          __spreadArray([], prev, true),
-                                          [
-                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0438 \u0432\u0438\u0434\u0430 '
-                                              .concat(
-                                                dataPost.Caption,
-                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                                              )
-                                              .concat(entity.Name)
-                                          ],
-                                          false
-                                        );
-                                      });
+                                      return addErrorInList(
+                                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0438 \u0432\u0438\u0434\u0430\n                 '
+                                          .concat(
+                                            dataPost.Caption,
+                                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                          )
+                                          .concat(entity.Name)
+                                      );
                                     })
                                   ];
-                                case 8:
+                                case 5:
                                   response = _a.sent();
-                                  if (!isCopyAttrInViewer)
-                                    return [3 /*break*/, 10];
-                                  return [
-                                    4 /*yield*/,
-                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.setAttrViewer(
-                                      {
-                                        idAttrs: dataPost.Attributes,
-                                        idEntity: entity.Id,
-                                        idViewer: response.Id
-                                      }
-                                    ).catch(function () {
-                                      setErrorCopy(function (prev) {
-                                        return __spreadArray(
-                                          __spreadArray([], prev, true),
-                                          [
-                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 '
-                                              .concat(
-                                                dataPost.Caption,
-                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                                              )
-                                              .concat(entity.Name)
-                                          ],
-                                          false
-                                        );
-                                      });
-                                    })
-                                  ];
-                                case 9:
-                                  _a.sent();
-                                  _a.label = 10;
-                                case 10:
+                                  if (isCopyAttrInViewer)
+                                    (0,
+                                    _shared_utils_components__WEBPACK_IMPORTED_MODULE_14__.copyAttrInViewer)(
+                                      dataPost,
+                                      entity,
+                                      addErrorInList
+                                    );
                                   if (!isCopyAttrInEntity)
-                                    return [3 /*break*/, 12];
+                                    return [3 /*break*/, 7];
                                   return [
                                     4 /*yield*/,
-                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_13__.AttributesService.setAttrForEntity(
+                                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_12__.AttributesService.setAttrForEntity(
                                       {
                                         idAttrs: dataPost.Attributes,
                                         idEntity: entity.Id
                                       }
                                     ).catch(function () {
-                                      setErrorCopy(function (prev) {
-                                        return __spreadArray(
-                                          __spreadArray([], prev, true),
-                                          [
-                                            '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 '
-                                              .concat(
-                                                dataPost.Caption,
-                                                ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                                              )
-                                              .concat(entity.Name)
-                                          ],
-                                          false
-                                        );
-                                      });
+                                      return addErrorInList(
+                                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 \n                  '
+                                          .concat(
+                                            dataPost.Caption,
+                                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                                          )
+                                          .concat(entity.Name)
+                                      );
                                     })
                                   ];
-                                case 11:
+                                case 6:
                                   _a.sent();
-                                  _a.label = 12;
-                                case 12:
+                                  _a.label = 7;
+                                case 7:
                                   // eslint-disable-next-line no-console
                                   console.log(
                                     '\u0421\u043E\u0437\u0434\u0430\u043B\u0438 \u0432\u0438\u0434: '
@@ -6633,7 +6626,7 @@
                                       });
                                       return [
                                         4 /*yield*/,
-                                        _services_Entities_service__WEBPACK_IMPORTED_MODULE_12__.EntitiesService.changeOrderPosition(
+                                        _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__.EntitiesService.changeOrderPosition(
                                           entity.Id,
                                           orderHash
                                         )
@@ -6664,7 +6657,7 @@
             setViewerForPaste(newViewers);
           };
           var completedPaste = function () {
-            var alert = new js_alert__WEBPACK_IMPORTED_MODULE_7__['default'](
+            var alert = new js_alert__WEBPACK_IMPORTED_MODULE_0__['default'](
               'Страница будет перезагружена',
               'Новые виды были вставлены'
             );
@@ -6676,12 +6669,12 @@
               setCreateCount(0);
             }, 3000);
           };
-          (0, react__WEBPACK_IMPORTED_MODULE_8__.useEffect)(
+          (0, react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(
             function () {
               var timer = undefined;
               if (
                 (0,
-                _shared_utils_utils__WEBPACK_IMPORTED_MODULE_14__.getPercent)(
+                _shared_utils_utils__WEBPACK_IMPORTED_MODULE_15__.getPercent)(
                   countCreate,
                   allCreatedViewer.current
                 ) === 100
@@ -6694,37 +6687,38 @@
             },
             [countCreate]
           );
-          return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'div',
             {
               className:
-                _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__['default']
-                  .wrapperPageTwo
+                _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
+                  'default'
+                ].wrapperPageTwo
             },
-            react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'div',
               {
                 className:
-                  _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                  _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                     'default'
                   ].wrapperViewersForPaste
               },
-              react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                 'h4',
                 { style: { fontWeight: 'bold' } },
                 '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0438\u0434 \u0434\u043B\u044F \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F'
               ),
-              react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                 'ul',
                 {
                   className:
-                    _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                    _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                       'default'
                     ].viewer_types
                 },
                 viewerForPaste.map(function (el, indexViewer) {
-                  return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                    _components_complex_ViewerForPaste__WEBPACK_IMPORTED_MODULE_10__.ViewerForPaste,
+                  return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                    _components_complex_ViewerForPaste__WEBPACK_IMPORTED_MODULE_3__.ViewerForPaste,
                     {
                       key: el.Id,
                       viewer: el,
@@ -6737,75 +6731,48 @@
                   );
                 })
               ),
-              errorCopy.length
-                ? react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                    _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__.WrapperNeumorphism,
-                    null,
-                    react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                      'div',
-                      {
-                        className:
-                          _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
-                            'default'
-                          ].wrapperError
-                      },
-                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                        'h2',
-                        null,
-                        '\u041E\u0448\u0438\u0431\u043A\u0438'
-                      ),
-                      errorCopy.map(function (textError) {
-                        return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                          'div',
-                          {
-                            className:
-                              _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
-                                'default'
-                              ].wrapperTextError
-                          },
-                          react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                            'span',
-                            null,
-                            textError
-                          )
-                        );
-                      })
-                    )
+              errorsCopy.length
+                ? react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                    _components_complex_ErrorNeumorphism_ErrorNeumorphism__WEBPACK_IMPORTED_MODULE_2__[
+                      'default'
+                    ],
+                    { errorsCopy: errorsCopy }
                   )
-                : react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                    react__WEBPACK_IMPORTED_MODULE_8___default().Fragment,
+                : react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                    react__WEBPACK_IMPORTED_MODULE_1___default().Fragment,
                     null,
-                    react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                      _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__.WrapperNeumorphism,
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                      _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_10__.WrapperNeumorphism,
                       null,
-                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                      react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                         'div',
                         {
                           className:
-                            _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                            _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                               'default'
                             ].wrapperListConfig
                         },
                         configPaste.map(function (paramPaste) {
                           if (
                             paramPaste.id ===
-                            _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.ID_SELECT_ICON
+                            _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.ID_SELECT_ICON
                           ) {
-                            return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                            return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                               'div',
                               {
                                 className:
-                                  _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                  _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                                     'default'
                                   ].wrapperDropDownIcon
                               },
-                              react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                                _components_simple_DropDown__WEBPACK_IMPORTED_MODULE_0__.DropDown,
+                              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                                _components_simple_DropDown__WEBPACK_IMPORTED_MODULE_4__.DropDown,
                                 {
                                   onChange: function (idIcon) {
-                                    return changeConfigPaste(
+                                    return changeDataForPaste(
                                       paramPaste.id,
-                                      idIcon
+                                      idIcon,
+                                      'config'
                                     );
                                   },
                                   title:
@@ -6818,20 +6785,20 @@
                                   })
                                 }
                               ),
-                              react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                                 'div',
                                 {
                                   className:
-                                    _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                    _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                                       'default'
                                     ].wrapperSelectTitleIcon
                                 },
                                 titleIconSelect
-                                  ? react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                                      react__WEBPACK_IMPORTED_MODULE_8___default()
+                                  ? react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                                      react__WEBPACK_IMPORTED_MODULE_1___default()
                                         .Fragment,
                                       null,
-                                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                                      react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                                         'span',
                                         null,
                                         '\u0412\u044B \u0432\u044B\u0431\u0440\u0430\u043B\u0438 \u0438\u043A\u043E\u043D\u043A\u0443:'
@@ -6843,20 +6810,24 @@
                               )
                             );
                           }
-                          return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                          return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                             'div',
                             {
                               key: paramPaste.id,
                               className:
-                                _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                                   'default'
                                 ].rowSwitch
                             },
-                            react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                              _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_4__.SwitchWithText,
+                            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                              _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_9__.SwitchWithText,
                               {
                                 onChange: function (check) {
-                                  changeConfigPaste(paramPaste.id, check);
+                                  changeDataForPaste(
+                                    paramPaste.id,
+                                    check,
+                                    'config'
+                                  );
                                 },
                                 text: paramPaste.text,
                                 value: paramPaste.isActive
@@ -6866,54 +6837,55 @@
                         })
                       )
                     ),
-                    react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                      _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_5__.WrapperNeumorphism,
+                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                      _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_10__.WrapperNeumorphism,
                       null,
-                      react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                      react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                         'div',
                         {
                           className:
-                            _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                            _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                               'default'
                             ].wrapperSettingWithView
                         },
-                        react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                           'div',
                           {
                             className:
-                              _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                              _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                                 'default'
                               ].rowSwitchSetting
                           },
                           settingViewer.map(function (paramViewer) {
                             if (
                               paramViewer.id ===
-                              _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_6__.URL_VIEWER_SETTING
+                              _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_11__.URL_VIEWER_SETTING
                             ) {
-                              return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+                              return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                                 'div',
                                 {
                                   key: paramViewer.id,
                                   className:
-                                    _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                                    _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                                       'default'
                                     ].inputSettingUrlWrapper
                                 },
-                                react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                                  _components_simple_Switch__WEBPACK_IMPORTED_MODULE_3__.Switch,
+                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                                  _components_simple_Switch__WEBPACK_IMPORTED_MODULE_8__.Switch,
                                   {
                                     isRounded: true,
                                     onChange: function (check) {
-                                      return changeSettingForPaste(
+                                      return changeDataForPaste(
                                         paramViewer.id,
-                                        check
+                                        check,
+                                        'setting'
                                       );
                                     },
                                     value: paramViewer.isActive
                                   }
                                 ),
-                                react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                                  _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_1__.InputWithUnderLineColor,
+                                react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                                  _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_5__.InputWithUnderLineColor,
                                   {
                                     placeholder:
                                       'URL \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430',
@@ -6923,23 +6895,25 @@
                                       width: '100%'
                                     },
                                     onChange: function (value) {
-                                      return changeSettingForPaste(
+                                      return changeDataForPaste(
                                         paramViewer.id,
-                                        value
+                                        value,
+                                        'setting'
                                       );
                                     }
                                   }
                                 )
                               );
                             }
-                            return react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                              _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_4__.SwitchWithText,
+                            return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                              _components_simple_SwitchWithText__WEBPACK_IMPORTED_MODULE_9__.SwitchWithText,
                               {
                                 key: paramViewer.id,
                                 onChange: function (check) {
-                                  return changeSettingForPaste(
+                                  return changeDataForPaste(
                                     paramViewer.id,
-                                    check
+                                    check,
+                                    'setting'
                                   );
                                 },
                                 text: paramViewer.text,
@@ -6954,8 +6928,8 @@
                   )
             ),
             !countCreate
-              ? react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                  _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton,
+              ? react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                  _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_7__.SimpleButton,
                   {
                     wd: '150px',
                     addStyle: {
@@ -6965,7 +6939,7 @@
                       return _.isSelected;
                     }),
                     addClassName:
-                      _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                      _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                         'default'
                       ].reload,
                     onClick: function () {
@@ -6978,21 +6952,21 @@
                     text: '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C'
                   }
                 )
-              : react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
+              : react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                   'div',
                   {
                     className:
-                      _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_9__[
+                      _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_16__[
                         'default'
                       ].wrapperProgress
                   },
-                  react__WEBPACK_IMPORTED_MODULE_8___default().createElement(
-                    _components_simple_Progress__WEBPACK_IMPORTED_MODULE_11__.Progress,
+                  react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                    _components_simple_Progress__WEBPACK_IMPORTED_MODULE_6__.Progress,
                     {
                       done: !isApplyNestedEntities
                         ? 100
                         : (0,
-                          _shared_utils_utils__WEBPACK_IMPORTED_MODULE_14__.getPercent)(
+                          _shared_utils_utils__WEBPACK_IMPORTED_MODULE_15__.getPercent)(
                             countCreate,
                             allCreatedViewer.current
                           )
@@ -7003,6 +6977,101 @@
         };
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
           PasteViewer;
+
+        /***/
+      },
+
+    /***/ './src/screens/PasteViewer/PasteViewerContanstant.ts':
+      /*!***********************************************************!*\
+  !*** ./src/screens/PasteViewer/PasteViewerContanstant.ts ***!
+  \***********************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ CustomSettingsInitialState: () =>
+            /* binding */ CustomSettingsInitialState,
+          /* harmony export */ initialStateConfigPaste: () =>
+            /* binding */ initialStateConfigPaste,
+          /* harmony export */ initialStateSettingViewer: () =>
+            /* binding */ initialStateSettingViewer
+          /* harmony export */
+        });
+        /* harmony import */ var _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @/contentScripts/AppModalPaste/constantAppModalPaste */ './src/contentScripts/AppModalPaste/constantAppModalPaste.ts'
+          );
+
+        var initialStateConfigPaste = [
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.COPY_VIEWER_NESTED,
+            text: 'Копировать во все вложенные'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.SET_ICON,
+            text: 'Установить иконку'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.REPLACE_ICON,
+            text: 'Заменить иконку'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.COPY_ATTR_IN_VIEWER,
+            text: 'Копировать атрибуты в вид',
+            isActive: true
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.COPY_ATTR_IN_ENTITIES,
+            text: 'Копировать атрибуты в класс'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.ID_SELECT_ICON,
+            value: ''
+          }
+        ];
+        var initialStateSettingViewer = [
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.APPLY_SETTINGS,
+            text: 'Применить настройки',
+            bold: true
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.TRANSFER_DATA_EXTERNAL_SERVICES,
+            text: 'Передавать данные внешнему сервису'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.HIDE_IN_TREE,
+            text: 'Скрывать в структуре объектов'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.HIDE_IN_MODEL,
+            text: 'Скрывать в модели'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.ONLY_READ,
+            text: 'Только для чтения'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.HIDE_EMPTY_FIELD,
+            text: 'Скрывать пустые поля'
+          },
+          {
+            id: _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_0__.URL_VIEWER_SETTING,
+            value: 'https://'
+          }
+        ];
+        var CustomSettingsInitialState = {
+          hideInStructureOfObject: false,
+          hideInViewingModel: false,
+          SendParams: false,
+          hideEmptyFields: false,
+          viewMode: 0,
+          Url: ''
+        };
 
         /***/
       },
@@ -7213,7 +7282,7 @@
                       _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put(
                         '/api/structure/entities/'
                           .concat(idEntity, '/viewers/')
-                          .concat(idViewer, '/attributes?')
+                          .concat(idViewer, '/attributes\n      ?')
                           .concat(
                             (0,
                             _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(
@@ -7244,7 +7313,7 @@
                       _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.delete(
                         '/api/structure/entities/'
                           .concat(idEntity, '/viewers/')
-                          .concat(idViewer, '/attributes?')
+                          .concat(idViewer, '/attributes\n      ?')
                           .concat(
                             (0,
                             _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(
@@ -8003,6 +8072,261 @@
         /***/
       },
 
+    /***/ './src/shared/utils/components.ts':
+      /*!****************************************!*\
+  !*** ./src/shared/utils/components.ts ***!
+  \****************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ RenderWarningTextInPopup: () =>
+            /* binding */ RenderWarningTextInPopup,
+          /* harmony export */ copyAttrInViewer: () =>
+            /* binding */ copyAttrInViewer,
+          /* harmony export */ createElementNode: () =>
+            /* binding */ createElementNode
+          /* harmony export */
+        });
+        /* harmony import */ var _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! @/services/Attributes.service */ './src/services/Attributes.service.ts'
+          );
+        var __awaiter =
+          (undefined && undefined.__awaiter) ||
+          function (thisArg, _arguments, P, generator) {
+            function adopt(value) {
+              return value instanceof P
+                ? value
+                : new P(function (resolve) {
+                    resolve(value);
+                  });
+            }
+            return new (P || (P = Promise))(function (resolve, reject) {
+              function fulfilled(value) {
+                try {
+                  step(generator.next(value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function rejected(value) {
+                try {
+                  step(generator['throw'](value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function step(result) {
+                result.done
+                  ? resolve(result.value)
+                  : adopt(result.value).then(fulfilled, rejected);
+              }
+              step(
+                (generator = generator.apply(thisArg, _arguments || [])).next()
+              );
+            });
+          };
+        var __generator =
+          (undefined && undefined.__generator) ||
+          function (thisArg, body) {
+            var _ = {
+                label: 0,
+                sent: function () {
+                  if (t[0] & 1) throw t[1];
+                  return t[1];
+                },
+                trys: [],
+                ops: []
+              },
+              f,
+              y,
+              t,
+              g;
+            return (
+              (g = { next: verb(0), throw: verb(1), return: verb(2) }),
+              typeof Symbol === 'function' &&
+                (g[Symbol.iterator] = function () {
+                  return this;
+                }),
+              g
+            );
+            function verb(n) {
+              return function (v) {
+                return step([n, v]);
+              };
+            }
+            function step(op) {
+              if (f) throw new TypeError('Generator is already executing.');
+              while ((g && ((g = 0), op[0] && (_ = 0)), _))
+                try {
+                  if (
+                    ((f = 1),
+                    y &&
+                      (t =
+                        op[0] & 2
+                          ? y['return']
+                          : op[0]
+                          ? y['throw'] || ((t = y['return']) && t.call(y), 0)
+                          : y.next) &&
+                      !(t = t.call(y, op[1])).done)
+                  )
+                    return t;
+                  if (((y = 0), t)) op = [op[0] & 2, t.value];
+                  switch (op[0]) {
+                    case 0:
+                    case 1:
+                      t = op;
+                      break;
+                    case 4:
+                      _.label++;
+                      return { value: op[1], done: false };
+                    case 5:
+                      _.label++;
+                      y = op[1];
+                      op = [0];
+                      continue;
+                    case 7:
+                      op = _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                    default:
+                      if (
+                        !((t = _.trys),
+                        (t = t.length > 0 && t[t.length - 1])) &&
+                        (op[0] === 6 || op[0] === 2)
+                      ) {
+                        _ = 0;
+                        continue;
+                      }
+                      if (
+                        op[0] === 3 &&
+                        (!t || (op[1] > t[0] && op[1] < t[3]))
+                      ) {
+                        _.label = op[1];
+                        break;
+                      }
+                      if (op[0] === 6 && _.label < t[1]) {
+                        _.label = t[1];
+                        t = op;
+                        break;
+                      }
+                      if (t && _.label < t[2]) {
+                        _.label = t[2];
+                        _.ops.push(op);
+                        break;
+                      }
+                      if (t[2]) _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                  }
+                  op = body.call(thisArg, _);
+                } catch (e) {
+                  op = [6, e];
+                  y = 0;
+                } finally {
+                  f = t = 0;
+                }
+              if (op[0] & 5) throw op[1];
+              return { value: op[0] ? op[1] : void 0, done: true };
+            }
+          };
+
+        var createElementNode = function (tag, classes) {
+          var node = document.createElement(tag);
+          classes === null || classes === void 0
+            ? void 0
+            : classes.forEach(function (clas) {
+                node.classList.add(clas);
+              });
+          return node;
+        };
+        var RenderWarningTextInPopup = /** @class */ (function () {
+          function RenderWarningTextInPopup(message) {
+            this.body = document.body;
+            this.warningText = message;
+          }
+          RenderWarningTextInPopup.prototype.render = function () {
+            var wrapperWarning = createElementNode('div', ['wrapperWarning']);
+            var warningText = createElementNode('span', ['warningText']);
+            warningText.innerText = this.warningText;
+            wrapperWarning.append(warningText);
+            this.body.appendChild(wrapperWarning);
+            setTimeout(function () {
+              wrapperWarning.remove();
+            }, 3000);
+          };
+          return RenderWarningTextInPopup;
+        })();
+
+        var copyAttrInViewer = function (
+          dataPaste,
+          entity,
+          addErrorInList,
+          prevViewer
+        ) {
+          return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+              switch (_a.label) {
+                case 0:
+                  return [
+                    4 /*yield*/,
+                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__.AttributesService.setAttrViewer(
+                      {
+                        idAttrs: dataPaste.Attributes,
+                        idEntity: entity.Id,
+                        idViewer: dataPaste.Id
+                      }
+                    ).catch(function () {
+                      addErrorInList(
+                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 \n                  '
+                          .concat(
+                            dataPaste.Caption,
+                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                          )
+                          .concat(entity.Name)
+                      );
+                    })
+                  ];
+                case 1:
+                  _a.sent();
+                  if (!prevViewer) return [3 /*break*/, 3];
+                  return [
+                    4 /*yield*/,
+                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__.AttributesService.deleteAttrForViewer(
+                      {
+                        idAttrs: prevViewer.Attributes,
+                        idEntity: entity.Id,
+                        idViewer: dataPaste.Id
+                      }
+                    ).catch(function () {
+                      addErrorInList(
+                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 \n                  '
+                          .concat(
+                            dataPaste.Caption,
+                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                          )
+                          .concat(entity.Name)
+                      );
+                    })
+                  ];
+                case 2:
+                  _a.sent();
+                  _a.label = 3;
+                case 3:
+                  return [2 /*return*/];
+              }
+            });
+          });
+        };
+
+        /***/
+      },
+
     /***/ './src/shared/utils/utils.ts':
       /*!***********************************!*\
   !*** ./src/shared/utils/utils.ts ***!
@@ -8023,7 +8347,9 @@
           /* harmony export */ getUrlParameter: () =>
             /* binding */ getUrlParameter,
           /* harmony export */ joinParamArrayApi: () =>
-            /* binding */ joinParamArrayApi
+            /* binding */ joinParamArrayApi,
+          /* harmony export */ removeExtensionsFromPage: () =>
+            /* binding */ removeExtensionsFromPage
           /* harmony export */
         });
         var __assign =
@@ -8112,6 +8438,14 @@
         };
         var getPercent = function (currentCount, allCount) {
           return +((currentCount * 100) / allCount).toFixed(0);
+        };
+        var removeExtensionsFromPage = function () {
+          var nodes = document.querySelectorAll('#rootContentEntry');
+          nodes.forEach(function (element) {
+            element.remove();
+          });
+          // eslint-disable-next-line no-console
+          console.log('extensions remove');
         };
 
         /***/
@@ -14407,17 +14741,21 @@
       /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__
       /* harmony export */
     });
-    /* harmony import */ var _assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_0__ =
+    /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ =
+      __webpack_require__(
+        /*! classnames */ './node_modules/classnames/index.js'
+      );
+    /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default =
+      /*#__PURE__*/ __webpack_require__.n(
+        classnames__WEBPACK_IMPORTED_MODULE_0__
+      );
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ =
+      __webpack_require__(/*! react */ './node_modules/react/index.js');
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default =
+      /*#__PURE__*/ __webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+    /* harmony import */ var _assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2__ =
       __webpack_require__(
         /*! @/assets/icon/IconClose.svg */ './src/assets/icon/IconClose.svg'
-      );
-    /* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__ =
-      __webpack_require__(
-        /*! @/assets/icon/IconPaste.svg */ './src/assets/icon/IconPaste.svg'
-      );
-    /* harmony import */ var _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_2__ =
-      __webpack_require__(
-        /*! @/assets/icon/IconPlus.svg */ './src/assets/icon/IconPlus.svg'
       );
     /* harmony import */ var _screens_CopyViewer__WEBPACK_IMPORTED_MODULE_3__ =
       __webpack_require__(
@@ -14431,18 +14769,14 @@
       __webpack_require__(
         /*! @/services/Icon.service */ './src/services/Icon.service.ts'
       );
-    /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ =
+    /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__ =
       __webpack_require__(
-        /*! classnames */ './node_modules/classnames/index.js'
+        /*! @/shared/utils/utils */ './src/shared/utils/utils.ts'
       );
-    /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default =
-      /*#__PURE__*/ __webpack_require__.n(
-        classnames__WEBPACK_IMPORTED_MODULE_6__
+    /* harmony import */ var _AppModalConstant__WEBPACK_IMPORTED_MODULE_7__ =
+      __webpack_require__(
+        /*! ./AppModalConstant */ './src/contentScripts/AppModalPaste/AppModalConstant.ts'
       );
-    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ =
-      __webpack_require__(/*! react */ './node_modules/react/index.js');
-    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default =
-      /*#__PURE__*/ __webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
     /* harmony import */ var _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__ =
       __webpack_require__(
         /*! ./AppModalPaste.module.scss */ './src/contentScripts/AppModalPaste/AppModalPaste.module.scss'
@@ -14582,43 +14916,25 @@
       };
     /* eslint-disable max-lines */
 
-    var leftMenuConfig = [
-      {
-        id: 1,
-        label: 'Виды в текущем классе',
-        title: react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
-          _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_2__['default'],
-          null
-        )
-      },
-      {
-        id: 2,
-        label: 'Копировать',
-        title: react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
-          _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__['default'],
-          null
-        )
-      }
-    ];
     chrome.runtime.sendMessage({
       action: 'getEntities',
       payload: window.location.origin
     });
     var AppModalPaste = function () {
       var _a;
-      var refModalWrapper = (0, react__WEBPACK_IMPORTED_MODULE_7__.useRef)(
+      var refModalWrapper = (0, react__WEBPACK_IMPORTED_MODULE_1__.useRef)(
         null
       );
-      var _b = (0, react__WEBPACK_IMPORTED_MODULE_7__.useState)([]),
+      var _b = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
         entitiesFromPaste = _b[0],
         setEntitiesFromPaste = _b[1];
-      var _c = (0, react__WEBPACK_IMPORTED_MODULE_7__.useState)(1),
+      var _c = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)(1),
         currentRightPage = _c[0],
         setCurrentRightPage = _c[1];
-      var _d = (0, react__WEBPACK_IMPORTED_MODULE_7__.useState)([]),
+      var _d = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
         icons = _d[0],
         setIcons = _d[1];
-      var _e = (0, react__WEBPACK_IMPORTED_MODULE_7__.useState)([]),
+      var _e = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
         viewerForPaste = _e[0],
         setViewerForPaste = _e[1];
       var changeOrderViewerInEntities = function (id, order) {
@@ -14627,18 +14943,6 @@
           return item;
         });
         setViewerForPaste(newViewers);
-      };
-      var removeExtensionsFromPage = function () {
-        refModalWrapper.current.classList.toggle(
-          _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__['default']
-            .modalWrapper__active
-        );
-        var nodes = document.querySelectorAll('#rootContentEntry');
-        nodes.forEach(function (element) {
-          element.remove();
-        });
-        // eslint-disable-next-line no-console
-        console.log('extensions remove');
       };
       var fetchIcons = function () {
         return __awaiter(void 0, void 0, void 0, function () {
@@ -14691,7 +14995,7 @@
         });
       };
       var objRoutePage = {
-        1: react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+        1: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
           _screens_CopyViewer__WEBPACK_IMPORTED_MODULE_3__.CopyViewer,
           {
             addStateViewers: addStateViewers,
@@ -14699,7 +15003,7 @@
             viewersForPaste: viewerForPaste
           }
         ),
-        2: react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+        2: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
           _screens_PasteViewer__WEBPACK_IMPORTED_MODULE_4__.PasteViewer,
           {
             deleteView: deleteView,
@@ -14712,11 +15016,11 @@
           }
         )
       };
-      (0, react__WEBPACK_IMPORTED_MODULE_7__.useEffect)(function () {
+      (0, react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         fetchIcons();
       }, []);
       // chrome
-      (0, react__WEBPACK_IMPORTED_MODULE_7__.useEffect)(function () {
+      (0, react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         chrome.runtime.onMessage.addListener(function (request) {
           if (request.action === 'postEntitiesForPasteInsert') {
             setEntitiesFromPaste(request.payload);
@@ -14754,44 +15058,44 @@
           }
         });
       }, []);
-      return react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+      return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
         'div',
         {
-          ref: refModalWrapper,
-          className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(
-            _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__['default']
-              .modalWrapper,
-            _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__['default']
-              .modalWrapper__active
-          )
+          className:
+            (classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+              _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__['default']
+                .modalWrapper,
+              _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__['default']
+                .modalWrapper__active
+            ),
+            'modal_ext')
         },
-        react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
           'div',
           {
-            className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(
+            className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
               _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__['default']
                 .modal
             )
           },
-          react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+          react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'div',
             {
-              onClick: function () {
-                setTimeout(removeExtensionsFromPage, 1000);
-              },
+              onClick:
+                _shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__.removeExtensionsFromPage,
               className:
                 _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
                   'default'
                 ].top
             },
-            react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
-              _assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_0__[
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+              _assets_icon_IconClose_svg__WEBPACK_IMPORTED_MODULE_2__[
                 'default'
               ],
               null
             )
           ),
-          react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+          react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
             'div',
             {
               className:
@@ -14799,10 +15103,10 @@
                   'default'
                 ].wrapperModal
             },
-            react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'div',
               {
-                className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(
+                className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(
                   _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
                     'default'
                   ].modalLoading,
@@ -14824,7 +15128,7 @@
                 ? 'Загрузка...'
                 : null
             ),
-            react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'div',
               {
                 className:
@@ -14832,7 +15136,7 @@
                     'default'
                   ].wrapperLeft
               },
-              react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+              react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                 'ul',
                 {
                   className:
@@ -14840,58 +15144,60 @@
                       'default'
                     ].navbar__menu
                 },
-                leftMenuConfig.map(function (item, indexCategory) {
-                  var _a;
-                  return react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
-                    'li',
-                    {
-                      key: item.id,
-                      onClick: function () {
-                        return setCurrentRightPage(item.id);
-                      },
-                      className:
-                        _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
-                          'default'
-                        ].navbar__item
-                    },
-                    react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
-                      'div',
+                _AppModalConstant__WEBPACK_IMPORTED_MODULE_7__.leftMenuConfig.map(
+                  function (item, indexCategory) {
+                    var _a;
+                    return react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                      'li',
                       {
+                        key: item.id,
+                        onClick: function () {
+                          return setCurrentRightPage(item.id);
+                        },
                         className:
-                          classnames__WEBPACK_IMPORTED_MODULE_6___default()(
-                            _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
-                              'default'
-                            ].navbar__link,
-                            ((_a = {}),
-                            (_a[
-                              _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
-                                'default'
-                              ].navbar__link__active
-                            ] = indexCategory + 1 === currentRightPage),
-                            _a)
-                          )
+                          _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
+                            'default'
+                          ].navbar__item
                       },
-                      react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+                      react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
                         'div',
                         {
                           className:
-                            _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
-                              'default'
-                            ].navbar__link_img
+                            classnames__WEBPACK_IMPORTED_MODULE_0___default()(
+                              _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
+                                'default'
+                              ].navbar__link,
+                              ((_a = {}),
+                              (_a[
+                                _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
+                                  'default'
+                                ].navbar__link__active
+                              ] = indexCategory + 1 === currentRightPage),
+                              _a)
+                            )
                         },
-                        item.title
-                      ),
-                      react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
-                        'span',
-                        null,
-                        item.label
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                          'div',
+                          {
+                            className:
+                              _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_8__[
+                                'default'
+                              ].navbar__link_img
+                          },
+                          item.title
+                        ),
+                        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
+                          'span',
+                          null,
+                          item.label
+                        )
                       )
-                    )
-                  );
-                })
+                    );
+                  }
+                )
               )
             ),
-            react__WEBPACK_IMPORTED_MODULE_7___default().createElement(
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(
               'div',
               {
                 className:

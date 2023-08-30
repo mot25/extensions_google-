@@ -133,12 +133,12 @@
       }
     ],
     "max-len": [
-      "error",
+      "warn",
+      80,
+      2,
       {
-        "code": 80,
-        "ignoreComments": true,
-        "ignoreUrls": true,
-        "ignoreTemplateLiterals": true
+        "ignorePattern": "^import\\s.+\\sfrom\\s.+;$",
+        "ignoreUrls": true
       }
     ],
     "newline-per-chained-call": [

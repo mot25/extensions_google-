@@ -1,11 +1,11 @@
+import { Progress } from '@/components/simple/Progress';
+import { SimpleButton } from '@/components/simple/SimpleButton';
+import { ManagerViewersService } from '@/services/ManagerViewers.service';
+import { getPercent } from '@/shared/utils/utils';
+import { EntitiesType, ViewerType } from '@/type/entities.dto';
+import JSAlert from 'js-alert';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './ViewerForCopyOrDelete.module.scss';
-import { SimpleButton } from '@/components/simple/SimpleButton';
-import JSAlert from 'js-alert';
-import { EntitiesType, ViewerType } from '@/type/entities.dto';
-import { ManagerViewersService } from '@/services/ManagerViewers.service';
-import { Progress } from '@/components/simple/Progress';
-import { getPercent } from '@/shared/utils/utils';
 
 type Props = {
   isHave: boolean;

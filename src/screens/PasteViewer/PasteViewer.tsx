@@ -1,8 +1,13 @@
 /* eslint-disable max-nested-callbacks */
 /* eslint-disable max-lines */
+import JSAlert from 'js-alert';
+import React, { useEffect, useRef, useState } from 'react';
+
+import ErrorNeumorphism from '@/components/complex/ErrorNeumorphism/ErrorNeumorphism';
+import { ViewerForPaste } from '@/components/complex/ViewerForPaste';
 import { DropDown } from '@/components/simple/DropDown';
-// eslint-disable-next-line max-len
 import { InputWithUnderLineColor } from '@/components/simple/InputWithUnderLineColor';
+import { Progress } from '@/components/simple/Progress';
 import { SimpleButton } from '@/components/simple/SimpleButton';
 import { Switch } from '@/components/simple/Switch';
 import { SwitchWithText } from '@/components/simple/SwitchWithText';
@@ -12,16 +17,15 @@ import {
   COPY_ATTR_IN_ENTITIES,
   COPY_ATTR_IN_VIEWER,
   COPY_VIEWER_NESTED,
-  HIDE_EMPTY_FIELD,
-  HIDE_IN_MODEL,
-  HIDE_IN_TREE,
   ID_SELECT_ICON,
-  ONLY_READ,
   REPLACE_ICON,
   SET_ICON,
-  TRANSFER_DATA_EXTERNAL_SERVICES,
   URL_VIEWER_SETTING
 } from '@/contentScripts/AppModalPaste/constantAppModalPaste';
+import { AttributesService } from '@/services/Attributes.service';
+import { EntitiesService } from '@/services/Entities.service';
+import { copyAttrInViewer } from '@/shared/utils/components';
+import { getPercent } from '@/shared/utils/utils';
 import {
   SettingsViewerForPasteType,
   SwitchRenderListType,
@@ -33,15 +37,13 @@ import {
   ViewerType
 } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
-import JSAlert from 'js-alert';
-import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './PasteViewer.module.scss';
-import { ViewerForPaste } from '@/components/complex/ViewerForPaste';
-import { Progress } from '@/components/simple/Progress';
-import { EntitiesService } from '@/services/Entities.service';
-import { AttributesService } from '@/services/Attributes.service';
-import { getPercent } from '@/shared/utils/utils';
+import {
+  CustomSettingsInitialState,
+  initialStateConfigPaste,
+  initialStateSettingViewer
+} from './PasteViewerContanstant';
 
 type Props = {
   viewerForPaste: ViewerType[];
@@ -52,64 +54,6 @@ type Props = {
   setViewerForPaste: (newViewer: ViewerType[]) => void;
   entitiesFromPaste: EntitiesType[];
 };
-const initialStateConfigPaste: SwitchRenderListType[] = [
-  {
-    id: COPY_VIEWER_NESTED,
-    text: 'Копировать во все вложенные'
-  },
-  {
-    id: SET_ICON,
-    text: 'Установить иконку'
-  },
-  {
-    id: REPLACE_ICON,
-    text: 'Заменить иконку'
-  },
-  {
-    id: COPY_ATTR_IN_VIEWER,
-    text: 'Копировать атрибуты в вид',
-    isActive: true
-  },
-  {
-    id: COPY_ATTR_IN_ENTITIES,
-    text: 'Копировать атрибуты в класс'
-  },
-  {
-    id: ID_SELECT_ICON,
-    value: ''
-  }
-];
-const initialStateSettingViewer: SettingsViewerForPasteType = [
-  {
-    id: APPLY_SETTINGS,
-    text: 'Применить настройки',
-    bold: true
-  },
-  {
-    id: TRANSFER_DATA_EXTERNAL_SERVICES,
-    text: 'Передавать данные внешнему сервису'
-  },
-  {
-    id: HIDE_IN_TREE,
-    text: 'Скрывать в структуре объектов'
-  },
-  {
-    id: HIDE_IN_MODEL,
-    text: 'Скрывать в модели'
-  },
-  {
-    id: ONLY_READ,
-    text: 'Только для чтения'
-  },
-  {
-    id: HIDE_EMPTY_FIELD,
-    text: 'Скрывать пустые поля'
-  },
-  {
-    id: URL_VIEWER_SETTING,
-    value: 'https://'
-  }
-];
 
 const PasteViewer = ({
   viewerForPaste,
@@ -121,46 +65,57 @@ const PasteViewer = ({
   entitiesFromPaste
 }: Props) => {
   const allCreatedViewer = useRef<number>(0);
-  const [errorCopy, setErrorCopy] = useState<string[]>([]);
+
+  const [errorsCopy, setErrorCopy] = useState<string[]>([]);
   const [countCreate, setCreateCount] = useState(0);
   const [configPaste, setConfigPaste] = useState<SwitchRenderListType[]>(
     initialStateConfigPaste
   );
+  const [settingViewer, setSettingViewer] =
+    useState<SettingsViewerForPasteType>(initialStateSettingViewer);
+
   const isApplyNestedEntities = configPaste.find(
     _ => _.id === COPY_VIEWER_NESTED
   ).isActive;
-  const [settingViewer, setSettingViewer] =
-    useState<SettingsViewerForPasteType>(initialStateSettingViewer);
 
   const configPasteIcon = configPaste.find(_ => _.id === ID_SELECT_ICON);
   const titleIconSelect = icons.find(icon => icon.Id === configPasteIcon.value)
     ?.Name;
 
-  const changeSettingForPaste = (id: string, value: boolean | string) => {
-    setSettingViewer(
-      prev =>
-        prev?.map(_ => {
+  const changeDataForPaste = (
+    id: string,
+    value: boolean | string,
+    mode: 'setting' | 'config'
+  ) => {
+    if (mode === 'setting') {
+      setSettingViewer(
+        prev =>
+          prev?.map(_ => {
+            if (_.id === id) {
+              if (typeof value === 'string') _.value = value;
+              if (typeof value === 'boolean') _.isActive = value;
+            }
+            return _;
+          })
+      );
+    } else {
+      setConfigPaste(
+        configPaste?.map(_ => {
           if (_.id === id) {
             if (typeof value === 'string') _.value = value;
             if (typeof value === 'boolean') _.isActive = value;
           }
           return _;
         })
-    );
+      );
+    }
   };
-
-  const changeConfigPaste = (id: string, value: boolean | string) => {
-    setConfigPaste(
-      configPaste?.map(_ => {
-        if (_.id === id) {
-          if (typeof value === 'string') _.value = value;
-          if (typeof value === 'boolean') _.isActive = value;
-        }
-        return _;
-      })
-    );
+  const addErrorInList = (text: string) => {
+    setErrorCopy(prev => {
+      prev.push(text);
+      return prev;
+    });
   };
-
   const pasteViewerInEntities = ({
     viewerForPaste,
     configPasteEntities,
@@ -184,14 +139,7 @@ const PasteViewer = ({
     const isCopyAttrInEntity = configPasteEntities.find(
       _ => _.id === COPY_ATTR_IN_ENTITIES
     ).isActive;
-    const initialCustomSettings: RequestForPasteViewerType['Settings'] = {
-      hideInStructureOfObject: false,
-      hideInViewingModel: false,
-      SendParams: false,
-      hideEmptyFields: false,
-      viewMode: 0,
-      Url: ''
-    };
+    const initialCustomSettings = CustomSettingsInitialState;
 
     // изменяем настройки исходя из выбранных на экране копирования
     settingForPaste.forEach(setting => {
@@ -206,7 +154,9 @@ const PasteViewer = ({
     });
 
     const selectIcon = configPasteEntities.find(_ => _.id === ID_SELECT_ICON);
+
     allCreatedViewer.current = entitiesFromPaste.length;
+
     entitiesFromPaste.forEach(async entity => {
       if (!entity.isCurrent) if (!isApplyNestedEntities) return;
       const promisesListResponseCreateViewers: Promise<ViewerType>[] = [];
@@ -241,7 +191,7 @@ const PasteViewer = ({
 
         const newViewer = (async () => {
           if (isHaveViewer) {
-            const dataCreate = {
+            const dataEdit = {
               ...dataPost,
               Icon:
                 isApplyReWriteIconWithEdit && IconForPaste
@@ -251,83 +201,47 @@ const PasteViewer = ({
             };
             await EntitiesService.changeViewerInEntities(
               entity.Id,
-              dataCreate
-            ).catch(() => {
-              setErrorCopy(prev => [
-                ...prev,
-                `Ошибка в изменении вида ${dataCreate.Caption} в классе ${entity.Name}`
-              ]);
-            });
-            if (isCopyAttrInViewer) {
-              await AttributesService.setAttrViewer({
-                idAttrs: dataCreate.Attributes,
-                idEntity: entity.Id,
-                idViewer: dataCreate.Id
-              }).catch(() => {
-                setErrorCopy(prev => [
-                  ...prev,
-                  `Ошибка в копирование аттрибутов вида ${dataCreate.Caption} в классе ${entity.Name}`
-                ]);
-              });
-              await AttributesService.deleteAttrForViewer({
-                idAttrs: isHaveViewer.Attributes,
-                idEntity: entity.Id,
-                idViewer: dataCreate.Id
-              }).catch(() => {
-                setErrorCopy(prev => [
-                  ...prev,
-                  `Ошибка в удалении аттрибутов вида ${dataPost.Caption} в классе ${entity.Name}`
-                ]);
-              });
-            }
+              dataEdit
+            ).catch(() =>
+              addErrorInList(`Ошибка в изменении вида 
+                ${dataEdit.Caption} в классе ${entity.Name}`)
+            );
+            if (isCopyAttrInViewer)
+              copyAttrInViewer(dataEdit, entity, addErrorInList, isHaveViewer);
+
             if (isCopyAttrInEntity) {
               await AttributesService.setAttrForEntity({
-                idAttrs: dataCreate.Attributes,
+                idAttrs: dataEdit.Attributes,
                 idEntity: entity.Id
-              }).catch(() => {
-                setErrorCopy(prev => [
-                  ...prev,
-                  `Ошибка в копирование аттрибутов класса ${dataCreate.Caption} в классе ${entity.Name}`
-                ]);
-              });
+              }).catch(() =>
+                addErrorInList(`Ошибка в копирование аттрибутов класса 
+                  ${dataEdit.Caption} в классе ${entity.Name}`)
+              );
             }
             // eslint-disable-next-line no-console
             console.log(
-              `Изменили вид: ${dataCreate.Caption} в классе ${entity.Name}`
+              `Изменили вид: ${dataEdit.Caption} в классе ${entity.Name}`
             );
-            return dataCreate;
+            return dataEdit;
           } else {
             const response = await EntitiesService.pasteViewerInEntities(
               entity.Id,
               dataPost
-            ).catch(() => {
-              setErrorCopy(prev => [
-                ...prev,
-                `Ошибка в создании вида ${dataPost.Caption} в классе ${entity.Name}`
-              ]);
-            });
-            if (isCopyAttrInViewer) {
-              await AttributesService.setAttrViewer({
-                idAttrs: dataPost.Attributes,
-                idEntity: entity.Id,
-                idViewer: response.Id
-              }).catch(() => {
-                setErrorCopy(prev => [
-                  ...prev,
-                  `Ошибка в копирование аттрибутов вида ${dataPost.Caption} в классе ${entity.Name}`
-                ]);
-              });
-            }
+            ).catch(() =>
+              addErrorInList(`Ошибка в создании вида
+                 ${dataPost.Caption} в классе ${entity.Name}`)
+            );
+            if (isCopyAttrInViewer)
+              copyAttrInViewer(dataPost, entity, addErrorInList);
+
             if (isCopyAttrInEntity) {
               await AttributesService.setAttrForEntity({
                 idAttrs: dataPost.Attributes,
                 idEntity: entity.Id
-              }).catch(() => {
-                setErrorCopy(prev => [
-                  ...prev,
-                  `Ошибка в копирование аттрибутов класса ${dataPost.Caption} в классе ${entity.Name}`
-                ]);
-              });
+              }).catch(() =>
+                addErrorInList(`Ошибка в копирование аттрибутов класса 
+                  ${dataPost.Caption} в классе ${entity.Name}`)
+              );
             }
             // eslint-disable-next-line no-console
             console.log(
@@ -379,6 +293,7 @@ const PasteViewer = ({
       setCreateCount(0);
     }, 3000);
   };
+
   useEffect(() => {
     let timer: number | undefined = undefined;
     if (getPercent(countCreate, allCreatedViewer.current) === 100) {
@@ -407,19 +322,8 @@ const PasteViewer = ({
             );
           })}
         </ul>
-        {errorCopy.length ? (
-          <WrapperNeumorphism>
-            <div className={styles.wrapperError}>
-              <h2>Ошибки</h2>
-              {errorCopy.map(textError => {
-                return (
-                  <div className={styles.wrapperTextError}>
-                    <span>{textError}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </WrapperNeumorphism>
+        {errorsCopy.length ? (
+          <ErrorNeumorphism errorsCopy={errorsCopy} />
         ) : (
           <>
             <WrapperNeumorphism>
@@ -430,7 +334,7 @@ const PasteViewer = ({
                       <div className={styles.wrapperDropDownIcon}>
                         <DropDown
                           onChange={idIcon =>
-                            changeConfigPaste(paramPaste.id, idIcon)
+                            changeDataForPaste(paramPaste.id, idIcon, 'config')
                           }
                           title="Выберите иконку"
                           list={icons.map(icon => ({
@@ -457,7 +361,7 @@ const PasteViewer = ({
                     >
                       <SwitchWithText
                         onChange={check => {
-                          changeConfigPaste(paramPaste.id, check);
+                          changeDataForPaste(paramPaste.id, check, 'config');
                         }}
                         text={paramPaste.text}
                         value={paramPaste.isActive}
@@ -480,7 +384,11 @@ const PasteViewer = ({
                           <Switch
                             isRounded
                             onChange={check =>
-                              changeSettingForPaste(paramViewer.id, check)
+                              changeDataForPaste(
+                                paramViewer.id,
+                                check,
+                                'setting'
+                              )
                             }
                             value={paramViewer.isActive}
                           />
@@ -492,7 +400,11 @@ const PasteViewer = ({
                               width: '100%'
                             }}
                             onChange={value =>
-                              changeSettingForPaste(paramViewer.id, value)
+                              changeDataForPaste(
+                                paramViewer.id,
+                                value,
+                                'setting'
+                              )
                             }
                           />
                         </div>
@@ -502,7 +414,7 @@ const PasteViewer = ({
                       <SwitchWithText
                         key={paramViewer.id}
                         onChange={check =>
-                          changeSettingForPaste(paramViewer.id, check)
+                          changeDataForPaste(paramViewer.id, check, 'setting')
                         }
                         text={paramViewer.text}
                         bold={paramViewer.bold}

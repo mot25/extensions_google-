@@ -1,0 +1,11 @@
+{
+  "root": "src",
+  "allowedExtensions": ["js", "jsx", "ts", "tsx"],
+  "organizeOnSave": "true",
+  "blocks": [
+    {
+      "name": "services",
+      "folders": ["services"]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from './ViewerForPaste.module.scss';
 import { SimpleButton } from '@/components/simple/SimpleButton';
 import classNames from 'classnames';
+import React from 'react';
+import styles from './ViewerForPaste.module.scss';
 // eslint-disable-next-line max-len
 import { InputWithUnderLineColor } from '@/components/simple/InputWithUnderLineColor';
 import { ViewerType } from '@/type/entities.dto';

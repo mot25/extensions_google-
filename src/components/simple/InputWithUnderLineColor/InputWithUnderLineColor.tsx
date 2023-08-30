@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import React, { CSSProperties } from 'react';
 import styles from './InputWithUnderLineColor.module.scss';
-import classNames from 'classnames';
 type Props = {
   placeholder?: string;
   value: string;
