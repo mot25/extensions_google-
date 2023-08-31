@@ -3538,19 +3538,23 @@
   var __webpack_exports__ = {};
   // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
   (() => {
-    /*!**************************************************************!*\
-  !*** ./src/contentScripts/AppModalPaste/AppModalConstant.ts ***!
-  \**************************************************************/
+    /*!***************************************************************!*\
+  !*** ./src/contentScripts/AppModalPaste/AppModalConstant.tsx ***!
+  \***************************************************************/
     __webpack_require__.r(__webpack_exports__);
     /* harmony export */ __webpack_require__.d(__webpack_exports__, {
       /* harmony export */ leftMenuConfig: () => /* binding */ leftMenuConfig
       /* harmony export */
     });
-    /* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_0__ =
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+      __webpack_require__(/*! react */ './node_modules/react/index.js');
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+      /*#__PURE__*/ __webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+    /* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__ =
       __webpack_require__(
         /*! @/assets/icon/IconPaste.svg */ './src/assets/icon/IconPaste.svg'
       );
-    /* harmony import */ var _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_1__ =
+    /* harmony import */ var _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_2__ =
       __webpack_require__(
         /*! @/assets/icon/IconPlus.svg */ './src/assets/icon/IconPlus.svg'
       );
@@ -3559,13 +3563,18 @@
       {
         id: 1,
         label: 'Виды в текущем классе',
-        title: _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_1__['default']
+        title: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          _assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_2__['default'],
+          null
+        )
       },
       {
         id: 2,
         label: 'Копировать',
-        title:
-          _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_0__['default']
+        title: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+          _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__['default'],
+          null
+        )
       }
     ];
   })();

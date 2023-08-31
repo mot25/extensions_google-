@@ -1,6 +1,10 @@
-import { createElementNode } from '@/shared/utils/components';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+
+import { createElementNode } from '@/shared/utils/components';
+import store from '@/store';
+
 import { AppModalPaste } from './AppModalPaste';
 
 const documentBody = document.body;
@@ -12,6 +16,9 @@ const pointApp = createElementNode('div');
 pointApp.setAttribute('id', namePointApp);
 
 documentBody.appendChild(pointApp);
-
 const root = createRoot(pointApp);
-root.render(<AppModalPaste />);
+root.render(
+  <Provider store={store}>
+    <AppModalPaste />
+  </Provider>
+);

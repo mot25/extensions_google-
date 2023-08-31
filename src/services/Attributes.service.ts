@@ -9,8 +9,11 @@ export class AttributesService {
     idViewer
   }: ViewerAttrServiceType) {
     const response = await api.put(
-      `/api/structure/entities/${idEntity}/viewers/${idViewer}/attributes
-      ?${joinParamArrayApi(idAttrs, 'ids')}`
+      // eslint-disable-next-line max-len
+      `/api/structure/entities/${idEntity}/viewers/${idViewer}/attributes?${joinParamArrayApi(
+        idAttrs,
+        'ids'
+      )}`
     );
     return response;
   }
@@ -20,8 +23,11 @@ export class AttributesService {
     idViewer
   }: ViewerAttrServiceType) {
     const response = await api.delete(
-      `/api/structure/entities/${idEntity}/viewers/${idViewer}/attributes
-      ?${joinParamArrayApi(idAttrs, 'ids')}`
+      // eslint-disable-next-line max-len
+      `/api/structure/entities/${idEntity}/viewers/${idViewer}/attributes?${joinParamArrayApi(
+        idAttrs,
+        'ids'
+      )}`
     );
     return response;
   }

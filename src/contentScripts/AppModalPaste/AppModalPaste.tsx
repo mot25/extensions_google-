@@ -1,14 +1,19 @@
 /* eslint-disable max-lines */
 import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import IconClose from '@/assets/icon/IconClose.svg';
 import { CopyViewer } from '@/screens/CopyViewer';
 import { PasteViewer } from '@/screens/PasteViewer';
 import { IconService } from '@/services/Icon.service';
 import { removeExtensionsFromPage } from '@/shared/utils/utils';
+import {
+  entitiesAllSelector,
+  setEntitiesForPaste
+} from '@/store/slice/entitiesSlice';
 import { PageNavigatorType } from '@/type/components.dto';
-import { EntitiesType, ViewerType } from '@/type/entities.dto';
+import { ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
 
 import { leftMenuConfig } from './AppModalConstant';
@@ -20,12 +25,11 @@ chrome.runtime.sendMessage({
 });
 
 const AppModalPaste = () => {
+  const dispatch = useDispatch();
+
   const refModalWrapper = useRef<HTMLDivElement>(null);
 
-  const [entitiesFromPaste, setEntitiesFromPaste] = useState<EntitiesType[]>(
-    []
-  );
-
+  const entitiesFromPaste = useSelector(entitiesAllSelector);
   const [currentRightPage, setCurrentRightPage] = useState<number>(1);
   const [icons, setIcons] = useState<IconType[]>([]);
   const [viewerForPaste, setViewerForPaste] = useState<ViewerType[]>([]);
@@ -74,7 +78,6 @@ const AppModalPaste = () => {
     1: (
       <CopyViewer
         addStateViewers={addStateViewers}
-        entitiesFromPaste={entitiesFromPaste}
         viewersForPaste={viewerForPaste}
       />
     ),
@@ -85,7 +88,6 @@ const AppModalPaste = () => {
         changeSelectedToggleiewer={changeSelectedToggleiewer}
         icons={icons}
         viewerForPaste={viewerForPaste}
-        entitiesFromPaste={entitiesFromPaste}
         setViewerForPaste={setViewerForPaste}
       />
     )
@@ -99,7 +101,7 @@ const AppModalPaste = () => {
   useEffect(() => {
     chrome.runtime.onMessage.addListener(function (request) {
       if (request.action === 'postEntitiesForPasteInsert') {
-        setEntitiesFromPaste(request.payload);
+        dispatch(setEntitiesForPaste(request.payload));
       }
     });
     chrome.storage.local.get(['viewersState'], function (result) {
@@ -129,10 +131,8 @@ const AppModalPaste = () => {
 
   return (
     <div
-      className={
-        (classNames(styles.modalWrapper, styles.modalWrapper__active),
-        'modal_ext')
-      }
+      ref={refModalWrapper}
+      className={classNames(styles.modalWrapper, styles.modalWrapper__active)}
     >
       <div className={classNames(styles.modal)}>
         <div

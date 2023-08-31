@@ -2,6 +2,7 @@
 /* eslint-disable max-lines */
 import JSAlert from 'js-alert';
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import ErrorNeumorphism from '@/components/complex/ErrorNeumorphism/ErrorNeumorphism';
 import { ViewerForPaste } from '@/components/complex/ViewerForPaste';
@@ -22,20 +23,16 @@ import {
   SET_ICON,
   URL_VIEWER_SETTING
 } from '@/contentScripts/AppModalPaste/constantAppModalPaste';
-import { AttributesService } from '@/services/Attributes.service';
 import { EntitiesService } from '@/services/Entities.service';
-import { copyAttrInViewer } from '@/shared/utils/components';
+import { copyAttrInViewer, copyInEntity } from '@/shared/utils/components';
 import { getPercent } from '@/shared/utils/utils';
+import { entitiesAllSelector } from '@/store/slice/entitiesSlice';
 import {
   SettingsViewerForPasteType,
   SwitchRenderListType,
   TypePasteViewers
 } from '@/type/components.dto';
-import {
-  EntitiesType,
-  RequestForPasteViewerType,
-  ViewerType
-} from '@/type/entities.dto';
+import { RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
 
 import styles from './PasteViewer.module.scss';
@@ -52,7 +49,6 @@ type Props = {
   changeOrderViewerInEntities: (id: string, order: number) => void;
   icons: IconType[];
   setViewerForPaste: (newViewer: ViewerType[]) => void;
-  entitiesFromPaste: EntitiesType[];
 };
 
 const PasteViewer = ({
@@ -61,9 +57,10 @@ const PasteViewer = ({
   deleteView,
   changeOrderViewerInEntities,
   icons: icons,
-  setViewerForPaste,
-  entitiesFromPaste
+  setViewerForPaste
 }: Props) => {
+  const entitiesFromPaste = useSelector(entitiesAllSelector);
+
   const allCreatedViewer = useRef<number>(0);
 
   const [errorsCopy, setErrorCopy] = useState<string[]>([]);
@@ -206,18 +203,17 @@ const PasteViewer = ({
               addErrorInList(`Ошибка в изменении вида 
                 ${dataEdit.Caption} в классе ${entity.Name}`)
             );
-            if (isCopyAttrInViewer)
-              copyAttrInViewer(dataEdit, entity, addErrorInList, isHaveViewer);
-
             if (isCopyAttrInEntity) {
-              await AttributesService.setAttrForEntity({
-                idAttrs: dataEdit.Attributes,
-                idEntity: entity.Id
-              }).catch(() =>
-                addErrorInList(`Ошибка в копирование аттрибутов класса 
-                  ${dataEdit.Caption} в классе ${entity.Name}`)
-              );
+              await copyInEntity(dataEdit, entity, addErrorInList);
             }
+            if (isCopyAttrInViewer)
+              await copyAttrInViewer(
+                dataEdit,
+                entity,
+                addErrorInList,
+                isHaveViewer
+              );
+
             // eslint-disable-next-line no-console
             console.log(
               `Изменили вид: ${dataEdit.Caption} в классе ${entity.Name}`
@@ -231,18 +227,23 @@ const PasteViewer = ({
               addErrorInList(`Ошибка в создании вида
                  ${dataPost.Caption} в классе ${entity.Name}`)
             );
-            if (isCopyAttrInViewer)
-              copyAttrInViewer(dataPost, entity, addErrorInList);
 
             if (isCopyAttrInEntity) {
-              await AttributesService.setAttrForEntity({
-                idAttrs: dataPost.Attributes,
-                idEntity: entity.Id
-              }).catch(() =>
-                addErrorInList(`Ошибка в копирование аттрибутов класса 
-                  ${dataPost.Caption} в классе ${entity.Name}`)
+              await copyInEntity(
+                { ...dataPost, Id: response.Id },
+                entity,
+                addErrorInList
               );
             }
+
+            if (isCopyAttrInViewer) {
+              await copyAttrInViewer(
+                { ...dataPost, Id: response.Id },
+                entity,
+                addErrorInList
+              );
+            }
+
             // eslint-disable-next-line no-console
             console.log(
               `Создали вид: ${dataPost.Caption} в классе ${entity.Name}`

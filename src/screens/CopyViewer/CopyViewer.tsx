@@ -1,35 +1,26 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { ViewerForCopyOrDelete } from '@/components/complex/ViewerForCopyOrDelete';
+// eslint-disable-next-line max-len
+import { entitiesAllSelector } from '@/store/slice/entitiesSlice';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
-import React, { useEffect, useState } from 'react';
 
 import styles from './CopyViewer.module.scss';
-// eslint-disable-next-line max-len
-import { ViewerForCopyOrDelete } from '@/components/complex/ViewerForCopyOrDelete';
 
 type Props = {
-  entitiesFromPaste: EntitiesType[];
   viewersForPaste: ViewerType[];
   addStateViewers: (view: ViewerType) => void;
 };
 
 const OneScreenCopyModal = ({
-  entitiesFromPaste,
   viewersForPaste: viewerForPaste,
   addStateViewers
 }: Props) => {
+  const entitiesFromPaste = useSelector(entitiesAllSelector);
+
   const entity: EntitiesType = entitiesFromPaste.find(
     (_: EntitiesType) => _.isCurrent
-  );
-
-  const [_entitiesFromPaste, _setEntitiesFromPaste] = useState<EntitiesType[]>(
-    []
-  );
-
-  const removeListViewer = (id: string) => {
-    _setEntitiesFromPaste(prev => prev.filter(_ => _.Id !== id));
-  };
-  useEffect(
-    () => _setEntitiesFromPaste(entitiesFromPaste),
-    [entitiesFromPaste]
   );
 
   return (
@@ -47,8 +38,6 @@ const OneScreenCopyModal = ({
               isHave={isHave}
               viewer={viewer}
               entity={entity}
-              removeListViewer={removeListViewer}
-              entitiesFromPaste={_entitiesFromPaste}
               addStateViewers={viewer =>
                 addStateViewers({
                   ...viewer,

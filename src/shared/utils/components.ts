@@ -61,3 +61,16 @@ export const copyAttrInViewer = async (
     });
   }
 };
+export const copyInEntity = async (
+  dataPaste: RequestForPasteViewerType,
+  entity: EntitiesType,
+  addErrorInList: (text: string) => void
+) => {
+  await AttributesService.setAttrForEntity({
+    idAttrs: dataPaste.Attributes,
+    idEntity: entity.Id
+  }).catch(() =>
+    addErrorInList(`Ошибка в копирование аттрибутов класса 
+                  ${dataPaste.Caption} в классе ${entity.Name}`)
+  );
+};

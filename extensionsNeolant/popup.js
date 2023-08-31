@@ -52005,9 +52005,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     return [
                       4 /*yield*/,
                       _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.put(
+                        // eslint-disable-next-line max-len
                         '/api/structure/entities/'
                           .concat(idEntity, '/viewers/')
-                          .concat(idViewer, '/attributes\n      ?')
+                          .concat(idViewer, '/attributes?')
                           .concat(
                             (0,
                             _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(
@@ -52036,9 +52037,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     return [
                       4 /*yield*/,
                       _shared_config_Api__WEBPACK_IMPORTED_MODULE_0__.api.delete(
+                        // eslint-disable-next-line max-len
                         '/api/structure/entities/'
                           .concat(idEntity, '/viewers/')
-                          .concat(idViewer, '/attributes\n      ?')
+                          .concat(idViewer, '/attributes?')
                           .concat(
                             (0,
                             _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.joinParamArrayApi)(
@@ -52178,6 +52180,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             /* binding */ RenderWarningTextInPopup,
           /* harmony export */ copyAttrInViewer: () =>
             /* binding */ copyAttrInViewer,
+          /* harmony export */ copyInEntity: () => /* binding */ copyInEntity,
           /* harmony export */ createElementNode: () =>
             /* binding */ createElementNode
           /* harmony export */
@@ -52408,6 +52411,36 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   _a.sent();
                   _a.label = 3;
                 case 3:
+                  return [2 /*return*/];
+              }
+            });
+          });
+        };
+        var copyInEntity = function (dataPaste, entity, addErrorInList) {
+          return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+              switch (_a.label) {
+                case 0:
+                  return [
+                    4 /*yield*/,
+                    _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__.AttributesService.setAttrForEntity(
+                      {
+                        idAttrs: dataPaste.Attributes,
+                        idEntity: entity.Id
+                      }
+                    ).catch(function () {
+                      return addErrorInList(
+                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 \n                  '
+                          .concat(
+                            dataPaste.Caption,
+                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                          )
+                          .concat(entity.Name)
+                      );
+                    })
+                  ];
+                case 1:
+                  _a.sent();
                   return [2 /*return*/];
               }
             });

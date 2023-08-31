@@ -6,13 +6,6 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/contentScripts/AppModalPaste/AppModalPaste.module.scss ***!
   \***************************************************************************************************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap);
-/*!****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/CopyViewer/CopyViewer.module.scss ***!
-  \****************************************************************************************************************************************/
-.Jx407bIoUoJsSjeWDRiP {
-  max-height: 400px;
-  overflow-y: auto;
-}
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/Progress/Progress.module.scss (1) ***!
   \************************************************************************************************************************************************************************************************************************/
@@ -82,6 +75,13 @@
 
 .extentions__progressBar__MVNgq {
   margin-right: 10px;
+}
+/*!****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/screens/CopyViewer/CopyViewer.module.scss ***!
+  \****************************************************************************************************************************************/
+.Jx407bIoUoJsSjeWDRiP {
+  max-height: 400px;
+  overflow-y: auto;
 }
 /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/WrapperNeumorphism/WrapperNeumorphism.module.scss ***!

@@ -1,29 +1,31 @@
+import JSAlert from 'js-alert';
+import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import { Progress } from '@/components/simple/Progress';
 import { SimpleButton } from '@/components/simple/SimpleButton';
 import { ManagerViewersService } from '@/services/ManagerViewers.service';
 import { getPercent } from '@/shared/utils/utils';
+import { entitiesAllSelector } from '@/store/slice/entitiesSlice';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
-import JSAlert from 'js-alert';
-import React, { useEffect, useRef, useState } from 'react';
+
 import styles from './ViewerForCopyOrDelete.module.scss';
 
 type Props = {
   isHave: boolean;
   viewer: ViewerType;
-  entitiesFromPaste: EntitiesType[];
   entity: EntitiesType;
   addStateViewers: (viewer: ViewerType) => void;
-  removeListViewer: (idViewer: string) => void;
 };
 
 const ViewerForCopyOrDelete = ({
   isHave,
   viewer,
   addStateViewers,
-  entitiesFromPaste,
-  entity,
-  removeListViewer
+  entity
 }: Props) => {
+  const entitiesFromPaste = useSelector(entitiesAllSelector);
+
   const allEntity = useRef<number>(0);
   const [countDelete, setCountDelete] = useState<number>(0);
   const [idDeleting, setIsDeleting] = useState(false);
@@ -39,7 +41,6 @@ const ViewerForCopyOrDelete = ({
       allEntity.current = 1;
 
       await ManagerViewersService.deleteViewer(entity.Id, viewer.Id);
-      removeListViewer(viewer.Id);
     });
     alert.addButton('Удалить во вложенных классах').then(() => {
       setIsDeleting(true);
@@ -57,7 +58,6 @@ const ViewerForCopyOrDelete = ({
           });
         }
       });
-      removeListViewer(viewer.Id);
     });
     alert.show();
   };
