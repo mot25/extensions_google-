@@ -52328,6 +52328,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               return { value: op[0] ? op[1] : void 0, done: true };
             }
           };
+        var __spreadArray =
+          (undefined && undefined.__spreadArray) ||
+          function (to, from, pack) {
+            if (pack || arguments.length === 2)
+              for (var i = 0, l = from.length, ar; i < l; i++) {
+                if (ar || !(i in from)) {
+                  if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                  ar[i] = from[i];
+                }
+              }
+            return to.concat(ar || Array.prototype.slice.call(from));
+          };
 
         var createElementNode = function (tag, classes) {
           var node = document.createElement(tag);
@@ -52416,16 +52428,31 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             });
           });
         };
-        var copyInEntity = function (dataPaste, entity, addErrorInList) {
+        var copyInEntity = function (
+          dataPaste,
+          entity,
+          addErrorInList,
+          includeAttributesEntity
+        ) {
           return __awaiter(void 0, void 0, void 0, function () {
+            var attributesForCopy;
             return __generator(this, function (_a) {
               switch (_a.label) {
                 case 0:
+                  attributesForCopy = Array.from(
+                    new Set(
+                      __spreadArray(
+                        __spreadArray([], includeAttributesEntity, true),
+                        dataPaste.Attributes,
+                        true
+                      )
+                    )
+                  );
                   return [
                     4 /*yield*/,
                     _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__.AttributesService.setAttrForEntity(
                       {
-                        idAttrs: dataPaste.Attributes,
+                        idAttrs: attributesForCopy,
                         idEntity: entity.Id
                       }
                     ).catch(function () {

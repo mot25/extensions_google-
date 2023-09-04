@@ -52195,18 +52195,6 @@
               return { value: op[0] ? op[1] : void 0, done: true };
             }
           };
-        var __spreadArray =
-          (undefined && undefined.__spreadArray) ||
-          function (to, from, pack) {
-            if (pack || arguments.length === 2)
-              for (var i = 0, l = from.length, ar; i < l; i++) {
-                if (ar || !(i in from)) {
-                  if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-                  ar[i] = from[i];
-                }
-              }
-            return to.concat(ar || Array.prototype.slice.call(from));
-          };
         /* eslint-disable max-nested-callbacks */
         /* eslint-disable max-lines */
 
@@ -52339,17 +52327,19 @@
             // изменяем настройки исходя из выбранных на экране копирования
             settingForPaste.forEach(function (setting) {
               if (setting.id === '3') return;
-              if (setting.id === 'viewMode')
+              if (setting.id === 'viewMode') {
                 return (initialCustomSettings[setting.id] = Number(
                   !!(setting === null || setting === void 0
                     ? void 0
                     : setting.isActive)
                 ));
+              }
               if (
                 setting.id ===
                 _contentScripts_AppModalPaste_constantAppModalPaste__WEBPACK_IMPORTED_MODULE_12__.URL_VIEWER_SETTING
-              )
+              ) {
                 return (initialCustomSettings[setting.id] = setting.value);
+              }
               initialCustomSettings[setting.id] = !!(setting === null ||
               setting === void 0
                 ? void 0
@@ -52412,10 +52402,13 @@
                         });
                         var newViewer = (function () {
                           return __awaiter(void 0, void 0, void 0, function () {
-                            var dataEdit_1, response;
+                            var includeAttributesEntity, dataEdit_1, response;
                             return __generator(this, function (_a) {
                               switch (_a.label) {
                                 case 0:
+                                  includeAttributesEntity = Object.keys(
+                                    entity.Attributes
+                                  );
                                   if (!isHaveViewer) return [3 /*break*/, 6];
                                   dataEdit_1 = __assign(
                                     __assign({}, dataPost),
@@ -52454,7 +52447,8 @@
                                     _shared_utils_components__WEBPACK_IMPORTED_MODULE_14__.copyInEntity)(
                                       dataEdit_1,
                                       entity,
-                                      addErrorInList
+                                      addErrorInList,
+                                      includeAttributesEntity
                                     )
                                   ];
                                 case 2:
@@ -52516,7 +52510,8 @@
                                         Id: response.Id
                                       }),
                                       entity,
-                                      addErrorInList
+                                      addErrorInList,
+                                      includeAttributesEntity
                                     )
                                   ];
                                 case 8:
@@ -52564,61 +52559,91 @@
                       return [
                         4 /*yield*/,
                         Promise.all(promisesListResponseCreateViewers).then(
-                          function (e) {
+                          function (newViewerForPaste) {
                             return __awaiter(
                               void 0,
                               void 0,
                               void 0,
                               function () {
-                                var currentOrder, orderHash;
+                                var currentOrder, sendOrder;
                                 return __generator(this, function (_a) {
                                   switch (_a.label) {
                                     case 0:
-                                      currentOrder = __spreadArray(
-                                        [],
-                                        entity.Viewers,
-                                        true
-                                      );
-                                      viewerForPaste.forEach(function (viewer) {
-                                        var _a;
-                                        if (!viewer.isSelected) return;
-                                        var newViewer = e.find(function (item) {
+                                      currentOrder = entity.Viewers.map(
+                                        function (_a) {
+                                          var _b;
+                                          var Id = _a.Id,
+                                            Caption = _a.Caption;
                                           return (
-                                            item.Caption === viewer.Caption
+                                            (_b = {}),
+                                            (_b[Id] = {
+                                              id: Id,
+                                              name: Caption
+                                            }),
+                                            _b
                                           );
-                                        });
-                                        var order =
-                                          ((_a = viewerForPaste.find(
-                                            function (_) {
-                                              return (
-                                                _.Caption === newViewer.Caption
-                                              );
-                                            }
-                                          )) === null || _a === void 0
-                                            ? void 0
-                                            : _a.order) || 1;
-                                        currentOrder.splice(
-                                          order - 1,
-                                          0,
-                                          newViewer
-                                        );
-                                      });
-                                      orderHash = {};
-                                      currentOrder.forEach(function (_, ind) {
-                                        return (orderHash[_.Id] = ind);
-                                      });
-                                      setCreateCount(function (prev) {
-                                        return prev + 1;
-                                      });
+                                        }
+                                      );
+                                      viewerForPaste.forEach(
+                                        function (viewerForOrder) {
+                                          var _a;
+                                          if (!viewerForOrder.isSelected)
+                                            return;
+                                          // viewerForOrder вид который мы сейчас будем вставлять
+                                          // viewerForPaste все виды которые мы запомнили
+                                          var currentViewer =
+                                            newViewerForPaste.find(
+                                              function (_) {
+                                                return (
+                                                  _.Caption ===
+                                                  viewerForOrder.Caption
+                                                );
+                                              }
+                                            );
+                                          var prevIndex =
+                                            currentOrder.findIndex(
+                                              function (prevValue) {
+                                                return prevValue[
+                                                  currentViewer.Id
+                                                ];
+                                              }
+                                            );
+                                          if (~prevIndex) {
+                                            currentOrder.splice(prevIndex, 1);
+                                          }
+                                          currentOrder.splice(
+                                            viewerForOrder.order - 1,
+                                            0,
+                                            ((_a = {}),
+                                            (_a[currentViewer.Id] = {
+                                              id: currentViewer.Id,
+                                              name: currentViewer.Caption
+                                            }),
+                                            _a)
+                                          );
+                                        }
+                                      );
+                                      sendOrder = currentOrder.reduce(function (
+                                        acc,
+                                        orderItem,
+                                        indexOrder
+                                      ) {
+                                        var id = Object.values(orderItem)[0].id;
+                                        acc[id] = indexOrder;
+                                        return acc;
+                                      }, {});
                                       return [
                                         4 /*yield*/,
                                         _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__.EntitiesService.changeOrderPosition(
                                           entity.Id,
-                                          orderHash
+                                          sendOrder
                                         )
                                       ];
                                     case 1:
                                       _a.sent();
+                                      setCreateCount(function (prev) {
+                                        return prev + 1;
+                                      });
                                       return [2 /*return*/];
                                   }
                                 });
@@ -54224,6 +54249,18 @@
               return { value: op[0] ? op[1] : void 0, done: true };
             }
           };
+        var __spreadArray =
+          (undefined && undefined.__spreadArray) ||
+          function (to, from, pack) {
+            if (pack || arguments.length === 2)
+              for (var i = 0, l = from.length, ar; i < l; i++) {
+                if (ar || !(i in from)) {
+                  if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                  ar[i] = from[i];
+                }
+              }
+            return to.concat(ar || Array.prototype.slice.call(from));
+          };
 
         var createElementNode = function (tag, classes) {
           var node = document.createElement(tag);
@@ -54312,16 +54349,31 @@
             });
           });
         };
-        var copyInEntity = function (dataPaste, entity, addErrorInList) {
+        var copyInEntity = function (
+          dataPaste,
+          entity,
+          addErrorInList,
+          includeAttributesEntity
+        ) {
           return __awaiter(void 0, void 0, void 0, function () {
+            var attributesForCopy;
             return __generator(this, function (_a) {
               switch (_a.label) {
                 case 0:
+                  attributesForCopy = Array.from(
+                    new Set(
+                      __spreadArray(
+                        __spreadArray([], includeAttributesEntity, true),
+                        dataPaste.Attributes,
+                        true
+                      )
+                    )
+                  );
                   return [
                     4 /*yield*/,
                     _services_Attributes_service__WEBPACK_IMPORTED_MODULE_0__.AttributesService.setAttrForEntity(
                       {
-                        idAttrs: dataPaste.Attributes,
+                        idAttrs: attributesForCopy,
                         idEntity: entity.Id
                       }
                     ).catch(function () {

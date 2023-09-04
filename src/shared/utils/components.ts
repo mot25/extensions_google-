@@ -64,10 +64,15 @@ export const copyAttrInViewer = async (
 export const copyInEntity = async (
   dataPaste: RequestForPasteViewerType,
   entity: EntitiesType,
-  addErrorInList: (text: string) => void
+  addErrorInList: (text: string) => void,
+  includeAttributesEntity: string[]
 ) => {
+  const attributesForCopy: string[] = Array.from(
+    new Set([...includeAttributesEntity, ...dataPaste.Attributes])
+  );
+
   await AttributesService.setAttrForEntity({
-    idAttrs: dataPaste.Attributes,
+    idAttrs: attributesForCopy,
     idEntity: entity.Id
   }).catch(() =>
     addErrorInList(`Ошибка в копирование аттрибутов класса 

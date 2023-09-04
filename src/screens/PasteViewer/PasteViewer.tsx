@@ -141,12 +141,14 @@ const PasteViewer = ({
     // изменяем настройки исходя из выбранных на экране копирования
     settingForPaste.forEach(setting => {
       if (setting.id === '3') return;
-      if (setting.id === 'viewMode')
+      if (setting.id === 'viewMode') {
         return (initialCustomSettings[setting.id] = Number(
           !!setting?.isActive
         ));
-      if (setting.id === URL_VIEWER_SETTING)
+      }
+      if (setting.id === URL_VIEWER_SETTING) {
         return (initialCustomSettings[setting.id] = setting.value);
+      }
       initialCustomSettings[setting.id] = !!setting?.isActive;
     });
 
@@ -187,6 +189,9 @@ const PasteViewer = ({
         );
 
         const newViewer = (async () => {
+          const includeAttributesEntity = Object.keys(
+            entity.Attributes
+          ) as string[];
           if (isHaveViewer) {
             const dataEdit = {
               ...dataPost,
@@ -204,7 +209,12 @@ const PasteViewer = ({
                 ${dataEdit.Caption} в классе ${entity.Name}`)
             );
             if (isCopyAttrInEntity) {
-              await copyInEntity(dataEdit, entity, addErrorInList);
+              await copyInEntity(
+                dataEdit,
+                entity,
+                addErrorInList,
+                includeAttributesEntity
+              );
             }
             if (isCopyAttrInViewer)
               await copyAttrInViewer(
@@ -227,12 +237,12 @@ const PasteViewer = ({
               addErrorInList(`Ошибка в создании вида
                  ${dataPost.Caption} в классе ${entity.Name}`)
             );
-
             if (isCopyAttrInEntity) {
               await copyInEntity(
                 { ...dataPost, Id: response.Id },
                 entity,
-                addErrorInList
+                addErrorInList,
+                includeAttributesEntity
               );
             }
 
@@ -256,22 +266,52 @@ const PasteViewer = ({
         })();
         promisesListResponseCreateViewers.push(newViewer);
       });
-      await Promise.all(promisesListResponseCreateViewers).then(async e => {
-        const currentOrder = [...entity.Viewers];
+      await Promise.all(promisesListResponseCreateViewers).then(
+        async newViewerForPaste => {
+          const currentOrder: Record<string, { id: string; name: string }>[] =
+            entity.Viewers.map(({ Id, Caption }) => ({
+              [Id]: {
+                id: Id,
+                name: Caption
+              }
+            }));
 
-        viewerForPaste.forEach(viewer => {
-          if (!viewer.isSelected) return;
-          const newViewer = e.find(item => item.Caption === viewer.Caption);
-          const order: number =
-            viewerForPaste.find(_ => _.Caption === newViewer.Caption)?.order ||
-            1;
-          currentOrder.splice(order - 1, 0, newViewer);
-        });
-        const orderHash: Record<string, number> = {};
-        currentOrder.forEach((_, ind) => (orderHash[_.Id] = ind));
-        setCreateCount(prev => prev + 1);
-        await EntitiesService.changeOrderPosition(entity.Id, orderHash);
-      });
+          viewerForPaste.forEach(viewerForOrder => {
+            if (!viewerForOrder.isSelected) return;
+            // viewerForOrder вид который мы сейчас будем вставлять
+            // viewerForPaste все виды которые мы запомнили
+            const currentViewer = newViewerForPaste.find(
+              _ => _.Caption === viewerForOrder.Caption
+            );
+
+            const prevIndex = currentOrder.findIndex(
+              prevValue => prevValue[currentViewer.Id]
+            );
+            if (~prevIndex) {
+              currentOrder.splice(prevIndex, 1);
+            }
+
+            currentOrder.splice(viewerForOrder.order - 1, 0, {
+              [currentViewer.Id]: {
+                id: currentViewer.Id,
+                name: currentViewer.Caption
+              }
+            });
+          });
+
+          const sendOrder = currentOrder.reduce(
+            (acc: Record<string, number>, orderItem, indexOrder) => {
+              const id = Object.values(orderItem)[0].id;
+              acc[id] = indexOrder;
+              return acc;
+            },
+            {}
+          );
+
+          await EntitiesService.changeOrderPosition(entity.Id, sendOrder);
+          setCreateCount(prev => prev + 1);
+        }
+      );
     });
   };
   const renameViewer = (name: string, idViewer: string) => {
