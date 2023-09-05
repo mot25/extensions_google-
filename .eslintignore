@@ -2,3 +2,4 @@
 /build
 /extensionsNeolant
 /webpack.config.js
+jest.config.ts

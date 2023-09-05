@@ -1,6 +1,7 @@
 {
   "name": "my-webpack-project",
   "version": "1.0.0",
+  "type": "module",
   "description": "My webpack project",
   "scripts": {
     "start": "webpack --watch",
@@ -10,7 +11,7 @@
     "prefix": "npx prettier . --write",
     "fix": "eslint --fix ./**/*.{tsx,ts}",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest --config jest.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +34,7 @@
     "@babel/core": "^7.22.6",
     "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.15",
     "@jest/globals": "^29.6.4",
     "@svgr/webpack": "^8.0.1",
     "@types/chrome": "^0.0.233",
@@ -77,5 +79,10 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
 }
