@@ -23,12 +23,17 @@ export const entitiesForPasteInsert = (
   entities: EntitiesType[],
   idEntities: string
 ) => {
+  if (!entities.length) return [];
+
   const currentEntities = entities.find(item => item?.Id === idEntities);
+  if (!currentEntities) return [];
+
   const arrNested: EntitiesType[] = [];
   const findNested = (entity: EntitiesType) => {
     const childNestedEntity = entities.filter(
       item => item?.Parent?.Id === entity?.Id
     );
+
     arrNested.push({
       ...entity,
       isCurrent: entity?.Id === idEntities
@@ -37,7 +42,7 @@ export const entitiesForPasteInsert = (
       childNestedEntity.forEach(item => findNested(item));
   };
   findNested(currentEntities);
-  return arrNested;
+  return Array.from(new Set(arrNested));
 };
 
 export function getUrlParameter(location: string, name: string) {

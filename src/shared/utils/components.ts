@@ -15,6 +15,7 @@ export const createElementNode = (
   });
   return node;
 };
+
 export class RenderWarningTextInPopup {
   private warningText: string;
   private body = document.body;
@@ -61,6 +62,7 @@ export const copyAttrInViewer = async (
     });
   }
 };
+
 export const copyInEntity = async (
   dataPaste: RequestForPasteViewerType,
   entity: EntitiesType,

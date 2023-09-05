@@ -33,9 +33,9 @@
         <h1><a href="index.html">All files</a> utils.ts</h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
-            <span class="strong">33.33% </span>
+            <span class="strong">44.44% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">12/36</span>
+            <span class="fraction">16/36</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -45,15 +45,15 @@
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">15.38% </span>
+            <span class="strong">38.46% </span>
             <span class="quiet">Functions</span>
-            <span class="fraction">2/13</span>
+            <span class="fraction">5/13</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">34.28% </span>
+            <span class="strong">42.85% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">12/35</span>
+            <span class="fraction">15/35</span>
           </div>
         </div>
         <p class="quiet">
@@ -149,42 +149,42 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -219,44 +219,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { EntitiesType } from '@/type/entities.dto';
 &nbsp;
-export const getParamFromUrl = (url: string): Record&lt;string, string&gt; =&gt; {
+export const getParamFromUrl = <span class="fstat-no" title="function not covered" >(u</span>rl: string): Record&lt;string, string&gt; =&gt; {
   // Разбиваем строку запроса на отдельные параметры
-  const params = new URLSearchParams(url);
+  const params = <span class="cstat-no" title="statement not covered" >new URLSearchParams(url);</span>
 &nbsp;
   // Создаем пустой объект для хранения параметров
-  const paramsObj: Record&lt;string, string&gt; = {};
+  const paramsObj: Record&lt;string, string&gt; = <span class="cstat-no" title="statement not covered" >{};</span>
 &nbsp;
   // Проходимся по всем параметрам и добавляем их в объект
-  params.forEach((value, key) =&gt; {
-    const keyArr = key?.split('?');
+<span class="cstat-no" title="statement not covered" >  params.forEach(<span class="fstat-no" title="function not covered" >(v</span>alue, key) =&gt; {</span>
+    const keyArr = <span class="cstat-no" title="statement not covered" >key?.split('?');</span>
 &nbsp;
-    const keyValue = keyArr.length &gt; 1 ? keyArr[1] : keyArr[0];
+    const keyValue = <span class="cstat-no" title="statement not covered" >keyArr.length &gt; 1 ? keyArr[1] : keyArr[0];</span>
 &nbsp;
-    paramsObj[keyValue] = value;
+<span class="cstat-no" title="statement not covered" >    paramsObj[keyValue] = value;</span>
   });
 &nbsp;
-  return paramsObj;
+<span class="cstat-no" title="statement not covered" >  return paramsObj;</span>
 };
 &nbsp;
-export const entitiesForPasteInsert = <span class="fstat-no" title="function not covered" >(</span>
+export const entitiesForPasteInsert = (
   entities: EntitiesType[],
   idEntities: string
 ) =&gt; {
-  const currentEntities = <span class="cstat-no" title="statement not covered" >entities.find(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item?.Id === idEntities)</span>;</span>
-  const arrNested: EntitiesType[] = <span class="cstat-no" title="statement not covered" >[];</span>
-  const findNested = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>ntity: EntitiesType) =&gt; {</span>
-    const childNestedEntity = <span class="cstat-no" title="statement not covered" >entities.filter(</span>
-<span class="fstat-no" title="function not covered" >      it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item?.Parent?.Id === entity?.Id</span>
+  const currentEntities = entities.find(item =&gt; item?.Id === idEntities);
+  const arrNested: EntitiesType[] = [];
+  const findNested = (entity: EntitiesType) =&gt; {
+    const childNestedEntity = entities.filter(
+      item =&gt; item?.Parent?.Id === entity?.Id
     );
-<span class="cstat-no" title="statement not covered" >    arrNested.push({</span>
+    arrNested.push({
       ...entity,
       isCurrent: entity?.Id === idEntities
     });
-<span class="cstat-no" title="statement not covered" >    childNestedEntity.length &amp;&amp;</span>
-      childNestedEntity.forEach(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >findNested(item))</span>;
+    childNestedEntity.length &amp;&amp;
+      childNestedEntity.forEach(item =&gt; findNested(item));
   };
-<span class="cstat-no" title="statement not covered" >  findNested(currentEntities);</span>
-<span class="cstat-no" title="statement not covered" >  return arrNested;</span>
+  findNested(currentEntities);
+  return Array.from(new Set(arrNested));
 };
 &nbsp;
 export function <span class="fstat-no" title="function not covered" >getUrlParameter(</span>location: string, name: string) {
@@ -302,7 +302,7 @@ export const removeExtensionsFromPage = <span class="fstat-no" title="function n
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2023-09-05T12:44:27.999Z
+      at 2023-09-05T14:28:02.125Z
     </div>
     <script src="prettify.js"></script>
     <script>

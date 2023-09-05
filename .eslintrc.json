@@ -16,7 +16,8 @@
     "module": "writable",
     "test": "writable",
     "chrome": "writable",
-    "expect": "writable"
+    "expect": "writable",
+    "describe": "writable"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

@@ -37,9 +37,7 @@ chrome.runtime.onMessage.addListener((request, sender) => {
 
         chrome.tabs.sendMessage(sender.tab.id, {
           action: 'postEntitiesForPasteInsert',
-          payload: Array.from(
-            new Set(entitiesForPasteInsert(response, idEntities))
-          )
+          payload: Array.from(entitiesForPasteInsert(response, idEntities))
         });
       } catch (error) {
         throw new Error(error);
@@ -50,6 +48,11 @@ chrome.runtime.onMessage.addListener((request, sender) => {
     arrUrlHeaders.forEach(element => {
       // console.log(getUrlParameter(element.objUrl.search, 'objectId'), 'id')
 
+      console.log('🚀 element.objUrl.search:', element.objUrl.search);
+      console.log(
+        "🚀 ~jUrl.search, 'objectId'):",
+        getUrlParameter(element.objUrl.search, 'objectId')
+      );
       if (
         request.payload === getUrlParameter(element.objUrl.search, 'objectId')
       ) {
