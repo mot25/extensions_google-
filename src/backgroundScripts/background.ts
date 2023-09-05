@@ -37,7 +37,7 @@ chrome.runtime.onMessage.addListener((request, sender) => {
 
         chrome.tabs.sendMessage(sender.tab.id, {
           action: 'postEntitiesForPasteInsert',
-          payload: Array.from(entitiesForPasteInsert(response, idEntities))
+          payload: entitiesForPasteInsert(response, idEntities)
         });
       } catch (error) {
         throw new Error(error);

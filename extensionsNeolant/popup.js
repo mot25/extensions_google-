@@ -52386,15 +52386,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         idEntity: entity.Id,
                         idViewer: dataPaste.Id
                       }
-                    ).catch(function () {
-                      addErrorInList(
-                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 \n                  '
-                          .concat(
-                            dataPaste.Caption,
-                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                          )
-                          .concat(entity.Name)
-                      );
+                    ).catch(function (err) {
+                      {
+                        addErrorInList(
+                          '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430\n                  '
+                            .concat(
+                              dataPaste.Caption,
+                              ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                            )
+                            .concat(entity.Name)
+                        );
+                        throw new Error(err);
+                      }
                     })
                   ];
                 case 1:
@@ -52408,15 +52411,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         idEntity: entity.Id,
                         idViewer: dataPaste.Id
                       }
-                    ).catch(function () {
-                      addErrorInList(
-                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 \n                  '
-                          .concat(
-                            dataPaste.Caption,
-                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                          )
-                          .concat(entity.Name)
-                      );
+                    ).catch(function (err) {
+                      {
+                        addErrorInList(
+                          '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430\n                  '
+                            .concat(
+                              dataPaste.Caption,
+                              ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                            )
+                            .concat(entity.Name)
+                        );
+                        throw new Error(err);
+                      }
                     })
                   ];
                 case 2:
@@ -52455,15 +52461,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         idAttrs: attributesForCopy,
                         idEntity: entity.Id
                       }
-                    ).catch(function () {
-                      return addErrorInList(
-                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 \n                  '
+                    ).catch(function (err) {
+                      addErrorInList(
+                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430\n                  '
                           .concat(
                             dataPaste.Caption,
                             ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
                           )
                           .concat(entity.Name)
                       );
+                      throw new Error(err);
                     })
                   ];
                 case 1:

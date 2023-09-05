@@ -52426,8 +52426,8 @@
                                     _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__.EntitiesService.changeViewerInEntities(
                                       entity.Id,
                                       dataEdit_1
-                                    ).catch(function () {
-                                      return addErrorInList(
+                                    ).catch(function (err) {
+                                      addErrorInList(
                                         '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0438 \u0432\u0438\u0434\u0430 \n                '
                                           .concat(
                                             dataEdit_1.Caption,
@@ -52435,6 +52435,7 @@
                                           )
                                           .concat(entity.Name)
                                       );
+                                      throw new Error(err);
                                     })
                                   ];
                                 case 1:
@@ -52487,8 +52488,8 @@
                                     _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__.EntitiesService.pasteViewerInEntities(
                                       entity.Id,
                                       dataPost
-                                    ).catch(function () {
-                                      return addErrorInList(
+                                    ).catch(function (err) {
+                                      addErrorInList(
                                         '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0438 \u0432\u0438\u0434\u0430\n                 '
                                           .concat(
                                             dataPost.Caption,
@@ -52496,6 +52497,7 @@
                                           )
                                           .concat(entity.Name)
                                       );
+                                      throw new Error(err);
                                     })
                                   ];
                                 case 7:
@@ -54307,15 +54309,18 @@
                         idEntity: entity.Id,
                         idViewer: dataPaste.Id
                       }
-                    ).catch(function () {
-                      addErrorInList(
-                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 \n                  '
-                          .concat(
-                            dataPaste.Caption,
-                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                          )
-                          .concat(entity.Name)
-                      );
+                    ).catch(function (err) {
+                      {
+                        addErrorInList(
+                          '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430\n                  '
+                            .concat(
+                              dataPaste.Caption,
+                              ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                            )
+                            .concat(entity.Name)
+                        );
+                        throw new Error(err);
+                      }
                     })
                   ];
                 case 1:
@@ -54329,15 +54334,18 @@
                         idEntity: entity.Id,
                         idViewer: dataPaste.Id
                       }
-                    ).catch(function () {
-                      addErrorInList(
-                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430 \n                  '
-                          .concat(
-                            dataPaste.Caption,
-                            ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
-                          )
-                          .concat(entity.Name)
-                      );
+                    ).catch(function (err) {
+                      {
+                        addErrorInList(
+                          '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430\n                  '
+                            .concat(
+                              dataPaste.Caption,
+                              ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
+                            )
+                            .concat(entity.Name)
+                        );
+                        throw new Error(err);
+                      }
                     })
                   ];
                 case 2:
@@ -54376,15 +54384,16 @@
                         idAttrs: attributesForCopy,
                         idEntity: entity.Id
                       }
-                    ).catch(function () {
-                      return addErrorInList(
-                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430 \n                  '
+                    ).catch(function (err) {
+                      addErrorInList(
+                        '\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u043A\u043B\u0430\u0441\u0441\u0430\n                  '
                           .concat(
                             dataPaste.Caption,
                             ' \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 '
                           )
                           .concat(entity.Name)
                       );
+                      throw new Error(err);
                     })
                   ];
                 case 1:

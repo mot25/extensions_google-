@@ -45,20 +45,26 @@ export const copyAttrInViewer = async (
     idAttrs: dataPaste.Attributes,
     idEntity: entity.Id,
     idViewer: dataPaste.Id
-  }).catch(() => {
-    addErrorInList(`Ошибка в копирование аттрибутов вида 
+  }).catch(err => {
+    {
+      addErrorInList(`Ошибка в копирование аттрибутов вида
                   ${dataPaste.Caption} в классе ${entity.Name}`);
+      throw new Error(err);
+    }
   });
   if (prevViewer) {
     await AttributesService.deleteAttrForViewer({
       idAttrs: prevViewer.Attributes,
       idEntity: entity.Id,
       idViewer: dataPaste.Id
-    }).catch(() => {
-      addErrorInList(
-        `Ошибка в удалении аттрибутов вида 
+    }).catch(err => {
+      {
+        addErrorInList(
+          `Ошибка в удалении аттрибутов вида
                   ${dataPaste.Caption} в классе ${entity.Name}`
-      );
+        );
+        throw new Error(err);
+      }
     });
   }
 };
@@ -76,8 +82,9 @@ export const copyInEntity = async (
   await AttributesService.setAttrForEntity({
     idAttrs: attributesForCopy,
     idEntity: entity.Id
-  }).catch(() =>
-    addErrorInList(`Ошибка в копирование аттрибутов класса 
-                  ${dataPaste.Caption} в классе ${entity.Name}`)
-  );
+  }).catch(err => {
+    addErrorInList(`Ошибка в копирование аттрибутов класса
+                  ${dataPaste.Caption} в классе ${entity.Name}`);
+    throw new Error(err);
+  });
 };

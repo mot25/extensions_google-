@@ -204,10 +204,11 @@ const PasteViewer = ({
             await EntitiesService.changeViewerInEntities(
               entity.Id,
               dataEdit
-            ).catch(() =>
+            ).catch(err => {
               addErrorInList(`Ошибка в изменении вида 
-                ${dataEdit.Caption} в классе ${entity.Name}`)
-            );
+                ${dataEdit.Caption} в классе ${entity.Name}`);
+              throw new Error(err);
+            });
             if (isCopyAttrInEntity) {
               await copyInEntity(
                 dataEdit,
@@ -233,10 +234,11 @@ const PasteViewer = ({
             const response = await EntitiesService.pasteViewerInEntities(
               entity.Id,
               dataPost
-            ).catch(() =>
+            ).catch(err => {
               addErrorInList(`Ошибка в создании вида
-                 ${dataPost.Caption} в классе ${entity.Name}`)
-            );
+                 ${dataPost.Caption} в классе ${entity.Name}`);
+              throw new Error(err);
+            });
             if (isCopyAttrInEntity) {
               await copyInEntity(
                 { ...dataPost, Id: response.Id },

@@ -6061,12 +6061,10 @@
                     ).id;
                     chrome.tabs.sendMessage(sender.tab.id, {
                       action: 'postEntitiesForPasteInsert',
-                      payload: Array.from(
-                        (0,
-                        _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.entitiesForPasteInsert)(
-                          response,
-                          idEntities
-                        )
+                      payload: (0,
+                      _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.entitiesForPasteInsert)(
+                        response,
+                        idEntities
                       )
                     });
                   } catch (error) {
