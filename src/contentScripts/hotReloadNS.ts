@@ -2,6 +2,7 @@ import { getUrlParameter } from '../shared/utils/utils';
 
 const iFrames = document.querySelector('iframe.objects-fill-content');
 const getDevServerUrl = () => {
+  console.log(1);
   chrome.runtime.sendMessage({
     action: 'getUrlDevServer',
     payload: getUrlParameter(new URL(window.location.href).search, 'id')

@@ -67,6 +67,7 @@ export const joinParamArrayApi = (params: string[], nameParam: string) =>
 export const getPercent = (currentCount: number, allCount: number) =>
   +((currentCount * 100) / allCount).toFixed(0);
 
+// TODO: посмотреть как работать с node в DOM
 export const removeExtensionsFromPage = () => {
   const nodes = document.querySelectorAll('#rootContentEntry');
   nodes.forEach(element => {

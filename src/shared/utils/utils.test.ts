@@ -1,9 +1,15 @@
 import { EntitiesType } from '@/type/entities.dto';
 
-import { entitiesForPasteInsert, getParamFromUrl } from './utils';
+import {
+  entitiesForPasteInsert,
+  getParamFromUrl,
+  getPercent,
+  getUrlParameter,
+  joinParamArrayApi
+} from './utils';
 
 describe('utils getParamFromUrl', () => {
-  test('getParamFromUrl базовый случай', () => {
+  test('базовый случай', () => {
     expect(
       getParamFromUrl(
         'https://pdm-kueg.io.neolant.su/structure/entities?id=0ab76d5e-701a-ee11-8db1-e3e987d5ab3c&mode=1&viewer=19a9e12d-9724-438f-9e52-5bb3f342b901'
@@ -14,26 +20,26 @@ describe('utils getParamFromUrl', () => {
       viewer: '19a9e12d-9724-438f-9e52-5bb3f342b901'
     });
   });
-  test('getParamFromUrl без параметров', () => {
+  test('без параметров', () => {
     expect(
       getParamFromUrl('https://pdm-kueg.io.neolant.su/structure/entities')
     ).toEqual({
       'https://pdm-kueg.io.neolant.su/structure/entities': ''
     });
   });
-  test('getParamFromUrl есть знак "?, но параметров нет', () => {
+  test('есть знак "?", но параметров нет', () => {
     expect(
       getParamFromUrl('https://pdm-kueg.io.neolant.su/structure/entities?')
     ).toEqual({
       '': ''
     });
   });
-  test('getParamFromUrl пустое значение', () => {
+  test('пустое значение', () => {
     expect(getParamFromUrl('')).toEqual({});
   });
 });
+
 describe('utils entitiesForPasteInsert', () => {
-  // Define some example entities for testing
   const entities: EntitiesType[] = [
     {
       Parent: null,
@@ -137,5 +143,57 @@ describe('utils entitiesForPasteInsert', () => {
   });
   test('пустой массив классов', () => {
     expect(entitiesForPasteInsert([], '')).toEqual([]);
+  });
+});
+
+describe('utils getUrlParameter', () => {
+  test('когда нашли параметр из строки', () => {
+    expect(
+      getUrlParameter(
+        'https://pdm-kueg.io.neolant.su/objects?id=77734529-b019-ee11-8db1-e3e987d5ab3c&v=aec03df4-93a3-448e-b534-a1da452fa517:26',
+        'id'
+      )
+    ).toEqual('77734529-b019-ee11-8db1-e3e987d5ab3c');
+  });
+  test('когда не нашли параметр из строки', () => {
+    expect(
+      getUrlParameter(
+        'https://pdm-kueg.io.neolant.su/objects?id=77734529-b019-ee11-8db1-e3e987d5ab3c&v=aec03df4-93a3-448e-b534-a1da452fa517:26',
+        '123'
+      )
+    ).toEqual('');
+  });
+  test('когда параметр для поиска равен пустому значению', () => {
+    expect(
+      getUrlParameter(
+        'https://pdm-kueg.io.neolant.su/objects?id=77734529-b019-ee11-8db1-e3e987d5ab3c&v=aec03df4-93a3-448e-b534-a1da452fa517:26',
+        ''
+      )
+    ).toEqual('');
+  });
+});
+
+describe('utils joinParamArrayApi', () => {
+  test('когда мы передали больше 1 параметра и название параметра для отправки', () => {
+    expect(joinParamArrayApi(['1', '2', '3'], 'id')).toEqual('id=1&id=2&id=3');
+  });
+  test('когда мы передали 1 параметр и название параметра для отправки', () => {
+    expect(joinParamArrayApi(['1'], 'id')).toEqual('id=1');
+    expect(joinParamArrayApi([], 'id')).toEqual('');
+  });
+});
+
+describe('utils getPercent', () => {
+  test('входное значение равно 0, при максимальном значении 100', () => {
+    expect(getPercent(0, 100)).toEqual(0);
+  });
+  test('входное значение равно -10, при максимальном значении 123', () => {
+    expect(getPercent(-10, 123)).toEqual(-8);
+  });
+  test('входное значение равно 250, при максимальном значении 100', () => {
+    expect(getPercent(250, 100)).toEqual(250);
+  });
+  test('входное значение равно 250, при максимальном значении -100', () => {
+    expect(getPercent(250, -100)).toEqual(-250);
   });
 });
