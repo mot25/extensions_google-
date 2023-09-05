@@ -1,0 +1,54 @@
+.delete_btn,
+.add_btn {
+  padding: 5px 10px;
+  margin-left: 10px;
+  border: none;
+  background-color: #cc3333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.wrapperPageTwo {
+  width: 100%;
+  overflow: auto;
+  min-height: 550px;
+}
+
+.wrapperViewersForPaste {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.viewer_types {
+  list-style-type: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.viewer_types li {
+  display: flex;
+  align-items: center;
+  // margin-bottom: 20px;
+}
+
+.orderInput {
+  width: 40px;
+}
+
+.reload {
+  margin-top: 15px;
+}
+
+.wrapperDropDownIcon {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.inputSettingUrlWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

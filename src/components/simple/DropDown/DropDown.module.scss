@@ -1,0 +1,69 @@
+/* Dropdown Button */
+.dropBtn {
+  background-color: #31556f;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Dropdown button on hover & focus */
+.dropBtn:hover,
+.dropBtn:focus {
+  background-color: #31556f;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+/* Links inside the dropdown */
+.dropdown_content a {
+  color: black;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown_content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown_content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
+
+.selectItem {
+  cursor: pointer;
+}
+
+.selectItemText {
+  white-space: nowrap;
+  /* Запрещаем перенос строк */
+  overflow: hidden;
+  /* Обрезаем все, что не помещается в область */
+  /* Цвет фона */
+  padding: 5px;
+  /* Поля вокруг текста */
+  text-overflow: ellipsis;
+  /* Добавляем многоточие */
+}
