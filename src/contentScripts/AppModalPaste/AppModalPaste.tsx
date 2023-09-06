@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import IconClose from '@/assets/icon/IconClose.svg';
 import { CopyViewer } from '@/screens/CopyViewer';
 import { PasteViewer } from '@/screens/PasteViewer';
-import { IconService } from '@/services/IconService';
+import { IconService } from '@/services/Icon.service';
 import { removeExtensionsFromPage } from '@/shared/utils/utils';
 import {
   entitiesAllSelector,

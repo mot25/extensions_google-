@@ -270,7 +270,6 @@ const PasteViewer = ({
       });
       await Promise.all(promisesListResponseCreateViewers).then(
         async newViewersForPaste => {
-          console.log('🚀 ~ newViewersForPaste:', newViewersForPaste);
           const currentOrder: Record<string, { id: string; name: string }>[] =
             entity.Viewers.map(({ Id, Caption }) => ({
               [Id]: {
@@ -278,8 +277,6 @@ const PasteViewer = ({
                 name: Caption
               }
             }));
-          console.log('entity.Viewers', entity.Viewers);
-          console.log(viewerForPaste, 'viewerForPaste');
           viewerForPaste.forEach(viewerForOrder => {
             if (!viewerForOrder.isSelected) return;
             // viewerForOrder вид который мы сейчас будем вставлять
@@ -311,7 +308,6 @@ const PasteViewer = ({
             },
             {}
           );
-          console.log(sendOrder, 'sendOrder');
           await EntitiesService.changeOrderPosition(entity.Id, sendOrder);
           setCreateCount(prev => prev + 1);
         }

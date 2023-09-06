@@ -15,9 +15,7 @@
     "HTMLElementTagNameMap": "readonly",
     "module": "writable",
     "test": "writable",
-    "chrome": "writable",
-    "expect": "writable",
-    "describe": "writable"
+    "chrome": "writable"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
