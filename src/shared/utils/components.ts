@@ -1,4 +1,5 @@
 import { AttributesService } from '@/services/Attributes.service';
+import { OrderSendType } from '@/type/components.dto';
 import {
   EntitiesType,
   RequestForPasteViewerType,
@@ -10,8 +11,8 @@ export const createElementNode = (
   classes?: string[]
 ) => {
   const node = document.createElement(tag);
-  classes?.forEach(clas => {
-    node.classList.add(clas);
+  classes?.forEach(classStyleName => {
+    node.classList.add(classStyleName);
   });
   return node;
 };
@@ -87,4 +88,51 @@ export const copyInEntity = async (
                   ${dataPaste.Caption} в классе ${entity.Name}`);
     throw new Error(err);
   });
+};
+
+export const getOrderViewerInEntities = ({
+  viewerInEntity,
+  viewerForPaste,
+  newViewersForPaste
+}: OrderSendType): Record<string, number> => {
+  const currentOrder: Record<string, { id: string; name: string }>[] =
+    viewerInEntity.map(({ Id, Caption }) => ({
+      [Id]: {
+        id: Id,
+        name: Caption
+      }
+    }));
+
+  viewerForPaste.forEach(viewerForOrder => {
+    if (!viewerForOrder.isSelected) return;
+    // viewerForOrder вид который мы сейчас будем вставлять
+    // viewerForPaste все виды которые мы запомнили
+    const currentViewer = newViewersForPaste.find(
+      _ => _.Caption === viewerForOrder.Caption
+    );
+
+    const prevIndex = currentOrder.findIndex(
+      prevValue => prevValue[currentViewer.Id]
+    );
+    if (~prevIndex) {
+      currentOrder.splice(prevIndex, 1);
+    }
+
+    currentOrder.splice(viewerForOrder.order - 1, 0, {
+      [currentViewer.Id]: {
+        id: currentViewer.Id,
+        name: currentViewer.Caption
+      }
+    });
+  });
+
+  const sendOrder = currentOrder.reduce(
+    (acc: Record<string, number>, orderItem, indexOrder) => {
+      const id = Object.values(orderItem)[0].id;
+      acc[id] = indexOrder;
+      return acc;
+    },
+    {}
+  );
+  return sendOrder;
 };

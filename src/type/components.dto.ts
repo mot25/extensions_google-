@@ -1,6 +1,8 @@
 // eslint-disable-next-line max-len
-import { URL_VIEWER_SETTING } from '@/contentScripts/AppModalPaste/constantAppModalPaste';
 import React from 'react';
+
+import { URL_VIEWER_SETTING } from '@/contentScripts/AppModalPaste/constantAppModalPaste';
+
 import { RequestForPasteViewerType, ViewerType } from './entities.dto';
 
 export type MenuLeftNavbar = {
@@ -48,4 +50,10 @@ export type HttpHeader = {
   name: string;
   value?: string | undefined;
   binaryValue?: ArrayBuffer | undefined;
+};
+
+export type OrderSendType = {
+  viewerInEntity: ViewerType[];
+  viewerForPaste: ViewerType[];
+  newViewersForPaste: ViewerType[];
 };

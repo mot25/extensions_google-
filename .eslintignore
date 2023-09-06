@@ -3,3 +3,5 @@
 /extensionsNeolant
 /webpack.config.js
 jest.config.ts
+**/*test*.ts
+/coverage

@@ -31,7 +31,7 @@ export type ViewerType = {
   Attributes: string[];
   Id: string;
   Name: string;
-  Settings: RequestForPasteViewerType['Settings'];
+  Settings?: RequestForPasteViewerType['Settings'];
 
   isSelected?: boolean;
   order?: number;

@@ -217,14 +217,14 @@ const PasteViewer = ({
                 includeAttributesEntity
               );
             }
-            if (isCopyAttrInViewer)
+            if (isCopyAttrInViewer) {
               await copyAttrInViewer(
                 dataEdit,
                 entity,
                 addErrorInList,
                 isHaveViewer
               );
-
+            }
             // eslint-disable-next-line no-console
             console.log(
               `Изменили вид: ${dataEdit.Caption} в классе ${entity.Name}`
@@ -269,7 +269,8 @@ const PasteViewer = ({
         promisesListResponseCreateViewers.push(newViewer);
       });
       await Promise.all(promisesListResponseCreateViewers).then(
-        async newViewerForPaste => {
+        async newViewersForPaste => {
+          console.log('🚀 ~ newViewersForPaste:', newViewersForPaste);
           const currentOrder: Record<string, { id: string; name: string }>[] =
             entity.Viewers.map(({ Id, Caption }) => ({
               [Id]: {
@@ -277,12 +278,13 @@ const PasteViewer = ({
                 name: Caption
               }
             }));
-
+          console.log('entity.Viewers', entity.Viewers);
+          console.log(viewerForPaste, 'viewerForPaste');
           viewerForPaste.forEach(viewerForOrder => {
             if (!viewerForOrder.isSelected) return;
             // viewerForOrder вид который мы сейчас будем вставлять
             // viewerForPaste все виды которые мы запомнили
-            const currentViewer = newViewerForPaste.find(
+            const currentViewer = newViewersForPaste.find(
               _ => _.Caption === viewerForOrder.Caption
             );
 
@@ -309,7 +311,7 @@ const PasteViewer = ({
             },
             {}
           );
-
+          console.log(sendOrder, 'sendOrder');
           await EntitiesService.changeOrderPosition(entity.Id, sendOrder);
           setCreateCount(prev => prev + 1);
         }

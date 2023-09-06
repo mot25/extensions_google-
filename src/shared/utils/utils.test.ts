@@ -8,7 +8,7 @@ import {
   joinParamArrayApi
 } from './utils';
 
-describe('utils getParamFromUrl', () => {
+describe('getParamFromUrl', () => {
   test('базовый случай', () => {
     expect(
       getParamFromUrl(
@@ -39,7 +39,7 @@ describe('utils getParamFromUrl', () => {
   });
 });
 
-describe('utils entitiesForPasteInsert', () => {
+describe('entitiesForPasteInsert', () => {
   const entities: EntitiesType[] = [
     {
       Parent: null,
@@ -146,7 +146,7 @@ describe('utils entitiesForPasteInsert', () => {
   });
 });
 
-describe('utils getUrlParameter', () => {
+describe('getUrlParameter', () => {
   test('когда нашли параметр из строки', () => {
     expect(
       getUrlParameter(
@@ -173,7 +173,7 @@ describe('utils getUrlParameter', () => {
   });
 });
 
-describe('utils joinParamArrayApi', () => {
+describe('joinParamArrayApi', () => {
   test('когда мы передали больше 1 параметра и название параметра для отправки', () => {
     expect(joinParamArrayApi(['1', '2', '3'], 'id')).toEqual('id=1&id=2&id=3');
   });
@@ -183,7 +183,7 @@ describe('utils joinParamArrayApi', () => {
   });
 });
 
-describe('utils getPercent', () => {
+describe('getPercent', () => {
   test('входное значение равно 0, при максимальном значении 100', () => {
     expect(getPercent(0, 100)).toEqual(0);
   });

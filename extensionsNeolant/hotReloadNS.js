@@ -223,7 +223,6 @@
 
     var iFrames = document.querySelector('iframe.objects-fill-content');
     var getDevServerUrl = function () {
-      console.log(1);
       chrome.runtime.sendMessage({
         action: 'getUrlDevServer',
         payload: (0,

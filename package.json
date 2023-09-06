@@ -10,7 +10,7 @@
     "prefix": "npx prettier . --write",
     "fix": "eslint --fix ./**/*.{tsx,ts}",
     "prepare": "husky install",
-    "test": "jest --config jest.config.ts"
+    "test": "jest --config jest.config.ts -no--cache"
   },
   "keywords": [],
   "author": "",

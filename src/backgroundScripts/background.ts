@@ -46,13 +46,6 @@ chrome.runtime.onMessage.addListener((request, sender) => {
   }
   if (request.action === 'getUrlDevServer') {
     arrUrlHeaders.forEach(element => {
-      // console.log(getUrlParameter(element.objUrl.search, 'objectId'), 'id')
-
-      console.log('🚀 element.objUrl.search:', element.objUrl.search);
-      console.log(
-        "🚀 ~jUrl.search, 'objectId'):",
-        getUrlParameter(element.objUrl.search, 'objectId')
-      );
       if (
         request.payload === getUrlParameter(element.objUrl.search, 'objectId')
       ) {
