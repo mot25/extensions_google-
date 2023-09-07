@@ -40696,47 +40696,15 @@ var PasteViewer = function (_a) {
                             promisesListResponseCreateViewers.push(newViewer);
                         });
                         return [4 /*yield*/, Promise.all(promisesListResponseCreateViewers).then(function (newViewersForPaste) { return __awaiter(void 0, void 0, void 0, function () {
-                                var currentOrder, sendOrder;
+                                var sendOrder;
                                 return __generator(this, function (_a) {
                                     switch (_a.label) {
                                         case 0:
-                                            console.log('🚀 ~ newViewersForPaste:', newViewersForPaste);
-                                            currentOrder = entity.Viewers.map(function (_a) {
-                                                var _b;
-                                                var Id = _a.Id, Caption = _a.Caption;
-                                                return (_b = {},
-                                                    _b[Id] = {
-                                                        id: Id,
-                                                        name: Caption
-                                                    },
-                                                    _b);
+                                            sendOrder = (0,_shared_utils_components__WEBPACK_IMPORTED_MODULE_14__.getOrderViewerInEntities)({
+                                                newViewersForPaste: newViewersForPaste,
+                                                viewerForPaste: viewerForPaste,
+                                                viewerInEntity: entity.Viewers
                                             });
-                                            console.log('entity.Viewers', entity.Viewers);
-                                            console.log(viewerForPaste, 'viewerForPaste');
-                                            viewerForPaste.forEach(function (viewerForOrder) {
-                                                var _a;
-                                                if (!viewerForOrder.isSelected)
-                                                    return;
-                                                // viewerForOrder вид который мы сейчас будем вставлять
-                                                // viewerForPaste все виды которые мы запомнили
-                                                var currentViewer = newViewersForPaste.find(function (_) { return _.Caption === viewerForOrder.Caption; });
-                                                var prevIndex = currentOrder.findIndex(function (prevValue) { return prevValue[currentViewer.Id]; });
-                                                if (~prevIndex) {
-                                                    currentOrder.splice(prevIndex, 1);
-                                                }
-                                                currentOrder.splice(viewerForOrder.order - 1, 0, (_a = {},
-                                                    _a[currentViewer.Id] = {
-                                                        id: currentViewer.Id,
-                                                        name: currentViewer.Caption
-                                                    },
-                                                    _a));
-                                            });
-                                            sendOrder = currentOrder.reduce(function (acc, orderItem, indexOrder) {
-                                                var id = Object.values(orderItem)[0].id;
-                                                acc[id] = indexOrder;
-                                                return acc;
-                                            }, {});
-                                            console.log(sendOrder, 'sendOrder');
                                             return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__.EntitiesService.changeOrderPosition(entity.Id, sendOrder)];
                                         case 1:
                                             _a.sent();

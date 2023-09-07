@@ -50,7 +50,7 @@ export const copyAttrInViewer = async (
     {
       addErrorInList(`Ошибка в копирование аттрибутов вида
                   ${dataPaste.Caption} в классе ${entity.Name}`);
-      throw new Error(err);
+      new Error(err);
     }
   });
   if (prevViewer) {
@@ -64,7 +64,7 @@ export const copyAttrInViewer = async (
           `Ошибка в удалении аттрибутов вида
                   ${dataPaste.Caption} в классе ${entity.Name}`
         );
-        throw new Error(err);
+        new Error(err);
       }
     });
   }

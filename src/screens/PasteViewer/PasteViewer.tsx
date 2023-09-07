@@ -24,7 +24,11 @@ import {
   URL_VIEWER_SETTING
 } from '@/contentScripts/AppModalPaste/constantAppModalPaste';
 import { EntitiesService } from '@/services/Entities.service';
-import { copyAttrInViewer, copyInEntity } from '@/shared/utils/components';
+import {
+  copyAttrInViewer,
+  copyInEntity,
+  getOrderViewerInEntities
+} from '@/shared/utils/components';
 import { getPercent } from '@/shared/utils/utils';
 import { entitiesAllSelector } from '@/store/slice/entitiesSlice';
 import {
@@ -270,44 +274,11 @@ const PasteViewer = ({
       });
       await Promise.all(promisesListResponseCreateViewers).then(
         async newViewersForPaste => {
-          const currentOrder: Record<string, { id: string; name: string }>[] =
-            entity.Viewers.map(({ Id, Caption }) => ({
-              [Id]: {
-                id: Id,
-                name: Caption
-              }
-            }));
-          viewerForPaste.forEach(viewerForOrder => {
-            if (!viewerForOrder.isSelected) return;
-            // viewerForOrder вид который мы сейчас будем вставлять
-            // viewerForPaste все виды которые мы запомнили
-            const currentViewer = newViewersForPaste.find(
-              _ => _.Caption === viewerForOrder.Caption
-            );
-
-            const prevIndex = currentOrder.findIndex(
-              prevValue => prevValue[currentViewer.Id]
-            );
-            if (~prevIndex) {
-              currentOrder.splice(prevIndex, 1);
-            }
-
-            currentOrder.splice(viewerForOrder.order - 1, 0, {
-              [currentViewer.Id]: {
-                id: currentViewer.Id,
-                name: currentViewer.Caption
-              }
-            });
+          const sendOrder = getOrderViewerInEntities({
+            newViewersForPaste,
+            viewerForPaste,
+            viewerInEntity: entity.Viewers
           });
-
-          const sendOrder = currentOrder.reduce(
-            (acc: Record<string, number>, orderItem, indexOrder) => {
-              const id = Object.values(orderItem)[0].id;
-              acc[id] = indexOrder;
-              return acc;
-            },
-            {}
-          );
           await EntitiesService.changeOrderPosition(entity.Id, sendOrder);
           setCreateCount(prev => prev + 1);
         }

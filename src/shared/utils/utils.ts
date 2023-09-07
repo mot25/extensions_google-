@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import { EntitiesType } from '@/type/entities.dto';
 
 export const getParamFromUrl = (url: string): Record<string, string> => {
@@ -18,7 +20,10 @@ export const getParamFromUrl = (url: string): Record<string, string> => {
 
   return paramsObj;
 };
-
+export const getData = async () => {
+  const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+  return res?.data.map((user: any) => user.id);
+};
 export const entitiesForPasteInsert = (
   entities: EntitiesType[],
   idEntities: string

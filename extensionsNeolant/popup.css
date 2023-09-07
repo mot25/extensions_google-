@@ -60,9 +60,7 @@ body {
 
 #bubble1 {
   transform: translateY(0%);
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.12),
-    0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 #bubble1 > span {
   opacity: 0.7;
@@ -161,7 +159,7 @@ body {
   --shadow-hover: 0 4px 20px -2px rgba(39, 94, 254, 0.5);
   --font-shadow: var(--font-size);
   padding: 16px 32px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 500;
   line-height: var(--font-size);
   display: block;
@@ -174,9 +172,7 @@ body {
   width: 100%;
   box-shadow: var(--shadow);
   transform: translateY(var(--y)) translateZ(0);
-  transition:
-    transform var(--duration) ease,
-    box-shadow var(--duration) ease;
+  transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
 .button div {
   display: flex;
@@ -290,8 +286,7 @@ html {
 * {
   box-sizing: inherit;
 }
-*:before,
-*:after {
+*:before, *:after {
   box-sizing: inherit;
 }
 
@@ -311,7 +306,7 @@ html {
   --shadow-hover: 0 4px 20px -2px rgba(39, 94, 254, 0.5);
   --font-shadow: var(--font-size);
   padding: 16px 32px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 500;
   line-height: var(--font-size);
   display: block;
@@ -324,9 +319,7 @@ html {
   width: 100%;
   box-shadow: var(--shadow);
   transform: translateY(var(--y)) translateZ(0);
-  transition:
-    transform var(--duration) ease,
-    box-shadow var(--duration) ease;
+  transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
 .extentions__buttonActions__LdU0Y div {
   display: flex;
@@ -407,7 +400,7 @@ html {
   --shadow-hover: 0 4px 20px -2px rgba(39, 94, 254, 0.5);
   --font-shadow: var(--font-size);
   padding: 16px 32px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 500;
   line-height: var(--font-size);
   display: block;
@@ -420,9 +413,7 @@ html {
   width: 100%;
   box-shadow: var(--shadow);
   transform: translateY(var(--y)) translateZ(0);
-  transition:
-    transform var(--duration) ease,
-    box-shadow var(--duration) ease;
+  transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
 .extentions__button__ArhEI div {
   display: flex;
