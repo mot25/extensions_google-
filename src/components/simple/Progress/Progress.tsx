@@ -7,7 +7,6 @@ const Progress = ({ done }: Props) => {
 
   useEffect(() => {
     const newStyle = {
-      opacity: 1,
       width: `${done}%`
     };
 

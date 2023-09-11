@@ -15,7 +15,11 @@
     "HTMLElementTagNameMap": "readonly",
     "module": "writable",
     "test": "writable",
-    "chrome": "writable"
+    "chrome": "writable",
+    "expect": "writable",
+    "jest": "writable",
+    "describe": "writable",
+    "beforeEach": "readonly"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -23,7 +27,6 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "semi": "warn",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "array-callback-return": [
@@ -120,7 +123,7 @@
     "computed-property-spacing": ["error", "never"],
     "dot-location": ["error", "property"],
     "func-call-spacing": ["error", "never"],
-    "jsx-quotes": ["error", "prefer-double"],
+    "jsx-quotes": ["warn", "prefer-double"],
     "key-spacing": [
       "error",
       {

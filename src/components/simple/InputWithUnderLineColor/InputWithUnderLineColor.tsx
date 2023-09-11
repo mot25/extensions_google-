@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import React, { CSSProperties } from 'react';
+
 import styles from './InputWithUnderLineColor.module.scss';
+
 type Props = {
   placeholder?: string;
   value: string;
@@ -19,9 +21,11 @@ const InputWithUnderLineColor = ({
   return (
     <div
       style={addStyle}
+      data-testid="wrapperInput"
       className={styles.formControl}
     >
       <input
+        data-testid="input"
         className={classNames(styles.input, {
           [styles.input__small]: size === 's'
         })}

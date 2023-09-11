@@ -8,9 +8,22 @@ const config: Config = {
   moduleNameMapper: {
     // если есть alias в import
     '^@/(.*)$': '<rootDir>/src/$1'
-    // Добавьте другие алиасы, если необходимо
+
+    // Добавьте другие alias, если необходимо
   },
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)']
+  testEnvironment: 'jsdom',
+  preset: 'ts-jest',
+  moduleDirectories: [
+    'node_modules',
+    // add the directory with the test-utils.js file, for example:
+    'utils', // a utility folder
+    __dirname // the root directory
+  ],
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
+  transform: {
+    '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
+    '^.+\\.svg$': 'jest-transformer-svg'
+  }
 };
 
 export default config;

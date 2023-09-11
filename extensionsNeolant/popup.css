@@ -290,20 +290,14 @@ html {
   box-sizing: inherit;
 }
 
-.extentions__buttonActions__LdU0Y.extentions__dark__VinJJ {
+.extentions__buttonActions__LdU0Y {
   --background: #fafbfd;
   --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
   --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
-}
-
-.extentions__buttonActions__LdU0Y {
-  --background: #275efe;
   --text: #000;
   --font-size: 16px;
   --duration: 0.44s;
   --move-hover: -4px;
-  --shadow: 0 2px 8px -1px rgba(39, 94, 254, 0.32);
-  --shadow-hover: 0 4px 20px -2px rgba(39, 94, 254, 0.5);
   --font-shadow: var(--font-size);
   padding: 16px 32px;
   font-family: "Roboto";
@@ -415,64 +409,6 @@ html {
   transform: translateY(var(--y)) translateZ(0);
   transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 }
-.extentions__button__ArhEI div {
-  display: flex;
-  overflow: hidden;
-  text-shadow: 0 var(--font-shadow) 0 var(--text);
-}
-.extentions__button__ArhEI div span {
-  display: block;
-  backface-visibility: hidden;
-  font-style: normal;
-  transition: transform var(--duration) ease;
-  transform: translateY(var(--m)) translateZ(0);
-}
-.extentions__button__ArhEI div span:nth-child(1) {
-  transition-delay: calc(0.05 + s);
-}
-.extentions__button__ArhEI div span:nth-child(2) {
-  transition-delay: calc(0.1 + s);
-}
-.extentions__button__ArhEI div span:nth-child(3) {
-  transition-delay: calc(0.15 + s);
-}
-.extentions__button__ArhEI div span:nth-child(4) {
-  transition-delay: calc(0.2 + s);
-}
-.extentions__button__ArhEI div span:nth-child(5) {
-  transition-delay: calc(0.25 + s);
-}
-.extentions__button__ArhEI div span:nth-child(6) {
-  transition-delay: calc(0.3 + s);
-}
-.extentions__button__ArhEI div span:nth-child(7) {
-  transition-delay: calc(0.35 + s);
-}
-.extentions__button__ArhEI div span:nth-child(8) {
-  transition-delay: calc(0.4 + s);
-}
-.extentions__button__ArhEI div span:nth-child(9) {
-  transition-delay: calc(0.45 + s);
-}
-.extentions__button__ArhEI div span:nth-child(10) {
-  transition-delay: calc(0.5 + s);
-}
-.extentions__button__ArhEI div span:nth-child(11) {
-  transition-delay: calc(0.55 + s);
-}
-.extentions__button__ArhEI:hover {
-  --y: var(--move-hover);
-  --shadow: var(--shadow-hover);
-}
-.extentions__button__ArhEI:hover span {
-  --m: calc(var(--font-size) * -1);
-}
-.extentions__button__ArhEI.extentions__reverse__t2Kwf {
-  --font-shadow: calc(var(--font-size) * -1);
-}
-.extentions__button__ArhEI.extentions__reverse__t2Kwf:hover span {
-  --m: calc(var(--font-size));
-}
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/SimpleButton/SimpleButton.module.scss ***!
   \****************************************************************************************************************************************************************************************************************************/
@@ -490,6 +426,7 @@ html {
 }
 .extentions__button__disabled__upxfE {
   background-color: #b0b0b0;
+  cursor: none;
 }
 .extentions__button__fSW73 span {
   color: #fff;

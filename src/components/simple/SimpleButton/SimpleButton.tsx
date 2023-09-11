@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { CSSProperties, MouseEvent } from 'react';
+
 import styles from './SimpleButton.module.scss';
 
 type Props = {
@@ -22,6 +23,7 @@ const SimpleButton = ({
 }: Props) => {
   return (
     <button
+      data-testid="btn"
       style={{
         width: wd,
         backgroundColor: bg,

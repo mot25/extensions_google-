@@ -15,6 +15,7 @@
   position: relative;
   margin: 15px 0;
   height: 30px;
+  opacity: 1;
   width: 200px;
 }
 
@@ -47,6 +48,7 @@
 }
 .extentions__button__disabled__upxfE {
   background-color: #b0b0b0;
+  cursor: none;
 }
 .extentions__button__fSW73 span {
   color: #fff;
@@ -208,7 +210,6 @@
 
 /* Dropdown Content (Hidden by Default) */
 .extentions__dropdown_content__oTpQw {
-  display: none;
   position: absolute;
   background-color: #f1f1f1;
   width: 100%;
@@ -229,11 +230,6 @@
 /* Change color of dropdown links on hover */
 .extentions__dropdown_content__oTpQw a:hover {
   background-color: #ddd;
-}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown_content container when the user clicks on the dropdown button) */
-.extentions__show__OhGji {
-  display: block;
 }
 
 .extentions__selectItem__al1nw {

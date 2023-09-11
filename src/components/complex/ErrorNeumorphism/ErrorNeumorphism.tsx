@@ -1,6 +1,9 @@
-import { WrapperNeumorphism } from '@/components/simple/WrapperNeumorphism';
 import React from 'react';
+
+import { WrapperNeumorphism } from '@/components/simple/WrapperNeumorphism';
+
 import styles from './ErrorNeumorphism.module.scss';
+
 type Props = {
   errorsCopy: string[];
 };
@@ -10,9 +13,12 @@ const ErrorNeumorphism = ({ errorsCopy }: Props) => {
     <WrapperNeumorphism>
       <div className={styles.wrapperError}>
         <h2>Ошибки</h2>
-        {errorsCopy.map(textError => {
+        {errorsCopy.map((textError, i) => {
           return (
-            <div className={styles.wrapperTextError}>
+            <div
+              key={i}
+              className={styles.wrapperTextError}
+            >
               <span>{textError}</span>
             </div>
           );

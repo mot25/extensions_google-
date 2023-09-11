@@ -10,7 +10,13 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "types": ["chrome", "react", "jest"],
+    "types": [
+      "chrome",
+      "react",
+      "jest",
+      "@testing-library/react",
+      "@testing-library/jest-dom"
+    ],
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]

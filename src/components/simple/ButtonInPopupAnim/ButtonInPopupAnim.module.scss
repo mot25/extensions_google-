@@ -6,26 +6,21 @@ html {
 
 * {
   box-sizing: inherit;
+
   &:before,
   &:after {
     box-sizing: inherit;
   }
 }
+
 .buttonActions {
-  &.dark {
-    --background: #fafbfd;
-    --shadow: 0 2px 8px -1px #{rgba(#151924, 0.32)};
-    --shadow-hover: 0 4px 20px -2px #{rgba(#151924, 0.5)};
-  }
-}
-.buttonActions {
-  --background: #275efe;
+  --background: #fafbfd;
+  --shadow: 0 2px 8px -1px #{rgba(#151924, 0.32)};
+  --shadow-hover: 0 4px 20px -2px #{rgba(#151924, 0.5)};
   --text: #000;
   --font-size: 16px;
   --duration: 0.44s;
   --move-hover: -4px;
-  --shadow: 0 2px 8px -1px #{rgba(#275efe, 0.32)};
-  --shadow-hover: 0 4px 20px -2px #{rgba(#275efe, 0.5)};
   --font-shadow: var(--font-size);
   padding: 16px 32px;
   font-family: 'Roboto';
@@ -44,10 +39,12 @@ html {
   transition:
     transform var(--duration) ease,
     box-shadow var(--duration) ease;
+
   div {
     display: flex;
     overflow: hidden;
     text-shadow: 0 var(--font-shadow) 0 var(--text);
+
     span {
       display: block;
       backface-visibility: hidden;
@@ -55,23 +52,29 @@ html {
       transition: transform var(--duration) ease;
       transform: translateY(var(--m)) translateZ(0);
       $i: 1;
+
       @while $i < 12 {
         &:nth-child(#{$i}) {
           transition-delay: calc($i / 20 + s);
         }
+
         $i: $i + 1;
       }
     }
   }
+
   &:hover {
     --y: var(--move-hover);
     --shadow: var(--shadow-hover);
+
     span {
       --m: calc(var(--font-size) * -1);
     }
   }
+
   &.reverse {
     --font-shadow: calc(var(--font-size) * -1);
+
     &:hover {
       span {
         --m: calc(var(--font-size));
@@ -79,10 +82,11 @@ html {
     }
   }
 }
-// Center & dribbble
+
 .buttonActions {
   cursor: pointer;
 }
+
 .button {
   &.dark {
     --background: #000;
@@ -90,6 +94,7 @@ html {
     --shadow-hover: 0 4px 20px -2px #{rgba(#151924, 0.5)};
   }
 }
+
 .button {
   --background: #275efe;
   --text: #000;
@@ -116,42 +121,4 @@ html {
   transition:
     transform var(--duration) ease,
     box-shadow var(--duration) ease;
-  div {
-    display: flex;
-    overflow: hidden;
-    text-shadow: 0 var(--font-shadow) 0 var(--text);
-    span {
-      display: block;
-      backface-visibility: hidden;
-      font-style: normal;
-      transition: transform var(--duration) ease;
-      transform: translateY(var(--m)) translateZ(0);
-      $i: 1;
-      @while $i < 12 {
-        &:nth-child(#{$i}) {
-          transition-delay: calc($i / 20 + s);
-        }
-        $i: $i + 1;
-      }
-    }
-  }
-
-  &:hover {
-    --y: var(--move-hover);
-    --shadow: var(--shadow-hover);
-
-    span {
-      --m: calc(var(--font-size) * -1);
-    }
-  }
-
-  &.reverse {
-    --font-shadow: calc(var(--font-size) * -1);
-
-    &:hover {
-      span {
-        --m: calc(var(--font-size));
-      }
-    }
-  }
 }

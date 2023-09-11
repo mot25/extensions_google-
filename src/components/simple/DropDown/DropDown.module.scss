@@ -24,7 +24,6 @@
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown_content {
-  display: none;
   position: absolute;
   background-color: #f1f1f1;
   width: 100%;
@@ -45,11 +44,6 @@
 /* Change color of dropdown links on hover */
 .dropdown_content a:hover {
   background-color: #ddd;
-}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown_content container when the user clicks on the dropdown button) */
-.show {
-  display: block;
 }
 
 .selectItem {

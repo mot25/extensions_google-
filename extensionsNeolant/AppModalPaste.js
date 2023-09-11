@@ -2957,7 +2957,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"dropBtn":"extentions__dropBtn__IXiUW","dropdown":"extentions__dropdown__wIt52","dropdown_content":"extentions__dropdown_content__oTpQw","show":"extentions__show__OhGji","selectItem":"extentions__selectItem__al1nw","selectItemText":"extentions__selectItemText__IcKvr"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"dropBtn":"extentions__dropBtn__IXiUW","dropdown":"extentions__dropdown__wIt52","dropdown_content":"extentions__dropdown_content__oTpQw","selectItem":"extentions__selectItem__al1nw","selectItemText":"extentions__selectItemText__IcKvr"});
 
 /***/ }),
 
@@ -39450,21 +39450,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/simple/WrapperNeumorphism */ "./src/components/simple/WrapperNeumorphism/index.ts");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/simple/WrapperNeumorphism */ "./src/components/simple/WrapperNeumorphism/index.ts");
 /* harmony import */ var _ErrorNeumorphism_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ErrorNeumorphism.module.scss */ "./src/components/complex/ErrorNeumorphism/ErrorNeumorphism.module.scss");
 
 
 
 var ErrorNeumorphism = function (_a) {
     var errorsCopy = _a.errorsCopy;
-    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_0__.WrapperNeumorphism, null,
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _ErrorNeumorphism_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperError },
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", null, "\u041E\u0448\u0438\u0431\u043A\u0438"),
-            errorsCopy.map(function (textError) {
-                return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _ErrorNeumorphism_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperTextError },
-                    react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, textError)));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_WrapperNeumorphism__WEBPACK_IMPORTED_MODULE_1__.WrapperNeumorphism, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _ErrorNeumorphism_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperError },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "\u041E\u0448\u0438\u0431\u043A\u0438"),
+            errorsCopy.map(function (textError, i) {
+                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { key: i, className: _ErrorNeumorphism_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperTextError },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, textError)));
             }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ErrorNeumorphism);
@@ -39703,25 +39703,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DropDown.module.scss */ "./src/components/simple/DropDown/DropDown.module.scss");
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DropDown.module.scss */ "./src/components/simple/DropDown/DropDown.module.scss");
 
 
 var DropDown = function (_a) {
-    var _b;
     var onChange = _a.onChange, list = _a.list, title = _a.title;
-    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false), isShow = _c[0], setIsShow = _c[1];
-    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].wrapperDropDown },
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].dropdown },
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { onClick: function () { return setIsShow(!isShow); }, className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].dropBtn }, title),
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_DropDown_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].dropdown_content, (_b = {},
-                    _b[_DropDown_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].show] = isShow,
-                    _b)) }, list.map(function (item, i) { return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { key: i, onClick: function () { return onChange(item.value); }, title: item.label, className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].selectItem },
-                react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].selectItemText }, item.label))); })))));
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false), isShow = _b[0], setIsShow = _b[1];
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].wrapperDropDown },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].dropdown },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { "data-testid": "btn_title", onClick: function () { return setIsShow(!isShow); }, className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].dropBtn }, title),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { "data-testid": "listOptions", style: {
+                    visibility: isShow ? 'visible' : 'hidden'
+                }, className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].dropdown_content }, list.map(function (item, i) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { key: i, onClick: function () { return onChange(item.value); }, title: item.label, className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].selectItem },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _DropDown_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].selectItemText }, item.label))); })))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropDown);
 
@@ -39756,10 +39752,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InputWithUnderLineColor.module.scss */ "./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss");
 
 
@@ -39767,11 +39763,11 @@ __webpack_require__.r(__webpack_exports__);
 var InputWithUnderLineColor = function (_a) {
     var _b;
     var onChange = _a.onChange, placeholder = _a.placeholder, value = _a.value, addStyle = _a.addStyle, _c = _a.size, size = _c === void 0 ? 'b' : _c;
-    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { style: addStyle, className: _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].formControl },
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input, (_b = {},
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: addStyle, "data-testid": 'wrapperInput', className: _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].formControl },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { "data-testid": 'input', className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input, (_b = {},
                 _b[_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input__small] = size === 's',
                 _b)), placeholder: placeholder, required: true, onChange: function (e) { return onChange(e.target.value); }, value: value, type: "text" }),
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorder, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorderAlt) })));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorder, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorderAlt) })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputWithUnderLineColor);
 
@@ -39816,7 +39812,6 @@ var Progress = function (_a) {
     var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}), style = _b[0], setStyle = _b[1];
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
         var newStyle = {
-            opacity: 1,
             width: "".concat(done, "%")
         };
         setStyle(newStyle);
@@ -39881,7 +39876,7 @@ var __assign = (undefined && undefined.__assign) || function () {
 var SimpleButton = function (_a) {
     var _b;
     var onClick = _a.onClick, text = _a.text, _c = _a.wd, wd = _c === void 0 ? '100%' : _c, bg = _a.bg, addStyle = _a.addStyle, addClassName = _a.addClassName, disabled = _a.disabled;
-    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { style: __assign({ width: wd, backgroundColor: bg }, addStyle), disabled: disabled, onClick: function (event) { return onClick(event); }, className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].button, (_b = {},
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", { "data-testid": "btn", style: __assign({ width: wd, backgroundColor: bg }, addStyle), disabled: disabled, onClick: function (event) { return onClick(event); }, className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].button, (_b = {},
             _b[_SimpleButton_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].button__disabled] = disabled,
             _b), addClassName) },
         react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, text)));
@@ -41184,7 +41179,7 @@ var copyAttrInViewer = function (dataPaste, entity, addErrorInList, prevViewer) 
                 }).catch(function (err) {
                     {
                         addErrorInList("\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430\n                  ".concat(dataPaste.Caption, " \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 ").concat(entity.Name));
-                        throw new Error(err);
+                        new Error(err);
                     }
                 })];
             case 1:
@@ -41197,7 +41192,7 @@ var copyAttrInViewer = function (dataPaste, entity, addErrorInList, prevViewer) 
                     }).catch(function (err) {
                         {
                             addErrorInList("\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432 \u0432\u0438\u0434\u0430\n                  ".concat(dataPaste.Caption, " \u0432 \u043A\u043B\u0430\u0441\u0441\u0435 ").concat(entity.Name));
-                            throw new Error(err);
+                            new Error(err);
                         }
                     })];
             case 2:
@@ -41277,12 +41272,14 @@ var getOrderViewerInEntities = function (_a) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   entitiesForPasteInsert: () => (/* binding */ entitiesForPasteInsert),
+/* harmony export */   getData: () => (/* binding */ getData),
 /* harmony export */   getParamFromUrl: () => (/* binding */ getParamFromUrl),
 /* harmony export */   getPercent: () => (/* binding */ getPercent),
 /* harmony export */   getUrlParameter: () => (/* binding */ getUrlParameter),
 /* harmony export */   joinParamArrayApi: () => (/* binding */ joinParamArrayApi),
 /* harmony export */   removeExtensionsFromPage: () => (/* binding */ removeExtensionsFromPage)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -41294,6 +41291,43 @@ var __assign = (undefined && undefined.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
 var getParamFromUrl = function (url) {
     // Разбиваем строку запроса на отдельные параметры
     var params = new URLSearchParams(url);
@@ -41307,6 +41341,17 @@ var getParamFromUrl = function (url) {
     });
     return paramsObj;
 };
+var getData = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var res;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('https://jsonplaceholder.typicode.com/users')];
+            case 1:
+                res = _a.sent();
+                return [2 /*return*/, res === null || res === void 0 ? void 0 : res.data.map(function (user) { return user.id; })];
+        }
+    });
+}); };
 var entitiesForPasteInsert = function (entities, idEntities) {
     if (!entities.length)
         return [];
@@ -42429,7 +42474,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_spread_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./helpers/spread.js */ "./node_modules/axios/lib/helpers/spread.js");
 /* harmony import */ var _helpers_isAxiosError_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./helpers/isAxiosError.js */ "./node_modules/axios/lib/helpers/isAxiosError.js");
 /* harmony import */ var _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./core/AxiosHeaders.js */ "./node_modules/axios/lib/core/AxiosHeaders.js");
-/* harmony import */ var _helpers_HttpStatusCode_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./helpers/HttpStatusCode.js */ "./node_modules/axios/lib/helpers/HttpStatusCode.js");
+/* harmony import */ var _adapters_adapters_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./adapters/adapters.js */ "./node_modules/axios/lib/adapters/adapters.js");
+/* harmony import */ var _helpers_HttpStatusCode_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./helpers/HttpStatusCode.js */ "./node_modules/axios/lib/helpers/HttpStatusCode.js");
+
 
 
 
@@ -42510,7 +42557,9 @@ axios.AxiosHeaders = _core_AxiosHeaders_js__WEBPACK_IMPORTED_MODULE_13__["defaul
 
 axios.formToJSON = thing => (0,_helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_14__["default"])(_utils_js__WEBPACK_IMPORTED_MODULE_2__["default"].isHTMLForm(thing) ? new FormData(thing) : thing);
 
-axios.HttpStatusCode = _helpers_HttpStatusCode_js__WEBPACK_IMPORTED_MODULE_15__["default"];
+axios.getAdapter = _adapters_adapters_js__WEBPACK_IMPORTED_MODULE_15__["default"].getAdapter;
+
+axios.HttpStatusCode = _helpers_HttpStatusCode_js__WEBPACK_IMPORTED_MODULE_16__["default"];
 
 axios.default = axios;
 
@@ -42813,15 +42862,13 @@ class Axios {
     // Set config.method
     config.method = (config.method || this.defaults.method || 'get').toLowerCase();
 
-    let contextHeaders;
-
     // Flatten headers
-    contextHeaders = headers && _utils_js__WEBPACK_IMPORTED_MODULE_3__["default"].merge(
+    let contextHeaders = headers && _utils_js__WEBPACK_IMPORTED_MODULE_3__["default"].merge(
       headers.common,
       headers[config.method]
     );
 
-    contextHeaders && _utils_js__WEBPACK_IMPORTED_MODULE_3__["default"].forEach(
+    headers && _utils_js__WEBPACK_IMPORTED_MODULE_3__["default"].forEach(
       ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
       (method) => {
         delete headers[method];
@@ -43358,7 +43405,17 @@ class AxiosHeaders {
 
 AxiosHeaders.accessor(['Content-Type', 'Content-Length', 'Accept', 'Accept-Encoding', 'User-Agent', 'Authorization']);
 
-_utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].freezeMethods(AxiosHeaders.prototype);
+// reserved names hotfix
+_utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].reduceDescriptors(AxiosHeaders.prototype, ({value}, key) => {
+  let mapped = key[0].toUpperCase() + key.slice(1); // map `set` => `Set`
+  return {
+    get: () => value,
+    set(headerValue) {
+      this[mapped] = headerValue;
+    }
+  }
+});
+
 _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].freezeMethods(AxiosHeaders);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AxiosHeaders);
@@ -43816,12 +43873,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils.js */ "./node_modules/axios/lib/utils.js");
-/* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/AxiosError.js */ "./node_modules/axios/lib/core/AxiosError.js");
+/* harmony import */ var _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../core/AxiosError.js */ "./node_modules/axios/lib/core/AxiosError.js");
 /* harmony import */ var _transitional_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./transitional.js */ "./node_modules/axios/lib/defaults/transitional.js");
-/* harmony import */ var _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/toFormData.js */ "./node_modules/axios/lib/helpers/toFormData.js");
-/* harmony import */ var _helpers_toURLEncodedForm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/toURLEncodedForm.js */ "./node_modules/axios/lib/helpers/toURLEncodedForm.js");
-/* harmony import */ var _platform_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../platform/index.js */ "./node_modules/axios/lib/platform/browser/index.js");
-/* harmony import */ var _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/formDataToJSON.js */ "./node_modules/axios/lib/helpers/formDataToJSON.js");
+/* harmony import */ var _helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helpers/toFormData.js */ "./node_modules/axios/lib/helpers/toFormData.js");
+/* harmony import */ var _helpers_toURLEncodedForm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/toURLEncodedForm.js */ "./node_modules/axios/lib/helpers/toURLEncodedForm.js");
+/* harmony import */ var _platform_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/index.js */ "./node_modules/axios/lib/platform/browser/index.js");
+/* harmony import */ var _helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/formDataToJSON.js */ "./node_modules/axios/lib/helpers/formDataToJSON.js");
 
 
 
@@ -43831,10 +43888,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-const DEFAULT_CONTENT_TYPE = {
-  'Content-Type': undefined
-};
 
 /**
  * It takes a string, tries to parse it, and if it fails, it returns the stringified version
@@ -43865,7 +43918,7 @@ const defaults = {
 
   transitional: _transitional_js__WEBPACK_IMPORTED_MODULE_1__["default"],
 
-  adapter: ['xhr', 'http'],
+  adapter: _platform_index_js__WEBPACK_IMPORTED_MODULE_2__["default"].isNode ? 'http' : 'xhr',
 
   transformRequest: [function transformRequest(data, headers) {
     const contentType = headers.getContentType() || '';
@@ -43882,7 +43935,7 @@ const defaults = {
       if (!hasJSONContentType) {
         return data;
       }
-      return hasJSONContentType ? JSON.stringify((0,_helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data)) : data;
+      return hasJSONContentType ? JSON.stringify((0,_helpers_formDataToJSON_js__WEBPACK_IMPORTED_MODULE_3__["default"])(data)) : data;
     }
 
     if (_utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].isArrayBuffer(data) ||
@@ -43905,13 +43958,13 @@ const defaults = {
 
     if (isObjectPayload) {
       if (contentType.indexOf('application/x-www-form-urlencoded') > -1) {
-        return (0,_helpers_toURLEncodedForm_js__WEBPACK_IMPORTED_MODULE_3__["default"])(data, this.formSerializer).toString();
+        return (0,_helpers_toURLEncodedForm_js__WEBPACK_IMPORTED_MODULE_4__["default"])(data, this.formSerializer).toString();
       }
 
       if ((isFileList = _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].isFileList(data)) || contentType.indexOf('multipart/form-data') > -1) {
         const _FormData = this.env && this.env.FormData;
 
-        return (0,_helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_4__["default"])(
+        return (0,_helpers_toFormData_js__WEBPACK_IMPORTED_MODULE_5__["default"])(
           isFileList ? {'files[]': data} : data,
           _FormData && new _FormData(),
           this.formSerializer
@@ -43941,7 +43994,7 @@ const defaults = {
       } catch (e) {
         if (strictJSONParsing) {
           if (e.name === 'SyntaxError') {
-            throw _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__["default"].from(e, _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_5__["default"].ERR_BAD_RESPONSE, this, null, this.response);
+            throw _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_6__["default"].from(e, _core_AxiosError_js__WEBPACK_IMPORTED_MODULE_6__["default"].ERR_BAD_RESPONSE, this, null, this.response);
           }
           throw e;
         }
@@ -43964,8 +44017,8 @@ const defaults = {
   maxBodyLength: -1,
 
   env: {
-    FormData: _platform_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].classes.FormData,
-    Blob: _platform_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].classes.Blob
+    FormData: _platform_index_js__WEBPACK_IMPORTED_MODULE_2__["default"].classes.FormData,
+    Blob: _platform_index_js__WEBPACK_IMPORTED_MODULE_2__["default"].classes.Blob
   },
 
   validateStatus: function validateStatus(status) {
@@ -43974,17 +44027,14 @@ const defaults = {
 
   headers: {
     common: {
-      'Accept': 'application/json, text/plain, */*'
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': undefined
     }
   }
 };
 
-_utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+_utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].forEach(['delete', 'get', 'head', 'post', 'put', 'patch'], (method) => {
   defaults.headers[method] = {};
-});
-
-_utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].merge(DEFAULT_CONTENT_TYPE);
 });
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (defaults);
@@ -44025,7 +44075,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   VERSION: () => (/* binding */ VERSION)
 /* harmony export */ });
-const VERSION = "1.4.0";
+const VERSION = "1.5.0";
 
 /***/ }),
 
@@ -45937,8 +45987,9 @@ const reduceDescriptors = (obj, reducer) => {
   const reducedDescriptors = {};
 
   forEach(descriptors, (descriptor, name) => {
-    if (reducer(descriptor, name, obj) !== false) {
-      reducedDescriptors[name] = descriptor;
+    let ret;
+    if ((ret = reducer(descriptor, name, obj)) !== false) {
+      reducedDescriptors[name] = ret || descriptor;
     }
   });
 

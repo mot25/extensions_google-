@@ -1,6 +1,6 @@
-import { OptionsType } from '@/type/components.dto';
-import classNames from 'classnames';
 import React, { useState } from 'react';
+
+import { OptionsType } from '@/type/components.dto';
 
 import styles from './DropDown.module.scss';
 
@@ -17,15 +17,18 @@ const DropDown = ({ onChange, list, title }: Props) => {
     <div className={styles.wrapperDropDown}>
       <div className={styles.dropdown}>
         <button
+          data-testid="btn_title"
           onClick={() => setIsShow(!isShow)}
           className={styles.dropBtn}
         >
           {title}
         </button>
         <div
-          className={classNames(styles.dropdown_content, {
-            [styles.show]: isShow
-          })}
+          data-testid="listOptions"
+          style={{
+            visibility: isShow ? 'visible' : 'hidden'
+          }}
+          className={styles.dropdown_content}
         >
           {list.map((item, i) => (
             <div
