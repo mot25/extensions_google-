@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import { createElementNode } from '@/shared/utils/components';
-import store from '@/store';
+import { createStore } from '@/store';
 
 import { AppModalPaste } from './AppModalPaste';
 
@@ -18,7 +18,7 @@ pointApp.setAttribute('id', namePointApp);
 documentBody.appendChild(pointApp);
 const root = createRoot(pointApp);
 root.render(
-  <Provider store={store}>
+  <Provider store={createStore()}>
     <AppModalPaste />
   </Provider>
 );

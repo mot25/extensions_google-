@@ -22,8 +22,10 @@ const config: Config = {
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
   transform: {
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
-    '^.+\\.svg$': 'jest-transformer-svg'
-  }
+    '^.+\\.svg$': 'jest-transformer-svg',
+    '^.+\\.(js|jsx)$': 'babel-jest'
+  },
+  transformIgnorePatterns: ['node_modules/(?!' + ['js-alert'].join('|') + ')']
 };
 
 export default config;

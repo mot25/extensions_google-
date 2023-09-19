@@ -132,6 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+var _a;
 
 var instance = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
     headers: {
@@ -139,14 +140,14 @@ var instance = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
     },
     withCredentials: true
 });
-instance.interceptors.request.use(function (config) {
+(_a = instance === null || instance === void 0 ? void 0 : instance.interceptors) === null || _a === void 0 ? void 0 : _a.request.use(function (config) {
     // Добавить логику перед отправкой запроса
     return config;
 }, function (error) {
     // Обработка ошибок запроса
     return Promise.reject(error);
 });
-instance.interceptors.response.use(function (response) {
+instance === null || instance === void 0 ? void 0 : instance.interceptors.response.use(function (response) {
     // Обработка ответа
     return response;
 }, function (error) {

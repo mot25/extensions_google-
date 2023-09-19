@@ -19,7 +19,9 @@
     "expect": "writable",
     "jest": "writable",
     "describe": "writable",
-    "beforeEach": "readonly"
+    "beforeEach": "readonly",
+    "afterEach": "readonly",
+    "VoidFunction": "readonly"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

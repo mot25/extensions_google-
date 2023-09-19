@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { EntitiesType } from '@/type/entities.dto';
 
-import { RootStoreType } from '..';
+import { RootStoreType } from '../..';
 
 type initialStateType = {
   entitiesForPaste: EntitiesType[];
@@ -20,7 +20,7 @@ const entitiesSlice = createSlice({
   }
 });
 export const { setEntitiesForPaste } = entitiesSlice.actions;
-export default entitiesSlice;
+export default entitiesSlice.reducer;
 
 // selector
 export const entitiesAllSelector = (store: RootStoreType) =>

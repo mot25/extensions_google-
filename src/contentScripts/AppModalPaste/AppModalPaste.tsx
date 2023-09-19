@@ -11,7 +11,7 @@ import { removeExtensionsFromPage } from '@/shared/utils/utils';
 import {
   entitiesAllSelector,
   setEntitiesForPaste
-} from '@/store/slice/entitiesSlice';
+} from '@/store/slice/entitiesSlice/entitiesSlice';
 import { PageNavigatorType } from '@/type/components.dto';
 import { ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';

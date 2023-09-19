@@ -21,7 +21,6 @@ describe('ButtonInPopupAnim', () => {
         cancelable: true
       })
     );
-    screen.debug();
     expect(fn.mock.calls.length).toBe(1);
     expect(btn.childNodes[0].textContent).toBe('textTest');
   });

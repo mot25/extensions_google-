@@ -39481,17 +39481,19 @@ var ErrorNeumorphism = function (_a) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   deleteInCurrentEntity: () => (/* binding */ deleteInCurrentEntity),
+/* harmony export */   deleteInNestedEntity: () => (/* binding */ deleteInNestedEntity)
 /* harmony export */ });
-/* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-alert */ "./node_modules/js-alert/src/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var js_alert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-alert */ "./node_modules/js-alert/src/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _components_simple_Progress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/simple/Progress */ "./src/components/simple/Progress/index.ts");
 /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/simple/SimpleButton */ "./src/components/simple/SimpleButton/index.ts");
 /* harmony import */ var _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/services/ManagerViewers.service */ "./src/services/ManagerViewers.service.ts");
 /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/shared/utils/utils */ "./src/shared/utils/utils.ts");
-/* harmony import */ var _store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/store/slice/entitiesSlice */ "./src/store/slice/entitiesSlice.ts");
+/* harmony import */ var _store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/store/slice/entitiesSlice/entitiesSlice */ "./src/store/slice/entitiesSlice/entitiesSlice.ts");
 /* harmony import */ var _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ViewerForCopyOrDelete.module.scss */ "./src/components/complex/ViewerForCopyOrDelete/ViewerForCopyOrDelete.module.scss");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -39538,22 +39540,45 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+var deleteInNestedEntity = function (entitiesFromPaste, viewer, cb) {
+    entitiesFromPaste.forEach(function (entity) {
+        var _a;
+        var viewerDelete = (_a = entity === null || entity === void 0 ? void 0 : entity.Viewers) === null || _a === void 0 ? void 0 : _a.find(function (V) { return (V === null || V === void 0 ? void 0 : V.Caption) === (viewer === null || viewer === void 0 ? void 0 : viewer.Caption); });
+        if ((viewerDelete === null || viewerDelete === void 0 ? void 0 : viewerDelete.Id) !== undefined) {
+            _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_5__.ManagerViewersService.deleteViewer(entity.Id, viewerDelete === null || viewerDelete === void 0 ? void 0 : viewerDelete.Id).then(function () {
+                cb();
+            });
+        }
+    });
+};
+var deleteInCurrentEntity = function (entity, viewer, cb) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                cb();
+                return [4 /*yield*/, _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_5__.ManagerViewersService.deleteViewer(entity.Id, viewer.Id)];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); };
 var ViewerForCopyOrDelete = function (_a) {
     var isHave = _a.isHave, viewer = _a.viewer, addStateViewers = _a.addStateViewers, entity = _a.entity;
-    var entitiesFromPaste = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(_store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_7__.entitiesAllSelector);
-    var allEntity = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(0);
-    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0), countDelete = _b[0], setCountDelete = _b[1];
-    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false), idDeleting = _c[0], setIsDeleting = _c[1];
+    var entitiesFromPaste = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(_store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_7__.entitiesAllSelector);
+    var allEntity = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0), countDelete = _b[0], setCountDelete = _b[1];
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false), idDeleting = _c[0], setIsDeleting = _c[1];
     var deleteViewer = function (viewer) {
-        var alert = new js_alert__WEBPACK_IMPORTED_MODULE_0__["default"]("\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C ".concat(viewer.Caption), 'Выберите опции для удаления');
+        var alert = new js_alert__WEBPACK_IMPORTED_MODULE_1__["default"]("\u0412\u044B \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C ".concat(viewer.Caption), 'Выберите опции для удаления');
         alert.addButton('Удалить в текущем классе').then(function () { return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        setIsDeleting(true);
-                        setCountDelete(1);
-                        allEntity.current = 1;
-                        return [4 /*yield*/, _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_5__.ManagerViewersService.deleteViewer(entity.Id, viewer.Id)];
+                    case 0: return [4 /*yield*/, deleteInCurrentEntity(entity, viewer, function () {
+                            setIsDeleting(true);
+                            setCountDelete(1);
+                            allEntity.current = 1;
+                        })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -39562,43 +39587,28 @@ var ViewerForCopyOrDelete = function (_a) {
         }); });
         alert.addButton('Удалить во вложенных классах').then(function () {
             setIsDeleting(true);
-            entitiesFromPaste.forEach(function (entity) { return __awaiter(void 0, void 0, void 0, function () {
-                var viewerDelete;
-                var _a;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0:
-                            viewerDelete = (_a = entity === null || entity === void 0 ? void 0 : entity.Viewers) === null || _a === void 0 ? void 0 : _a.find(function (V) { return (V === null || V === void 0 ? void 0 : V.Caption) === (viewer === null || viewer === void 0 ? void 0 : viewer.Caption); });
-                            if (!((viewerDelete === null || viewerDelete === void 0 ? void 0 : viewerDelete.Id) !== undefined)) return [3 /*break*/, 2];
-                            return [4 /*yield*/, _services_ManagerViewers_service__WEBPACK_IMPORTED_MODULE_5__.ManagerViewersService.deleteViewer(entity.Id, viewerDelete === null || viewerDelete === void 0 ? void 0 : viewerDelete.Id).then(function () {
-                                    setCountDelete(function (prev) { return prev + 1; });
-                                })];
-                        case 1:
-                            _b.sent();
-                            _b.label = 2;
-                        case 2: return [2 /*return*/];
-                    }
-                });
-            }); });
+            deleteInNestedEntity(entitiesFromPaste, viewer, function () {
+                setCountDelete(function (prev) { return prev + 1; });
+            });
         });
         alert.show();
     };
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
         allEntity.current = entitiesFromPaste.filter(function (_entity) {
             var viewers = _entity.Viewers;
             var haveViewer = ~viewers.findIndex(function (_viewer) { return _viewer.Caption === viewer.Caption; });
             return !!haveViewer;
         }).length;
     }, [entitiesFromPaste.length]);
-    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { className: _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_8__["default"].item },
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_8__["default"].name }, viewer.Caption),
-        idDeleting ? (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { className: _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_8__["default"].progressBar },
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_simple_Progress__WEBPACK_IMPORTED_MODULE_3__.Progress, { done: (0,_shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getPercent)(countDelete, allEntity.current) }))) : (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: "150px", addStyle: {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_8__["default"].item },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { "data-testid": "Caption", className: _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_8__["default"].name }, viewer.Caption),
+        idDeleting ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_8__["default"].progressBar },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_Progress__WEBPACK_IMPORTED_MODULE_3__.Progress, { done: (0,_shared_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getPercent)(countDelete, allEntity.current) }))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: "150px", addStyle: {
                 height: '24px'
             }, bg: "#CC3333", addClassName: _ViewerForCopyOrDelete_module_scss__WEBPACK_IMPORTED_MODULE_8__["default"].delete_btn, onClick: function () { return deleteViewer(viewer); }, text: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C" })),
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: "150px", addStyle: {
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_4__.SimpleButton, { wd: "150px", addStyle: {
                 height: '24px'
-            }, bg: isHave ? '#d3d3d3' : '#4CAF50', onClick: function () {
+            }, bg: isHave ? 'rgb(211, 211, 211)' : 'rgb(76, 175, 80)', onClick: function () {
                 if (isHave)
                     return;
                 addStateViewers(viewer);
@@ -39637,36 +39647,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/simple/SimpleButton */ "./src/components/simple/SimpleButton/index.ts");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewerForPaste.module.scss */ "./src/components/complex/ViewerForPaste/ViewerForPaste.module.scss");
-/* harmony import */ var _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/simple/InputWithUnderLineColor */ "./src/components/simple/InputWithUnderLineColor/index.ts");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/simple/InputWithUnderLineColor */ "./src/components/simple/InputWithUnderLineColor/index.ts");
+/* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/simple/SimpleButton */ "./src/components/simple/SimpleButton/index.ts");
+/* harmony import */ var _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ViewerForPaste.module.scss */ "./src/components/complex/ViewerForPaste/ViewerForPaste.module.scss");
 
 
 
 
-// eslint-disable-next-line max-len
 
 var ViewerForPaste = function (_a) {
     var _b;
     var isEven = _a.isEven, viewer = _a.viewer, renameViewer = _a.renameViewer, changeOrderViewerInEntities = _a.changeOrderViewerInEntities, changeSelectedToggleiewer = _a.changeSelectedToggleiewer, deleteView = _a.deleteView;
-    return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("li", { className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(_ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].viewerWrapper, (_b = {},
-            _b[_ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].viewerWrapper__even] = isEven,
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].viewerWrapper, (_b = {},
+            _b[_ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].viewerWrapper__even] = isEven,
             _b)) },
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", { title: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438", className: _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].name },
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_4__.InputWithUnderLineColor, { onChange: function (text) { return renameViewer(text, viewer.Id); }, value: viewer.Caption })),
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", { title: "\u0427\u0435\u043A\u0431\u043E\u043A\u0441 \u0434\u043B\u044F \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438" },
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("input", { type: "checkbox", checked: viewer.isSelected, onChange: function () { return changeSelectedToggleiewer(viewer.Id); } })),
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", { title: "\u041F\u043E\u0440\u044F\u0434\u043A\u043E\u0432\u044B\u0439 \u043D\u043E\u043C\u0435\u0440 \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438" },
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("input", { style: {
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { title: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438", className: _ViewerForPaste_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].name },
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_2__.InputWithUnderLineColor, { onChange: function (text) { return renameViewer(text, viewer.Id); }, value: viewer.Caption })),
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { title: "\u0427\u0435\u043A\u0431\u043E\u043A\u0441 \u0434\u043B\u044F \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438" },
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { type: "checkbox", checked: viewer.isSelected, onChange: function () { return changeSelectedToggleiewer(viewer.Id); } })),
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { title: "\u041F\u043E\u0440\u044F\u0434\u043A\u043E\u0432\u044B\u0439 \u043D\u043E\u043C\u0435\u0440 \u0432\u0438\u0434\u0430 \u0434\u043B\u044F \u0432\u0441\u0442\u0430\u0432\u043A\u0438" },
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { style: {
                     width: '30px'
                 }, onChange: function (e) {
                     return changeOrderViewerInEntities(viewer.Id, +e.target.value);
                 }, value: viewer.order.toString() })),
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_0__.SimpleButton, { wd: "150px", addStyle: {
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_3__.SimpleButton, { wd: "150px", addStyle: {
                 height: '30px'
             }, bg: "#CC3333", onClick: function () { return deleteView(viewer.Id); }, text: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0437 \u043F\u0430\u043C\u044F\u0442\u0438" })));
 };
@@ -39752,10 +39761,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InputWithUnderLineColor.module.scss */ "./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss");
 
 
@@ -39763,11 +39772,11 @@ __webpack_require__.r(__webpack_exports__);
 var InputWithUnderLineColor = function (_a) {
     var _b;
     var onChange = _a.onChange, placeholder = _a.placeholder, value = _a.value, addStyle = _a.addStyle, _c = _a.size, size = _c === void 0 ? 'b' : _c;
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: addStyle, "data-testid": 'wrapperInput', className: _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].formControl },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { "data-testid": 'input', className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input, (_b = {},
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { style: addStyle, "data-testid": "wrapperInput", className: _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].formControl },
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { "data-testid": "input", className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input, (_b = {},
                 _b[_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input__small] = size === 's',
                 _b)), placeholder: placeholder, required: true, onChange: function (e) { return onChange(e.target.value); }, value: value, type: "text" }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorder, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorderAlt) })));
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorder, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorderAlt) })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputWithUnderLineColor);
 
@@ -40134,7 +40143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _components_complex_ViewerForCopyOrDelete__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/complex/ViewerForCopyOrDelete */ "./src/components/complex/ViewerForCopyOrDelete/index.ts");
-/* harmony import */ var _store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/store/slice/entitiesSlice */ "./src/store/slice/entitiesSlice.ts");
+/* harmony import */ var _store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/store/slice/entitiesSlice/entitiesSlice */ "./src/store/slice/entitiesSlice/entitiesSlice.ts");
 /* harmony import */ var _CopyViewer_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CopyViewer.module.scss */ "./src/screens/CopyViewer/CopyViewer.module.scss");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -40156,7 +40165,7 @@ var __assign = (undefined && undefined.__assign) || function () {
 var OneScreenCopyModal = function (_a) {
     var _b;
     var viewerForPaste = _a.viewersForPaste, addStateViewers = _a.addStateViewers;
-    var entitiesFromPaste = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_3__.entitiesAllSelector);
+    var entitiesFromPaste = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_3__.entitiesAllSelector);
     var entity = entitiesFromPaste.find(function (_) { return _.isCurrent; });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", { style: { fontWeight: 'bold' } }, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0438\u0434 \u0434\u043B\u044F \u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435/\u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044F"),
@@ -40217,7 +40226,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/services/Entities.service */ "./src/services/Entities.service.ts");
 /* harmony import */ var _shared_utils_components__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/shared/utils/components */ "./src/shared/utils/components.ts");
 /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/shared/utils/utils */ "./src/shared/utils/utils.ts");
-/* harmony import */ var _store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @/store/slice/entitiesSlice */ "./src/store/slice/entitiesSlice.ts");
+/* harmony import */ var _store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @/store/slice/entitiesSlice/entitiesSlice */ "./src/store/slice/entitiesSlice/entitiesSlice.ts");
 /* harmony import */ var _PasteViewer_module_scss__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./PasteViewer.module.scss */ "./src/screens/PasteViewer/PasteViewer.module.scss");
 /* harmony import */ var _PasteViewerContanstant__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./PasteViewerContanstant */ "./src/screens/PasteViewer/PasteViewerContanstant.ts");
 var __assign = (undefined && undefined.__assign) || function () {
@@ -40291,7 +40300,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 var PasteViewer = function (_a) {
     var _b;
     var viewerForPaste = _a.viewerForPaste, changeSelectedToggleiewer = _a.changeSelectedToggleiewer, deleteView = _a.deleteView, changeOrderViewerInEntities = _a.changeOrderViewerInEntities, icons = _a.icons, setViewerForPaste = _a.setViewerForPaste;
-    var entitiesFromPaste = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(_store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_16__.entitiesAllSelector);
+    var entitiesFromPaste = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(_store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_16__.entitiesAllSelector);
     var allCreatedViewer = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(0);
     var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), errorsCopy = _c[0], setErrorCopy = _c[1];
     var _d = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0), countCreate = _d[0], setCreateCount = _d[1];
@@ -41039,6 +41048,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+var _a;
 
 var instance = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
     headers: {
@@ -41046,14 +41056,14 @@ var instance = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
     },
     withCredentials: true
 });
-instance.interceptors.request.use(function (config) {
+(_a = instance === null || instance === void 0 ? void 0 : instance.interceptors) === null || _a === void 0 ? void 0 : _a.request.use(function (config) {
     // Добавить логику перед отправкой запроса
     return config;
 }, function (error) {
     // Обработка ошибок запроса
     return Promise.reject(error);
 });
-instance.interceptors.response.use(function (response) {
+instance === null || instance === void 0 ? void 0 : instance.interceptors.response.use(function (response) {
     // Обработка ответа
     return response;
 }, function (error) {
@@ -41402,10 +41412,10 @@ var removeExtensionsFromPage = function () {
 
 /***/ }),
 
-/***/ "./src/store/slice/entitiesSlice.ts":
-/*!******************************************!*\
-  !*** ./src/store/slice/entitiesSlice.ts ***!
-  \******************************************/
+/***/ "./src/store/slice/entitiesSlice/entitiesSlice.ts":
+/*!********************************************************!*\
+  !*** ./src/store/slice/entitiesSlice/entitiesSlice.ts ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -41430,7 +41440,7 @@ var entitiesSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice
     }
 });
 var setEntitiesForPaste = entitiesSlice.actions.setEntitiesForPaste;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entitiesSlice);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entitiesSlice.reducer);
 // selector
 var entitiesAllSelector = function (store) {
     return store.entities.entitiesForPaste;
@@ -46378,11 +46388,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ JSAlert)
 /* harmony export */ });
-/* harmony import */ var _queue_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./queue.js */ "./node_modules/js-alert/src/queue.js");
-/* harmony import */ var _event_source_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./event-source.js */ "./node_modules/js-alert/src/event-source.js");
-/* harmony import */ var _package_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../package.json */ "./node_modules/js-alert/package.json");
-/* harmony import */ var light_sanitize_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! light-sanitize-html */ "./node_modules/light-sanitize-html/src/index.js");
-/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons.js */ "./node_modules/js-alert/src/icons.js");
+/* harmony import */ var light_sanitize_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! light-sanitize-html */ "./node_modules/light-sanitize-html/src/index.js");
+/* harmony import */ var _package_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../package.json */ "./node_modules/js-alert/package.json");
+/* harmony import */ var _event_source_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./event-source.js */ "./node_modules/js-alert/src/event-source.js");
+/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons.js */ "./node_modules/js-alert/src/icons.js");
+/* harmony import */ var _queue_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./queue.js */ "./node_modules/js-alert/src/queue.js");
 //
 // Main class for the JSAlert package
 
@@ -46391,133 +46401,134 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-class JSAlert extends _event_source_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
+
+class JSAlert extends _event_source_js__WEBPACK_IMPORTED_MODULE_2__["default"] {
 
 	/** Library version */
 	static get version() {
-		return _package_json__WEBPACK_IMPORTED_MODULE_2__.version
+		return _package_json__WEBPACK_IMPORTED_MODULE_1__.version
 	}
-	
+
 	/** @static Creates and shows a new alert with the specified text */
 	static alert(text, title, icon, closeText = "Close") {
-		
+
 		// Check if not in a browser
 		if (typeof window === "undefined")
 			return Promise.resolve(console.log("Alert: " + text));
-		
+
 		// Create alert
 		var alert = new JSAlert(text, title);
 		alert.addButton(closeText, null);
-		
+
 		// Set icon
 		if (icon !== false)
 			alert.setIcon(icon || JSAlert.Icons.Information);
-		
+
 		// Show it
 		return alert.show();
-		
+
 	}
-	
+
 	/** @static Creates and shows a new confirm alert with the specified text */
 	static confirm(text, title, icon, acceptText = "OK", rejectText = "Cancel") {
-		
+
 		// Check if not in a browser
 		if (typeof window === "undefined")
 			return Promise.resolve(console.log("Alert: " + text));
-		
+
 		// Create alert
 		var alert = new JSAlert(text, title);
 		alert.addButton(acceptText, true);
 		alert.addButton(rejectText, false);
-		
+
 		// Set icon
 		if (icon !== false)
 			alert.setIcon(icon || JSAlert.Icons.Question);
-		
+
 		// Show it
 		return alert.show();
-		
+
 	}
-	
+
 	/** @static Creates and shows a new prompt, an alert with a single text field. */
 	static prompt(text, defaultText, placeholderText, title, icon, acceptText = "OK", rejectText = "Cancel") {
-		
+
 		// Check if not in a browser
 		if (typeof window === "undefined")
 			return Promise.resolve(console.log("Alert: " + text));
-		
+
 		// Create alert
 		var alert = new JSAlert(text, title);
 		alert.addButton(acceptText, true, "default");
 		alert.addButton(rejectText, false, "cancel");
-		
+
 		// Set icon
 		if (icon !== false)
 			alert.setIcon(icon || JSAlert.Icons.Question);
-		
+
 		// Add text field
 		alert.addTextField(defaultText, null, placeholderText);
-		
+
 		// Show it
 		return alert.show().then((result) => {
-			
+
 			// Check if cancelled
 			if (alert.cancelled)
 				return null;
 			else
 				return alert.getTextFieldValue(0);
-			
+
 		});
-		
+
 	}
-	
+
 	/** @static Creates and shows a loader, which is just an alert with no buttons. */
 	static loader(text, cancelable) {
-		
+
 		// Check if not in a browser
 		if (typeof window === "undefined")
 			return Promise.resolve(console.log("Loading: " + text));
-		
+
 		// Create alert
 		var alert = new JSAlert(text);
 		alert.cancelable = cancelable;
-		
+
 		// Show it
 		return alert.show();
-		
+
 	}
-	
+
 	/** Constructor */
 	constructor(text = "", title = "") {
 		super();
-		
+
 		// Setup vars
-		this.elems 		= {};
-		this.title		= title;
-		this.text		= text;
-		this.buttons	= [];
-		this.textFields	= [];
-		this.result		= false;
-		this.iconURL	= null;
+		this.elems = {};
+		this.title = title;
+		this.text = text;
+		this.buttons = [];
+		this.textFields = [];
+		this.result = false;
+		this.iconURL = null;
 		this.cancelable = true;
-		this.cancelled	= false;
-		this.dismissed	= false;
-		
+		this.cancelled = false;
+		this.dismissed = false;
+
 	}
-	
-	
+
+
 	/** Sets an icon for the alert. `icon` is either a URL or one of `JSAlert.Icons`. */
 	setIcon(icon) {
 		this.iconURL = icon;
 	}
-	
-	
+
+
 	/** Adds a button. Returns a Promise that is called if the button is clicked. */
 	addButton(text, value, type) {
-		
+
 		// Return promise
 		return new Promise((onSuccess, onFail) => {
-			
+
 			// Add button
 			this.buttons.push({
 				text: text,
@@ -46525,404 +46536,405 @@ class JSAlert extends _event_source_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
 				type: type || (this.buttons.length == 0 ? "default" : "normal"),
 				callback: onSuccess
 			});
-			
+
 		});
-		
+
 	}
-	
-	
+
+
 	/** Adds a text field. Returns a Promise that will be called when the dialog is dismissed, but not cancelled. */
-	addTextField(value, type, placeholderText)  {
-		
+	addTextField(value, type, placeholderText) {
+
 		// Add text field
 		this.textFields.push({
 			value: value || "",
 			type: type || "text",
 			placeholder: placeholderText || ""
 		});
-		
+
 	}
-	
-	
+
+
 	/** Gets a text field's value */
 	getTextFieldValue(index) {
-		
+
 		// Get text field info
 		var info = this.textFields[index];
-		
+
 		// Return the value
 		return (info.elem ? info.elem.value : info.value);
-		
+
 	}
-	
-	
+
+
 	/** Shows the alert. */
 	show() {
-		
+
 		// Add to the queue
 		JSAlert.popupQueue.add(this).then(() => {
-			
+
 			// Show us
 			this._show();
-			
+
 			// Notify that we have been shown
 			this.emit("opened");
-			
+
 		});
-		
+
 		// Return the alert
 		return this;
-		
+
 	}
-	
-	
+
+
 	/** A then function, to allow chaining with Promises */
 	then(func) {
 		return this.when("closed").then(func);
 	}
-	
-	
+
+
 	/** Dismisses the alert. */
 	dismiss(result) {
-		
+
 		// Do nothing if dismissed already
 		if (this.dismissed) return;
 		this.dismissed = true;
-		
+
 		// Remove us from the queue
 		JSAlert.popupQueue.remove(this);
-		
+
 		// Store result
 		this.result = result;
 		if (typeof result == "undefined")
 			this.cancelled = true;
-		
+
 		// Remove elements
 		this.removeElements();
-		
+
 		// Remove global keyboard listener
 		window.removeEventListener("keydown", this);
-		
+
 		// Trigger cancel-specific event
 		if (this.cancelled)
 			this.emit("cancelled", this.result);
 		else
 			this.emit("complete", this.result);
-		
+
 		// Trigger closed event
 		this.emit("closed", this.result);
 		return this;
-		
+
 	}
-	
-	
+
+
 	/** Dismisses the alert some time in the future */
 	dismissIn(time) {
-		
+
 		setTimeout(this.dismiss.bind(this), time);
 		return this;
-	
+
 	}
-	
-	
+
+
 	/** @private Called to actually show the alert. */
 	_show() {
-		
+
 		// Create elements
 		this.createBackground();
 		this.createPopup();
-		
+
 		// Add global keyboard listener
 		window.addEventListener("keydown", this);
-		
+
 	}
-	
-	
+
+
 	/** @private Called to create the overlay element. Theme subclasses can override this. */
 	createBackground() {
-		
+
 		// Create element
 		this.elems.background = document.createElement("div");
 		this.elems.background.style.cssText = "position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 10000; background-color: rgba(0, 0, 0, 0.1); opacity: 0; transition: opacity 0.15s; ";
-		
+
 		// Add to document
 		document.body.appendChild(this.elems.background);
-		
+
 		// Do animation
 		setTimeout(() => {
 			this.elems.background.offsetWidth;
 			this.elems.background.style.opacity = 1;
 		}, 0);
-		
+
 	}
-	
-	
+
+
 	/** @private Called to create the popup element. Theme subclasses can override this. */
 	createPopup() {
-		
+
 		// Create container element
 		this.elems.container = document.createElement("div");
 		this.elems.container.focusable = true;
 		this.elems.container.style.cssText = "position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 10001; display: flex; justify-content: center; align-items: center; opacity: 0; transform: translateY(-40px); transition: opacity 0.15s, transform 0.15s; ";
 		document.body.appendChild(this.elems.container);
-		
+
 		// Do animation
 		setTimeout(() => {
 			this.elems.container.offsetWidth;
 			this.elems.container.style.opacity = 1;
 			this.elems.container.style.transform = "translateY(0px)";
 		}, 0);
-		
+
 		// Add dismiss handler
 		this.addTouchHandler(this.elems.container, () => {
-			
+
 			// Check if cancelable
 			if (!this.cancelable)
 				return;
-			
+
 			// Dismiss
 			this.cancelled = true;
 			this.dismiss();
-			
+
 		});
-		
+
 		// Create window
 		this.elems.window = document.createElement("div");
 		this.elems.window.style.cssText = "position: relative; background-color: rgba(255, 255, 255, 0.95); box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25); border-radius: 5px; padding: 10px; min-width: 50px; min-height: 10px; max-width: 50%; max-height: 90%; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); ";
 		this.elems.container.appendChild(this.elems.window);
-		
+
 		// Create icon if there is one
 		if (this.iconURL) {
-			
+
 			this.elems.icon = document.createElement("img");
 			this.elems.icon.style.cssText = "display: block; margin: auto; max-height: 40px; text-align: center; font-family: Helvetica, Arial; font-size: 17px; font-weight: bold; color: #000; cursor: default; padding: 10px 0px; ";
 			this.elems.icon.src = this.iconURL;
 			this.elems.window.appendChild(this.elems.icon);
-			
+
 		}
-		
+
 		// Create title if there is one
 		if (this.title) {
-			
+
 			this.elems.title = document.createElement("div");
 			this.elems.title.style.cssText = "display: block; text-align: center; font-family: Helvetica, Arial; font-size: 17px; font-weight: bold; color: #000; cursor: default; padding: 2px 20px; ";
-			this.elems.title.innerHTML = light_sanitize_html__WEBPACK_IMPORTED_MODULE_3__(this.title)
+			this.elems.title.innerHTML = light_sanitize_html__WEBPACK_IMPORTED_MODULE_0__(this.title)
 			this.elems.window.appendChild(this.elems.title);
-			
+
 		}
-		
+
 		// Create text if there is one
 		if (this.text) {
-			
+
 			this.elems.text = document.createElement("div");
 			this.elems.text.style.cssText = "display: block; text-align: center; font-family: Helvetica, Arial; font-size: 15px; font-weight: normal; color: #000; cursor: default; padding: 2px 20px; ";
-			this.elems.text.innerHTML = light_sanitize_html__WEBPACK_IMPORTED_MODULE_3__(this.text)
+			this.elems.text.innerHTML = light_sanitize_html__WEBPACK_IMPORTED_MODULE_0__(this.text)
 			this.elems.window.appendChild(this.elems.text);
-			
+
 		}
-		
+
 		// Create text fields if there are any
 		if (this.textFields.length > 0) {
-			
+
 			this.elems.textFields = document.createElement("div");
 			this.elems.textFields.style.cssText = "display: block; ";
 			this.elems.window.appendChild(this.elems.textFields);
-			
+
 			// Add each text field
 			this.textFields.forEach((b, idx) => {
-				
+
 				b.elem = document.createElement("input");
 				b.elem.style.cssText = "display: block; width: 90%; min-width: 250px; padding: 5px 0px; margin: 10px auto; background-color: #FFF; border: 1px solid #EEE; border-radius: 5px; text-align: center; font-family: Helvetica, Arial; font-size: 15px; color: #222; ";
 				b.elem.value = b.value;
 				b.elem.placeholder = b.placeholder;
 				b.elem.type = b.type;
 				this.elems.textFields.appendChild(b.elem);
-				
+
 				// Add keyboard listener
 				b.elem.addEventListener("keypress", (e) => {
-					
+
 					// Ignore if not enter
 					if (e.keyCode != 13)
 						return;
-					
+
 					// Check if this is the last input field
-					if (idx+1 >= this.textFields.length) {
-						
+					if (idx + 1 >= this.textFields.length) {
+
 						// Done
 						this.dismiss("enter-pressed");
-						
+
 					} else {
-						
+
 						// Just select the next field
-						this.textFields[idx+1].elem.focus();
-						
+						this.textFields[idx + 1].elem.focus();
+
 					}
-					
+
 				});
-				
+
 			});
-			
+
 			// Focus on first field
 			this.textFields[0].elem.focus();
-			
+
 		}
-		
+
 		// Create buttons if there are any
 		if (this.buttons.length > 0) {
-			
+
 			this.elems.buttons = document.createElement("div");
 			this.elems.buttons.style.cssText = "display: block; display: flex; justify-content: space-around; align-items: center; text-align: right; border-top: 1px solid #EEE; margin-top: 10px; ";
 			this.elems.window.appendChild(this.elems.buttons);
-			
+
 			// Add each button
 			this.buttons.forEach((b) => {
-				
+
 				var btn = document.createElement("div");
 				btn.style.cssText = "display: inline-block; font-family: Helvetica, Arial; font-size: 15px; font-weight: 200; color: #08F; padding: 10px 20px; padding-bottom: 0px; cursor: pointer; ";
 				btn.innerText = b.text;
 				this.elems.buttons.appendChild(btn);
-				
+
 				// Add button handler
 				this.addTouchHandler(btn, () => {
 					b.callback && b.callback(b.value);
 					if (b.type == "cancel") this.cancelled = true;
 					this.dismiss(b.value);
 				});
-				
+
 			});
-			
+
 		}
-		
+
 	}
-	
-	
+
+
 	/** @private Called to remove all elements from the screen */
 	removeElements() {
-		
+
 		// Don't do anything if not loaded
 		if (!this.elems || !this.elems.container)
 			return;
-		
+
 		// Animate background away
 		this.elems.background.style.opacity = 0;
 		this.elems.container.style.opacity = 0;
 		this.elems.container.style.transform = "translateY(40px)";
-		
+
 		// Remove elements after animation
 		setTimeout(() => {
 			this.removeElement(this.elems.background);
 			this.removeElement(this.elems.container);
 		}, 250);
-		
+
 	}
-	
+
 	/** @private Helper function to remove an element */
 	removeElement(elem) {
 		elem && elem.parentNode && elem.parentNode.removeChild(elem);
 	}
-	
+
 	/** @private Helper function to add a click or touch event handler that doesn't bubble */
 	addTouchHandler(elem, callback) {
-		
+
 		// Create handler
 		var handler = (e) => {
-			
+
 			// Stop default browser action, unless this is an input field
 			if (e.target.nodeName.toLowerCase() != "input")
 				e.preventDefault();
-			
+
 			// Check if our element was pressed, not a child element
 			if (e.target != elem)
 				return;
-			
+
 			// Trigger callback
 			callback();
 		}
-		
+
 		// Add listeners
 		this.elems.container.addEventListener("mousedown", handler, true);
 		this.elems.container.addEventListener("touchstart", handler, true);
-		
+
 	}
-	
+
 	/** @private Called by the browser when a keyboard event is fired on the whole window */
 	handleEvent(e) {
-		
+
 		// Check if enter was pressed
 		if (e.keyCode == 13) {
-			
+
 			// Find the first default button and use that value instead
-			for (var i = 0 ; i < this.buttons.length ; i++) {
+			for (var i = 0; i < this.buttons.length; i++) {
 				if (this.buttons[i].type == "default") {
-					
+
 					// Use this button's value
 					this.dismiss(this.buttons[i].value);
 					e.preventDefault();
-					
+
 					// Trigger the button's callback
 					this.buttons[i].callback && this.buttons[i].callback(this.result);
 					return;
-					
+
 				}
 			}
-			
+
 			// No default button found, cancel
 			this.cancelled = true;
 			this.dismiss();
 			return;
-			
+
 		}
-		
+
 		// Check if escape was pressed
 		if (e.keyCode == 27) {
-			
+
 			// Check if cancelable
 			if (!this.cancelable)
 				return;
-			
+
 			// Find the first default button and use that value instead
 			this.cancelled = true;
 			this.result = null;
-			for (var i = 0 ; i < this.buttons.length ; i++) {
+			for (var i = 0; i < this.buttons.length; i++) {
 				if (this.buttons[i].type == "cancel") {
-					
+
 					// Use this button's value
 					this.dismiss(this.buttons[i].value);
 					e.preventDefault();
-					
+
 					// Trigger the button's callback
 					this.buttons[i].callback && this.buttons[i].callback(this.result);
 					return;
-					
+
 				}
 			}
-			
+
 			// No cancel button found, just cancel
 			this.cancelled = true;
 			this.dismiss();
 			return;
-			
+
 		}
-		
+
 	}
-	
+
 }
 
 
 
 // Include theme's icons
 
-JSAlert.Icons = _icons_js__WEBPACK_IMPORTED_MODULE_4__["default"];
+
+JSAlert.Icons = _icons_js__WEBPACK_IMPORTED_MODULE_3__["default"];
 
 
-	
+
 // The default popup queue
-JSAlert.popupQueue = new _queue_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+JSAlert.popupQueue = new _queue_js__WEBPACK_IMPORTED_MODULE_4__["default"]();
 
 
 // In case anyone wants to use the classes of this project on their own...
-JSAlert.Queue = _queue_js__WEBPACK_IMPORTED_MODULE_0__["default"];
-JSAlert.EventSource = _event_source_js__WEBPACK_IMPORTED_MODULE_1__["default"];
+JSAlert.Queue = _queue_js__WEBPACK_IMPORTED_MODULE_4__["default"];
+JSAlert.EventSource = _event_source_js__WEBPACK_IMPORTED_MODULE_2__["default"];
 
 /***/ }),
 
@@ -47184,7 +47196,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _screens_PasteViewer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/screens/PasteViewer */ "./src/screens/PasteViewer/index.ts");
 /* harmony import */ var _services_Icon_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/services/Icon.service */ "./src/services/Icon.service.ts");
 /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/shared/utils/utils */ "./src/shared/utils/utils.ts");
-/* harmony import */ var _store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/store/slice/entitiesSlice */ "./src/store/slice/entitiesSlice.ts");
+/* harmony import */ var _store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/store/slice/entitiesSlice/entitiesSlice */ "./src/store/slice/entitiesSlice/entitiesSlice.ts");
 /* harmony import */ var _AppModalConstant__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AppModalConstant */ "./src/contentScripts/AppModalPaste/AppModalConstant.tsx");
 /* harmony import */ var _AppModalPaste_module_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./AppModalPaste.module.scss */ "./src/contentScripts/AppModalPaste/AppModalPaste.module.scss");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -47243,7 +47255,7 @@ var AppModalPaste = function () {
     var _a;
     var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
     var refModalWrapper = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-    var entitiesFromPaste = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(_store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_8__.entitiesAllSelector);
+    var entitiesFromPaste = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(_store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_8__.entitiesAllSelector);
     var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(1), currentRightPage = _b[0], setCurrentRightPage = _b[1];
     var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), icons = _c[0], setIcons = _c[1];
     var _d = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), viewerForPaste = _d[0], setViewerForPaste = _d[1];
@@ -47307,7 +47319,7 @@ var AppModalPaste = function () {
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         chrome.runtime.onMessage.addListener(function (request) {
             if (request.action === 'postEntitiesForPasteInsert') {
-                dispatch((0,_store_slice_entitiesSlice__WEBPACK_IMPORTED_MODULE_8__.setEntitiesForPaste)(request.payload));
+                dispatch((0,_store_slice_entitiesSlice_entitiesSlice__WEBPACK_IMPORTED_MODULE_8__.setEntitiesForPaste)(request.payload));
             }
         });
         chrome.storage.local.get(['viewersState'], function (result) {

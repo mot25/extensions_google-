@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { ViewerForCopyOrDelete } from '@/components/complex/ViewerForCopyOrDelete';
 // eslint-disable-next-line max-len
-import { entitiesAllSelector } from '@/store/slice/entitiesSlice';
+import { entitiesAllSelector } from '@/store/slice/entitiesSlice/entitiesSlice';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
 import styles from './CopyViewer.module.scss';

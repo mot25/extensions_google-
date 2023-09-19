@@ -1,10 +1,12 @@
-import { SimpleButton } from '@/components/simple/SimpleButton';
 import classNames from 'classnames';
 import React from 'react';
-import styles from './ViewerForPaste.module.scss';
-// eslint-disable-next-line max-len
+
 import { InputWithUnderLineColor } from '@/components/simple/InputWithUnderLineColor';
+import { SimpleButton } from '@/components/simple/SimpleButton';
 import { ViewerType } from '@/type/entities.dto';
+
+import styles from './ViewerForPaste.module.scss';
+
 type Props = {
   viewer: ViewerType;
   isEven: boolean;
@@ -24,6 +26,7 @@ const ViewerForPaste = ({
 }: Props) => {
   return (
     <li
+      data-testid="listWrapper"
       className={classNames(styles.viewerWrapper, {
         [styles.viewerWrapper__even]: isEven
       })}
@@ -31,6 +34,7 @@ const ViewerForPaste = ({
       <div
         title="Название вида для вставки"
         className={styles.name}
+        data-testid="wrapperNameViewerForPaste"
       >
         <InputWithUnderLineColor
           onChange={text => renameViewer(text, viewer.Id)}
@@ -50,6 +54,7 @@ const ViewerForPaste = ({
           style={{
             width: '30px'
           }}
+          data-testid="inputOrder"
           onChange={e =>
             changeOrderViewerInEntities(viewer.Id, +e.target.value)
           }

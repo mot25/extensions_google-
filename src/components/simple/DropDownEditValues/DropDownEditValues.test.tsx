@@ -34,7 +34,6 @@ describe('DropDownEditValues', () => {
     );
 
     const list = screen.getByTestId('list_Option');
-    screen.debug();
     listOptions.forEach(item => {
       expect(
         list.querySelector(`input[value="${item.label}"]`)

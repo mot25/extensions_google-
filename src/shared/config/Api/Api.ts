@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const instance = axios.create({
   headers: {
     'Content-Type': 'application/json'
@@ -6,7 +7,7 @@ const instance = axios.create({
   withCredentials: true
 });
 
-instance.interceptors.request.use(
+instance?.interceptors?.request.use(
   config => {
     // Добавить логику перед отправкой запроса
     return config;
@@ -17,7 +18,7 @@ instance.interceptors.request.use(
   }
 );
 
-instance.interceptors.response.use(
+instance?.interceptors.response.use(
   response => {
     // Обработка ответа
     return response;

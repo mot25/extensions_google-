@@ -39962,10 +39962,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InputWithUnderLineColor.module.scss */ "./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss");
 
 
@@ -39973,11 +39973,11 @@ __webpack_require__.r(__webpack_exports__);
 var InputWithUnderLineColor = function (_a) {
     var _b;
     var onChange = _a.onChange, placeholder = _a.placeholder, value = _a.value, addStyle = _a.addStyle, _c = _a.size, size = _c === void 0 ? 'b' : _c;
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: addStyle, "data-testid": 'wrapperInput', className: _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].formControl },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { "data-testid": 'input', className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input, (_b = {},
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", { style: addStyle, "data-testid": "wrapperInput", className: _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].formControl },
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", { "data-testid": "input", className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input, (_b = {},
                 _b[_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].input__small] = size === 's',
                 _b)), placeholder: placeholder, required: true, onChange: function (e) { return onChange(e.target.value); }, value: value, type: "text" }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorder, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorderAlt) })));
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", { className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorder, _InputWithUnderLineColor_module_scss__WEBPACK_IMPORTED_MODULE_2__["default"].inputBorderAlt) })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputWithUnderLineColor);
 
@@ -40576,6 +40576,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+var _a;
 
 var instance = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
     headers: {
@@ -40583,14 +40584,14 @@ var instance = axios__WEBPACK_IMPORTED_MODULE_0__["default"].create({
     },
     withCredentials: true
 });
-instance.interceptors.request.use(function (config) {
+(_a = instance === null || instance === void 0 ? void 0 : instance.interceptors) === null || _a === void 0 ? void 0 : _a.request.use(function (config) {
     // Добавить логику перед отправкой запроса
     return config;
 }, function (error) {
     // Обработка ошибок запроса
     return Promise.reject(error);
 });
-instance.interceptors.response.use(function (response) {
+instance === null || instance === void 0 ? void 0 : instance.interceptors.response.use(function (response) {
     // Обработка ответа
     return response;
 }, function (error) {

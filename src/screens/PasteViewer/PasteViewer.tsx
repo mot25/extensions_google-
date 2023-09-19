@@ -30,7 +30,7 @@ import {
   getOrderViewerInEntities
 } from '@/shared/utils/components';
 import { getPercent } from '@/shared/utils/utils';
-import { entitiesAllSelector } from '@/store/slice/entitiesSlice';
+import { entitiesAllSelector } from '@/store/slice/entitiesSlice/entitiesSlice';
 import {
   SettingsViewerForPasteType,
   SwitchRenderListType,

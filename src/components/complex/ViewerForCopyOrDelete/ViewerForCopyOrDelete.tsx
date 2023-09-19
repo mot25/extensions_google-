@@ -6,7 +6,7 @@ import { Progress } from '@/components/simple/Progress';
 import { SimpleButton } from '@/components/simple/SimpleButton';
 import { ManagerViewersService } from '@/services/ManagerViewers.service';
 import { getPercent } from '@/shared/utils/utils';
-import { entitiesAllSelector } from '@/store/slice/entitiesSlice';
+import { entitiesAllSelector } from '@/store/slice/entitiesSlice/entitiesSlice';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
 import styles from './ViewerForCopyOrDelete.module.scss';
@@ -17,7 +17,29 @@ type Props = {
   entity: EntitiesType;
   addStateViewers: (viewer: ViewerType) => void;
 };
+export const deleteInNestedEntity = (
+  entitiesFromPaste: EntitiesType[],
+  viewer: ViewerType,
+  cb: VoidFunction
+) => {
+  entitiesFromPaste.forEach(entity => {
+    const viewerDelete = entity?.Viewers?.find(
+      V => V?.Caption === viewer?.Caption
+    );
 
+    if (viewerDelete?.Id !== undefined) {
+      ManagerViewersService.deleteViewer(entity.Id, viewerDelete?.Id).then(cb);
+    }
+  });
+};
+export const deleteInCurrentEntity = async (
+  entity: EntitiesType,
+  viewer: ViewerType,
+  cb: VoidFunction
+) => {
+  cb();
+  await ManagerViewersService.deleteViewer(entity.Id, viewer.Id);
+};
 const ViewerForCopyOrDelete = ({
   isHave,
   viewer,
@@ -36,27 +58,16 @@ const ViewerForCopyOrDelete = ({
       'Выберите опции для удаления'
     );
     alert.addButton('Удалить в текущем классе').then(async () => {
-      setIsDeleting(true);
-      setCountDelete(1);
-      allEntity.current = 1;
-
-      await ManagerViewersService.deleteViewer(entity.Id, viewer.Id);
+      await deleteInCurrentEntity(entity, viewer, () => {
+        setIsDeleting(true);
+        setCountDelete(1);
+        allEntity.current = 1;
+      });
     });
     alert.addButton('Удалить во вложенных классах').then(() => {
       setIsDeleting(true);
-      entitiesFromPaste.forEach(async entity => {
-        const viewerDelete = entity?.Viewers?.find(
-          V => V?.Caption === viewer?.Caption
-        );
-
-        if (viewerDelete?.Id !== undefined) {
-          await ManagerViewersService.deleteViewer(
-            entity.Id,
-            viewerDelete?.Id
-          ).then(() => {
-            setCountDelete(prev => prev + 1);
-          });
-        }
+      deleteInNestedEntity(entitiesFromPaste, viewer, () => {
+        setCountDelete(prev => prev + 1);
       });
     });
     alert.show();
@@ -74,7 +85,12 @@ const ViewerForCopyOrDelete = ({
 
   return (
     <li className={styles.item}>
-      <span className={styles.name}>{viewer.Caption}</span>
+      <span
+        data-testid="Caption"
+        className={styles.name}
+      >
+        {viewer.Caption}
+      </span>
       {idDeleting ? (
         <div className={styles.progressBar}>
           <Progress done={getPercent(countDelete, allEntity.current)} />
@@ -97,7 +113,7 @@ const ViewerForCopyOrDelete = ({
         addStyle={{
           height: '24px'
         }}
-        bg={isHave ? '#d3d3d3' : '#4CAF50'}
+        bg={isHave ? 'rgb(211, 211, 211)' : 'rgb(76, 175, 80)'}
         onClick={() => {
           if (isHave) return;
           addStateViewers(viewer);

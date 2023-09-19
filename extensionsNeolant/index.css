@@ -105,27 +105,6 @@
   max-height: 300px;
   overflow: auto;
 }
-/*!*********************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForPaste/ViewerForPaste.module.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************/
-.extentions__viewerWrapper__Zbmpy {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 5px;
-}
-.extentions__viewerWrapper__even__IAOVD {
-  background-color: #e5f6ff;
-}
-
-.extentions__name__ZU02b {
-  margin-right: 10px;
-  flex: 1;
-}
-.extentions__name__ZU02b div input {
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
 /*!**************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.module.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************/
@@ -179,6 +158,27 @@
 
 .extentions__inputAlt__GZgEZ:focus + .extentions__inputBorderAlt__FHcUZ {
   width: 100%;
+}
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/complex/ViewerForPaste/ViewerForPaste.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+.extentions__viewerWrapper__Zbmpy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 5px;
+}
+.extentions__viewerWrapper__even__IAOVD {
+  background-color: #e5f6ff;
+}
+
+.extentions__name__ZU02b {
+  margin-right: 10px;
+  flex: 1;
+}
+.extentions__name__ZU02b div input {
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/simple/DropDown/DropDown.module.scss ***!

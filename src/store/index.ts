@@ -1,12 +1,16 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import entitiesSlice from './slice/entitiesSlice';
+import entitiesSlice from './slice/entitiesSlice/entitiesSlice';
 
 const rootReducer = combineReducers({
-  [entitiesSlice.name]: entitiesSlice.reducer
+  entities: entitiesSlice
 });
-const store = configureStore({ reducer: rootReducer });
+export const createStore = (initState = {}) => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState: initState
+  });
+};
+const store = createStore();
 
 export type RootStoreType = ReturnType<typeof store.getState>;
-
-export default store;

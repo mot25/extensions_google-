@@ -77,7 +77,6 @@ describe('SimpleButton', () => {
     );
 
     const btn = screen.getByTestId('btn');
-    screen.debug();
     expect(btn).toHaveClass(styles.button__disabled);
   });
   test('Работает ли клик на кнопку', () => {

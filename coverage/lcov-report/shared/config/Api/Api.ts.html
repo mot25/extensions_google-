@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.77% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>9/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.77% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
@@ -94,18 +94,20 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,12 +122,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from 'axios';
+&nbsp;
 const instance = axios.create({
   headers: {
     'Content-Type': 'application/json'
@@ -133,10 +136,10 @@ const instance = axios.create({
   withCredentials: true
 });
 &nbsp;
-instance.interceptors.request.use(
-  config =&gt; {
+<span class="branch-1 cbranch-no" title="branch not covered" >instance?.interceptors<span class="branch-1 cbranch-no" title="branch not covered" >?</span>.request.use(</span>
+<span class="fstat-no" title="function not covered" >  config </span>=&gt; {
     // Добавить логику перед отправкой запроса
-    return config;
+<span class="cstat-no" title="statement not covered" >    return config;</span>
   },
 <span class="fstat-no" title="function not covered" >  error </span>=&gt; {
     // Обработка ошибок запроса
@@ -144,14 +147,14 @@ instance.interceptors.request.use(
   }
 );
 &nbsp;
-instance.interceptors.response.use(
+<span class="branch-1 cbranch-no" title="branch not covered" >instance?.interceptors.response.use(</span>
 <span class="fstat-no" title="function not covered" >  response </span>=&gt; {
     // Обработка ответа
 <span class="cstat-no" title="statement not covered" >    return response;</span>
   },
-  error =&gt; {
+<span class="fstat-no" title="function not covered" >  error </span>=&gt; {
     // Обработка ошибок ответа
-    return Promise.reject(error);
+<span class="cstat-no" title="statement not covered" >    return Promise.reject(error);</span>
   }
 );
 &nbsp;
@@ -163,7 +166,7 @@ export default instance;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-11T13:30:28.622Z
+                at 2023-09-19T10:01:10.276Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
