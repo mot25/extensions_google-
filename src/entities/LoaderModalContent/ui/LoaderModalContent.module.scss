@@ -1,0 +1,19 @@
+.modalLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  z-index: -500;
+
+  &__show {
+    z-index: 500;
+    opacity: 1;
+  }
+}

@@ -1,15 +1,16 @@
 /* eslint-disable max-len */
 /* eslint-disable max-lines-per-function */
-import './popup.scss';
-
-import IconPaste from '@/assets/icon/IconPaste.svg';
-import IconSetting from '@/assets/icon/Icon_setting.svg';
 import { gsap } from 'gsap';
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+
+import IconPaste from '@/assets/icon/IconPaste.svg';
+import IconSetting from '@/shared/assets/icon/Icon_setting.svg';
+
 import { PageNavigatorType } from '../type/components.dto';
 import { PasteClass } from './page/PasteClass';
 import { Setting } from './page/Setting';
+import './popup.scss';
 
 const App = () => {
   const [selectPage, setSelectPage] = useState<number>(1);

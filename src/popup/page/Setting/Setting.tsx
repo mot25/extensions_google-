@@ -1,6 +1,7 @@
-import ArrowBack from '@/assets/icon/Icon_arrowLeft.svg';
-import { SimpleButton } from '@/components/simple/SimpleButton';
 import React, { useState } from 'react';
+
+import ArrowBack from '@/shared/assets/icon/Icon_arrowLeft.svg';
+import { SimpleButton } from '@/shared/ui/SimpleButton';
 
 import { AllowUrl } from '../AllowUrl';
 import styles from './Setting.module.scss';

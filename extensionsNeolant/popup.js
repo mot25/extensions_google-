@@ -1,39 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/assets/icon/IconPaste.svg":
-/*!***************************************!*\
-  !*** ./src/assets/icon/IconPaste.svg ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path;
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-var SvgIconPaste = function SvgIconPaste(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 24,
-    height: 24
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    d: "M21.129 6.477a.876.876 0 0 0-.106-.153l-5.226-5.222a.59.59 0 0 0-.395-.164H7.844a1.83 1.83 0 0 0-1.301.542A1.83 1.83 0 0 0 6 2.781v1.203H4.656a1.845 1.845 0 0 0-1.844 1.844v15.375a1.845 1.845 0 0 0 1.844 1.844h11.5c.485 0 .953-.192 1.297-.535s.543-.809.547-1.293v-1.203h1.344a1.845 1.845 0 0 0 1.844-1.844V6.722a.543.543 0 0 0-.06-.245zm-5.164-3.618 3.3 3.297h-3.3zm.91 18.375a.719.719 0 0 1-.719.72h-11.5a.719.719 0 0 1-.719-.719V5.858a.721.721 0 0 1 .72-.722H6v13.035a1.845 1.845 0 0 0 1.844 1.844h9.031zm2.469-2.328h-11.5a.696.696 0 0 1-.512-.215.682.682 0 0 1-.156-.238.691.691 0 0 1-.051-.281V2.797a.703.703 0 0 1 .207-.52.757.757 0 0 1 .234-.16.762.762 0 0 1 .278-.055h6.996V6.72a.558.558 0 0 0 .562.562h4.66v10.875a.691.691 0 0 1-.05.282.648.648 0 0 1-.157.238.644.644 0 0 1-.234.16.689.689 0 0 1-.277.055zm0 0"
-  })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgIconPaste);
-
-/***/ }),
-
-/***/ "./src/assets/icon/Icon_arrowLeft.svg":
-/*!********************************************!*\
-  !*** ./src/assets/icon/Icon_arrowLeft.svg ***!
-  \********************************************/
+/***/ "./src/shared/assets/icon/Icon_arrowLeft.svg":
+/*!***************************************************!*\
+  !*** ./src/shared/assets/icon/Icon_arrowLeft.svg ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -62,40 +33,10 @@ var SvgIconArrowLeft = function SvgIconArrowLeft(props) {
 
 /***/ }),
 
-/***/ "./src/assets/icon/Icon_delete.svg":
-/*!*****************************************!*\
-  !*** ./src/assets/icon/Icon_delete.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path;
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-var SvgIconDelete = function SvgIconDelete(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 24,
-    height: 24,
-    fill: "#fff"
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    d: "M5.755 20.283 4 8h16l-1.755 12.283A2 2 0 0 1 16.265 22h-8.53a2 2 0 0 1-1.98-1.717ZM21 4h-5V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"
-  })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgIconDelete);
-
-/***/ }),
-
-/***/ "./src/assets/icon/Icon_setting.svg":
-/*!******************************************!*\
-  !*** ./src/assets/icon/Icon_setting.svg ***!
-  \******************************************/
+/***/ "./src/shared/assets/icon/Icon_setting.svg":
+/*!*************************************************!*\
+  !*** ./src/shared/assets/icon/Icon_setting.svg ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6408,6 +6349,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/shared/ui/DropDownEditValues/ui/DropDownEditValues.module.scss":
+/*!****************************************************************************!*\
+  !*** ./src/shared/ui/DropDownEditValues/ui/DropDownEditValues.module.scss ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"dropDown__inner":"qzt7n9LlaM6im3AU9NZ4","delete":"f75SBPc15NdcFMemZMl8"});
+
+/***/ }),
+
 /***/ "./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss":
 /*!*******************************************************************************!*\
   !*** ./src/components/simple/ButtonInPopupAnim/ButtonInPopupAnim.module.scss ***!
@@ -6421,22 +6378,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"buttonActions":"extentions__buttonActions__LdU0Y","reverse":"extentions__reverse__t2Kwf","button":"extentions__button__ArhEI","dark":"extentions__dark__VinJJ"});
-
-/***/ }),
-
-/***/ "./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss":
-/*!*********************************************************************************!*\
-  !*** ./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"dropDown__inner":"extentions__dropDown__inner__XKESg","delete":"extentions__delete__QxtbG"});
 
 /***/ }),
 
@@ -39897,60 +39838,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/simple/DropDownEditValues/DropDownEditValues.tsx":
-/*!*************************************************************************!*\
-  !*** ./src/components/simple/DropDownEditValues/DropDownEditValues.tsx ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _assets_icon_Icon_delete_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/assets/icon/Icon_delete.svg */ "./src/assets/icon/Icon_delete.svg");
-/* harmony import */ var _InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../InputWithUnderLineColor */ "./src/components/simple/InputWithUnderLineColor/index.ts");
-/* harmony import */ var _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DropDownEditValues.module.scss */ "./src/components/simple/DropDownEditValues/DropDownEditValues.module.scss");
-
-
-
-
-var DropDownEditValues = function (_a) {
-    var deleteValue = _a.deleteValue, onChange = _a.onChange, values = _a.values;
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].wrapper },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { "data-testid": "list_Option", className: _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].dropDownWrapper }, values.map(function (opt) {
-            return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { key: opt.value, className: _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].dropDown__inner },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_2__.InputWithUnderLineColor, { addStyle: {
-                        flex: 1
-                    }, onChange: function (value) { return onChange(opt.value, value); }, value: opt.label }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { "data-deleteValue": opt.label, onClick: function () { return deleteValue(opt.value); }, className: _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].delete },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_assets_icon_Icon_delete_svg__WEBPACK_IMPORTED_MODULE_1__["default"], null))));
-        }))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropDownEditValues);
-
-
-/***/ }),
-
-/***/ "./src/components/simple/DropDownEditValues/index.ts":
-/*!***********************************************************!*\
-  !*** ./src/components/simple/DropDownEditValues/index.ts ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DropDownEditValues: () => (/* reexport safe */ _DropDownEditValues__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _DropDownEditValues__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DropDownEditValues */ "./src/components/simple/DropDownEditValues/DropDownEditValues.tsx");
-
-
-
-/***/ }),
-
 /***/ "./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.tsx":
 /*!***********************************************************************************!*\
   !*** ./src/components/simple/InputWithUnderLineColor/InputWithUnderLineColor.tsx ***!
@@ -40074,8 +39961,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_simple_DropDownEditValues__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/simple/DropDownEditValues */ "./src/components/simple/DropDownEditValues/index.ts");
-/* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/simple/SimpleButton */ "./src/components/simple/SimpleButton/index.ts");
+/* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/simple/SimpleButton */ "./src/components/simple/SimpleButton/index.ts");
+/* harmony import */ var _shared_ui_DropDownEditValues__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/shared/ui/DropDownEditValues */ "./src/shared/ui/DropDownEditValues/index.ts");
 /* harmony import */ var _shared_utils_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/shared/utils/components */ "./src/shared/utils/components.ts");
 /* harmony import */ var _AllowUrl_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AllowUrl.module.scss */ "./src/popup/page/AllowUrl/AllowUrl.module.scss");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -40189,8 +40076,8 @@ var AllowUrl = function () {
         });
     }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _AllowUrl_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapper },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_2__.SimpleButton, { onClick: createAllowUrl, text: 'Добавить текущий портал' }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_DropDownEditValues__WEBPACK_IMPORTED_MODULE_1__.DropDownEditValues, { deleteValue: deleteAllowUrl, onChange: changeAllowUrl, values: allowBaseUrl || [] })));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton, { onClick: createAllowUrl, text: 'Добавить текущий портал' }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_shared_ui_DropDownEditValues__WEBPACK_IMPORTED_MODULE_2__.DropDownEditValues, { deleteValue: deleteAllowUrl, onChange: changeAllowUrl, values: allowBaseUrl || [] })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllowUrl);
 
@@ -40354,10 +40241,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _assets_icon_Icon_arrowLeft_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/assets/icon/Icon_arrowLeft.svg */ "./src/assets/icon/Icon_arrowLeft.svg");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/simple/SimpleButton */ "./src/components/simple/SimpleButton/index.ts");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _shared_assets_icon_Icon_arrowLeft_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/shared/assets/icon/Icon_arrowLeft.svg */ "./src/shared/assets/icon/Icon_arrowLeft.svg");
 /* harmony import */ var _AllowUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../AllowUrl */ "./src/popup/page/AllowUrl/index.ts");
 /* harmony import */ var _Setting_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Setting.module.scss */ "./src/popup/page/Setting/Setting.module.scss");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -40403,9 +40290,9 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 var Setting = function () {
     var pageRoute = {
-        addPortal: react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_AllowUrl__WEBPACK_IMPORTED_MODULE_3__.AllowUrl, null)
+        addPortal: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AllowUrl__WEBPACK_IMPORTED_MODULE_3__.AllowUrl, null)
     };
-    var _a = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(''), selectPage = _a[0], setSelectPage = _a[1];
+    var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), selectPage = _a[0], setSelectPage = _a[1];
     var addHotRelaod = function () {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             return __awaiter(this, void 0, void 0, function () {
@@ -40426,14 +40313,14 @@ var Setting = function () {
             });
         });
     };
-    return (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", { className: _Setting_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapper },
-        react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", { className: _Setting_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].head },
-            selectPage && (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", { className: _Setting_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].left, onClick: function () { return setSelectPage(''); } },
-                react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_assets_icon_Icon_arrowLeft_svg__WEBPACK_IMPORTED_MODULE_0__["default"], null))),
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement("h1", null, "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438")),
-        selectPage ? (pageRoute[selectPage] || react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_AllowUrl__WEBPACK_IMPORTED_MODULE_3__.AllowUrl, null)) : (react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", null,
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton, { onClick: function () { return setSelectPage('addPortal'); }, text: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F" }),
-            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton, { onClick: addHotRelaod, text: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0445\u043E\u0442 \u0440\u0435\u043B\u043E\u0430\u0434 " })))));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _Setting_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].wrapper },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _Setting_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].head },
+            selectPage && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _Setting_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].left, onClick: function () { return setSelectPage(''); } },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_shared_assets_icon_Icon_arrowLeft_svg__WEBPACK_IMPORTED_MODULE_2__["default"], null))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438")),
+        selectPage ? (pageRoute[selectPage] || react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AllowUrl__WEBPACK_IMPORTED_MODULE_3__.AllowUrl, null)) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton, { onClick: function () { return setSelectPage('addPortal'); }, text: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F" }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_SimpleButton__WEBPACK_IMPORTED_MODULE_1__.SimpleButton, { onClick: addHotRelaod, text: "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0445\u043E\u0442 \u0440\u0435\u043B\u043E\u0430\u0434 " })))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Setting);
 
@@ -40616,6 +40503,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Api */ "./src/shared/config/Api/Api.ts");
 
+
+
+/***/ }),
+
+/***/ "./src/shared/ui/DropDownEditValues/index.ts":
+/*!***************************************************!*\
+  !*** ./src/shared/ui/DropDownEditValues/index.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DropDownEditValues: () => (/* reexport safe */ _ui_DropDownEditValues__WEBPACK_IMPORTED_MODULE_0__.DropDownEditValues)
+/* harmony export */ });
+/* harmony import */ var _ui_DropDownEditValues__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui/DropDownEditValues */ "./src/shared/ui/DropDownEditValues/ui/DropDownEditValues.tsx");
+
+
+
+/***/ }),
+
+/***/ "./src/shared/ui/DropDownEditValues/ui/DropDownEditValues.tsx":
+/*!********************************************************************!*\
+  !*** ./src/shared/ui/DropDownEditValues/ui/DropDownEditValues.tsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DropDownEditValues: () => (/* binding */ DropDownEditValues)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '@/assets/icon/Icon_delete.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/simple/InputWithUnderLineColor */ "./src/components/simple/InputWithUnderLineColor/index.ts");
+/* harmony import */ var _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DropDownEditValues.module.scss */ "./src/shared/ui/DropDownEditValues/ui/DropDownEditValues.module.scss");
+
+
+
+
+var DropDownEditValues = function (_a) {
+    var deleteValue = _a.deleteValue, onChange = _a.onChange, values = _a.values;
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].wrapper },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { "data-testid": "list_Option", className: _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].dropDownWrapper }, values.map(function (opt) {
+            return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { key: opt.value, className: _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].dropDown__inner },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_simple_InputWithUnderLineColor__WEBPACK_IMPORTED_MODULE_2__.InputWithUnderLineColor, { addStyle: {
+                        flex: 1
+                    }, onChange: function (value) { return onChange(opt.value, value); }, value: opt.label }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { "data-deleteValue": opt.label, onClick: function () { return deleteValue(opt.value); }, className: _DropDownEditValues_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].delete },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Object(function webpackMissingModule() { var e = new Error("Cannot find module '@/assets/icon/Icon_delete.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null))));
+        }))));
+};
 
 
 /***/ }),
@@ -45111,15 +45051,15 @@ var __webpack_exports__ = {};
   !*** ./src/popup/popup.tsx ***!
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _popup_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./popup.scss */ "./src/popup/popup.scss");
-/* harmony import */ var _assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/assets/icon/IconPaste.svg */ "./src/assets/icon/IconPaste.svg");
-/* harmony import */ var _assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/assets/icon/Icon_setting.svg */ "./src/assets/icon/Icon_setting.svg");
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _page_PasteClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page/PasteClass */ "./src/popup/page/PasteClass/index.ts");
-/* harmony import */ var _page_Setting__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./page/Setting */ "./src/popup/page/Setting/index.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '@/assets/icon/IconPaste.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _shared_assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/shared/assets/icon/Icon_setting.svg */ "./src/shared/assets/icon/Icon_setting.svg");
+/* harmony import */ var _page_PasteClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./page/PasteClass */ "./src/popup/page/PasteClass/index.ts");
+/* harmony import */ var _page_Setting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page/Setting */ "./src/popup/page/Setting/index.ts");
+/* harmony import */ var _popup_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./popup.scss */ "./src/popup/popup.scss");
 /* eslint-disable max-len */
 /* eslint-disable max-lines-per-function */
 
@@ -45131,7 +45071,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function () {
-    var _a = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(1), selectPage = _a[0], setSelectPage = _a[1];
+    var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1), selectPage = _a[0], setSelectPage = _a[1];
     function move(id, position, color) {
         setSelectPage(+id);
         var tl = gsap__WEBPACK_IMPORTED_MODULE_7__.gsap.timeline();
@@ -45177,44 +45117,44 @@ var App = function () {
     //   });
     // };
     var objPage = {
-        1: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_page_PasteClass__WEBPACK_IMPORTED_MODULE_5__.PasteClass, null),
-        2: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_page_PasteClass__WEBPACK_IMPORTED_MODULE_5__.PasteClass, null),
-        3: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_page_PasteClass__WEBPACK_IMPORTED_MODULE_5__.PasteClass, null),
-        4: react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_page_Setting__WEBPACK_IMPORTED_MODULE_6__.Setting, null)
+        1: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_page_PasteClass__WEBPACK_IMPORTED_MODULE_4__.PasteClass, null),
+        2: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_page_PasteClass__WEBPACK_IMPORTED_MODULE_4__.PasteClass, null),
+        3: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_page_PasteClass__WEBPACK_IMPORTED_MODULE_4__.PasteClass, null),
+        4: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_page_Setting__WEBPACK_IMPORTED_MODULE_5__.Setting, null)
     };
-    return (react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "wrapper" },
-        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "navbarContainer" },
-            react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "navbar" },
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { className: "bodyContent" }, objPage[selectPage] || react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_page_PasteClass__WEBPACK_IMPORTED_MODULE_5__.PasteClass, null)),
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "bubbleWrapper" },
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "bubble1", className: "bubble" },
-                        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", { className: "icon" },
-                            react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__["default"], null))),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "bubble2", className: "bubble" },
-                        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", { className: "icon" }, "2")),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "bubble3", className: "bubble" },
-                        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", { className: "icon" }, "3")),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "bubble4", className: "bubble" },
-                        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", { className: "icon" },
-                            react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_2__["default"], null)))),
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "menuWrapper" },
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { onClick: function () { return move('1', '50px', '#ffcc80'); }, className: "menuElement" }, selectPage !== 1 && react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__["default"], null)),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { onClick: function () { return move('2', '150px', '#81d4fa'); }, className: "menuElement" }, "22"),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { onClick: function () { return move('3', '250px', '#c5e1a5'); }, className: "menuElement " }, "33"),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { onClick: function () { return move('4', '350px', '#ce93d8'); }, className: "menuElement" }, selectPage !== 4 && react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_2__["default"], null)))),
-            react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "bgWrapper" },
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "bg" }),
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("div", { id: "bgBubble" }))),
-        react__WEBPACK_IMPORTED_MODULE_3___default().createElement("svg", { width: "0", height: "0" },
-            react__WEBPACK_IMPORTED_MODULE_3___default().createElement("defs", null,
-                react__WEBPACK_IMPORTED_MODULE_3___default().createElement("filter", { id: "goo" },
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("feGaussianBlur", { in: "SourceGraphic", stdDeviation: "20", result: "blur", id: "blurFilter" }),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("feColorMatrix", { in: "blur", mode: "matrix", values: "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -15", result: "goo" }),
-                    react__WEBPACK_IMPORTED_MODULE_3___default().createElement("feComposite", { in: "SourceGraphic", in2: "goo", operator: "atop" }))))));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "navbarContainer" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "navbar" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bodyContent" }, objPage[selectPage] || react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_page_PasteClass__WEBPACK_IMPORTED_MODULE_4__.PasteClass, null)),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubbleWrapper" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble1", className: "bubble" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Object(function webpackMissingModule() { var e = new Error("Cannot find module '@/assets/icon/IconPaste.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble2", className: "bubble" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" }, "2")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble3", className: "bubble" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" }, "3")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bubble4", className: "bubble" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "icon" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_shared_assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_3__["default"], null)))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "menuWrapper" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: function () { return move('1', '50px', '#ffcc80'); }, className: "menuElement" }, selectPage !== 1 && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Object(function webpackMissingModule() { var e = new Error("Cannot find module '@/assets/icon/IconPaste.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: function () { return move('2', '150px', '#81d4fa'); }, className: "menuElement" }, "22"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: function () { return move('3', '250px', '#c5e1a5'); }, className: "menuElement " }, "33"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: function () { return move('4', '350px', '#ce93d8'); }, className: "menuElement" }, selectPage !== 4 && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_shared_assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_3__["default"], null)))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bgWrapper" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bg" }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "bgBubble" }))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { width: "0", height: "0" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("defs", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("filter", { id: "goo" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("feGaussianBlur", { in: "SourceGraphic", stdDeviation: "20", result: "blur", id: "blurFilter" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("feColorMatrix", { in: "blur", mode: "matrix", values: "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -15", result: "goo" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("feComposite", { in: "SourceGraphic", in2: "goo", operator: "atop" }))))));
 };
 var container = document.getElementById('root');
-var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_4__.createRoot)(container); // createRoot(container!) if you use TypeScript
-root.render(react__WEBPACK_IMPORTED_MODULE_3___default().createElement(App, null));
+var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container); // createRoot(container!) if you use TypeScript
+root.render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(App, null));
 
 })();
 

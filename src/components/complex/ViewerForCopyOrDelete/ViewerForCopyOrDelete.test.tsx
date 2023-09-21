@@ -4,7 +4,7 @@ import { userEvent } from '@testing-library/user-event';
 import React from 'react';
 
 import { ManagerViewersService } from '@/services/ManagerViewers.service';
-import StoreProvider from '@/shared/Provider/StoreProvider';
+import StoreProviderTest from '@/shared/Provider/StoreProvider';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
 import ViewerForCopyOrDelete, {
@@ -81,7 +81,7 @@ beforeEach(() => {
 describe('ViewerForCopyOrDelete', () => {
   test('отрисовка всей строки с ее данными без действий', () => {
     render(
-      <StoreProvider
+      <StoreProviderTest
         initState={{
           entities: {
             entitiesForPaste
@@ -94,7 +94,7 @@ describe('ViewerForCopyOrDelete', () => {
           entity={entity}
           viewer={viewer}
         />
-      </StoreProvider>
+      </StoreProviderTest>
     );
     const name = screen.getByTestId('Caption');
     expect(name).toBeInTheDocument();
@@ -138,7 +138,7 @@ describe('Проверка пропса isHave', () => {
   test('Цвет кнопки, если isHave = false', () => {
     // const cbAddStateViewers = jest.fn()
     render(
-      <StoreProvider
+      <StoreProviderTest
         initState={{
           entities: {
             entitiesForPaste
@@ -151,7 +151,7 @@ describe('Проверка пропса isHave', () => {
           entity={entity}
           viewer={viewer}
         />
-      </StoreProvider>
+      </StoreProviderTest>
     );
     expect(screen.getByText('Запомнить вид').parentElement).toHaveStyle({
       'background-color': 'rgb(76, 175, 80)'
@@ -159,7 +159,7 @@ describe('Проверка пропса isHave', () => {
   });
   test('Цвет кнопки, если isHave = true', () => {
     render(
-      <StoreProvider
+      <StoreProviderTest
         initState={{
           entities: {
             entitiesForPaste
@@ -172,7 +172,7 @@ describe('Проверка пропса isHave', () => {
           entity={entity}
           viewer={viewer}
         />
-      </StoreProvider>
+      </StoreProviderTest>
     );
     expect(screen.getByText('Запомнить вид').parentElement).toHaveStyle({
       'background-color': 'rgb(211, 211, 211)'
@@ -181,7 +181,7 @@ describe('Проверка пропса isHave', () => {
   test('проверка функции addStateViewers когда isHave = false', () => {
     const addStateViewersMock = jest.fn();
     render(
-      <StoreProvider
+      <StoreProviderTest
         initState={{
           entities: {
             entitiesForPaste
@@ -194,7 +194,7 @@ describe('Проверка пропса isHave', () => {
           entity={entity}
           viewer={viewer}
         />
-      </StoreProvider>
+      </StoreProviderTest>
     );
 
     const btn = screen.getByText('Запомнить вид');
@@ -205,7 +205,7 @@ describe('Проверка пропса isHave', () => {
   test('проверка функции addStateViewers когда isHave = true', () => {
     const addStateViewersMock = jest.fn();
     render(
-      <StoreProvider
+      <StoreProviderTest
         initState={{
           entities: {
             entitiesForPaste
@@ -218,7 +218,7 @@ describe('Проверка пропса isHave', () => {
           entity={entity}
           viewer={viewer}
         />
-      </StoreProvider>
+      </StoreProviderTest>
     );
 
     const btn = screen.getByText('Запомнить вид');

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { DropDownEditValues } from '@/components/simple/DropDownEditValues';
-import { SimpleButton } from '@/components/simple/SimpleButton';
+import { DropDownEditValues } from '@/shared/ui/DropDownEditValues';
+import { SimpleButton } from '@/shared/ui/SimpleButton';
 import { RenderWarningTextInPopup } from '@/shared/utils/components';
 import { OptionsType } from '@/type/components.dto';
 import styles from './AllowUrl.module.scss';

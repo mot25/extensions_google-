@@ -2,9 +2,9 @@ import JSAlert from 'js-alert';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { Progress } from '@/components/simple/Progress';
-import { SimpleButton } from '@/components/simple/SimpleButton';
 import { ManagerViewersService } from '@/services/ManagerViewers.service';
+import { Progress } from '@/shared/ui/Progress';
+import { SimpleButton } from '@/shared/ui/SimpleButton';
 import { getPercent } from '@/shared/utils/utils';
 import { entitiesAllSelector } from '@/store/slice/entitiesSlice/entitiesSlice';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
@@ -17,18 +17,21 @@ type Props = {
   entity: EntitiesType;
   addStateViewers: (viewer: ViewerType) => void;
 };
-export const deleteInNestedEntity = (
+export const deleteInNestedEntity = async (
   entitiesFromPaste: EntitiesType[],
   viewer: ViewerType,
   cb: VoidFunction
 ) => {
-  entitiesFromPaste.forEach(entity => {
+  await entitiesFromPaste.forEach(async entity => {
     const viewerDelete = entity?.Viewers?.find(
       V => V?.Caption === viewer?.Caption
     );
 
     if (viewerDelete?.Id !== undefined) {
-      ManagerViewersService.deleteViewer(entity.Id, viewerDelete?.Id).then(cb);
+      await ManagerViewersService.deleteViewer(
+        entity.Id,
+        viewerDelete?.Id
+      ).then(cb);
     }
   });
 };
