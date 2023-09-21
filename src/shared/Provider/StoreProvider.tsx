@@ -6,7 +6,7 @@ import { RootStoreType, createStore } from '@/store';
 type Props = {
   initState: RootStoreType;
 } & PropsWithChildren;
-const StoreProviderTest = ({ initState, children }: Props) => {
+const StoreProvider = ({ initState, children }: Props) => {
   return <Provider store={createStore(initState)}>{children}</Provider>;
 };
-export default StoreProviderTest;
+export default StoreProvider;

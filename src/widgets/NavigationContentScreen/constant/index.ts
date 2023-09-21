@@ -1,1 +1,0 @@
-export { objRoutePage } from './route';

@@ -1,1 +1,0 @@
-export { leftMenuConfig } from './route';
