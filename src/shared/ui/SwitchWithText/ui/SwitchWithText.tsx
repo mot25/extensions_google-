@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
-import Switch from '../../../shared/ui/Switch/Switch';
+
+import Switch from '../../Switch/ui/Switch';
 import styles from './SwitchWithText.module.scss';
 
 type Props = {

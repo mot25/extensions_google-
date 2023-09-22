@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-import ButtonInPopupAnim from '../ButtonInPopupAnim';
+import { ButtonInPopupAnim } from '../ui/ButtonInPopupAnim';
 
 describe('ButtonInPopupAnim', () => {
   test('тестирование пропса text и onClick', () => {

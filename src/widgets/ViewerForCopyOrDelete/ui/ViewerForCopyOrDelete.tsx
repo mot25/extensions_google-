@@ -3,10 +3,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { entitiesAllSelector } from '@/shared/model/slice';
+import { EntitiesType, ViewerType } from '@/shared/type';
 import { Progress } from '@/shared/ui/Progress';
 import { SimpleButton } from '@/shared/ui/SimpleButton';
 import { getPercent } from '@/shared/utils/utils';
-import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
 import { deleteInCurrentEntity, deleteInNestedEntity } from '../model';
 import styles from './ViewerForCopyOrDelete.module.scss';

@@ -1,1 +1,1 @@
-export { default as CopyViewer } from './CopyViewer';
+export { default as CopyViewer } from './ui/CopyViewer';

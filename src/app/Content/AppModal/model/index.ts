@@ -1,7 +1,11 @@
+import { usageDispatch } from '@/shared/lib/hooks';
+import { setEntitiesForPaste, setViewerForPaste } from '@/shared/model/slice';
+import { ViewerType } from '@/shared/type';
+
 export const getPostEntitiesForPasteInsert = () => {
   chrome.runtime.onMessage.addListener(function (request) {
     if (request.action === 'postEntitiesForPasteInsert') {
-      dispatch(setEntitiesForPaste(request.payload));
+      usageDispatch(setEntitiesForPaste(request.payload));
     }
   });
 };
@@ -12,7 +16,7 @@ export const getViewersStateFromStorage = () => {
     const saveViewersStorage: ViewerType[] = Array.isArray(allView)
       ? allView
       : [];
-    setViewerForPaste(saveViewersStorage);
+    usageDispatch(setViewerForPaste(saveViewersStorage));
   });
 };
 export const subscribeViewersStateFromStorage = () => {
@@ -20,7 +24,7 @@ export const subscribeViewersStateFromStorage = () => {
     for (const [, { newValue }] of Object.entries(changes)) {
       if (!newValue) return;
       const viewers = JSON.parse(newValue);
-      setViewerForPaste(viewers);
+      usageDispatch(setViewerForPaste(viewers));
     }
   });
 };

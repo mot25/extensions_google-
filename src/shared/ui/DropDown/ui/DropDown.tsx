@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { OptionsType } from '@/type/components.dto';
-
+import { OptionsType } from '../type';
 import styles from './DropDown.module.scss';
 
 type Props = {

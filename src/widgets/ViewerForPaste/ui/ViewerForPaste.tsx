@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import React from 'react';
 
+import { ViewerType } from '@/shared/type';
 import { InputWithUnderLineColor } from '@/shared/ui/InputWithUnderLineColor';
 import { SimpleButton } from '@/shared/ui/SimpleButton';
-import { ViewerType } from '@/type/entities.dto';
 
 import styles from './ViewerForPaste.module.scss';
 

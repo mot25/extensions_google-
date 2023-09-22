@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
-import ErrorNeumorphism from './ErrorNeumorphism';
+import { ErrorNeumorphism } from '../ui/ErrorNeumorphism';
 
 describe('ErrorNeumorphism', () => {
   const errorList = ['errorTest1', 'errorTest2'];

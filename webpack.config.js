@@ -38,7 +38,7 @@ module.exports = {
   },
   entry: {
     background: './src/backgroundScripts/background.ts',
-    popup: './src/popup/popup.tsx',
+    popup: './src/popup/ui/popup.tsx',
     ...pathFileDynamic('./src/contentScripts/**/*.tsx'),
     ...pathFileDynamic('./src/contentScripts/**/*.ts')
   },

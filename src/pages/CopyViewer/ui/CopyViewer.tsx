@@ -1,36 +1,24 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { viewerForPasteSelector } from '@/shared/model/slice';
+import { ViewerType } from '@/shared/type';
 import { ViewerForCopyOrDelete } from '@/widgets/ViewerForCopyOrDelete';
-// eslint-disable-next-line max-len
-import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
-import { entitiesAllSelector } from '@/shared/model/slice/entitiesSlice/entitiesSlice';
+import { addStateViewers, getEntityInEntitiesForPaste } from '../model';
 import styles from './CopyViewer.module.scss';
 
 const OneScreenCopyModal = () => {
-  const entitiesFromPaste = useSelector(entitiesAllSelector);
-  const addStateViewers = (view: ViewerType) => {
-    chrome.storage.local.get(['viewersState'], function (result) {
-      const allView = result.viewersState && JSON.parse(result.viewersState);
-      const saveViewersStorage = Array.isArray(allView) ? allView : [];
-      saveViewersStorage.push(view);
-      chrome.storage.local.set({
-        viewersState: JSON.stringify(saveViewersStorage)
-      });
-    });
-  };
-  const entity: EntitiesType = entitiesFromPaste.find(
-    (_: EntitiesType) => _.isCurrent
-  );
+  const viewerForPaste = useSelector(viewerForPasteSelector);
 
+  const entity = getEntityInEntitiesForPaste();
   return (
     <div>
       <h4 style={{ fontWeight: 'bold' }}>
         Выберите вид для копирование/удаления
       </h4>
       <ul className={styles.wrapperItem}>
-        {entity?.Viewers?.map((viewer, index) => {
+        {entity?.Viewers?.map((viewer: ViewerType, index: number) => {
           const isHave = !!~viewerForPaste.findIndex(
             _ => _?.Caption === viewer?.Caption
           );

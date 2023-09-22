@@ -1,3 +1,7 @@
+import { URL_VIEWER_SETTING } from '@/app/Content/AppModal/constant';
+
+import { RequestForPasteViewerType } from './entities.dto';
+
 export type SwitchRenderListType = {
   id: string;
   text?: string;

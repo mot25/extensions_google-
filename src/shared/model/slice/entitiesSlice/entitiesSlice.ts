@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { RootStoreType } from '@/app';
-import { EntitiesType } from '@/type/entities.dto';
+import { EntitiesType } from '@/shared/type';
 
 type initialStateType = {
   entitiesForPaste: EntitiesType[];

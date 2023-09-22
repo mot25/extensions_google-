@@ -20,8 +20,14 @@ import {
   setViewerForPaste,
   viewerForPasteSelector
 } from '@/shared/model/slice';
+import {
+  RequestForPasteViewerType,
+  SettingsViewerForPasteType,
+  SwitchRenderListType,
+  ViewerType
+} from '@/shared/type';
+import { ErrorNeumorphism } from '@/shared/ui';
 import { DropDown } from '@/shared/ui/DropDown';
-import ErrorNeumorphism from '@/shared/ui/ErrorNeumorphism/ErrorNeumorphism';
 import { InputWithUnderLineColor } from '@/shared/ui/InputWithUnderLineColor';
 import { Progress } from '@/shared/ui/Progress';
 import { SimpleButton } from '@/shared/ui/SimpleButton';
@@ -34,22 +40,17 @@ import {
   getOrderViewerInEntities
 } from '@/shared/utils/components';
 import { getPercent } from '@/shared/utils/utils';
-import {
-  SettingsViewerForPasteType,
-  SwitchRenderListType,
-  TypePasteViewers
-} from '@/type/components.dto';
-import { RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
-import { IconType } from '@/type/icon.dto';
 import { ViewerForPaste } from '@/widgets/ViewerForPaste';
 
 import { getIcons } from './api';
-import styles from './PasteViewer.module.scss';
 import {
   CustomSettingsInitialState,
   initialStateConfigPaste,
   initialStateSettingViewer
-} from './PasteViewerContanstant';
+} from './constant/PasteViewerContanstant';
+import styles from './PasteViewer.module.scss';
+import { TypePasteViewers } from './type';
+import { IconType } from './type/icon.dto';
 
 const PasteViewer = () => {
   const dispatch = useDispatch();

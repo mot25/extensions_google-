@@ -4,7 +4,8 @@ import {
   getParamFromUrl,
   getUrlParameter
 } from '@/shared/utils/utils';
-import { HttpHeader } from '@/type/components.dto';
+
+import { HttpHeader } from './type';
 
 type urlHeadersType = {
   url: string;

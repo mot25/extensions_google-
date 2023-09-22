@@ -1,3 +1,5 @@
+import { ViewerType } from './viewer.dto';
+
 export type RequestForPasteViewerType = {
   Id?: string;
   Name: string;

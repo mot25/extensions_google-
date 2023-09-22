@@ -1,10 +1,6 @@
 import { AttributesService } from '@/shared/apiServices/Attributes.service';
-import {
-  EntitiesType,
-  RequestForPasteViewerType,
-  ViewerType
-} from '@/type/entities.dto';
 
+import { EntitiesType, RequestForPasteViewerType, ViewerType } from '../type';
 import { copyAttrInViewer, getOrderViewerInEntities } from './components';
 
 const attrServicesMocked = AttributesService as jest.Mocked<

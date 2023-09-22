@@ -1,3 +1,5 @@
+import { RequestForPasteViewerType } from './entities.dto';
+
 export type ViewerType = {
   Caption: string;
   Icon: string;

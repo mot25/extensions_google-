@@ -14,10 +14,10 @@ import {
   URL_VIEWER_SETTING
 } from '@/app/Content/AppModal/constant';
 import {
+  RequestForPasteViewerType,
   SettingsViewerForPasteType,
   SwitchRenderListType
-} from '@/type/components.dto';
-import { RequestForPasteViewerType } from '@/type/entities.dto';
+} from '@/shared/type';
 
 export const initialStateConfigPaste: SwitchRenderListType[] = [
   {

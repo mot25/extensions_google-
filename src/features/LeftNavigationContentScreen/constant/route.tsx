@@ -1,9 +1,9 @@
 import React from 'react';
 
 import IconPaste from '@/shared/assets/icon/IconPaste.svg';
-import { MenuLeftNavbar } from '@/type/components.dto';
 
 import IconPlus from '../assets/icon/IconPlus.svg';
+import { MenuLeftNavbar } from '../type';
 
 export const leftMenuConfig: MenuLeftNavbar[] = [
   {

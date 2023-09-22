@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-import { EntitiesType } from '@/type/entities.dto';
-
+import { EntitiesType } from '../type';
 import {
   entitiesForPasteInsert,
   getData,

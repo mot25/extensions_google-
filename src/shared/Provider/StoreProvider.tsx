@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 
-import { RootStoreType, createStore } from '@/store';
+import { RootStoreType, createStore } from '@/app/appStore';
 
 type Props = {
   initState: RootStoreType;

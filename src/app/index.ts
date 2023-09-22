@@ -1,1 +1,1 @@
-export { RootStoreType } from './appStore';
+export { RootStoreType, storeRedux } from './appStore';

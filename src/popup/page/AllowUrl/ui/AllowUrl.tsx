@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
+import { OptionsType } from '@/shared/ui/DropDown/type';
 import { DropDownEditValues } from '@/shared/ui/DropDownEditValues';
 import { SimpleButton } from '@/shared/ui/SimpleButton';
 import { RenderWarningTextInPopup } from '@/shared/utils/components';
-import { OptionsType } from '@/type/components.dto';
 import styles from './AllowUrl.module.scss';
 
 const AllowUrl = () => {

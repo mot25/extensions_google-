@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { RootStoreType } from '@/app';
-import { ViewerType } from '@/type/entities.dto';
+import { ViewerType } from '@/shared/type';
 
 type initialStateType = {
   viewerForPaste: ViewerType[];

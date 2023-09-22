@@ -1,13 +1,12 @@
 import JSAlert from 'js-alert';
-import { useSelector } from 'react-redux';
 
-import { ManagerViewersService } from '@/services/ManagerViewers.service';
+import { usageSelector } from '@/shared/lib/hooks';
 import { entitiesAllSelector } from '@/shared/model/slice';
-import { EntitiesType, ViewerType } from '@/type/entities.dto';
+import { EntitiesType, ViewerType } from '@/shared/type';
 
-const getEntitiesFromPaste = () => {
-  return useSelector(entitiesAllSelector);
-};
+import { deleteViewerApi } from '../api';
+
+const entitiesFromPaste = usageSelector(entitiesAllSelector);
 
 export const deleteInNestedEntity = async (
   entitiesFromPaste: EntitiesType[],
@@ -20,10 +19,7 @@ export const deleteInNestedEntity = async (
     );
 
     if (viewerDelete?.Id !== undefined) {
-      await ManagerViewersService.deleteViewer(
-        entity.Id,
-        viewerDelete?.Id
-      ).then(cb);
+      await deleteViewerApi(entity.Id, viewerDelete?.Id).then(cb);
     }
   });
 };
@@ -33,7 +29,7 @@ export const deleteInCurrentEntity = async (
   cb: VoidFunction
 ) => {
   cb();
-  await ManagerViewersService.deleteViewer(entity.Id, viewer.Id);
+  await deleteViewerApi(entity.Id, viewer.Id);
 };
 
 export const deleteViewer = (
@@ -55,7 +51,7 @@ export const deleteViewer = (
     await deleteInCurrentEntity(entity, viewer, deleteCurrentClass);
   });
   alert.addButton('Удалить во вложенных классах').then(() => {
-    deleteInNestedEntity(getEntitiesFromPaste(), viewer, nestedDeleteEntities);
+    deleteInNestedEntity(entitiesFromPaste, viewer, nestedDeleteEntities);
   });
   alert.show();
 };

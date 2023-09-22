@@ -4,12 +4,12 @@ import { gsap } from 'gsap';
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import IconPaste from '@/assets/icon/IconPaste.svg';
 import IconSetting from '@/shared/assets/icon/Icon_setting.svg';
+import IconPaste from '@/shared/assets/icon/IconPaste.svg';
+import { PageNavigatorType } from '@/widgets/NavigationContentScreen/type';
 
-import { PageNavigatorType } from '../type/components.dto';
-import { PasteClass } from './page/PasteClass';
-import { Setting } from './page/Setting';
+import { PasteClass } from '../page/PasteClass';
+import { Setting } from '../page/Setting';
 import './popup.scss';
 
 const App = () => {

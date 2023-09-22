@@ -1,7 +1,8 @@
-import { EntitiesType } from '@/type/entities.dto';
+import { EntitiesType } from '@/shared/type';
 
-import entitiesSlice, {
+import {
   entitiesAllSelector,
+  entitiesSliceReducer,
   setEntitiesForPaste
 } from './entitiesSlice';
 
@@ -24,7 +25,8 @@ describe('тестируем selector', () => {
       entitiesAllSelector({
         entities: {
           entitiesForPaste: entitiesForPaste
-        }
+        },
+        viewerForPaste: undefined
       })[0].Name
     ).toEqual('nameTest');
   });
@@ -33,7 +35,7 @@ describe('тестируем selector', () => {
 describe('тестируем reducer', () => {
   test('тестируем reducer', () => {
     expect(
-      entitiesSlice(
+      entitiesSliceReducer(
         { entitiesForPaste: [] },
         setEntitiesForPaste([
           {

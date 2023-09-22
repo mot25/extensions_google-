@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { ViewerType } from '@/type/entities.dto';
+import { ViewerType } from '@/shared/type';
 
 import ViewerForPaste from '../ui/ViewerForPaste';
 import styles from './ViewerForPaste.module.scss';

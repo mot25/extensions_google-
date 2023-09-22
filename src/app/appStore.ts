@@ -15,7 +15,7 @@ export const createStore = (initState = {}) => {
     preloadedState: initState
   });
 };
-const store = createStore();
+export const storeRedux = createStore();
 
-export type RootStoreType = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootStoreType = ReturnType<typeof storeRedux.getState>;
+export type AppDispatch = typeof storeRedux.dispatch;
