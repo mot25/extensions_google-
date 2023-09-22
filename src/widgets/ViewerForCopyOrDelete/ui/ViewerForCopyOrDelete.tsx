@@ -2,13 +2,13 @@ import JSAlert from 'js-alert';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ManagerViewersService } from '@/services/ManagerViewers.service';
+import { entitiesAllSelector } from '@/shared/model/slice';
 import { Progress } from '@/shared/ui/Progress';
 import { SimpleButton } from '@/shared/ui/SimpleButton';
 import { getPercent } from '@/shared/utils/utils';
-import { entitiesAllSelector } from '@/store/slice/entitiesSlice/entitiesSlice';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
+import { deleteInCurrentEntity, deleteInNestedEntity } from '../model';
 import styles from './ViewerForCopyOrDelete.module.scss';
 
 type Props = {
@@ -17,32 +17,7 @@ type Props = {
   entity: EntitiesType;
   addStateViewers: (viewer: ViewerType) => void;
 };
-export const deleteInNestedEntity = async (
-  entitiesFromPaste: EntitiesType[],
-  viewer: ViewerType,
-  cb: VoidFunction
-) => {
-  await entitiesFromPaste.forEach(async entity => {
-    const viewerDelete = entity?.Viewers?.find(
-      V => V?.Caption === viewer?.Caption
-    );
 
-    if (viewerDelete?.Id !== undefined) {
-      await ManagerViewersService.deleteViewer(
-        entity.Id,
-        viewerDelete?.Id
-      ).then(cb);
-    }
-  });
-};
-export const deleteInCurrentEntity = async (
-  entity: EntitiesType,
-  viewer: ViewerType,
-  cb: VoidFunction
-) => {
-  cb();
-  await ManagerViewersService.deleteViewer(entity.Id, viewer.Id);
-};
 const ViewerForCopyOrDelete = ({
   isHave,
   viewer,
@@ -110,17 +85,14 @@ const ViewerForCopyOrDelete = ({
           text="Удалить"
         />
       )}
-
       <SimpleButton
         wd="150px"
         addStyle={{
           height: '24px'
         }}
         bg={isHave ? 'rgb(211, 211, 211)' : 'rgb(76, 175, 80)'}
-        onClick={() => {
-          if (isHave) return;
-          addStateViewers(viewer);
-        }}
+        onClick={() => addStateViewers(viewer)}
+        disabled={isHave}
         text="Запомнить вид"
       />
     </li>

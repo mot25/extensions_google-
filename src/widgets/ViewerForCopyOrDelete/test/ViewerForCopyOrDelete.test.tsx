@@ -7,10 +7,8 @@ import { ManagerViewersService } from '@/services/ManagerViewers.service';
 import StoreProviderTest from '@/shared/Provider/StoreProvider';
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
-import ViewerForCopyOrDelete, {
-  deleteInCurrentEntity,
-  deleteInNestedEntity
-} from './ViewerForCopyOrDelete';
+import { deleteInCurrentEntity, deleteInNestedEntity } from '../model';
+import ViewerForCopyOrDelete from '../ui/ViewerForCopyOrDelete';
 
 jest.mock('@/services/ManagerViewers.service');
 jest.mock('axios');

@@ -4,7 +4,7 @@ import React from 'react';
 
 import { ViewerType } from '@/type/entities.dto';
 
-import ViewerForPaste from './ViewerForPaste';
+import ViewerForPaste from '../ui/ViewerForPaste';
 import styles from './ViewerForPaste.module.scss';
 
 const viewer: ViewerType = {

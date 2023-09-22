@@ -14,7 +14,6 @@ import {
   SET_ICON,
   URL_VIEWER_SETTING
 } from '@/app/Content/AppModal/constant';
-import { ViewerForPaste } from '@/components/complex/ViewerForPaste';
 import { EntitiesService } from '@/services/Entities.service';
 import { IconService } from '@/services/Icon.service';
 import {
@@ -43,6 +42,7 @@ import {
 } from '@/type/components.dto';
 import { RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
+import { ViewerForPaste } from '@/widgets/ViewerForPaste';
 
 import styles from './PasteViewer.module.scss';
 import {

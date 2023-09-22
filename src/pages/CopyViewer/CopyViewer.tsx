@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { ViewerForCopyOrDelete } from '@/components/complex/ViewerForCopyOrDelete';
+import { ViewerForCopyOrDelete } from '@/widgets/ViewerForCopyOrDelete';
 // eslint-disable-next-line max-len
 import { EntitiesType, ViewerType } from '@/type/entities.dto';
 
