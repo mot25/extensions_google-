@@ -1,6 +1,6 @@
 import { api } from '@/shared/config/Api';
+import { ViewerAttrServiceType } from '@/shared/type/attribute.dto';
 import { joinParamArrayApi } from '@/shared/utils/utils';
-import { ViewerAttrServiceType } from '@/type/attribute.dto';
 
 export class AttributesService {
   static async setAttrViewer({

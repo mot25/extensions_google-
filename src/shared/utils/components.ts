@@ -1,4 +1,4 @@
-import { AttributesService } from '@/services/Attributes.service';
+import { AttributesService } from '@/shared/apiServices/Attributes.service';
 import { OrderSendType } from '@/type/components.dto';
 import {
   EntitiesType,

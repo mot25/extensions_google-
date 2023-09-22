@@ -1,15 +1,3 @@
-type Group = {
-  Id: number;
-  Name: string;
-};
-type Attributes = {
-  [x: string]: {
-    Type: number;
-    Group: Group;
-    Id: string;
-    Name: string;
-  };
-};
 export type RequestForPasteViewerType = {
   Id?: string;
   Name: string;
@@ -25,17 +13,20 @@ export type RequestForPasteViewerType = {
     hideEmptyFields: boolean;
   };
 };
-export type ViewerType = {
-  Caption: string;
-  Icon: string;
-  Attributes: string[];
-  Id: string;
-  Name: string;
-  Settings?: RequestForPasteViewerType['Settings'];
 
-  isSelected?: boolean;
-  order?: number;
+type Group = {
+  Id: number;
+  Name: string;
 };
+type Attributes = {
+  [x: string]: {
+    Type: number;
+    Group: Group;
+    Id: string;
+    Name: string;
+  };
+};
+
 type Parent = {
   Id: string;
 };

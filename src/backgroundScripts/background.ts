@@ -1,4 +1,4 @@
-import { EntitiesService } from '@/services/Entities.service';
+import { EntitiesService } from '@/shared/apiServices/Entities.service';
 import {
   entitiesForPasteInsert,
   getParamFromUrl,

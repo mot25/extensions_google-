@@ -14,8 +14,7 @@ import {
   SET_ICON,
   URL_VIEWER_SETTING
 } from '@/app/Content/AppModal/constant';
-import { EntitiesService } from '@/services/Entities.service';
-import { IconService } from '@/services/Icon.service';
+import { EntitiesService } from '@/shared/apiServices/Entities.service';
 import {
   entitiesAllSelector,
   setViewerForPaste,
@@ -44,6 +43,7 @@ import { RequestForPasteViewerType, ViewerType } from '@/type/entities.dto';
 import { IconType } from '@/type/icon.dto';
 import { ViewerForPaste } from '@/widgets/ViewerForPaste';
 
+import { getIcons } from './api';
 import styles from './PasteViewer.module.scss';
 import {
   CustomSettingsInitialState,
@@ -68,7 +68,7 @@ const PasteViewer = () => {
     );
   };
   const fetchIcons = async () => {
-    setIcons(await IconService.getIcons());
+    setIcons(await getIcons());
   };
   const [errorsCopy, setErrorCopy] = useState<string[]>([]);
   const [countCreate, setCreateCount] = useState(0);

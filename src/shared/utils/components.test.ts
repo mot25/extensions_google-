@@ -1,4 +1,4 @@
-import { AttributesService } from '@/services/Attributes.service';
+import { AttributesService } from '@/shared/apiServices/Attributes.service';
 import {
   EntitiesType,
   RequestForPasteViewerType,
