@@ -45142,9 +45142,9 @@ var __webpack_exports__ = {};
   !*** ./src/popup/ui/popup.tsx ***!
   \********************************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _shared_assets_icon_Icon_setting_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/shared/assets/icon/Icon_setting.svg */ "./src/shared/assets/icon/Icon_setting.svg");
 /* harmony import */ var _shared_assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/shared/assets/icon/IconPaste.svg */ "./src/shared/assets/icon/IconPaste.svg");

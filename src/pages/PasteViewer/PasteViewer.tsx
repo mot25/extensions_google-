@@ -59,14 +59,11 @@ const PasteViewer = () => {
   const allCreatedViewer = useRef<number>(0);
   const [icons, setIcons] = useState<IconType[]>([]);
   const changeSelectedToggleiewer = (id: string) => {
-    dispatch(
-      setViewerForPaste(() =>
-        viewerForPaste.map(item => {
-          if (item.Id === id) item.isSelected = !item?.isSelected;
-          return item;
-        })
-      )
-    );
+    const viewer = viewerForPaste.map(item => {
+      if (item.Id === id) item.isSelected = !item?.isSelected;
+      return item;
+    });
+    dispatch(setViewerForPaste(viewer));
   };
   const fetchIcons = async () => {
     setIcons(await getIcons());

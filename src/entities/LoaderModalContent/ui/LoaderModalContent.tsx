@@ -1,13 +1,13 @@
+import classNames from 'classnames';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { entitiesAllSelector } from '@/shared/model/slice';
-import classNames from 'classnames';
-import { useSelector } from 'react-redux';
+
 import styles from './LoaderModalContent.module.scss';
 
 export const LoaderModalContent = () => {
   const entitiesFromPaste = useSelector(entitiesAllSelector);
-
   return (
     <div
       className={classNames(styles.modalLoading, {

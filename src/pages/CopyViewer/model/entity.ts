@@ -1,7 +1,4 @@
-import { usageSelector } from '@/shared/lib/hooks';
-import { entitiesAllSelector } from '@/shared/model/slice';
+import { EntitiesType } from '@/shared/type';
 
-const entitiesFromPaste = usageSelector(entitiesAllSelector);
-
-export const getEntityInEntitiesForPaste = () =>
-  entitiesFromPaste.find(_ => _.isCurrent);
+export const getEntityInEntitiesForPaste = (entities: EntitiesType[]) =>
+  entities.find(_ => _.isCurrent);
