@@ -40002,7 +40002,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var leftMenuConfig = [{
+var leftMenuConfig = [
+    {
         id: 1,
         label: 'Виды в текущем классе',
         title: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_assets_icon_IconPlus_svg__WEBPACK_IMPORTED_MODULE_2__["default"], null)
@@ -40011,7 +40012,8 @@ var leftMenuConfig = [{
         id: 2,
         label: 'Копировать',
         title: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_shared_assets_icon_IconPaste_svg__WEBPACK_IMPORTED_MODULE_1__["default"], null)
-    }];
+    }
+];
 
 
 /***/ }),

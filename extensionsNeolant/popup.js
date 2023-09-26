@@ -39961,10 +39961,12 @@ var AllowUrl = function () {
                     if (isHave) {
                         return [2 /*return*/, new _shared_utils_components__WEBPACK_IMPORTED_MODULE_3__.RenderWarningTextInPopup('Такой портал уже есть в списке').render()];
                     }
-                    setAllowBaseUrl(function (prev) { return __spreadArray([{
+                    setAllowBaseUrl(function (prev) { return __spreadArray([
+                        {
                             label: currentUrl.origin,
                             value: currentUrl.origin
-                        }], prev, true); });
+                        }
+                    ], prev, true); });
                     return [2 /*return*/];
             }
         });
