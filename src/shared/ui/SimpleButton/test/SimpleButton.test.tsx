@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
 import SimpleButton from '../ui/SimpleButton';
-import styles from './SimpleButton.module.scss';
+import styles from '../ui/SimpleButton.module.scss';
 
 describe('SimpleButton', () => {
   test('рендер текста в кнопки ', () => {

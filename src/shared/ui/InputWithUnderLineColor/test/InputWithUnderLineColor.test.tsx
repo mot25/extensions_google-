@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 
 import InputWithUnderLineColor from '../ui/InputWithUnderLineColor';
-import styles from './InputWithUnderLineColor.module.scss';
+import styles from '../ui/InputWithUnderLineColor.module.scss';
 
 // wrapperInput
 // input

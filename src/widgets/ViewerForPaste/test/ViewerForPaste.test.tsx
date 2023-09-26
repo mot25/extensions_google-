@@ -5,7 +5,7 @@ import React from 'react';
 import { ViewerType } from '@/shared/type';
 
 import ViewerForPaste from '../ui/ViewerForPaste';
-import styles from './ViewerForPaste.module.scss';
+import styles from '../ui/ViewerForPaste.module.scss';
 
 const viewer: ViewerType = {
   Attributes: [],
