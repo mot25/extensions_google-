@@ -1,10 +1,11 @@
-import { AttributesService } from '@/services/Attributes.service';
-import { OrderSendType } from '@/type/components.dto';
+import { AttributesService } from '@/shared/apiServices/Attributes.service';
+
 import {
   EntitiesType,
+  OrderSendType,
   RequestForPasteViewerType,
   ViewerType
-} from '@/type/entities.dto';
+} from '../type';
 
 export const createElementNode = (
   tag: keyof HTMLElementTagNameMap,

@@ -38,7 +38,7 @@ module.exports = {
   },
   entry: {
     background: './src/backgroundScripts/background.ts',
-    popup: './src/popup/popup.tsx',
+    popup: './src/popup/ui/popup.tsx',
     ...pathFileDynamic('./src/contentScripts/**/*.tsx'),
     ...pathFileDynamic('./src/contentScripts/**/*.ts')
   },
@@ -97,7 +97,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/assets/images',
+          from: 'src/shared/assets/images',
           to: 'images'
         }
       ]

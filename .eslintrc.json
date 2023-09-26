@@ -28,6 +28,14 @@
     "ecmaVersion": "latest"
   },
   "plugins": ["@typescript-eslint", "prettier"],
+  "overrides": [
+    {
+      "files": ["src/**/*test*.tsx", "index.ts"],
+      "rules": {
+        "max-len": "off"
+      }
+    }
+  ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-ts-comment": "off",

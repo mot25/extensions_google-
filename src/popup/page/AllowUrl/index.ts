@@ -1,1 +1,1 @@
-export { default as AllowUrl } from './AllowUrl';
+export { default as AllowUrl } from './ui/AllowUrl';

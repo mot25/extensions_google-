@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/services/Entities.service.ts":
-/*!******************************************!*\
-  !*** ./src/services/Entities.service.ts ***!
-  \******************************************/
+/***/ "./src/shared/apiServices/Entities.service.ts":
+/*!****************************************************!*\
+  !*** ./src/shared/apiServices/Entities.service.ts ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -301,7 +301,6 @@ var joinParamArrayApi = function (params, nameParam) {
 var getPercent = function (currentCount, allCount) {
     return +((currentCount * 100) / allCount).toFixed(0);
 };
-// TODO: посмотреть как работать с node в DOM
 var removeExtensionsFromPage = function () {
     var nodes = document.querySelectorAll('#rootContentEntry');
     nodes.forEach(function (element) {
@@ -4419,7 +4418,7 @@ var __webpack_exports__ = {};
   !*** ./src/backgroundScripts/background.ts ***!
   \*********************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/services/Entities.service */ "./src/services/Entities.service.ts");
+/* harmony import */ var _shared_apiServices_Entities_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/shared/apiServices/Entities.service */ "./src/shared/apiServices/Entities.service.ts");
 /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/shared/utils/utils */ "./src/shared/utils/utils.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -4478,7 +4477,7 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
                 var response, idEntities;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, _services_Entities_service__WEBPACK_IMPORTED_MODULE_0__.EntitiesService.getEntities(request.payload)];
+                        case 0: return [4 /*yield*/, _shared_apiServices_Entities_service__WEBPACK_IMPORTED_MODULE_0__.EntitiesService.getEntities(request.payload)];
                         case 1:
                             response = _a.sent();
                             try {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { EntitiesType } from '@/type/entities.dto';
+import { EntitiesType } from '../type';
 
 export const getParamFromUrl = (url: string): Record<string, string> => {
   // Разбиваем строку запроса на отдельные параметры
@@ -72,7 +72,6 @@ export const joinParamArrayApi = (params: string[], nameParam: string) =>
 export const getPercent = (currentCount: number, allCount: number) =>
   +((currentCount * 100) / allCount).toFixed(0);
 
-// TODO: посмотреть как работать с node в DOM
 export const removeExtensionsFromPage = () => {
   const nodes = document.querySelectorAll('#rootContentEntry');
   nodes.forEach(element => {

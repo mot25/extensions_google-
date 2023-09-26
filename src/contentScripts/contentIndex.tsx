@@ -2,10 +2,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
+import { AppModalPaste } from '@/app/Content/AppModal';
+import { createStore } from '@/app/appStore';
 import { createElementNode } from '@/shared/utils/components';
-import { createStore } from '@/store';
-
-import { AppModalPaste } from './AppModalPaste';
 
 const documentBody = document.body;
 

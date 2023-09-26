@@ -128,7 +128,6 @@ var joinParamArrayApi = function (params, nameParam) {
 var getPercent = function (currentCount, allCount) {
     return +((currentCount * 100) / allCount).toFixed(0);
 };
-// TODO: посмотреть как работать с node в DOM
 var removeExtensionsFromPage = function () {
     var nodes = document.querySelectorAll('#rootContentEntry');
     nodes.forEach(function (element) {
